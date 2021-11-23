@@ -10,6 +10,8 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Camila General** - [camigeneral](https://github.com/camigeneral)
 * **Integrante 3** - [EFrascarelli](https://github.com/EFrascarelli)
 * **Integrante 4** - [decouflet](https://github.com/decouflet)
+* **Claudia Ramos Sarzuri** - [claudia-ramos](https://github.com/claudia-ramos)
+
 
 Corrector: **{Corrector}**
 
