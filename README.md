@@ -9,7 +9,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Mauro Ezequiel Villagra** - [CodByMauro2](https://github.com/codbymauro2)
 * **Camila General** - [camigeneral](https://github.com/camigeneral)
 * **Integrante 3** - [EFrascarelli](https://github.com/EFrascarelli)
-* **Integrante 4** - [integrante4](https://github.com/integrante4)
+* **Integrante 4** - [decouflet](https://github.com/decouflet)
 
 Corrector: **{Corrector}**
 
