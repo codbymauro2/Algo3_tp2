@@ -8,7 +8,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 * **Mauro Ezequiel Villagra** - [CodByMauro2](https://github.com/codbymauro2)
 * **Camila General** - [camigeneral](https://github.com/camigeneral)
-* **EFrascarelli** - [EFrascarelli](https://github.com/EFrascarelli)
+* **Esteban Frascarelli** - [EFrascarelli](https://github.com/EFrascarelli)
 * **Agustín Sanchez Decouflet** - [decouflet](https://github.com/decouflet)
 * **Claudia Ramos Sarzuri** - [claudia-ramos](https://github.com/claudia-ramos)
 
