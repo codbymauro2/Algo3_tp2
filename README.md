@@ -6,11 +6,11 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 ## Grupo {N}
 
-* **Mauro Ezequiel Villagra** - [CodByMauro2](https://github.com/codbymauro2)
-* **Camila General** - [camigeneral](https://github.com/camigeneral)
-* **Esteban Frascarelli** - [EFrascarelli](https://github.com/EFrascarelli)
 * **Agustín Sanchez Decouflet** - [decouflet](https://github.com/decouflet)
+* **Camila General** - [camigeneral](https://github.com/camigeneral)
 * **Claudia Ramos Sarzuri** - [claudia-ramos](https://github.com/claudia-ramos)
+* **Esteban Frascarelli** - [EFrascarelli](https://github.com/EFrascarelli)
+* **Mauro Ezequiel Villagra** - [CodByMauro2](https://github.com/codbymauro2)
 
 
 Corrector: **{Corrector}**
