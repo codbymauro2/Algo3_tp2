@@ -3,12 +3,12 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Scanner;
 
-class ScannerClassDemo {
+class LectorObjetosRobados implements Lector {
 
     InputStream ins = new FileInputStream("ObjetosRobados.txt");
     Scanner obj = new Scanner(ins);
 
-    ScannerClassDemo() throws FileNotFoundException {
+    LectorObjetosRobados() throws FileNotFoundException {
     }
 
     public void leerCompleto() {
@@ -16,11 +16,13 @@ class ScannerClassDemo {
             System.out.println(obj.nextLine());
     }
 
+    @Override
     public String[] leerLinea() {
         return this.separarLinea(obj.nextLine());
     }
 
-    private String[] separarLinea(String linea) {
+    @Override
+    public String[] separarLinea(String linea) {
         return linea.split(";");
     }
 

@@ -11,17 +11,17 @@ public class PruebaLecturaObjetosRobados {
 
     @Test
     public void pruebaLecturaObjeto() throws FileNotFoundException {
-        ScannerClassDemo lectorObjetosRobados = new ScannerClassDemo();
+        LectorObjetosRobados lector = new LectorObjetosRobados();
         String objeto = "1,000 Year Old Egg";
-        String[] linea = lectorObjetosRobados.leerLinea();
+        String[] linea = lector.leerLinea();
         assertEquals(linea[objetoSeleccionado],objeto);
     }
 
     @Test
     public void pruebaLecturaCiudad() throws FileNotFoundException {
-        ScannerClassDemo lectorObjetosRobados = new ScannerClassDemo();
+        LectorObjetosRobados lector = new LectorObjetosRobados();
         String ciudad = "Peking";
-        String[] linea = lectorObjetosRobados.leerLinea();
+        String[] linea = lector.leerLinea();
         assertEquals(linea[ciudadSeleccionado],ciudad);
     }
 
