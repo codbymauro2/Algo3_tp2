@@ -13,7 +13,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Mauro Ezequiel Villagra** - [CodByMauro2](https://github.com/codbymauro2)
 
 
-Corrector: **{Corrector}**
+Corrector: **Pablo Massuh**
 
 ## Aplicación
 
