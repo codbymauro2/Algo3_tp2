@@ -1,12 +1,13 @@
 import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PruebaLecturaCiudades {
+public class LecturaObjetosRobados {
 
     @Test
     public void pruebaLecturaObjetoJson() throws IOException {
-        LectorCiudades lector = new LectorCiudades();
+        LectorObjetosRobados lector = new LectorObjetosRobados();
         lector.leer();
     }
+
 }
