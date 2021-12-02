@@ -1,0 +1,17 @@
+[
+    {
+        "name":"Athens",
+        "flag":"blue and white",
+        "currency":"Mypene",
+        "geografy":"Mypene???",
+        "landmarks": ["Sea", "Pindus Mountains"],
+        "industries": ["figs","olives"],
+        "animals": ["cow","penguin"],
+        "people": ["plato","spartans"],
+        "languages": ["greek"],
+        "art": ["Messi"],
+        "religion": ["Maradoniano"],
+        "leader": "Prime minister",
+        "misc": ["hellenic republic","neighbours yugoslavia"]
+    }
+]
