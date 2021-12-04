@@ -4,7 +4,7 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo 15
 
 * **Agustín Sanchez Decouflet** - [decouflet](https://github.com/decouflet)
 * **Camila General** - [camigeneral](https://github.com/camigeneral)
