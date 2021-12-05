@@ -1,19 +1,25 @@
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class SuspectReader {
+public class SuspectReader implements Reader{
 
-    Object json = JsonParser.parseReader(new FileReader("Sospechosos.json"));
-    JsonArray jsonArray = (JsonArray) json;
-    Gson gson = new Gson();
+    JsonElement json;
+    JsonArray jsonArray;
+    Gson gson;
     ArrayList<Suspect> suspectList;
 
     public SuspectReader(ArrayList<Suspect> suspectList) throws FileNotFoundException {
+        json = JsonParser.parseReader(new FileReader("Sospechosos.json"));
         this.suspectList = suspectList;
+        gson = new Gson();
+        if(!checkFiles(json)){
+            jsonArray = (JsonArray) json;
+        }
     }
 
     public void read(){
@@ -23,5 +29,10 @@ public class SuspectReader {
         });
 
 
+    }
+
+    @Override
+    public boolean checkFiles(JsonElement json) {
+        return json.isJsonNull();
     }
 }

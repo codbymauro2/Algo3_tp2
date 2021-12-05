@@ -1,7 +1,9 @@
+import com.google.gson.JsonElement;
+
 public interface Reader {
 
-    String[] leerLinea();
+    public void read();
 
-    String[] separarLinea(String linea);
+    public boolean checkFiles(JsonElement json);
 
 }

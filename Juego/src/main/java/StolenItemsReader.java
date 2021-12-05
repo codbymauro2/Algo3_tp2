@@ -2,22 +2,31 @@ import com.google.gson.*;
 import java.io.*;
 import java.util.ArrayList;
 
-public class StolenItemsReader {
+public class StolenItemsReader implements Reader{
 
-    Object json = JsonParser.parseReader(new FileReader("ObjetosRobados.json"));
-    JsonArray jsonArray = (JsonArray) json;
-    Gson gson = new Gson();
+    JsonElement json;
+    JsonArray jsonArray;
+    Gson gson;
     ArrayList<StolenItems> stolenItems;
 
     public StolenItemsReader(ArrayList<StolenItems> stolenItems) throws FileNotFoundException {
+        json = JsonParser.parseReader(new FileReader("ObjetosRobados.json"));
+        gson = new Gson();
         this.stolenItems = stolenItems;
+        if(!checkFiles(json))
+            jsonArray = (JsonArray) json;
     }
 
     public void read() {
         jsonArray.forEach( s -> {
-            StolenItems objetoRobado = gson.fromJson(s.getAsJsonObject(), StolenItems.class);
-            stolenItems.add(objetoRobado);
+            StolenItems stolenItem = gson.fromJson(s.getAsJsonObject(), StolenItems.class);
+            stolenItems.add(stolenItem);
         });
+    }
+
+    @Override
+    public boolean checkFiles(JsonElement json) {
+        return json.isJsonNull();
     }
 }
 

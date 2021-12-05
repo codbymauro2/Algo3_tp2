@@ -5,6 +5,12 @@ public class Player {
 
     public Player() {};
 
+    public Player(String name){
+        this.name = name;
+        this.casesWon = 0;
+        this.difficulty = 0;
+    }
+
     public String getName() {
         return name;
     }

@@ -1,10 +1,7 @@
 [
-    {
-        "name":"Mauro",
-        "casesWon":"0"
-    },
-    {
-        "name":"Peti",
-        "caseWon":"10"
-    }
+  {
+    "name": "Mauro",
+    "casesWon": 0,
+    "difficulty": 0
+  }
 ]
