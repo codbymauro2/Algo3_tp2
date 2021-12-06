@@ -1,12 +1,16 @@
+package Readers;
+
+import MainObjects.Suspect;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class SuspectReader implements Reader{
+public class SuspectReader implements Reader {
 
     JsonElement json;
     JsonArray jsonArray;
@@ -27,7 +31,10 @@ public class SuspectReader implements Reader{
             Suspect suspect = gson.fromJson(s.getAsJsonObject(), Suspect.class);
             suspectList.add(suspect);
         });
+    }
 
+    @Override
+    public void storeData() {
 
     }
 

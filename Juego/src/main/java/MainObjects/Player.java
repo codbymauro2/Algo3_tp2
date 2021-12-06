@@ -1,3 +1,5 @@
+package MainObjects;
+
 public class Player {
 
     private int casesWon, difficulty;

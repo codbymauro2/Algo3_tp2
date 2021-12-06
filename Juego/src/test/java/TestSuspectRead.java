@@ -1,3 +1,5 @@
+import MainObjects.Suspect;
+import Readers.SuspectReader;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.ArrayList;

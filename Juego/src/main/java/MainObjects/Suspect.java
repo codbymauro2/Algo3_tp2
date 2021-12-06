@@ -1,3 +1,5 @@
+package MainObjects;
+
 public class Suspect {
 
     private String Name, Gender, Hobby, Hair, Accessory, Vehicle;

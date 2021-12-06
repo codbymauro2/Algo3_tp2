@@ -1,16 +1,16 @@
 [
     {
-        "name": "Oro",
-        "value": "Valioso",
-        "city": "Banglash"
+        "name":"Oro",
+        "value":"Comun",
+        "city":"Banglash"
     },
     {
-        "name": "Plata",
-        "value": "Muy Valioso",
-        "city": "Buenos Aires"
+        "name":"Plata",
+        "value":"Valioso",
+        "city":"Buenos Aires"
     },
     {
-        "name": "Plata",
+        "name":"Plata",
         "value": "Muy Valioso",
         "city": "Buenos Aires"
     }
