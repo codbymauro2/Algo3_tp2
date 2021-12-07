@@ -1,5 +1,6 @@
 package Readers;
 
+import Lists.SuspectsList;
 import MainObjects.Suspect;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -15,9 +16,9 @@ public class SuspectReader implements Reader {
     JsonElement json;
     JsonArray jsonArray;
     Gson gson;
-    ArrayList<Suspect> suspectList;
+    SuspectsList suspectList;
 
-    public SuspectReader(ArrayList<Suspect> suspectList) throws FileNotFoundException {
+    public SuspectReader(SuspectsList suspectList) throws FileNotFoundException {
         json = JsonParser.parseReader(new FileReader("Sospechosos.json"));
         this.suspectList = suspectList;
         gson = new Gson();

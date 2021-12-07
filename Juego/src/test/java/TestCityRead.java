@@ -1,3 +1,4 @@
+import Lists.CitiesList;
 import MainObjects.City;
 import Readers.CityReader;
 import org.junit.jupiter.api.Test;
@@ -9,7 +10,7 @@ public class TestCityRead {
 
     @Test
     public void TestQuantityCitys() throws IOException {
-        ArrayList<City> cityList = new ArrayList<City>();
+        CitiesList cityList = new CitiesList();
         CityReader reader = new CityReader(cityList);
         reader.read();
         assertEquals(cityList.size(),1);
@@ -17,7 +18,7 @@ public class TestCityRead {
 
     @Test
     public void TestCityName() throws IOException {
-        ArrayList<City> cityList = new ArrayList<City>();
+        CitiesList cityList = new CitiesList();
         CityReader reader = new CityReader(cityList);
         reader.read();
         assertEquals(cityList.get(0).getName(),"Athens");
