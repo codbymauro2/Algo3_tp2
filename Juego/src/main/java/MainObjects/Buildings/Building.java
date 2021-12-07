@@ -1,5 +1,5 @@
-package MainObjects.Buildings;
+package java.MainObjects.Buildings;
 
 public interface Building {
-    public void enter(MainObjects.City nextCity, MainObjects.Timer timer, MainObjects.Clue clue);
+    public void enter(MainObjects.Timer timer, String clue);
 }

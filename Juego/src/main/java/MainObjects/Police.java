@@ -1,21 +1,22 @@
-package MainObjects;
-import Actions.*;
+package java.MainObjects;
+import java.Actions.*;
 import Actions.Action;
+import MainObjects.Timer;
 
 public class Police {
 
     Action actionToDo;
-    City currentCity;
+    java.MainObjects.City currentCity;
     int velocity;
     Timer timer;
 
 
     public void selectAction(){
-        int option = 0;   //ACA IRÍA UN INPUT
+        int option = 1;   //ACA IRÍA UN INPUT
         switch (option) {
             case 1:
                 // El jugador eligio la opción de entrar al edificio.
-                actionToDo = new EnterBuilding(this.currentCity);
+                actionToDo = new Actions.EnterBuilding(this.currentCity);
                 break;
             case 2:
                 // El jugador eligio la opción de viajar.
@@ -23,7 +24,7 @@ public class Police {
                 break;
             case 3:
                 // El jugador eligio la opción de emitir orden.
-                actionToDo = new EmitWarrant();
+                actionToDo = new Actions.EmitWarrant();
 
                 break;
         }

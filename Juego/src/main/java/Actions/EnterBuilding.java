@@ -1,8 +1,8 @@
 package Actions;
-import MainObjects.City;
+import java.MainObjects.City;
 import MainObjects.Timer;
 
-public class EnterBuilding implements Action {
+public class EnterBuilding implements Actions.Action {
 
     private City currentCity;
     private City nextCity;

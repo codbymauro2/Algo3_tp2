@@ -3,7 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>edu.fiuba.algo3</groupId>
     <artifactId>tp2</artifactId>
+    <packaging>pom</packaging>
     <version>0.0.2</version>
+    <modules>
+        <module>policia</module>
+    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>

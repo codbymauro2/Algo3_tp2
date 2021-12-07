@@ -1,14 +1,14 @@
-package Actions;
+package java.Actions;
 
 import Actions.Action;
-import MainObjects.City;
+import java.MainObjects.City;
 import MainObjects.Timer;
 
 public class Travel implements Action {
     private int velocity;
-    private City city;
+    private java.MainObjects.City city;
 
-    public Travel(int velocity, City city) {
+    public Travel(int velocity, java.MainObjects.City city) {
         this.velocity = velocity;
         this.city = city;
     }
