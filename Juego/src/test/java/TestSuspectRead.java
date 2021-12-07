@@ -1,4 +1,3 @@
-import Lists.SuspectsList;
 import MainObjects.Suspect;
 import Readers.SuspectReader;
 import org.junit.jupiter.api.Test;
@@ -10,7 +9,7 @@ public class TestSuspectRead {
 
     @Test
     public void TestQuantitySuspects() throws IOException {
-        SuspectsList suspectList = new SuspectsList();
+        ArrayList<Suspect> suspectList = new ArrayList<Suspect>();
         SuspectReader reader = new SuspectReader(suspectList);
         reader.read();
         assertEquals(suspectList.size(),1);
@@ -18,7 +17,7 @@ public class TestSuspectRead {
 
     @Test
     public void TestSuspectsName() throws IOException {
-        SuspectsList suspectList = new SuspectsList();
+        ArrayList<Suspect> suspectList = new ArrayList<Suspect>();
         SuspectReader reader = new SuspectReader(suspectList);
         reader.read();
         assertEquals(suspectList.get(0).getName(),"NickBrunch");

@@ -19,6 +19,14 @@ public class CityReader implements Reader {
     ArrayList<City> cityList;
     CitiesList citiesList;
 
+    public CityReader(ArrayList<City> cityList) throws FileNotFoundException {
+        json = JsonParser.parseReader(new FileReader("Ciudades.json"));
+        if(!checkFiles(json))
+            jsonArray = (JsonArray) json;
+        this.cityList = cityList;
+        this.read();
+    }
+
     public CityReader(CitiesList citiesList) throws FileNotFoundException {
         json = JsonParser.parseReader(new FileReader("Ciudades.json"));
         gson = new Gson();

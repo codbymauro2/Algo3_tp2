@@ -1,6 +1,4 @@
-import Lists.PlayersList;
 import MainObjects.Player;
-
 import Readers.PlayerReader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,16 +10,16 @@ import static org.mockito.Mockito.*;
 public class TestPlayerRead {
 
     @Test
-    public void TestWithJsonNotEmpty() throws IOException {
-        PlayersList playerList = new PlayersList();
+    public void TestPlayerNameWithJsonEmpty() throws IOException {
+        ArrayList<Player> playerList = new ArrayList<Player>();
         PlayerReader reader = spy(new PlayerReader(playerList));
         reader.read();
-        verify(reader,times(1)).storeData();
+        verify(reader,times(0)).storeData();
     }
 
     @Test
-    public void TestPlayerName() throws IOException {
-        PlayersList playerList = new PlayersList();
+    public void TestPlayerNameWithJsonNotEmpty() throws IOException {
+        ArrayList<Player> playerList = new ArrayList<Player>();
         PlayerReader reader = spy(new PlayerReader(playerList));
         reader.read();
         verify(reader,times(1)).storeData();

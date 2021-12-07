@@ -41,12 +41,9 @@ public class City {
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + opcion);
+                break;
         }
         building.enter(this.nextCity, timer, this.nextCity.clue()); //???
-    }
-
-    private Clue clue() {
-        return new Clue();
     }
 
     public void distanceNextCity() {

@@ -1,10 +1,8 @@
 package Lists;
-import MainObjects.Player;
-
-import java.util.ArrayList;
 
 public class PlayersList {
 
+<<<<<<< HEAD
     ArrayList<Player> players = new ArrayList<>();
 
     public void add(Player player){
@@ -15,4 +13,6 @@ public class PlayersList {
     public Player get(int i) {
         return players.get(i);
     }
+=======
+>>>>>>> parent of ab43f46 (Se actualizan fachadas)
 }
