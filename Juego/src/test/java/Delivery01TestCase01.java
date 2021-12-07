@@ -7,11 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Delivery01TestCase01 {
 
-    @Test
-    public void TestTheyStoleTheMontrealNationalTreasure() throws IOException {
-
-
-    }
 
 
 

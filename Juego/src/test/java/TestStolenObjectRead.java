@@ -1,11 +1,7 @@
 import Lists.StolenItemsList;
-import MainObjects.StolenItems;
 import Readers.StolenItemsReader;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
-import java.util.ArrayList;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestStolenObjectRead {
 
@@ -30,7 +26,7 @@ public class TestStolenObjectRead {
         StolenItemsList stolenItemsList = new StolenItemsList();
         StolenItemsReader reader = new StolenItemsReader(stolenItemsList);
         reader.read();
-        stolenItemsList.assign(2);
+        stolenItemsList.assign(3);
         stolenItemsList.show();
     }
 

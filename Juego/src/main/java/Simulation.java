@@ -11,8 +11,9 @@ import Readers.SuspectReader;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-/*
 public class Simulation {
+
+    /*
 
     // LISTAS
     //CitiesList citiesList = new CitiesList();
@@ -81,5 +82,8 @@ public class Simulation {
     }
 
 
+     */
+
+
 }
-*/
+
