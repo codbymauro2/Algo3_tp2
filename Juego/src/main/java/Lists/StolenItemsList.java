@@ -3,13 +3,11 @@ package Lists;
 import MainObjects.StolenItems;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class StolenItemsList {
 
-    ArrayList<StolenItems> stolenItemsList = new ArrayList<StolenItems>();
+    ArrayList<StolenItems> stolenItemsList = new ArrayList<>();
 
     public void add(StolenItems stolenItem) {
         this.stolenItemsList.add(stolenItem);
@@ -17,17 +15,11 @@ public class StolenItemsList {
 
     public void assign(Integer difficulty) {
         switch (difficulty) {
-            case 1:
-                filter("Comun");
-                break;
-            case 2:
-                filter("Valioso");
-                break;
-            case 3:
-                filter("Muy Valioso");
-                break;
-            default:
-                break;
+            case 1 -> filter("Comun");
+            case 2 -> filter("Valioso");
+            case 3 -> filter("Muy Valioso");
+            default -> {
+            }
         }
     }
 
@@ -41,13 +33,10 @@ public class StolenItemsList {
         stolenItemsList = (ArrayList<StolenItems>) aux;
     }
 
-    public void show(){
-        for(int i=0; i < stolenItemsList.size(); i++){
-            System.out.println(stolenItemsList.get(i).getValue());
-            };
+    public void show() {
+        for (StolenItems stolenItems : stolenItemsList) {
+            System.out.println(stolenItems.getValue());
         }
-
-    public StolenItems get(int index){
-        return stolenItemsList.get(index);
     }
 }
+

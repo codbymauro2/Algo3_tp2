@@ -8,9 +8,9 @@ import Readers.CityReader;
 import Readers.PlayerReader;
 import Readers.StolenItemsReader;
 import Readers.SuspectReader;
-
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+
 /*
 public class Simulation {
 
