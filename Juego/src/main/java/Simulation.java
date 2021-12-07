@@ -2,7 +2,6 @@ import Lists.CitiesList;
 import Lists.StolenItemsList;
 import MainObjects.City;
 import MainObjects.Player;
-import MainObjects.StolenItems;
 import MainObjects.Suspect;
 import Readers.CityReader;
 import Readers.PlayerReader;
@@ -17,7 +16,7 @@ public class Simulation {
     // LISTAS
     CitiesList citiesList = new CitiesList();
     ArrayList<Player> players = new ArrayList<Player>();
-    StolenItemsList stolenItems = new StolenItemsList();
+    StolenItemsList stolenItemsList = new StolenItemsList();
     ArrayList<Suspect> suspects = new ArrayList<Suspect>();
 
     // LECTORES
@@ -32,7 +31,7 @@ public class Simulation {
     Integer difficulty = 0;
 
     public Simulation() throws FileNotFoundException {
-        stolenItemsReader = new StolenItemsReader(stolenItems);
+        stolenItemsReader = new StolenItemsReader(stolenItemsList);
         playerReader = new PlayerReader(players);
         suspectReader = new SuspectReader(suspects);
         cityReader = new CityReader(citiesList);
@@ -40,14 +39,16 @@ public class Simulation {
 
     public void start() {
         readFiles();
+        assignStolenItem();
         assignCity();
     }
 
     private void assignCity() {
+        citiesList.assign(stolenItemsList);
     }
 
     private void assignStolenItem() {
-        stolenItems.assign(difficulty);
+        stolenItemsList.assign(difficulty);
     }
 
     private void readFiles() {

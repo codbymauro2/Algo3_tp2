@@ -1,5 +1,4 @@
 package Lists;
-
 import MainObjects.City;
 import MainObjects.StolenItems;
 
@@ -13,7 +12,7 @@ public class CitiesList  {
         cities.add(city);
     }
 
-    public void assign(StolenItems stolenItems){
-
+    public void assign(StolenItemsList stolenItems){
+        random object
     }
 }

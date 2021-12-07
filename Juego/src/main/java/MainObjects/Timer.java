@@ -1,3 +1,5 @@
+package MainObjects;
+
 public class Timer {
     int duration = 176;
 

@@ -10,15 +10,11 @@ public class StolenItems {
         return name;
     }
 
-    public boolean difficulty(String value) {
-        return (this.value == value);
-    }
-
     public String getValue() {
         return value;
     }
 
     public boolean value(String index) {
-        return value == index;
+        return (value.equals(index));
     }
 }

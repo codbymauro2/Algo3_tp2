@@ -1,6 +1,6 @@
 package MainObjects.Buildings;
 
-public class Bank implements Building {
+public class Airport implements Building {
 
     private int entries;
 
