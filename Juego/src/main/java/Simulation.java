@@ -1,4 +1,5 @@
 import Lists.CitiesList;
+import Lists.PlayersList;
 import Lists.StolenItemsList;
 import MainObjects.City;
 import MainObjects.Player;
@@ -7,17 +8,16 @@ import Readers.CityReader;
 import Readers.PlayerReader;
 import Readers.StolenItemsReader;
 import Readers.SuspectReader;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-
+/*
 public class Simulation {
 
-    /*
-
     // LISTAS
-    CitiesList citiesList = new CitiesList();
-    ArrayList<Player> players = new ArrayList<Player>();
-    StolenItemsList stolenItemsList = new StolenItemsList();
+    //CitiesList citiesList = new CitiesList();
+    //PlayersList players = new PlayersList();
+    //StolenItemsList stolenItemsList = new StolenItemsList();
     ArrayList<Suspect> suspects = new ArrayList<Suspect>();
 
     // LECTORES
@@ -81,11 +81,5 @@ public class Simulation {
     }
 
 
-     */
-
-
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of ab43f46 (Se actualizan fachadas)
+*/

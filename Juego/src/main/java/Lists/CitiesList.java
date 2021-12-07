@@ -13,6 +13,14 @@ public class CitiesList  {
     }
 
     public void assign(StolenItemsList stolenItems){
-        random object
+        //random object;
+    }
+
+    public int size() {
+        return cities.size();
+    }
+
+    public City get(int i) {
+        return cities.get(i);
     }
 }
