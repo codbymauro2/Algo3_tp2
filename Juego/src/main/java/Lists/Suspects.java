@@ -4,7 +4,7 @@ import MainObjects.Suspect;
 
 import java.util.ArrayList;
 
-public class SuspectsList {
+public class Suspects {
     ArrayList<Suspect> suspectsList = new ArrayList<Suspect>();
 
     public void add(Suspect suspect) {

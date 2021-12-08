@@ -1,12 +1,13 @@
 package MainObjects.Buildings;
 
-public class Bank implements Building {
+import MainObjects.Clue;
 
-    private int entries;
+public class Bank extends Building {
 
-    public void enter(MainObjects.Timer timer, String clue) {
-        timer.reduce(entries + 1);
-        entries++;
-        System.out.println(clue);
-    }
+
+    // VIEJOS ATRIBUTOS
+    // private int entries;
+
+    // NUEVOS ATRIBUTOS
+
 }

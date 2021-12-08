@@ -1,17 +1,18 @@
-import Lists.PlayersList;
+import Lists.Players;
 
 import Readers.PlayerReader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+
 import static org.mockito.Mockito.*;
 
 public class TestPlayerRead {
 
     @Test
     public void TestWithJsonNotEmpty() throws IOException {
-        PlayersList playerList = new PlayersList();
+        Players playerList = new Players();
         PlayerReader reader = spy(new PlayerReader(playerList));
         reader.read();
         verify(reader,times(1)).storeData();
@@ -19,7 +20,7 @@ public class TestPlayerRead {
 
     @Test
     public void TestPlayerName() throws IOException {
-        PlayersList playerList = new PlayersList();
+        Players playerList = new Players();
         PlayerReader reader = spy(new PlayerReader(playerList));
         reader.read();
         verify(reader,times(1)).storeData();

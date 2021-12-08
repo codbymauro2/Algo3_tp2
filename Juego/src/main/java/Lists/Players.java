@@ -3,9 +3,9 @@ import MainObjects.Player;
 
 import java.util.ArrayList;
 
-public class PlayersList {
+public class Players {
 
-    ArrayList<Player> players = new ArrayList<Player>();
+    ArrayList<Player> players = new ArrayList<>();
 
     public void add(Player player){
         players.add(player);

@@ -1,6 +1,6 @@
 package Actions;
 
-
+import Actions.Action;
 import MainObjects.City;
 import MainObjects.Timer;
 

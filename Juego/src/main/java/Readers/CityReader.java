@@ -1,6 +1,6 @@
 package Readers;
 
-import Lists.CitiesList;
+import Lists.Cities;
 import MainObjects.City;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -17,12 +17,12 @@ public class CityReader implements Reader {
     Gson gson = new Gson();
     JsonArray jsonArray;
     ArrayList<City> cityList;
-    CitiesList citiesList;
+    Cities cities;
 
-    public CityReader(CitiesList citiesList) throws FileNotFoundException {
+    public CityReader(Cities cities) throws FileNotFoundException {
         json = JsonParser.parseReader(new FileReader("Ciudades.json"));
         gson = new Gson();
-        this.citiesList = citiesList;
+        this.cities = cities;
     }
 
     public void read() {
@@ -36,7 +36,7 @@ public class CityReader implements Reader {
         jsonArray = (JsonArray) json;
         jsonArray.forEach(s -> {
             City city = gson.fromJson(s.getAsJsonObject(), City.class);
-            citiesList.add(city);
+            cities.add(city);
         });
     }
 

@@ -1,9 +1,9 @@
 package MainObjects;
 
 public class Timer {
-    int duration = 176;
+    float duration = 176;
 
-    public void reduce(int hours) {
+    public void reduce(float hours) {
         duration = duration - hours;
     }
 }

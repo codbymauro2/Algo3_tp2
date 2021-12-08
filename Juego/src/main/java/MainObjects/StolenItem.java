@@ -1,18 +1,20 @@
 package MainObjects;
 
-public class StolenItems {
+public class StolenItem {
 
     String name, value, city;
 
-    public StolenItems() {};
+    public StolenItem() {};
 
-    public String getName() {
+    public String getItem() {
         return name;
     }
 
     public String getValue() {
         return value;
     }
+
+    public String getCityName() { return city; }
 
     public boolean value(String index) {
         return (value.equals(index));

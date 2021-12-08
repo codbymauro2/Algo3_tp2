@@ -2,21 +2,24 @@ package MainObjects;
 
 public class Player {
 
-    private int casesWon, difficulty;
-    private String name;
+    private int casesWon;
+    private String name, rank;
 
     public Player() {};
 
-    public Player(String name){
+    public Player(String name, String rank){
         this.name = name;
         this.casesWon = 0;
-        this.difficulty = 0;
+        this.rank = rank;
+
     }
 
     public String getName() {
         return name;
     }
-
-
+    
+    public String getRank(){
+        return rank;
+    }
 
 }
