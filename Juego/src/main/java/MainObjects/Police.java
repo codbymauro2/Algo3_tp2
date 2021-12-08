@@ -1,6 +1,7 @@
 package MainObjects;
 
 import MainObjects.Buildings.Bank;
+import MainObjects.Buildings.Building;
 import MainObjects.Ranks.*;
 // import Actions.Action;
 import Actions.EmitWarrant;
@@ -57,10 +58,16 @@ public class Police {
         return(distance);
     }
 
-    public void enterBank(City currentCity, Rank rank){
-        Bank currentCityBank = currentCity.getBank();
+//    public void enterBank(City currentCity, Rank rank){
+//        Bank currentCityBank = currentCity.getBank();
+//        City nextCity = currentCity.getNextCity();
+//        String clue = currentCity.getClue(nextCity.getBank(), rank.getClueDifficulty());
+//        currentCityBank.enter(clue);
+//    }
+
+    public void enter(Building building, Rank rank){
         City nextCity = currentCity.getNextCity();
-        String clue = currentCity.getClue(nextCity.getBank(), rank.getClueDifficulty());
-        currentCityBank.enter(timer,clue);
+        building.enterBuilding(nextCity,rank.getClueDifficulty());
+        building.updateTimer(timer);
     }
 }

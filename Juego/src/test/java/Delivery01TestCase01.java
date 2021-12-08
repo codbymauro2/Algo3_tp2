@@ -1,3 +1,4 @@
+import MainObjects.Buildings.Bank;
 import MainObjects.Ranks.Rookie;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -47,8 +48,9 @@ public class Delivery01TestCase01 {
         City ciudadSiguiente = cities.get(1);
         ciudadActual.setNextCity(ciudadSiguiente);
         Police policia = new Police();
+        Bank edificioSeleccionado = ciudadActual.getBank();
         policia.travel(ciudadActual,ciudadActual);
-        policia.enterBank(ciudadActual, ranks.getRank(jugador.getRank()));  // SE TIENE QUE MANDAR ACÁ EL "NOVATO" PARA OBTENER DIFICULTAD DE PISTA
+        policia.enter(edificioSeleccionado, ranks.getRank(jugador.getRank()));  // SE TIENE QUE MANDAR ACÁ EL "NOVATO" PARA OBTENER DIFICULTAD DE PISTA
 
     }
 

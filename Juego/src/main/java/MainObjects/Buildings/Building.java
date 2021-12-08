@@ -1,4 +1,5 @@
 package MainObjects.Buildings;
+import MainObjects.City;
 import MainObjects.Clue;
 import MainObjects.Timer;
 import java.util.ArrayList;
@@ -8,13 +9,14 @@ public abstract class Building {
     private int entries;
     private Clue clues;
 
-    public void enter(Timer timer, String clue){
+    public void updateTimer(Timer timer){
         timer.reduce(entries + 1);
         entries++;
-        System.out.println(clue);
     }
 
     public String getClue(int difficulty){
         return(clues.getClue(difficulty));
     }
+
+    public abstract void enterBuilding(City nextCity, int clueDifficulty);
 }
