@@ -1,4 +1,6 @@
-package java.MainObjects.Buildings;
+package MainObjects.Buildings;
+
+import MainObjects.Buildings.Building;
 
 public class Library implements Building {
 

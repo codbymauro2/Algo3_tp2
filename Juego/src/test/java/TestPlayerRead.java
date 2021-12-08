@@ -1,12 +1,10 @@
 import Lists.PlayersList;
-import MainObjects.Player;
 
 import Readers.PlayerReader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import static org.mockito.Mockito.*;
 
 public class TestPlayerRead {

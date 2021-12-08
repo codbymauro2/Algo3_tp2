@@ -1,4 +1,4 @@
-package java.MainObjects;
+package MainObjects;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;

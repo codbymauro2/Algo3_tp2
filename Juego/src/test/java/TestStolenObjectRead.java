@@ -30,7 +30,7 @@ public class TestStolenObjectRead {
         StolenItemsList stolenItemsList = new StolenItemsList();
         StolenItemsReader reader = new StolenItemsReader(stolenItemsList);
         reader.read();
-        stolenItemsList.assign(2);
+        stolenItemsList.assign(3);
         stolenItemsList.show();
     }
 

@@ -1,3 +1,4 @@
+/*
 package java.Readers;
 
 public class ClueReader {
@@ -16,3 +17,4 @@ public class ClueReader {
     "capital2": {"economica": "", "cultural": "", etc},
     "capital3": {"cultural": "", "migracion": "", etc}
 }
+*/

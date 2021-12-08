@@ -11,13 +11,13 @@ import Readers.SuspectReader;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-/*
+
 public class Simulation {
 
     // LISTAS
-    //CitiesList citiesList = new CitiesList();
-    //PlayersList players = new PlayersList();
-    //StolenItemsList stolenItemsList = new StolenItemsList();
+    CitiesList citiesList = new CitiesList();
+    PlayersList players = new PlayersList();
+    StolenItemsList stolenItemsList = new StolenItemsList();
     ArrayList<Suspect> suspects = new ArrayList<Suspect>();
 
     // LECTORES
@@ -34,7 +34,7 @@ public class Simulation {
     public Simulation() throws FileNotFoundException {
         stolenItemsReader = new StolenItemsReader(stolenItemsList);
         playerReader = new PlayerReader(players);
-        suspectReader = new SuspectReader(suspects);
+        // suspectReader = new SuspectReader(suspects);
         cityReader = new CityReader(citiesList);
     }
 
@@ -82,4 +82,4 @@ public class Simulation {
 
 
 }
-*/
+

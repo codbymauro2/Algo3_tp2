@@ -1,4 +1,4 @@
-package java.MainObjects.Buildings;
+package MainObjects.Buildings;
 
 public class Bank implements Building {
 

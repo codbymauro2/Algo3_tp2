@@ -23,4 +23,5 @@ public class TestCityRead {
         reader.read();
         assertEquals(cityList.get(0).getName(),"Athens");
     }
+
 }

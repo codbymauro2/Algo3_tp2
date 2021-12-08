@@ -1,5 +1,5 @@
 package Actions;
-import java.MainObjects.City;
+import MainObjects.City;
 import MainObjects.Timer;
 
 public class EnterBuilding implements Actions.Action {

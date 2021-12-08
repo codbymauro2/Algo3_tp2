@@ -1,10 +1,10 @@
-package java.MainObjects;
-import java.MainObjects.Buildings.Airport;
-import java.MainObjects.Buildings.Bank;
-import java.MainObjects.Buildings.Library;
-import MainObjects.Timer;
+package MainObjects;
 
-import java.MainObjects.Buildings.Building;
+import MainObjects.Buildings.Airport;
+import MainObjects.Buildings.Bank;
+import MainObjects.Buildings.Building;
+import MainObjects.Buildings.Library;
+
 import java.util.ArrayList;
 
 public class City {
@@ -54,8 +54,8 @@ public class City {
         building.enter(timer, clue);
     }
 
-    private Clue clue() {
-        return new Clue();
+    private Clues clue() {
+        return new Clues();
     }
 
     public void distanceNextCity() {
