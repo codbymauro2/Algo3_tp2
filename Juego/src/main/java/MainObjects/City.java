@@ -54,6 +54,10 @@ public class City {
         building.enter(timer, clue);
     }
 
+    private Clue clue() {
+        return new Clue();
+    }
+
     public void distanceNextCity() {
     }
 }

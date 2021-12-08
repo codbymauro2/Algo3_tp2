@@ -10,8 +10,6 @@ public class Delivery01TestCase01 {
     @Test
     public void TestTheyStoleTheMontrealNationalTreasure() throws IOException {
 
-        Simulation simulation = Mockito.spy(new Simulation());
-        simulation.start();
 
     }
 
