@@ -1,0 +1,17 @@
+[
+    {
+        "name":"Tesoro Nacional",
+        "value":"Comun",
+        "city":"Montreal"
+    },
+    {
+        "name":"Plata",
+        "value":"Valioso",
+        "city":"Buenos Aires"
+    },
+    {
+        "name":"Plata",
+        "value": "Muy Valioso",
+        "city": "Buenos Aires"
+    }
+]

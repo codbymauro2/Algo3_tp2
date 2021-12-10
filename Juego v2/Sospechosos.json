@@ -1,0 +1,18 @@
+[
+    {
+        "Name": "Merey Laroc",
+        "Gender": "Female",
+        "Hobby": "Mountain Climbing",
+        "Hair": "Brown",
+        "Accessory": "Jewelry",
+        "Vehicle": "Limousine"
+    },
+    {
+        "Name": "NickBrunch",
+        "Gender": "Male",
+        "Hobby": "MountainClimbing",
+        "Hair": "Black",
+        "Accessory": "Ring",
+        "Vehicle": "Motorcyle"
+    }
+]
