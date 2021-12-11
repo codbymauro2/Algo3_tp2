@@ -8,15 +8,27 @@ import java.util.ArrayList;
 
 public class City {
 
-    private String name, flag, currency, geography, leader;
-    private ArrayList<String> landmarks, industries, animals, people, languages, art, religion, misc;
+    // VIEJOS ATRIBUTOS
     private City nextCity;
+
+    // NUEVOS ATRIBUTOS
+    private String name;
+    private double latitude, longitude;
     private Bank bank;
     private Library library;
     private Airport airport;
-    private final int BANK = 1;
-    private final int AIRPORT = 2;
-    private final int LIBRARY = 3;
+    private Building buildingToEnter;
+
+    public City(String name, double latitude, double longitude) {
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    @Override
+    public boolean equals(Object city){
+        return (this.name == ((City) city).getName());
+    }
 
     public String getName() {
         return name;
@@ -26,26 +38,12 @@ public class City {
         return nextCity;
     }
 
-    public void selectBuilding(Timer timer) {
-        Building building;
-        int opcion = 1; //pedirle al usuario que elija un edificio
-        switch(opcion) {
-            case BANK:
-                building = bank;
-                break;
-            case AIRPORT:
-                building = airport;
-                break;
-            case LIBRARY:
-                building = library;
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + opcion);
-                break;
-        }
-        building.enter(this.nextCity, timer, this.nextCity.clue()); //???
+    public Bank getBuilding(Bank bank) {
+        return this.bank;
     }
 
-    public void distanceNextCity() {
+    public Library getBuilding(Library library) {
+        return this.library;
     }
+
 }

@@ -1,37 +1,83 @@
 package MainObjects;
-import Actions.*;
-import Actions.Action;
 
-public class Police {
+import MainObjects.Buildings.Bank;
+import MainObjects.Buildings.Library;
 
-    Action actionToDo;
-    City currentCity;
-    int velocity;
-    Timer timer;
+import java.util.ArrayList;
+
+public abstract class Police {
+
+    protected Difficulty difficulty;
+    protected City currentCity;
+    protected Planisphere map;
+    protected int velocity, timesAttacked;
+    protected Timer timer;
+    protected boolean warrant;
+    protected ArrayList<String> features;
 
 
-    public void selectAction(){
-        int option = 0;   //ACA IRÍA UN INPUT
-        switch (option) {
-            case 1:
-                // El jugador eligio la opción de entrar al edificio.
-                actionToDo = new EnterBuilding(this.currentCity);
-                break;
-            case 2:
-                // El jugador eligio la opción de viajar.
-                actionToDo = new Travel(velocity,currentCity);
-                break;
-            case 3:
-                // El jugador eligio la opción de emitir orden.
-                actionToDo = new EmitWarrant();
 
-                break;
-        }
-        actionToDo.perform(timer);
+    public Police(Planisphere map) {
+        this.map = map;
     }
 
-    public void perform(Timer timer) {
-        actionToDo.perform(timer);
+    public Police(Planisphere map, StolenItem stolenItem){
+        this.map = map;
+        currentCity = map.getCity(stolenItem.origin());
     }
 
+    public Police() {
+        timer = new Timer();
+        warrant = false;
+    }
+
+    public abstract String enter(Bank bank);
+
+    public abstract String enter(Library library);
+
+    public void travel(City city){
+        currentCity = city;
+    }
+
+    public abstract City getCurrentCity();
+
+    public void beAttacked(Knife knife){
+        if(timesAttacked >= 1)
+            timer.reduce(1);
+        else
+            timer.reduce(2);
+    }
+
+    public abstract void sleep();
+
+    public int getTimeLeft() {
+        return timer.timeLeft();
+    }
+
+    public void takeCase(City city){
+        currentCity = city;
+    }
+
+    public boolean isInCity(City city){
+        return city.equals(currentCity);
+    }
+
+    public void enter(PoliceStation policeStation) {
+        policeStation.getSuspects(features);
+        emitWarrant(policeStation);
+    }
+
+    public void emitWarrant(PoliceStation policeStation){
+//        if(policeStation.findSuspect()){
+//            warrant = true;
+//            suspectWarrant = policeStation.suspect();
+//        }
+        //opcion2
+        //stateSuspect.emitir();
+    }
+
+
+    public void giveFeatures(ArrayList<String> features){
+        this.features = features;
+    };
 }

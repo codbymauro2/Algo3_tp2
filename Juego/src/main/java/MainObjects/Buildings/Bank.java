@@ -1,12 +1,30 @@
 package MainObjects.Buildings;
 
-public class Bank implements Building {
+import MainObjects.*;
 
-    private int entries;
+public class Bank extends Building {
 
-    public void enter(MainObjects.City nextCity, MainObjects.Timer timer, MainObjects.Clue clue) {
-        timer.reduce(entries + 1);
-        entries++;
-        clue.showClue();
+
+    public Bank(Clue clue) {
+        super(clue);
     }
+
+    @Override
+    public String deployClue(Rookie rookie) {
+        return clues.easy();
+    }
+
+    @Override
+    public String deployClue(Detective detective) {
+        return null;
+    }
+
+    @Override
+    public String deployClue(Investigator investigator) {
+        return null;
+    }
+
+
+    //public void reduceTimer()
+
 }

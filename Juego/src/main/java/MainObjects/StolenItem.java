@@ -1,10 +1,14 @@
 package MainObjects;
 
-public class StolenItems {
+public class StolenItem {
 
     String name, value, city;
 
-    public StolenItems() {};
+    public StolenItem(String name, String value, String city) {
+        this.name = name;
+        this.value = value;
+        this.city = city;
+    }
 
     public String getName() {
         return name;
@@ -16,5 +20,9 @@ public class StolenItems {
 
     public boolean value(String index) {
         return (value.equals(index));
+    }
+
+    public String origin() {
+        return city;
     }
 }

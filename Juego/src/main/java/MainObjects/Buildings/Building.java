@@ -1,5 +1,19 @@
 package MainObjects.Buildings;
+import MainObjects.*;
 
-public interface Building {
-    public void enter(MainObjects.City nextCity, MainObjects.Timer timer, MainObjects.Clue clue);
+public abstract class Building {
+
+    protected Clue clues;
+
+    public Building(Clue clue) {
+        this.clues = clue;
+    }
+
+    public abstract String deployClue(Rookie rookie);
+
+    public abstract String deployClue(Detective detective);
+
+    public abstract String deployClue(Investigator investigator);
+
+    
 }
