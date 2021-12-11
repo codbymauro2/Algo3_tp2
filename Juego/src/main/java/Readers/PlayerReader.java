@@ -1,7 +1,6 @@
 package Readers;
 
 import MainObjects.Player;
-import Lists.Players;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -9,19 +8,19 @@ import com.google.gson.JsonParser;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-
+import java.util.ArrayList;
 
 public class PlayerReader implements Reader {
 
     JsonElement json;
     JsonArray jsonArray;
     Gson gson;
-    Players players;
+    ArrayList<Player> playerList;
 
-    public PlayerReader(Players players) throws FileNotFoundException {
+    public PlayerReader(ArrayList<Player> playerList) throws FileNotFoundException {
         json = JsonParser.parseReader(new FileReader("Players.json"));
         gson = new Gson();
-        this.players = players;
+        this.playerList = playerList;
     }
 
     @Override
@@ -40,7 +39,7 @@ public class PlayerReader implements Reader {
         jsonArray = (JsonArray) json;
         jsonArray.forEach(s -> {
             Player player = gson.fromJson(s.getAsJsonObject(), Player.class);
-            players.add(player);
+            playerList.add(player);
         });
     }
 

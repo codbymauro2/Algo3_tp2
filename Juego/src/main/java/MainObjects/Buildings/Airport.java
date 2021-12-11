@@ -1,13 +1,12 @@
 package MainObjects.Buildings;
 
-import MainObjects.City;
+public class Airport implements Building {
 
-public class Airport extends Building {
+    private int entries;
 
-    // private int entries;
-    public void enterBuilding(City nextCity, int clueDifficulty){
-        String clue = nextCity.getAirport().getClue(clueDifficulty);
-        System.out.println(clue);
+    public void enter(MainObjects.City nextCity, MainObjects.Timer timer, MainObjects.Clue clue) {
+        timer.reduce(entries + 1);
+        entries++;
+        clue.showClue();
     }
-
 }

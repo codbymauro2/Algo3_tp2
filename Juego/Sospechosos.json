@@ -6,13 +6,5 @@
         "Hair": "Black",
         "Accessory": "Ring",
         "Vehicle": "Motorcyle"
-    },
-    {
-        "Name": "Romina",
-        "Gender": "Female",
-        "Hobby": "Music",
-        "Hair": "Red",
-        "Accessory": "Tattoo",
-        "Vehicle": "Sport"
     }
 ]

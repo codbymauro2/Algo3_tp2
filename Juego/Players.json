@@ -2,26 +2,6 @@
   {
     "name": "Mauro",
     "casesWon": 0,
-    "rank": "Rookie"
-  },
-  {
-    "name": "Peti",
-    "casesWon": 5,
-    "rank": "Detective"
-  },
-  {
-    "name": "Lis",
-    "casesWon": 22,
-    "rank": "Sergeant"
-  },
-  {
-    "name": "Decu",
-    "casesWon": 14,
-    "rank": "Investigator"
-  },
-  {
-    "name": "Cami",
-    "casesWon": 8,
-    "rank": "Detective"
+    "difficulty": 0
   }
 ]

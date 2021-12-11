@@ -1,19 +1,12 @@
 package MainObjects.Buildings;
 
-import MainObjects.City;
-import MainObjects.Clue;
-import MainObjects.Timer;
+public class Bank implements Building {
 
-public class Bank extends Building {
+    private int entries;
 
-    public void enterBuilding(City nextCity, int clueDifficulty){
-        String clue = nextCity.getBank().getClue(clueDifficulty);
-        System.out.println(clue);
+    public void enter(MainObjects.City nextCity, MainObjects.Timer timer, MainObjects.Clue clue) {
+        timer.reduce(entries + 1);
+        entries++;
+        clue.showClue();
     }
-
-    // VIEJOS ATRIBUTOS
-    // private int entries;
-
-    // NUEVOS ATRIBUTOS
-
 }
