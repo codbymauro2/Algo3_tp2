@@ -22,15 +22,12 @@ public class Delivery01 {
         CityReader cityReader = new CityReader(cities);
         StolenItem stolenItem = new StolenItem("Tesoro Nacional Montreal","Comun","Montreal");
 
-
         cityReader.read();
 
         Assertions.assertEquals(suspect.isGender("Female"),true);
         Assertions.assertEquals(stolenItem.getName(),"Tesoro Nacional Montreal");
         Assertions.assertEquals(detective.enter(bank),"Pista Banco Facil");
     }
-
-
 
     @Test
     public void Case02() throws IOException {
@@ -45,24 +42,25 @@ public class Delivery01 {
 
         cityReader.read();
         City montreal = cities.find(stolenItem.origin());
+        detective.takeCase(montreal);
 
-        Assertions.assertEquals(montreal.getName(),"Montreal");
+        Assertions.assertEquals(detective.getCurrentCity(),montreal);
         Assertions.assertEquals(detective.enter(bank),"Pista Banco Facil");
         Assertions.assertEquals(detective.enter(library),"Pista Libreria Facil");
     }
 
-    @Test
-    public void Case03() throws IOException {
-        Cities cities = new Cities();
-        CityReader cityReader = new CityReader(cities);
-        cityReader.read();
-        Planisphere map = new Planisphere(cities);
-        Rookie detective = new Rookie(map);
-        City mexico = map.getCity("Mexico");
-        Assertions.assertNotEquals(detective.getCurrentCity(),mexico);
-        detective.travel(mexico);
-        Assertions.assertEquals(detective.getCurrentCity(),mexico);
-    }
+//    @Test
+//    public void Case03() throws IOException {
+//        Cities cities = new Cities();
+//        CityReader cityReader = new CityReader(cities);
+//        cityReader.read();
+//        Planisphere map = new Planisphere(cities);
+//        Rookie detective = new Rookie(map);
+//        City mexico = map.getCity("Mexico");
+//        Assertions.assertNotEquals(detective.getCurrentCity(),mexico);
+//        detective.travel(mexico);
+//        Assertions.assertEquals(detective.getCurrentCity(),mexico);
+//    }
 
     @Test
     public void Case04() {

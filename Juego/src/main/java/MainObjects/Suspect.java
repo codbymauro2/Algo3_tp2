@@ -3,7 +3,7 @@ package MainObjects;
 public class Suspect {
 
     private String Name, Gender, Hobby, Hair, Accessory, Vehicle;
-    public Suspect() {};
+    private boolean isRobber, isArrested;
 
     public Suspect(String name, String gender, String hobby, String hair, String accessory, String vehicle) {
         this.Name = name;
@@ -12,6 +12,8 @@ public class Suspect {
         this.Hair = hair;
         this.Accessory = accessory;
         this.Vehicle = vehicle;
+        this.isRobber = false;
+        this.isArrested = false;
     }
 
     public Suspect(String[] array) {
@@ -20,6 +22,11 @@ public class Suspect {
         this.Hobby = array[2];
         this.Accessory = array[3];
         this.Vehicle = array[4];
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        return this.Name.equals( ( (Suspect) obj).getName() );
     }
 
     public String getName() {
@@ -39,4 +46,12 @@ public class Suspect {
     public boolean hasAccessory(String accessory) { return this.Accessory.equals(accessory); }
 
     public boolean hasVehicle(String vehicle) { return this.Vehicle.equals(vehicle); }
+
+    public void convertToRobber() {
+        this.isRobber = true;
+    }
+
+    public void arrest() {
+        isArrested = true;
+    }
 }

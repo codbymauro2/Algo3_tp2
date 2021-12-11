@@ -6,7 +6,6 @@ import MainObjects.Buildings.Library;
 public class Detective extends Police{
 
 
-
     @Override
     public String enter(Bank bank) {
         return null;

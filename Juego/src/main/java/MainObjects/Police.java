@@ -10,11 +10,11 @@ public abstract class Police {
     protected Difficulty difficulty;
     protected City currentCity;
     protected Planisphere map;
-    protected int velocity, timesAttacked;
+    protected int velocity, timesAttacked, casesWon;
     protected Timer timer;
     protected boolean warrant;
     protected ArrayList<String> features;
-
+    private Suspect warrantSuspect;
 
 
     public Police(Planisphere map) {
@@ -62,22 +62,24 @@ public abstract class Police {
         return city.equals(currentCity);
     }
 
-    public void enter(PoliceStation policeStation) {
-        policeStation.getSuspects(features);
-        emitWarrant(policeStation);
-    }
-
-    public void emitWarrant(PoliceStation policeStation){
-//        if(policeStation.findSuspect()){
-//            warrant = true;
-//            suspectWarrant = policeStation.suspect();
-//        }
-        //opcion2
-        //stateSuspect.emitir();
+    public void emitWarrant(Suspect suspect){
+        this.warrant = true;
+        this.warrantSuspect = suspect;
     }
 
 
     public void giveFeatures(ArrayList<String> features){
         this.features = features;
     };
+
+    public void arrest(Suspect suspect){
+        if(warrant && warrantSuspect.equals(suspect)){
+            suspect.arrest();
+            casesWon++;
+        }
+    }
+
+    public int casesWon(){
+        return casesWon;
+    }
 }
