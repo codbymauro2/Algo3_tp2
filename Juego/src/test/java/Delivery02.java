@@ -62,25 +62,21 @@ public class Delivery02 {
     public void Case05() throws FileNotFoundException {
 
         this.player = new Player("Mauro",6);
-        this.police = new Detective();
+        // this.police = new Detective();
         Suspect suspect = spy(new Suspect("Merey Laroc", "Female", "Mountain Climbing", "Brown", "Jewelry", "Limousine"));
         PoliceStation policeStation = new PoliceStation(new Suspects());
         suspect.convertToRobber();
 
         IntStream.range(0, 6).forEach(i -> {
+            this.police = policeStation.assignCase(this.player);
             this.police.emitWarrant(suspect);
             this.police.arrest(suspect);
-            this.police = policeStation.assignCase(this.police, this.player);
+            player.addFinishedCase(this.police.finishedCases());
         });
 
 
-
-
-
         Assertions.assertEquals(police.getClass(),Investigator.class);
-
+        player.addFinishedCase(this.police.finishedCases());
     }
 
 }
-
-

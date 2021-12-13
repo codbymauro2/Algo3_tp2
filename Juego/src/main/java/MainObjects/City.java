@@ -37,6 +37,10 @@ public class City {
         return nextCity;
     }
 
+    public void setNextCity(City nextCity) {
+        this.nextCity = nextCity;
+    }
+
     public Bank getBuilding(Bank bank) {
         return this.bank;
     }
