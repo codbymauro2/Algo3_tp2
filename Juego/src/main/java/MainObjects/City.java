@@ -13,7 +13,7 @@ public class City {
 
     // NUEVOS ATRIBUTOS
     private String name;
-    private double latitude, longitude;
+    private Coordinates coordinates;
     private Bank bank;
     private Library library;
     private Airport airport;
@@ -21,8 +21,7 @@ public class City {
 
     public City(String name, double latitude, double longitude) {
         this.name = name;
-        this.latitude = latitude;
-        this.longitude = longitude;
+        this.coordinates  = new Coordinates(latitude,longitude);
     }
 
     @Override
@@ -46,4 +45,7 @@ public class City {
         return this.library;
     }
 
+    public int distanceNexCity() { return coordinates.distance(nextCity.getCoordinates()); }
+
+    private Coordinates getCoordinates() {return coordinates; }
 }

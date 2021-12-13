@@ -19,11 +19,11 @@ public class Delivery02 {
     public void Case01() {
         Rookie detective = new Rookie();
         Knife knife = new Knife();
-        Assertions.assertEquals(detective.getTimeLeft(), 176);
+        Assertions.assertEquals(detective.getTimeLeft(), 152);
         detective.beAttacked(knife);
-        Assertions.assertEquals(detective.getTimeLeft(), 174);
+        Assertions.assertEquals(detective.getTimeLeft(), 150);
         detective.sleep();
-        Assertions.assertEquals(detective.getTimeLeft(), 166);
+        Assertions.assertEquals(detective.getTimeLeft(), 142);
     }
 
     @Test

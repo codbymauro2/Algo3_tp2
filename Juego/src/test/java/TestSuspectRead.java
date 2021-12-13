@@ -20,7 +20,7 @@ public class TestSuspectRead {
         Suspects suspectList = new Suspects();
         SuspectReader reader = new SuspectReader(suspectList);
         reader.read();
-        assertEquals(suspectList.get(0).getName(),"NickBrunch");
+        assertEquals(suspectList.get(0).getName(),"Merey Laroc");
     }
 
 }

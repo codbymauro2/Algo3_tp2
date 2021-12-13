@@ -5,7 +5,7 @@ public class Timer {
     private int duration;
 
     public Timer(){
-        duration = 176;
+        duration = 152;
     }
 
     public void reduce(int hours) {

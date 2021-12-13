@@ -14,7 +14,7 @@ public class Suspects {
     }
 
     public int size() {
-        return possibleSuspectsList.size();
+        return suspectsList.size();
     }
 
     public Suspect get(int i) {
