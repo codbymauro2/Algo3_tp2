@@ -28,7 +28,7 @@ public class Planisphere {
             int randomInt = random.nextInt(cities.size());
             City nextCity = cities.get(randomInt);
             origin.setNextCity(nextCity);
-            cities.add(origin);
+            suspectCities.insert(origin);
             origin = nextCity;
             cities.remove(origin);
         }
