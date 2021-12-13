@@ -8,6 +8,14 @@
         "Vehicle": "Limousine"
     },
     {
+        "Name": "Natalia",
+        "Gender": "Female",
+        "Hobby": "Mountain Climbing",
+        "Hair": "Brown",
+        "Accessory": "Jewelry",
+        "Vehicle": "Motorcyle"
+    },
+    {
         "Name": "NickBrunch",
         "Gender": "Male",
         "Hobby": "MountainClimbing",

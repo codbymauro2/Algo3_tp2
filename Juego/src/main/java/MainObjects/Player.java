@@ -5,7 +5,10 @@ public class Player {
     private int casesWon, difficulty;
     private String name;
 
-    public Player() {};
+    public Player(String name, int casesWon) {
+        this.name = name;
+        this.casesWon = casesWon;
+    };
 
     public Player(String name){
         this.name = name;
@@ -18,5 +21,11 @@ public class Player {
     }
 
 
+    public int totalCasesWon() {
+        return casesWon;
+    }
 
+    public void addFinishedCase(int finishedCases) {
+        casesWon += finishedCases;
+    }
 }

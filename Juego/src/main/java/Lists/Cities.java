@@ -11,8 +11,6 @@ public class Cities {
         cities.add(city);
     }
 
-    public void remove (City city) { cities.remove(city); }
-
     public int size() {
         return cities.size();
     }
@@ -20,7 +18,7 @@ public class Cities {
     public City get(int i) {
         return cities.get(i);
     }
-    
+
     public void connect(DoubleLinkedList<City> list) {
         cities.forEach(list::insert);
     }

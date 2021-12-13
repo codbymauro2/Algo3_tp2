@@ -15,5 +15,7 @@ public abstract class Building {
 
     public abstract String deployClue(Investigator investigator);
 
+    public abstract String deployClue(Sergeant sergeant);
+
     
 }

@@ -1,6 +1,7 @@
 package MainObjects;
 
 import Lists.Suspects;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.stream.IntStream;
@@ -51,15 +52,19 @@ public class PoliceStation {
         return suspects.filter(features);
     }
 
-    public Police assignCase(Police police, int casesWon) {
-        Police selectedPolice = null;
-        if(casesWon >= 0 && casesWon < 5)
-            selectedPolice = new Rookie();
-        else if(casesWon >= 5 && casesWon < 10)
-            selectedPolice = new Detective();
-        else if(casesWon >= 10)
-            selectedPolice = new Investigator();
+    public Police assignCase(@NotNull Police police, Player player) {
+        player.addFinishedCase(police.finishedCases());
+        return assignRank(player.totalCasesWon());
+    }
 
-        return selectedPolice;
+    private Police assignRank(int casesWon) {
+        if(casesWon >= 0 && casesWon < 5)
+            return new Rookie();
+        else if(casesWon >= 5 && casesWon < 10)
+            return new Detective();
+        else if(casesWon >= 10 && casesWon < 20)
+            return new Investigator();
+
+        return new Sergeant();
     }
 }

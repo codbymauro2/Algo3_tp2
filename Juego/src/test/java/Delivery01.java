@@ -49,18 +49,14 @@ public class Delivery01 {
         Assertions.assertEquals(detective.enter(library),"Pista Libreria Facil");
     }
 
-//    @Test
-//    public void Case03() throws IOException {
-//        Cities cities = new Cities();
-//        CityReader cityReader = new CityReader(cities);
-//        cityReader.read();
-//        Planisphere map = new Planisphere(cities);
-//        Rookie detective = new Rookie(map);
-//        City mexico = map.getCity("Mexico");
-//        Assertions.assertNotEquals(detective.getCurrentCity(),mexico);
-//        detective.travel(mexico);
-//        Assertions.assertEquals(detective.getCurrentCity(),mexico);
-//    }
+    @Test
+    public void Case03() throws IOException {
+        Rookie detective = new Rookie();
+        City mexico = new City("Mexico", 45.50, -73.57);
+        Assertions.assertNotEquals(detective.getCurrentCity(),mexico);
+        detective.travel(mexico);
+        Assertions.assertEquals(detective.getCurrentCity(),mexico);
+    }
 
     @Test
     public void Case04() {

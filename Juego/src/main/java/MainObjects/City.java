@@ -46,5 +46,4 @@ public class City {
         return this.library;
     }
 
-    public void setNextCity(City nextCity) { this.nextCity = nextCity; }
 }

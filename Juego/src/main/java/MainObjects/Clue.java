@@ -14,4 +14,12 @@ public class Clue {
     public String easy() {
         return easy;
     }
+
+    public String medium() {
+        return medium;
+    }
+
+    public String hard(){
+        return hard;
+    }
 }

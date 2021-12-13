@@ -24,5 +24,10 @@ public class Library extends Building {
         return null;
     }
 
+    @Override
+    public String deployClue(Sergeant sergeant) {
+        return null;
+    }
+
 
 }

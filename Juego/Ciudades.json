@@ -76,8 +76,8 @@
     },
     {
         "name": "Buenos Aires",
-        "latitude": -34.60,
-        "longitude": -58.39,
+        "latitude": 33.32,
+        "longitude": 44.42,
         "bank": {"clues":{
             "easy": "Pista facil de bank de Buenos Aires",
             "media": "Pista media de bank de Buenos Aires",
@@ -98,9 +98,9 @@
         }
     },
     {
-        "name": "Brasilia",
-        "latitude": -15.80,
-        "longitude": -47.90,
+        "name": "Brasil",
+        "latitude": 33.32,
+        "longitude": 44.42,
         "bank": {"clues":{
             "easy": "Pista facil de bank de Brasil",
             "media": "Pista media de bank de Brasil",
@@ -121,9 +121,9 @@
         }
     },
     {
-        "name": "Ottawa",
-        "latitude": 45.42,
-        "longitude": -75.70,
+        "name": "Canada",
+        "latitude": 33.32,
+        "longitude": 44.42,
         "bank": {"clues":{
             "easy": "Pista facil de bank de Canada",
             "media": "Pista media de bank de Canada",
@@ -144,25 +144,25 @@
         }
     },
     {
-        "name": "Lima",
-        "latitude": -12.05,
-        "longitude": -77.04,
+        "name": "Rusia",
+        "latitude": 33.32,
+        "longitude": 44.42,
         "bank": {"clues":{
-            "easy": "Pista facil de bank de Lima",
-            "media": "Pista media de bank de Lima",
-            "hard": "Pista dificil de bank de Lima"
+            "easy": "Pista facil de bank de Rusia",
+            "media": "Pista media de bank de Rusia",
+            "hard": "Pista dificil de bank de Rusia"
         }
         },
         "port": {"clues":  {
-            "easy": "Pista facil de port de Lima",
-            "medium": "Pista medio del port de Lima",
-            "hard": "Pista dificil de port de Lima"
+            "easy": "Pista facil de port de Rusia",
+            "medium": "Pista medio del port de Rusia",
+            "hard": "Pista dificil de port de Rusia"
         }
         },
         "airport": {"clues": {
-            "easy": "Pista facil del aeropuerto de Lima",
-            "medium": "Pista media del aeropuerto de Lima",
-            "hard": "Pista dificil de airport de Lima"
+            "easy": "Pista facil del aeropuerto de Rusia",
+            "medium": "Pista media del aeropuerto de Rusia",
+            "hard": "Pista dificil de airport de Rusia"
         }
         }
     }

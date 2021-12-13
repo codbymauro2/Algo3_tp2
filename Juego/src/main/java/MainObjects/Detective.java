@@ -5,24 +5,18 @@ import MainObjects.Buildings.Library;
 
 public class Detective extends Police{
 
+    public Detective() {
+        super();
+    }
 
     @Override
     public String enter(Bank bank) {
-        return null;
+        return bank.deployClue(this);
     }
 
     @Override
     public String enter(Library library) {
-        return null;
+        return library.deployClue(this);
     }
 
-    @Override
-    public City getCurrentCity() {
-        return null;
-    }
-
-    @Override
-    public void sleep() {
-
-    }
 }

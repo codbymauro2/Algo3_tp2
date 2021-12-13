@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public abstract class Police {
 
-    protected Difficulty difficulty;
     protected City currentCity;
     protected Planisphere map;
     protected int velocity, timesAttacked, casesWon;
@@ -16,19 +15,10 @@ public abstract class Police {
     protected ArrayList<String> features;
     private Suspect warrantSuspect;
 
-
-    public Police(Planisphere map) {
-        this.map = map;
-    }
-
-    public Police(Planisphere map, StolenItem stolenItem){
-        this.map = map;
-        currentCity = map.getCity(stolenItem.origin());
-    }
-
     public Police() {
         timer = new Timer();
         warrant = false;
+        casesWon = 0;
     }
 
     public abstract String enter(Bank bank);
@@ -39,7 +29,9 @@ public abstract class Police {
         currentCity = city;
     }
 
-    public abstract City getCurrentCity();
+    public City getCurrentCity(){
+        return currentCity;
+    }
 
     public void beAttacked(Knife knife){
         if(timesAttacked >= 1)
@@ -48,7 +40,9 @@ public abstract class Police {
             timer.reduce(2);
     }
 
-    public abstract void sleep();
+    public void sleep() {
+        timer.reduce(8);
+    }
 
     public int getTimeLeft() {
         return timer.timeLeft();
@@ -75,11 +69,12 @@ public abstract class Police {
     public void arrest(Suspect suspect){
         if(warrant && warrantSuspect.equals(suspect)){
             suspect.arrest();
-            casesWon++;
+            this.casesWon = this.casesWon + 1;
         }
     }
 
-    public int casesWon(){
+    public int finishedCases() {
         return casesWon;
     }
+
 }

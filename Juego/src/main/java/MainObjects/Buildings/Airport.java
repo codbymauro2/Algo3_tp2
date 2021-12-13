@@ -24,5 +24,10 @@ public class Airport extends Building {
         return null;
     }
 
+    @Override
+    public String deployClue(Sergeant sergeant) {
+        return null;
+    }
+
 
 }

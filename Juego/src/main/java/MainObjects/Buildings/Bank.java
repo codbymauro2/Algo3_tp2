@@ -16,15 +16,18 @@ public class Bank extends Building {
 
     @Override
     public String deployClue(Detective detective) {
-        return null;
+        return clues.medium();
     }
 
     @Override
     public String deployClue(Investigator investigator) {
-        return null;
+        return (clues.medium() + clues.hard());
     }
 
+    @Override
+    public String deployClue(Sergeant sergeant) {
+        return clues.hard();
+    }
 
-    //public void reduceTimer()
 
 }
