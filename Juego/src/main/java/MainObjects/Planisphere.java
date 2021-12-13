@@ -1,6 +1,5 @@
 package MainObjects;
 
-import java.util.Random;
 import Lists.Cities;
 
 public class Planisphere {
@@ -10,28 +9,17 @@ public class Planisphere {
 
     Cities cities = new Cities();
 
-    public Planisphere(Cities cities, StolenItem stolenItem) {
+    public Planisphere(Cities cities) {
         this.cities = cities;
-        this.createPath(stolenItem);
+        this.connectCities();
     }
 
     public Planisphere() {
 
     }
 
-    private void createPath(StolenItem stolenItem) {
-        City origin = cities.find(stolenItem.origin());
-        int difficulty = 5; // ACÁ HABRÍA QUE SACAR UNA RELACIÓN ENTRE VALUE Y CANT DE CIUDADES
-        cities.remove(origin);
-        Random random = new Random();
-        for (int i = 0; i < (difficulty - 1); i++){
-            int randomInt = random.nextInt(cities.size());
-            City nextCity = cities.get(randomInt);
-            origin.setNextCity(nextCity);
-            suspectCities.insert(origin);
-            origin = nextCity;
-            cities.remove(origin);
-        }
+    private void connectCities() {
+
     }
 
     public City currentCity() {
