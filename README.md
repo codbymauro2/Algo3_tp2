@@ -15,6 +15,8 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 Corrector: **Pablo Massuh**
 
+Link del informe: [Informe] (https://www.overleaf.com/1831497651ntxthmgkqpxg)
+
 ## Aplicación
 
 La versión más reciente de la aplicación puede encontrarse en la pestaña [releases](https://github.com/decouflet/algo3_tp2/releases/latest) y ejecutarse en Linux, Windows o Mac de esta forma:
