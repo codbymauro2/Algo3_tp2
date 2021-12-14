@@ -1,38 +1,67 @@
 package MainObjects;
 
+import java.io.FileNotFoundException;
+import java.util.Collections;
 import java.util.Random;
 import Lists.Cities;
+import Readers.CityReader;
+
+import java.util.Stack;
+import java.util.stream.IntStream;
 
 public class Planisphere {
 
-    private int index = 0;
-    DoubleLinkedList<City> suspectCities = new DoubleLinkedList<>();
+    private int index, difficulty;
+    Stack<City> suspectCities;
+    Cities cities;
+    Stack<City> stack;
+    City origin;
 
-    Cities cities = new Cities();
-
-    public Planisphere(Cities cities, StolenItem stolenItem) {
+    public Planisphere(Cities cities, StolenItem stolenItem) throws FileNotFoundException {
+        this.index = 0;
         this.cities = cities;
+        this.origin = cities.find(stolenItem.origin());
+        this.difficulty = 5;
+        this.suspectCities = createPath();
+
         // this.setWrongCities();
-        this.createPath(stolenItem);
     }
 
-    public Planisphere() {
 
-    }
+    private Stack<City> createPath() {
 
-    private void createPath(StolenItem stolenItem) {
-        City origin = cities.find(stolenItem.origin());
-        int difficulty = 5; // ACÁ HABRÍA QUE SACAR UNA RELACIÓN ENTRE VALUE Y CANT DE CIUDADES
+        Stack<City> suspectCities = new Stack<>();
         cities.remove(origin);
         Random random = new Random();
-        for (int i = 0; i < (difficulty - 1); i++){
+        IntStream.range(0, difficulty - 1).forEach(i -> {
             int randomInt = random.nextInt(cities.size());
             City nextCity = cities.get(randomInt);
             origin.setNextCity(nextCity);
-            cities.add(origin);
+            suspectCities.push(origin);
             origin = nextCity;
             cities.remove(origin);
+        });
+        City suspectCurrenCity = new City("Ganador", 0.00, 0.00);
+        origin.setNextCity(suspectCurrenCity);
+        suspectCities.peek();
+        reverseStack(suspectCities);
+        return suspectCities;
+
+    }
+
+
+    public static <City> void reverseStack(Stack<City> stack) {
+        if (stack.isEmpty()) {
+            return;
         }
+        // Remove bottom element from stack
+        City bottom = stack.pop();
+
+        // Reverse everything else in stack
+        reverseStack(stack);
+
+        // Add original bottom element to top of stack
+        stack.push(bottom);
     }
 
     public City currentCity() {
@@ -47,12 +76,12 @@ public class Planisphere {
 
     }
 
-    public City getCity(String city) {
-        return cities.find(city);
+    public Stack<City> getStack(){
+        return stack;
     }
 
-    public void startCity(StolenItem stolenItem) {
-        suspectCities.insert(cities.find(stolenItem.origin()));
+    public City getCity(String city) {
+        return cities.find(city);
     }
 
 }

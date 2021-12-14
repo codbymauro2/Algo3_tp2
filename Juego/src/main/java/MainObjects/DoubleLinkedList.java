@@ -1,7 +1,8 @@
 package MainObjects;
 
 
-public class DoubleLinkedList<Data> {
+public class
+DoubleLinkedList<Data> {
 
     // ATRBUTOS
 

@@ -1,3 +1,4 @@
+import Lists.Cities;
 import Lists.Suspects;
 import MainObjects.*;
 import MainObjects.Buildings.Bank;
@@ -63,8 +64,14 @@ public class Delivery02 {
 
         this.player = new Player("Mauro",6);
         this.police = new Detective();
+        Cities cities = new Cities();
+        StolenItem stolenItem = new StolenItem("Incan Gold Mask","Valioso","Lima");
+        cities.add(new City("Lima",17,18));
         Suspect suspect = spy(new Suspect("Merey Laroc", "Female", "Mountain Climbing", "Brown", "Jewelry", "Limousine"));
-        PoliceStation policeStation = new PoliceStation(new Suspects());
+        Suspects suspects = new Suspects();
+        PoliceStation policeStation = new PoliceStation(suspects);
+
+
         suspect.convertToRobber();
 
         IntStream.range(0, 6).forEach(i -> {
@@ -76,6 +83,12 @@ public class Delivery02 {
 
 
         Assertions.assertEquals(police.getClass(),Investigator.class);
+
+        suspects.add(suspect);
+        this.police = policeStation.assignCase(this.player);
+        police.takeCase(cities.find(stolenItem.origin()));
+
+
 
     }
 
