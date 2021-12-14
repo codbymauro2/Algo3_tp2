@@ -45,6 +45,10 @@ public class City {
         return this.library;
     }
 
+    public void setNextCity(City nextCity){
+        this.nextCity = nextCity;
+    }
+
     public int distanceNexCity() { return coordinates.distance(nextCity.getCoordinates()); }
 
     private Coordinates getCoordinates() {return coordinates; }

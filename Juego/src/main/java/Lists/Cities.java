@@ -29,4 +29,8 @@ public class Cities {
                 .orElse(null);
     }
 
+    public void remove(City city) {
+        cities.remove(city);
+    }
+
 }
