@@ -52,8 +52,7 @@ public class PoliceStation {
         return suspects.filter(features);
     }
 
-    public Police assignCase(@NotNull Police police, Player player) {
-        player.addFinishedCase(police.finishedCases());
+    public Police assignCase(Player player){
         return assignRank(player.totalCasesWon());
     }
 

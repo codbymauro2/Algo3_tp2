@@ -68,13 +68,11 @@ public class Delivery02 {
         suspect.convertToRobber();
 
         IntStream.range(0, 6).forEach(i -> {
+            this.police = policeStation.assignCase(this.player);
             this.police.emitWarrant(suspect);
             this.police.arrest(suspect);
-            this.police = policeStation.assignCase(this.police, this.player);
+            player.addFinishedCase(this.police.finishedCases());
         });
-
-
-
 
 
         Assertions.assertEquals(police.getClass(),Investigator.class);
