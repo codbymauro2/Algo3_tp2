@@ -31,9 +31,9 @@ public class Delivery01 {
 
     @Test
     public void Case02() throws IOException {
-        Clue clueBank = new Clue("Pista Banco Facil","Pista Banco Facil","Pista Banco Facil");
-        Clue clueLibrary = new Clue("Pista Libreria Facil","Pista Libreria Facil","Pista Libreria Facil");
-        Rookie detective = new Rookie();
+        Clue clueBank = new Clue("Pista Banco Facil","Pista Banco Media","Pista Banco Dificil");
+        Clue clueLibrary = new Clue("Pista Libreria Facil","Pista Libreria Media","Pista Libreria Dificil");
+        Police detective = new Rookie();
         Bank bank = new Bank(clueBank);
         Library library = new Library(clueLibrary);
         Cities cities = new Cities();
