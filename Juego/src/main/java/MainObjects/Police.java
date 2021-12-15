@@ -8,9 +8,10 @@ import java.util.ArrayList;
 public abstract class Police {
 
     protected City currentCity;
-    protected Planisphere map;
+    protected Planisphere planisphere;
     protected int velocity, timesAttacked, casesWon;
     protected Timer timer;
+    protected PoliceStation policeStation;
     protected boolean warrant;
     protected ArrayList<String> features;
     private Suspect warrantSuspect;
@@ -19,6 +20,15 @@ public abstract class Police {
         timer = new Timer();
         warrant = false;
         casesWon = 0;
+    }
+
+    public Police(PoliceStation policeStation, Planisphere planisphere) {
+        this.planisphere = planisphere;
+        this.policeStation = policeStation;
+        this.currentCity = policeStation.caseFrom();
+        this.timer = new Timer();
+        this.warrant = false;
+        this.casesWon = 0;
     }
 
     public abstract String enter(Bank bank);

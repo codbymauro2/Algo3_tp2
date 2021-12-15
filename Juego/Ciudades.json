@@ -98,25 +98,25 @@
         }
     },
     {
-        "name": "Brasil",
+        "name": "Lima",
         "latitude": 33.32,
         "longitude": 44.42,
         "bank": {"clues":{
-            "easy": "Pista facil de bank de Brasil",
-            "media": "Pista media de bank de Brasil",
-            "hard": "Pista dificil de bank de Brasil"
+            "easy": "Pista facil de bank de Lima",
+            "media": "Pista media de bank de Lima",
+            "hard": "Pista dificil de bank de Lima"
         }
         },
         "port": {"clues":  {
-            "easy": "Pista facil de port de Brasil",
-            "medium": "Pista medio del port de Brasil",
-            "hard": "Pista dificil de port de Brasil"
+            "easy": "Pista facil de port de Lima",
+            "medium": "Pista medio del port de Lima",
+            "hard": "Pista dificil de port de Lima"
         }
         },
         "airport": {"clues": {
-            "easy": "Pista facil del aeropuerto de Brasil",
-            "medium": "Pista media del aeropuerto de Brasil",
-            "hard": "Pista dificil de airport de Brasil"
+            "easy": "Pista facil del aeropuerto de Lima",
+            "medium": "Pista media del aeropuerto de Lima",
+            "hard": "Pista dificil de airport de Lima"
         }
         }
     },

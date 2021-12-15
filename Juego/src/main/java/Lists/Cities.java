@@ -1,11 +1,18 @@
 package Lists;
 import MainObjects.City;
 import MainObjects.DoubleLinkedList;
+import MainObjects.StolenItem;
+
 import java.util.ArrayList;
 
 public class Cities {
 
-    ArrayList<City> cities = new ArrayList<>();
+    private ArrayList<City> cities;
+    private City startCity;
+
+    public Cities(){
+        cities = new ArrayList<>();
+    }
 
     public void add(City city) {
         cities.add(city);
@@ -33,4 +40,11 @@ public class Cities {
         cities.remove(city);
     }
 
+    public void startCity(StolenItem stolenItem) {
+        this.startCity = this.find(stolenItem.origin());
+    }
+
+    public City getStartCity() {
+        return startCity;
+    }
 }

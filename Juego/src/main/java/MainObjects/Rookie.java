@@ -9,6 +9,10 @@ public class Rookie extends Police {
         super();
     }
 
+    public Rookie(PoliceStation policeStation, Planisphere planisphere) {
+        super(policeStation,planisphere);
+    }
+
     @Override
     public String enter(Bank bank) {
         return bank.deployClue(this);

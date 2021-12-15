@@ -1,8 +1,9 @@
 import Lists.Cities;
 import Lists.Suspects;
 import MainObjects.*;
-import MainObjects.Buildings.Bank;
+import Readers.CityReader;
 import Readers.SuspectReader;
+import org.junit.After;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import java.io.FileNotFoundException;
@@ -15,6 +16,13 @@ public class Delivery02 {
 
     private Police police;
     private Player player;
+    private Planisphere planisphere;
+    private Cities cities;
+    private CityReader cityReader;
+    private StolenItem stolenItem;
+    private PoliceStation policeStation;
+    private Suspects suspects;
+    private SuspectReader suspectReader;
 
     @Test
     public void Case01() {
@@ -44,7 +52,7 @@ public class Delivery02 {
         Suspects suspects = new Suspects();
         SuspectReader suspectReader = new SuspectReader(suspects);
         suspectReader.read();
-        PoliceStation policeStation = spy(new PoliceStation(suspects));
+        PoliceStation policeStation = spy(new PoliceStation(suspects, planisphere));
         policeStation.obtainFeatures(new String[]{"Female", "", "Brown", "", "Motorcyle"});
         ArrayList<Suspect> possibleSuspects = policeStation.findSuspects();
         Assertions.assertEquals(possibleSuspects.size(), 1);
@@ -69,8 +77,7 @@ public class Delivery02 {
         cities.add(new City("Lima",17,18));
         Suspect suspect = spy(new Suspect("Merey Laroc", "Female", "Mountain Climbing", "Brown", "Jewelry", "Limousine"));
         Suspects suspects = new Suspects();
-        PoliceStation policeStation = new PoliceStation(suspects);
-
+        PoliceStation policeStation = new PoliceStation(suspects, planisphere);
 
         suspect.convertToRobber();
 
@@ -81,16 +88,41 @@ public class Delivery02 {
             player.addFinishedCase(this.police.finishedCases());
         });
 
-
         Assertions.assertEquals(police.getClass(),Investigator.class);
 
         suspects.add(suspect);
         this.police = policeStation.assignCase(this.player);
         police.takeCase(cities.find(stolenItem.origin()));
 
+    }
+
+    @After
+    public void setUp() throws FileNotFoundException {
+        this.player = new Player("Mauro",6);
+        this.cities = new Cities();
+        this.cityReader = new CityReader(cities);
+        this.cityReader.read();
+        this.stolenItem = new StolenItem("Incan Gold Mask","Valioso","Lima");
+        this.cities.startCity(stolenItem);
+        this.planisphere = new Planisphere(cities);
+        this.suspects = new Suspects();
+        this.suspectReader = new SuspectReader(suspects);
+        this.suspectReader.read();
+        this.policeStation = new PoliceStation(suspects, planisphere);
+        this.police = policeStation.assignCase(this.player);
+    }
+
+    @Test
+    public void Case06() {
+
+
+
+
 
 
     }
+
+
 
 }
 

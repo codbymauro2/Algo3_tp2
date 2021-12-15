@@ -1,11 +1,8 @@
 package MainObjects;
 
 import java.io.FileNotFoundException;
-import java.util.Collections;
 import java.util.Random;
 import Lists.Cities;
-import Readers.CityReader;
-
 import java.util.Stack;
 import java.util.stream.IntStream;
 
@@ -17,10 +14,10 @@ public class Planisphere {
     Stack<City> stack;
     City origin;
 
-    public Planisphere(Cities cities, StolenItem stolenItem) throws FileNotFoundException {
+    public Planisphere(Cities cities) throws FileNotFoundException {
         this.index = 0;
         this.cities = cities;
-        this.origin = cities.find(stolenItem.origin());
+        this.origin = cities.getStartCity();
         this.difficulty = 5;
         this.suspectCities = createPath();
 
@@ -84,4 +81,7 @@ public class Planisphere {
         return cities.find(city);
     }
 
+    public City getOrigin() {
+        return origin;
+    }
 }

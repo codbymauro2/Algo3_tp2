@@ -1,7 +1,6 @@
 package MainObjects;
 
 import Lists.Suspects;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.stream.IntStream;
@@ -11,10 +10,13 @@ public class PoliceStation {
     Suspects suspects;
     ArrayList<Suspect> possibleSuspects;
     ArrayList<String> features;
+    Player player;
+    Planisphere planisphere;
 
-    public PoliceStation(Suspects suspects){
+    public PoliceStation(Suspects suspects, Planisphere planisphere){
+        this.planisphere = planisphere;
         this.suspects = suspects;
-        startFeatures();
+        this.startFeatures();
     }
 
     public void getSuspects(ArrayList<String> features) {
@@ -53,17 +55,20 @@ public class PoliceStation {
     }
 
     public Police assignCase(Player player){
-        return assignRank(player.totalCasesWon());
+        this.player = player;
+        int casesWon = this.player.totalCasesWon();
+
+        if(casesWon >= 0 && casesWon < 5)
+            return new Rookie(this,this.planisphere);
+        else if(casesWon >= 5 && casesWon < 10)
+            return new Detective(this,this.planisphere);
+        else if(casesWon >= 10 && casesWon < 20)
+            return new Investigator(this,this.planisphere);
+
+        return new Sergeant(this,this.planisphere);
     }
 
-    private Police assignRank(int casesWon) {
-        if(casesWon >= 0 && casesWon < 5)
-            return new Rookie();
-        else if(casesWon >= 5 && casesWon < 10)
-            return new Detective();
-        else if(casesWon >= 10 && casesWon < 20)
-            return new Investigator();
-
-        return new Sergeant();
+    public City caseFrom() {
+        return planisphere.getOrigin();
     }
 }
