@@ -15,17 +15,17 @@ public class Airport extends Building {
 
     @Override
     public String deployClue(Detective detective) {
-        return null;
+        return clues.medium();
     }
 
     @Override
     public String deployClue(Investigator investigator) {
-        return null;
+        return (clues.medium() + clues.hard());
     }
 
     @Override
     public String deployClue(Sergeant sergeant) {
-        return null;
+        return clues.hard();
     }
 
 

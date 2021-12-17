@@ -2,9 +2,9 @@ package MainObjects.Buildings;
 
 import MainObjects.*;
 
-public class Library extends Building {
+public class Port extends Building{
 
-    public Library(Clue clue) {
+    public Port(Clue clue) {
         super(clue);
     }
 
@@ -27,6 +27,4 @@ public class Library extends Building {
     public String deployClue(Sergeant sergeant) {
         return clues.hard();
     }
-
-
 }

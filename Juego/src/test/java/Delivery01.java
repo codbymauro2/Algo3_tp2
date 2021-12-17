@@ -31,27 +31,29 @@ public class Delivery01 {
 
     @Test
     public void Case02() throws IOException {
+        Police detective = new Detective();
         Clue clueBank = new Clue("Pista Banco Facil","Pista Banco Media","Pista Banco Dificil");
         Clue clueLibrary = new Clue("Pista Libreria Facil","Pista Libreria Media","Pista Libreria Dificil");
-        Police detective = new Rookie();
         Bank bank = new Bank(clueBank);
         Library library = new Library(clueLibrary);
+
+        City montreal = new City("Montreal", 45.50, -73.57);
         Cities cities = new Cities();
-        CityReader cityReader = new CityReader(cities);
+        cities.add(montreal);
+
         StolenItem stolenItem = new StolenItem("Tesoro Nacional Montreal","Comun","Montreal");
 
-        cityReader.read();
-        City montreal = cities.find(stolenItem.origin());
-        detective.takeCase(montreal);
+        cities.startCity(stolenItem);
+        detective.takeCase(cities.find(stolenItem.origin()));
 
         Assertions.assertEquals(detective.getCurrentCity(),montreal);
-        Assertions.assertEquals(detective.enter(bank),"Pista Banco Facil");
-        Assertions.assertEquals(detective.enter(library),"Pista Libreria Facil");
+        Assertions.assertEquals(detective.enter(bank),"Pista Banco Media");
+        Assertions.assertEquals(detective.enter(library),"Pista Libreria Media");
     }
 
     @Test
     public void Case03() throws IOException {
-        Rookie detective = new Rookie();
+        Detective detective = new Detective();
         City mexico = new City("Mexico", 45.50, -73.57);
         Assertions.assertNotEquals(detective.getCurrentCity(),mexico);
         detective.travel(mexico);
@@ -60,26 +62,26 @@ public class Delivery01 {
 
     @Test
     public void Case04() {
-        Rookie detective = new Rookie();
-        Clue clueBank = new Clue("Pista Banco Facil","Pista Banco Media","Pista Banco Dificil");
-        Clue clueLibrary = new Clue("Pista Biblioteca Facil","Pista Biblioteca Media","Pista Biblioteca Dificil");
-        Bank spyBank = spy(new Bank(clueBank));
-        Library spyLibrary = spy(new Library(clueLibrary));
+        Detective detective = new Detective();
+        Clue clueAirport = new Clue("Pista Aeropuerto Facil","Pista Aeropuerto Media","Pista Aeropuerto Dificil");
+        Clue cluePort = new Clue("Pista Puerto Facil","Pista Puerto Media","Pista Puerto Dificil");
+        Bank spyAirport = spy(new Bank(clueAirport));
+        Library spyPort = spy(new Library(cluePort));
 
         IntStream.range(0, 5).forEach(i -> {
-            detective.enter(spyBank);
+            detective.enter(spyAirport);
         });
         IntStream.range(0, 55).forEach(i -> {
-            detective.enter(spyLibrary);
+            detective.enter(spyPort);
         });
 
-        verify(spyBank,times(5)).deployClue(any(Rookie.class));
-        verify(spyLibrary,times(55)).deployClue(any(Rookie.class));
+        verify(spyAirport,times(5)).deployClue(any(Detective.class));
+        verify(spyPort,times(55)).deployClue(any(Detective.class));
     }
 
     @Test
     public void Case05() {
-        Rookie detective = new Rookie();
+        Detective detective = new Detective();
         Knife knife = new Knife();
         Assertions.assertEquals(detective.getTimeLeft(),152);
         detective.beAttacked(knife);
