@@ -32,8 +32,8 @@ public class Cities {
 
     public City find(String city) {
         return cities.stream().filter(s -> city.equals(s.getName()))
-                .findAny()
-                .orElse(null);
+               .findAny()
+              .orElse(null);
     }
 
     public void remove(City city) {
@@ -47,4 +47,5 @@ public class Cities {
     public City getStartCity() {
         return startCity;
     }
+
 }

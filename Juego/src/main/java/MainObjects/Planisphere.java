@@ -1,6 +1,7 @@
 package MainObjects;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Random;
 import Lists.Cities;
 import java.util.Stack;
@@ -11,6 +12,7 @@ public class Planisphere {
     private int index, difficulty;
     Stack<City> suspectCities;
     Cities cities;
+    ArrayList<City> allCities;
     Stack<City> stack;
     City origin;
 
@@ -19,31 +21,35 @@ public class Planisphere {
         this.cities = cities;
         this.origin = cities.getStartCity();
         this.difficulty = 5;
+        this.allCities = new ArrayList<City>();
+        this.copyCities();
         this.suspectCities = createPath();
 
         // this.setWrongCities();
     }
 
+    private void copyCities() {
+        for (int i = 0; i < cities.size(); i++){ allCities.add(cities.get(i)); }
+    }
+
 
     private Stack<City> createPath() {
-
         Stack<City> suspectCities = new Stack<>();
-        cities.remove(origin);
+        allCities.remove(origin);
         Random random = new Random();
         IntStream.range(0, difficulty - 1).forEach(i -> {
-            int randomInt = random.nextInt(cities.size());
-            City nextCity = cities.get(randomInt);
+            int randomInt = random.nextInt(allCities.size());
+            City nextCity = allCities.get(randomInt);
             origin.setNextCity(nextCity);
             suspectCities.push(origin);
             origin = nextCity;
-            cities.remove(origin);
+            allCities.remove(origin);
         });
         City suspectCurrenCity = new City("Ganador", 0.00, 0.00);
         origin.setNextCity(suspectCurrenCity);
         suspectCities.peek();
         reverseStack(suspectCities);
         return suspectCities;
-
     }
 
 

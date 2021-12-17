@@ -5,6 +5,7 @@ import MainObjects.Buildings.Building;
 import MainObjects.Buildings.Library;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class City {
 
@@ -26,7 +27,7 @@ public class City {
 
     @Override
     public boolean equals(Object city){
-        return (this.name == ((City) city).getName());
+        return (Objects.equals(this.name, ((City) city).getName()));
     }
 
     public String getName() {
