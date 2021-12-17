@@ -104,4 +104,8 @@ public abstract class Police {
         return currentCity.correctCity();
     };
 
+    public void investigate(String[] features) {
+        this.policeStation.obtainFeatures(features);
+    }
+
 }

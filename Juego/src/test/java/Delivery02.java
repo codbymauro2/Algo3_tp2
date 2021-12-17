@@ -1,13 +1,13 @@
 import Lists.Cities;
 import Lists.Suspects;
-import MainObjects.*;
 import MainObjects.Buildings.Bank;
 import MainObjects.Buildings.Library;
+import MainObjects.*;
 import Readers.CityReader;
 import Readers.SuspectReader;
-import org.junit.After;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.stream.IntStream;
@@ -125,33 +125,14 @@ public class Delivery02 {
         Library libraryMexico = new Library(clueMexicolibrary);
         police.enter(libraryMexico);
         //El policia deduce las pistas y viaja a la siguiente ciudad correctamente
-    }
-
-    @After
-    public void setUp() throws FileNotFoundException {
-        this.player = new Player("Mauro",6);
-        this.cities = new Cities();
-        this.cityReader = new CityReader(cities);
-        this.cityReader.read();
-        this.stolenItem = new StolenItem("Incan Gold Mask","Valioso","Lima");
-        this.cities.startCity(stolenItem);
-        this.planisphere = new Planisphere(cities);
-        this.suspects = new Suspects();
-        this.suspectReader = new SuspectReader(suspects);
-        this.suspectReader.read();
-        this.policeStation = new PoliceStation(suspects, planisphere);
-        this.police = policeStation.assignCase(this.player);
-    }
-
-    @Test
-    public void Case06() {
 
 
-
-
+        police.investigate(new String[]{"Female", "", "Brown", "", "Limou
 
 
     }
+
+
 
 
 
