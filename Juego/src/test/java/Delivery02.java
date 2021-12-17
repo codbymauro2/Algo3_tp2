@@ -2,6 +2,7 @@ import Lists.Cities;
 import Lists.Suspects;
 import MainObjects.*;
 import MainObjects.Buildings.Bank;
+import MainObjects.Buildings.Library;
 import Readers.CityReader;
 import Readers.SuspectReader;
 import org.junit.After;
@@ -95,6 +96,8 @@ public class Delivery02 {
         Suspect suspect = spy(new Suspect("Merey Laroc", "Female", "Mountain Climbing", "Brown", "Jewelry", "Limousine"));
         suspects.add(suspect);
 
+        cities.setSuspect(suspect);
+
         Planisphere planisphere = new Planisphere(cities);
         PoliceStation policeStation = new PoliceStation(suspects, planisphere);
         suspect.convertToRobber();
@@ -111,9 +114,17 @@ public class Delivery02 {
         this.police = policeStation.assignCase(this.player);
         police.takeCase(cities.find(stolenItem.origin()));
 
-        City nextCity = police.getCurrentCity();
-        Bank bank = new Bank();
-        police.enter(bank); 
+        Clue clueLimaBank = new Clue("Pista de banco facil", "Pista de banco media", "Pista de banco dificil");
+        Bank bankLima = new Bank(clueLimaBank);
+        police.enter(bankLima);
+        //El policia deduce las pistas y viaja a la siguiente ciudad correctamente
+
+        police.travel(planisphere.getCity("Mexico"));
+
+        Clue clueMexicolibrary = new Clue("Pista de library facil", "Pista de library media", "Pista de library dificil");
+        Library libraryMexico = new Library(clueMexicolibrary);
+        police.enter(libraryMexico);
+        //El policia deduce las pistas y viaja a la siguiente ciudad correctamente
     }
 
     @After

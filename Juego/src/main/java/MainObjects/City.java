@@ -19,6 +19,7 @@ public class City {
     private Library library;
     private Airport airport;
     private Building buildingToEnter;
+    private Suspect suspect;
 
     public City(String name, double latitude, double longitude) {
         this.name = name;
@@ -53,4 +54,17 @@ public class City {
     public int distanceNexCity() { return coordinates.distance(nextCity.getCoordinates()); }
 
     private Coordinates getCoordinates() {return coordinates; }
+
+    public void setSuspect(Suspect suspect) {
+        this.suspect = suspect;
+    }
+
+    public boolean correctCity() {
+
+        return suspect.passedThrough(this);
+
+    }
 }
+
+
+

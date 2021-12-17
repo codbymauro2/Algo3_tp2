@@ -4,6 +4,7 @@ import MainObjects.Buildings.Bank;
 import MainObjects.Buildings.Library;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public abstract class Police {
 
@@ -14,12 +15,14 @@ public abstract class Police {
     protected PoliceStation policeStation;
     protected boolean warrant;
     protected ArrayList<String> features;
+    protected Stack<City> passCities;
     private Suspect warrantSuspect;
 
     public Police() {
         timer = new Timer();
         warrant = false;
         casesWon = 0;
+        passCities = new Stack<>();
     }
 
     public Police(PoliceStation policeStation, Planisphere planisphere) {
@@ -29,6 +32,7 @@ public abstract class Police {
         this.timer = new Timer();
         this.warrant = false;
         this.casesWon = 0;
+        passCities = new Stack<>();
     }
 
     public abstract String enter(Bank bank);
@@ -36,7 +40,15 @@ public abstract class Police {
     public abstract String enter(Library library);
 
     public void travel(City city){
+        if (this.hasCome(city))
+            passCities.pop();
+        else
+            passCities.push(city);
         currentCity = city;
+    }
+
+    private boolean hasCome(City city) {
+        return passCities.peek().equals(city);
     }
 
     public City getCurrentCity(){
@@ -59,6 +71,7 @@ public abstract class Police {
     }
 
     public void takeCase(City city){
+        passCities.push(city);
         currentCity = city;
     }
 
@@ -86,5 +99,9 @@ public abstract class Police {
     public int finishedCases() {
         return casesWon;
     }
+
+    protected boolean stayCorrectCity(){
+        return currentCity.correctCity();
+    };
 
 }

@@ -2,6 +2,7 @@ package Lists;
 import MainObjects.City;
 import MainObjects.DoubleLinkedList;
 import MainObjects.StolenItem;
+import MainObjects.Suspect;
 
 import java.util.ArrayList;
 
@@ -12,6 +13,12 @@ public class Cities {
 
     public Cities(){
         cities = new ArrayList<>();
+    }
+
+    public void setSuspect(Suspect suspect){
+        cities.forEach(c -> {
+            c.setSuspect(suspect);
+        });
     }
 
     public void add(City city) {

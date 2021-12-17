@@ -10,11 +10,12 @@ import java.util.stream.IntStream;
 public class Planisphere {
 
     private int index, difficulty;
-    Stack<City> suspectCities;
-    Cities cities;
+    Stack<City> suspectCities; //ciudades por donde paso el sospechoso
+    Cities cities; //todas las ciudades, incluyendo por las que paso el sospechoso
     ArrayList<City> allCities;
     Stack<City> stack;
     City origin;
+    Suspect suspect;
 
     public Planisphere(Cities cities) throws FileNotFoundException {
         this.index = 0;
@@ -49,7 +50,7 @@ public class Planisphere {
         origin.setNextCity(suspectCurrenCity);
         suspectCities.peek();
         reverseStack(suspectCities);
-        return suspectCities;
+        return suspectCities; 
     }
 
 

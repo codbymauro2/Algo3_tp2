@@ -1,9 +1,12 @@
 package MainObjects;
 
+import java.util.ArrayList;
+
 public class Suspect {
 
     private String Name, Gender, Hobby, Hair, Accessory, Vehicle;
     private boolean isRobber, isArrested;
+    private java.util.ArrayList<City> path;
 
     public Suspect(String name, String gender, String hobby, String hair, String accessory, String vehicle) {
         this.Name = name;
@@ -14,6 +17,7 @@ public class Suspect {
         this.Vehicle = vehicle;
         this.isRobber = false;
         this.isArrested = false;
+        this.path = new ArrayList<>();
     }
 
     public Suspect(String[] array) {
@@ -53,5 +57,11 @@ public class Suspect {
 
     public void arrest() {
         isArrested = true;
+    }
+
+    public void setNextCity(City city) { this.path.add(city); }
+
+    public boolean passedThrough(City city) {
+        return path.contains(city);
     }
 }
