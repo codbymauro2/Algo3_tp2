@@ -21,12 +21,14 @@ public class Delivery01 {
         Cities cities = new Cities();
         CityReader cityReader = new CityReader(cities);
         StolenItem stolenItem = new StolenItem("Tesoro Nacional Montreal","Comun","Montreal");
-
+        City montreal = new City("Montreal", 19.43, -99.13);
         cityReader.read();
+        montreal.setSuspect(suspect);
 
+        detective.travel(montreal);
         Assertions.assertEquals(suspect.isGender("Female"),true);
         Assertions.assertEquals(stolenItem.getName(),"Tesoro Nacional Montreal");
-        Assertions.assertEquals(detective.enter(bank),"Pista Banco Facil");
+        Assertions.assertEquals(detective.enter(bank),"No paso por Aca");
     }
 
     @Test

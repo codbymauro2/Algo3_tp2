@@ -48,6 +48,7 @@ public abstract class Police {
     }
 
     private boolean hasCome(City city) {
+        if (passCities.isEmpty()) { return false; }
         return passCities.peek().equals(city);
     }
 

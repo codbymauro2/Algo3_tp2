@@ -93,9 +93,7 @@ public class Delivery02 {
 
         Suspects suspects = new Suspects();
         Suspect suspect = spy(new Suspect("Merey Laroc", "Female", "Mountain Climbing", "Brown", "Jewelry", "Limousine"));
-        Suspect anotherSuspect = spy(new Suspect("Merey Laroc", "Male", "Mountain Climbing", "Brown", "Jewelry", "Limousine"));
         suspects.add(suspect);
-        suspects.add(anotherSuspect);
 
         cities.setSuspect(suspect);
         suspects.randomSuspect();
