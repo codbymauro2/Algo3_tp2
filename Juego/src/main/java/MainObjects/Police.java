@@ -79,11 +79,13 @@ public abstract class Police {
         return city.equals(currentCity);
     }
 
-    public void emitWarrant(Suspect suspect){
-        this.warrant = true;
-        this.warrantSuspect = suspect;
-    }
+    protected void emitWarrant(Suspect suspect){
 
+        if(policeStation.getPossibleSuspectsSize() == 1){
+            this.warrant = true;
+            this.warrantSuspect = suspect;
+        }
+    }
 
     public void giveFeatures(ArrayList<String> features){
         this.features = features;
@@ -92,7 +94,7 @@ public abstract class Police {
     public void arrest(Suspect suspect){
         if(warrant && warrantSuspect.equals(suspect)){
             suspect.arrest();
-            this.casesWon = this.casesWon + 1;
+            policeStation.completeCase();
         }
     }
 
@@ -105,7 +107,9 @@ public abstract class Police {
     };
 
     public void investigate(String[] features) {
-        this.policeStation.obtainFeatures(features);
+        policeStation.obtainFeatures(features);
+        policeStation.findSuspects();
+        this.emitWarrant(policeStation.getRobber());
     }
 
 }

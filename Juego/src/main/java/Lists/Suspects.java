@@ -3,11 +3,13 @@ package Lists;
 import MainObjects.Suspect;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Suspects {
 
-    ArrayList<Suspect> suspectsList = new ArrayList<>();
-    ArrayList<Suspect> possibleSuspectsList = new ArrayList<>();
+    private ArrayList<Suspect> suspectsList = new ArrayList<>();
+    private ArrayList<Suspect> possibleSuspectsList = new ArrayList<>();
+    private Suspect robber;
 
     public void add(Suspect suspect) {
         suspectsList.add(suspect);
@@ -71,9 +73,8 @@ public class Suspects {
     }
 
     private void fillPossibleSuspects() {
-        suspectsList.forEach( suspect -> {
-            possibleSuspectsList.add(suspect);
-        });
+        possibleSuspectsList = new ArrayList<>();
+        possibleSuspectsList.addAll(suspectsList);
     }
 
     public ArrayList<Suspect> filter(ArrayList<String> features) {
@@ -84,5 +85,17 @@ public class Suspects {
         this.possibleSuspectsList = this.filterByAccessory(features.get((3)));
         this.possibleSuspectsList = this.filterByVehicle(features.get(4));
         return  possibleSuspectsList;
+    }
+
+
+    public void randomSuspect() {
+      Random random = new Random();
+      int randomInt = random.nextInt(suspectsList.size());
+      this.robber = suspectsList.get(randomInt);
+      this.robber.convertToRobber();
+    }
+
+    public Suspect getRobber() {
+        return robber;
     }
 }

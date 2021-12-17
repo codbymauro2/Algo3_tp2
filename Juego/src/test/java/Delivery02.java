@@ -72,8 +72,7 @@ public class Delivery02 {
     @Test
     public void Case05() throws FileNotFoundException {
 
-        this.player = new Player("Mauro",0);
-        this.police = new Detective();
+        this.player = new Player("Mauro",6);
 
         Cities cities = new Cities();
         City lima = new City("Lima", 19.43, -99.13);
@@ -94,22 +93,25 @@ public class Delivery02 {
 
         Suspects suspects = new Suspects();
         Suspect suspect = spy(new Suspect("Merey Laroc", "Female", "Mountain Climbing", "Brown", "Jewelry", "Limousine"));
+        Suspect anotherSuspect = spy(new Suspect("Merey Laroc", "Male", "Mountain Climbing", "Brown", "Jewelry", "Limousine"));
         suspects.add(suspect);
+        suspects.add(anotherSuspect);
 
         cities.setSuspect(suspect);
+        suspects.randomSuspect();
 
         Planisphere planisphere = new Planisphere(cities);
         PoliceStation policeStation = new PoliceStation(suspects, planisphere);
-        suspect.convertToRobber();
 
         IntStream.range(0, 6).forEach(i -> {
             this.police = policeStation.assignCase(this.player);
-            this.police.emitWarrant(suspect);
-            this.police.arrest(suspect);
+            this.police.investigate(new String[]{"Female", "", "Brown", "", "Limousine"});
+            this.police.arrest(suspects.getRobber());
             player.addFinishedCase(this.police.finishedCases());
         });
 
-        Assertions.assertEquals(police.getClass(),Detective.class);
+        Assertions.assertEquals(12,player.totalCasesWon());
+        Assertions.assertNotEquals(Detective.class,police.getClass());
 
         this.police = policeStation.assignCase(this.player);
         police.takeCase(cities.find(stolenItem.origin()));
@@ -126,8 +128,12 @@ public class Delivery02 {
         police.enter(libraryMexico);
         //El policia deduce las pistas y viaja a la siguiente ciudad correctamente
 
+        police.investigate(new String[]{"Female", "", "Brown", "", "Limousine"});
 
-        police.investigate(new String[]{"Female", "", "Brown", "", "Limou
+        police.arrest(suspect);
+        player.addFinishedCase(police.finishedCases());
+
+        Assertions.assertEquals(13,player.totalCasesWon());
 
 
     }

@@ -8,6 +8,7 @@ import java.util.stream.IntStream;
 public class PoliceStation {
 
     Suspects suspects;
+    Suspect robber;
     ArrayList<Suspect> possibleSuspects;
     ArrayList<String> features;
     Player player;
@@ -17,6 +18,8 @@ public class PoliceStation {
         this.planisphere = planisphere;
         this.suspects = suspects;
         this.startFeatures();
+        this.robber = suspects.getRobber();
+        this.possibleSuspects = new ArrayList<>();
     }
 
     public void getSuspects(ArrayList<String> features) {
@@ -50,8 +53,9 @@ public class PoliceStation {
         });
     }
 
-    public ArrayList<Suspect> findSuspects() {
-        return suspects.filter(features);
+    public ArrayList<Suspect> findSuspects() {;
+        this.possibleSuspects = suspects.filter(features);
+        return this.possibleSuspects;
     }
 
     public Police assignCase(Player player){
@@ -70,5 +74,13 @@ public class PoliceStation {
 
     public City caseFrom() {
         return planisphere.getOrigin();
+    }
+
+    public Suspect getRobber() {
+        return suspects.getRobber();
+    }
+
+    public void completeCase() {
+        this.player.addFinishedCase(1);
     }
 }

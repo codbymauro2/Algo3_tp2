@@ -6,9 +6,10 @@ import java.util.List;
 
 public class StolenItems {
 
-    ArrayList<StolenItem> stolenItemList = new ArrayList<>();
+    private ArrayList<StolenItem> stolenItemList;
 
     public void add(StolenItem stolenItem) {
+        this.stolenItemList = new ArrayList<>();
         this.stolenItemList.add(stolenItem);
     }
 

@@ -3,7 +3,6 @@ import MainObjects.Buildings.Airport;
 import MainObjects.Buildings.Bank;
 import MainObjects.Buildings.Building;
 import MainObjects.Buildings.Library;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -59,11 +58,8 @@ public class City {
         this.suspect = suspect;
     }
 
-    public boolean correctCity() {
+    public boolean correctCity() { return suspect.passedThrough(this); }
 
-        return suspect.passedThrough(this);
-
-    }
 }
 
 

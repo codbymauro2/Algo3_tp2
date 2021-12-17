@@ -4,7 +4,6 @@ import MainObjects.*;
 
 public class Bank extends Building {
 
-
     public Bank(Clue clue) {
         super(clue);
     }

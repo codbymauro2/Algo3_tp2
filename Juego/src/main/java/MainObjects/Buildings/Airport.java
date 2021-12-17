@@ -4,7 +4,6 @@ import MainObjects.*;
 
 public class Airport extends Building {
 
-
     public Airport(Clue clue) {
         super(clue);
     }
