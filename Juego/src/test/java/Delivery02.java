@@ -89,7 +89,7 @@ public class Delivery02 {
 
         StolenItem stolenItem = new StolenItem("Incan Gold Mask","Valioso","Lima");
         cities.startCity(stolenItem);
-        Assertions.assertEquals(cities.getStartCity().getName(),"Lima");
+        Assertions.assertEquals(cities.getStartCity(),lima);
 
         Suspects suspects = new Suspects();
         Suspect suspect = spy(new Suspect("Merey Laroc", "Female", "Mountain Climbing", "Brown", "Jewelry", "Limousine"));
@@ -132,7 +132,6 @@ public class Delivery02 {
         player.addFinishedCase(police.finishedCases());
 
         Assertions.assertEquals(13,player.totalCasesWon());
-
 
     }
 
