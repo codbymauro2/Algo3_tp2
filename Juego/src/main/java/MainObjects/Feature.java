@@ -2,7 +2,7 @@ package MainObjects;
 
 public class Feature {
     private String gender;
-    private String gobby;
+    private String hobby;
     private String hair;
     private String accessory;
     private String vehicle;
@@ -19,5 +19,12 @@ public class Feature {
         this.accessory = accessory;
     }
 
-    public
+    public void setVehicle(String vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
+    }
 }
+

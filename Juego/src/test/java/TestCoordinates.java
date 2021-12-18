@@ -61,5 +61,6 @@ public class TestCoordinates {
         suspects.randomSuspect();
 
 
+
     }
 }

@@ -1,6 +1,11 @@
 package MainObjects;
 
+import Lists.Cities;
+
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Stack;
+import java.util.stream.IntStream;
 
 public class Suspect {
 
@@ -17,7 +22,7 @@ public class Suspect {
         this.Vehicle = vehicle;
         this.isRobber = false;
         this.isArrested = false;
-        this.path = new ArrayList<>();
+        this.path = createPath();
     }
 
     public Suspect(String[] array) {
@@ -69,4 +74,24 @@ public class Suspect {
         if (path.size() == 0) { return false; }
         return city.equals(path.get(path.size() - 1));
     }
+
+    private ArrayList<City> createPath(Cities cities, City origin, int difficulty) {
+        ArrayList<City> path = new ArrayList<>();
+        cities.remove(origin);
+        Random random = new Random();
+        int bound = difficulty - 1;
+        for (int i = 0; i < bound; i++) {
+            int randomInt = random.nextInt(cities.size());
+            City nextCity = cities.get(randomInt);
+            origin.setNextCity(nextCity);
+            path.add(origin);
+            origin = nextCity;
+            cities.remove(origin);
+        }        
+        Coordinates coordinates = new Coordinates(0.00, 0.00);
+        City suspectCurrenCity = new City("Ganador", coordinates);
+        origin.setNextCity(suspectCurrenCity);
+        return path;
+    }
+
 }

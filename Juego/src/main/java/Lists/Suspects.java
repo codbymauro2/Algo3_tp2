@@ -98,4 +98,6 @@ public class Suspects {
     public Suspect getRobber() {
         return robber;
     }
+
+
 }
