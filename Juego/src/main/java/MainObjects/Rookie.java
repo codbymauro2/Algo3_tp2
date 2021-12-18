@@ -16,7 +16,7 @@ public class Rookie extends Police {
     @Override
     public String enter(Bank bank) {
 
-        if (this.stayCorrectCity())
+        if (this.isInCorrectCity())
             return bank.deployClue(this);
         else
             return "No paso por Aca";

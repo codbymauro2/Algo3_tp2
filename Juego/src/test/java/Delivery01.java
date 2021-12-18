@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 public class Delivery01 {
 
     @Test
-    public void Case01() throws IOException {
+    public void Case01RookieVisitsBankInMontreal() throws IOException {
         Suspect suspect = new Suspect("Merey Laroc","Female","Mountain Climbing","Brown","Jewelry","Limousine");
         Clue clue = new Clue("Pista Banco Facil","Pista Banco Facil","Pista Banco Facil");
         Rookie detective = new Rookie();
@@ -21,25 +21,27 @@ public class Delivery01 {
         Cities cities = new Cities();
         CityReader cityReader = new CityReader(cities);
         StolenItem stolenItem = new StolenItem("Tesoro Nacional Montreal","Comun","Montreal");
-        City montreal = new City("Montreal", 19.43, -99.13);
+        Coordinates coordinates = new Coordinates(19.43, -99.13);
+        City montreal = new City("Montreal", coordinates);
         cityReader.read();
         montreal.setSuspect(suspect);
 
         detective.travel(montreal);
-        Assertions.assertEquals(suspect.isGender("Female"),true);
+        Assertions.assertTrue(suspect.isGender("Female"));
         Assertions.assertEquals(stolenItem.getName(),"Tesoro Nacional Montreal");
         Assertions.assertEquals(detective.enter(bank),"No paso por Aca");
     }
 
     @Test
-    public void Case02() throws IOException {
+    public void Case02DetectiveVisitsBankAndLibraryInMontreal() throws IOException {
         Police detective = new Detective();
         Clue clueBank = new Clue("Pista Banco Facil","Pista Banco Media","Pista Banco Dificil");
         Clue clueLibrary = new Clue("Pista Libreria Facil","Pista Libreria Media","Pista Libreria Dificil");
         Bank bank = new Bank(clueBank);
         Library library = new Library(clueLibrary);
 
-        City montreal = new City("Montreal", 45.50, -73.57);
+        Coordinates coordinates = new Coordinates(45.50, -73.57);
+        City montreal = new City("Montreal", coordinates);
         Cities cities = new Cities();
         cities.add(montreal);
 
@@ -54,16 +56,17 @@ public class Delivery01 {
     }
 
     @Test
-    public void Case03() throws IOException {
+    public void Case03DetectiveTravelsFromMontrealToMexico() throws IOException {
         Detective detective = new Detective();
-        City mexico = new City("Mexico", 45.50, -73.57);
+        Coordinates coordinates = new Coordinates(45.50, -73.57);
+        City mexico = new City("Mexico", coordinates);
         Assertions.assertNotEquals(detective.getCurrentCity(),mexico);
         detective.travel(mexico);
         Assertions.assertEquals(detective.getCurrentCity(),mexico);
     }
 
     @Test
-    public void Case04() {
+    public void Case04DetectiveVisitsAirportAndPortMultipleTimes() {
         Detective detective = new Detective();
         Clue clueAirport = new Clue("Pista Aeropuerto Facil","Pista Aeropuerto Media","Pista Aeropuerto Dificil");
         Clue cluePort = new Clue("Pista Puerto Facil","Pista Puerto Media","Pista Puerto Dificil");
@@ -82,14 +85,14 @@ public class Delivery01 {
     }
 
     @Test
-    public void Case05() {
+    public void Case05DetectiveIsStabbedAndSleeps() {
         Detective detective = new Detective();
         Knife knife = new Knife();
-        Assertions.assertEquals(detective.getTimeLeft(),152);
+        Assertions.assertEquals(detective.getTimeLeftInHours(),152);
         detective.beAttacked(knife);
-        Assertions.assertEquals(detective.getTimeLeft(),150);
+        Assertions.assertEquals(detective.getTimeLeftInHours(),150);
         detective.sleep();
-        Assertions.assertEquals(detective.getTimeLeft(),142);
+        Assertions.assertEquals(detective.getTimeLeftInHours(),142);
     }
 
 }

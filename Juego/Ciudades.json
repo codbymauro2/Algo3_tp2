@@ -1,8 +1,12 @@
 [
     {
         "name": "Montreal",
-        "latitude": 45.50,
-        "longitude": -73.57,
+
+        "coordinates": {
+            "longitude": -73.57,
+            "latitude": 45.50
+        },
+
         "bank": {
             "clues": {
                 "easy": "Pista facil de banco de Montreal",
@@ -10,6 +14,7 @@
                 "hard": "Pista dificil de banco de Montreal"
             }
         },
+
         "library": {
             "clues": {
                 "easy": "Pista facil de biblioteca de Montreal",
@@ -17,6 +22,7 @@
                 "dificil": "Pista dificil de biblioteca de Montreal"
             }
         },
+
         "airport": {
             "clues": {
                 "easy": "Pista facil de aeropuerto de Montreal",
@@ -27,8 +33,12 @@
     },
     {
         "name": "Mexico",
-        "latitude": 19.43,
-        "longitude": -99.13,
+
+        "coordinates": {
+            "latitude": 19.43,
+            "longitude": -99.13
+        },
+
         "bank": {
             "clues": {
                 "easy": "Pista facil de banco de Mexico",
@@ -36,6 +46,7 @@
                 "hard": "Pista dificil de banco de Mexico"
             }
         },
+
         "library": {
             "clues": {
                 "easy": "Pista facil de biblioteca de Mexico",
@@ -43,6 +54,7 @@
                 "hard": "Pista dificil de biblioteca de Mexico"
             }
         },
+
         "airport": {
             "clues": {
                 "easy": "Pista facil del aeropuerto de Mexico",
@@ -53,117 +65,162 @@
     },
     {
         "name": "Baghdad",
-        "latitude": 33.32,
-        "longitude": 44.42,
-        "bank": {"clues":{
-            "easy": "Pista facil de bank de Baghdad",
-            "media": "Pista media de bank de Baghdad",
-            "hard": "Pista dificil de bank de Baghdad"
+
+        "coordinates": {
+            "latitude": 33.32,
+            "longitude": 44.42
+        },
+
+        "bank": {
+            "clues":{
+                "easy": "Pista facil de bank de Baghdad",
+                "media": "Pista media de bank de Baghdad",
+                "hard": "Pista dificil de bank de Baghdad"
         }
     },
-        "port": {"clues":  {
-            "easy": "Pista facil de port de Baghdad",
-            "medium": "Pista medio del port de Baghdad",
-            "hard": "Pista dificil de port de Baghdad"
+
+        "port": {
+            "clues":  {
+                "easy": "Pista facil de port de Baghdad",
+                "medium": "Pista medio del port de Baghdad",
+                "hard": "Pista dificil de port de Baghdad"
         }
     },
-        "airport": {"clues": {
-            "easy": "Pista facil del aeropuerto de Baghdad",
-            "medium": "Pista media del aeropuerto de Baghdad",
-            "hard": "Pista dificil de airport de Baghdad"
+
+        "airport": {
+            "clues": {
+                "easy": "Pista facil del aeropuerto de Baghdad",
+                "medium": "Pista media del aeropuerto de Baghdad",
+                "hard": "Pista dificil de airport de Baghdad"
+            }
         }
-    }
     },
     {
         "name": "Buenos Aires",
-        "latitude": 33.32,
-        "longitude": 44.42,
-        "bank": {"clues":{
-            "easy": "Pista facil de bank de Buenos Aires",
-            "media": "Pista media de bank de Buenos Aires",
-            "hard": "Pista dificil de bank de Buenos Aires"
-        }
+        
+        "coordinates": {
+            "latitude": 33.32,
+            "longitude": 44.42
         },
-        "port": {"clues":  {
-            "easy": "Pista facil de port de Buenos Aires",
-            "medium": "Pista medio del port de Buenos Aires",
-            "hard": "Pista dificil de port de Buenos Aires"
-        }
+        
+        "bank": {
+            "clues":{
+                "easy": "Pista facil de bank de Buenos Aires",
+                "media": "Pista media de bank de Buenos Aires",
+                "hard": "Pista dificil de bank de Buenos Aires"
+            }
         },
-        "airport": {"clues": {
-            "easy": "Pista facil del aeropuerto de Buenos Aires",
-            "medium": "Pista media del aeropuerto de Buenos Aires",
-            "hard": "Pista dificil de airport de Buenos Aires"
-        }
+        
+        "port": {
+            "clues":  {
+                "easy": "Pista facil de port de Buenos Aires",
+                "medium": "Pista medio del port de Buenos Aires",
+                "hard": "Pista dificil de port de Buenos Aires"
+            }
+        },
+        
+        "airport": {
+            "clues": {
+                "easy": "Pista facil del aeropuerto de Buenos Aires",
+                "medium": "Pista media del aeropuerto de Buenos Aires",
+                "hard": "Pista dificil de airport de Buenos Aires"
+            }
         }
     },
     {
         "name": "Lima",
-        "latitude": 33.32,
-        "longitude": 44.42,
-        "bank": {"clues":{
-            "easy": "Pista facil de bank de Lima",
-            "media": "Pista media de bank de Lima",
-            "hard": "Pista dificil de bank de Lima"
-        }
+        
+        "coordinates": {
+            "latitude": 33.32,
+            "longitude": 44.42
         },
-        "port": {"clues":  {
-            "easy": "Pista facil de port de Lima",
-            "medium": "Pista medio del port de Lima",
-            "hard": "Pista dificil de port de Lima"
-        }
+        
+        "bank": {
+            "clues":{
+                "easy": "Pista facil de bank de Lima",
+                "media": "Pista media de bank de Lima",
+                "hard": "Pista dificil de bank de Lima"
+            }
         },
-        "airport": {"clues": {
-            "easy": "Pista facil del aeropuerto de Lima",
-            "medium": "Pista media del aeropuerto de Lima",
-            "hard": "Pista dificil de airport de Lima"
-        }
+        
+        "port": {
+            "clues":  {
+                "easy": "Pista facil de port de Lima",
+                "medium": "Pista medio del port de Lima",
+                "hard": "Pista dificil de port de Lima"
+            }
+        },
+        
+        "airport": {
+            "clues": {
+                "easy": "Pista facil del aeropuerto de Lima",
+                "medium": "Pista media del aeropuerto de Lima",
+                "hard": "Pista dificil de airport de Lima"
+            }
         }
     },
     {
         "name": "Canada",
-        "latitude": 33.32,
-        "longitude": 44.42,
-        "bank": {"clues":{
-            "easy": "Pista facil de bank de Canada",
-            "media": "Pista media de bank de Canada",
-            "hard": "Pista dificil de bank de Canada"
-        }
+        
+        "coordinates": {
+            "latitude": 33.32,
+            "longitude": 44.42
         },
-        "port": {"clues":  {
-            "easy": "Pista facil de port de Canada",
-            "medium": "Pista medio del port de Canada",
-            "hard": "Pista dificil de port de Canada"
-        }
+        
+        "bank": {
+            "clues":{
+                "easy": "Pista facil de bank de Canada",
+                "media": "Pista media de bank de Canada",
+                "hard": "Pista dificil de bank de Canada"
+            }
         },
-        "airport": {"clues": {
-            "easy": "Pista facil del aeropuerto de Canada",
-            "medium": "Pista media del aeropuerto de Canada",
-            "hard": "Pista dificil de airport de Canada"
-        }
+        
+        "port": {
+            "clues":  {
+                "easy": "Pista facil de port de Canada",
+                "medium": "Pista medio del port de Canada",
+                "hard": "Pista dificil de port de Canada"
+            }
+        },
+        
+        "airport": {
+            "clues": {
+                "easy": "Pista facil del aeropuerto de Canada",
+                "medium": "Pista media del aeropuerto de Canada",
+                "hard": "Pista dificil de airport de Canada"
+            }
         }
     },
     {
         "name": "Rusia",
-        "latitude": 33.32,
-        "longitude": 44.42,
-        "bank": {"clues":{
-            "easy": "Pista facil de bank de Rusia",
-            "media": "Pista media de bank de Rusia",
-            "hard": "Pista dificil de bank de Rusia"
-        }
+        
+        "coordinates": {
+            "latitude": 33.32,
+            "longitude": 44.42
         },
-        "port": {"clues":  {
-            "easy": "Pista facil de port de Rusia",
-            "medium": "Pista medio del port de Rusia",
-            "hard": "Pista dificil de port de Rusia"
-        }
+        
+        "bank": {
+            "clues":{
+                "easy": "Pista facil de bank de Rusia",
+                "media": "Pista media de bank de Rusia",
+                "hard": "Pista dificil de bank de Rusia"
+            }
         },
-        "airport": {"clues": {
-            "easy": "Pista facil del aeropuerto de Rusia",
-            "medium": "Pista media del aeropuerto de Rusia",
-            "hard": "Pista dificil de airport de Rusia"
-        }
+        
+        "port": {
+            "clues":  {
+                "easy": "Pista facil de port de Rusia",
+                "medium": "Pista medio del port de Rusia",
+                "hard": "Pista dificil de port de Rusia"
+            }
+        },
+        
+        "airport": {
+            "clues": {
+                "easy": "Pista facil del aeropuerto de Rusia",
+                "medium": "Pista media del aeropuerto de Rusia",
+                "hard": "Pista dificil de airport de Rusia"
+            }
         }
     }
 

@@ -64,4 +64,9 @@ public class Suspect {
     public boolean passedThrough(City city) {
         return path.contains(city);
     }
+
+    public boolean isInCity(City city) {
+        if (path.size() == 0) { return false; }
+        return city.equals(path.get(path.size() - 1));
+    }
 }

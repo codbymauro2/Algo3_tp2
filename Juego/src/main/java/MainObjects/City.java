@@ -20,9 +20,9 @@ public class City {
     private Building buildingToEnter;
     private Suspect suspect;
 
-    public City(String name, double latitude, double longitude) {
+    public City(String name, Coordinates coordinates) {
         this.name = name;
-        this.coordinates  = new Coordinates(latitude,longitude);
+        this.coordinates  = coordinates;
     }
 
     @Override

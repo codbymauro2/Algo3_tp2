@@ -15,14 +15,14 @@ public abstract class Police {
     protected PoliceStation policeStation;
     protected boolean warrant;
     protected ArrayList<String> features;
-    protected Stack<City> passCities;
+    protected Stack<City> visitedCities;
     private Suspect warrantSuspect;
 
     public Police() {
         timer = new Timer();
         warrant = false;
         casesWon = 0;
-        passCities = new Stack<>();
+        visitedCities = new Stack<>();
     }
 
     public Police(PoliceStation policeStation, Planisphere planisphere) {
@@ -32,7 +32,7 @@ public abstract class Police {
         this.timer = new Timer();
         this.warrant = false;
         this.casesWon = 0;
-        passCities = new Stack<>();
+        visitedCities = new Stack<>();
     }
 
     public abstract String enter(Bank bank);
@@ -40,16 +40,16 @@ public abstract class Police {
     public abstract String enter(Library library);
 
     public void travel(City city){
-        if (this.hasCome(city))
-            passCities.pop();
+        if (this.passedThrough(city))
+            visitedCities.pop();
         else
-            passCities.push(city);
+            visitedCities.push(city);
         currentCity = city;
     }
 
-    private boolean hasCome(City city) {
-        if (passCities.isEmpty()) { return false; }
-        return passCities.peek().equals(city);
+    private boolean passedThrough(City city) {
+        if (visitedCities.isEmpty()) { return false; }
+        return visitedCities.peek().equals(city);
     }
 
     public City getCurrentCity(){
@@ -67,12 +67,12 @@ public abstract class Police {
         timer.reduce(8);
     }
 
-    public int getTimeLeft() {
+    public int getTimeLeftInHours() {
         return timer.timeLeft();
     }
 
     public void takeCase(City city){
-        passCities.push(city);
+        visitedCities.push(city);
         currentCity = city;
     }
 
@@ -81,8 +81,7 @@ public abstract class Police {
     }
 
     protected void emitWarrant(Suspect suspect){
-
-        if(policeStation.getPossibleSuspectsSize() == 1){
+        if(policeStation.getPossibleSuspectsSize() == 1 /*&& suspect.isInCity(currentCity)*/){
             this.warrant = true;
             this.warrantSuspect = suspect;
         }
@@ -103,7 +102,7 @@ public abstract class Police {
         return casesWon;
     }
 
-    protected boolean stayCorrectCity(){
+    protected boolean isInCorrectCity(){
         return currentCity.correctCity();
     };
 

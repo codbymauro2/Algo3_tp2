@@ -46,7 +46,8 @@ public class Planisphere {
             origin = nextCity;
             allCities.remove(origin);
         });
-        City suspectCurrenCity = new City("Ganador", 0.00, 0.00);
+        Coordinates coordinates = new Coordinates(0.00, 0.00);
+        City suspectCurrenCity = new City("Ganador", coordinates);
         origin.setNextCity(suspectCurrenCity);
         suspectCities.peek();
         reverseStack(suspectCities);

@@ -27,41 +27,43 @@ public class Delivery02 {
     private SuspectReader suspectReader;
 
     @Test
-    public void Case01() {
+    public void Case01DetectiveIsStabbedAndSleeps() {
         Rookie detective = new Rookie();
         Knife knife = new Knife();
-        Assertions.assertEquals(detective.getTimeLeft(), 152);
+        Assertions.assertEquals(detective.getTimeLeftInHours(), 152);
         detective.beAttacked(knife);
-        Assertions.assertEquals(detective.getTimeLeft(), 150);
+        Assertions.assertEquals(detective.getTimeLeftInHours(), 150);
         detective.sleep();
-        Assertions.assertEquals(detective.getTimeLeft(), 142);
+        Assertions.assertEquals(detective.getTimeLeftInHours(), 142);
     }
 
     @Test
-    public void Case02() {
-        City mexico = new City("Mexico", 19.43, -99.13);
+    public void Case02InvestigatorTakesCaseAndTravelsFromMontrealToMexico() {
+        Coordinates mexicoCoordinates = new Coordinates(19.43, -99.13);
+        City mexico = new City("Mexico",mexicoCoordinates);
         StolenItem stolenItem = new StolenItem("Tesoro Nacional", "Valioso", "Montreal");
         Investigator investigator = new Investigator();
-        City montreal = new City(stolenItem.origin(), 45.50, -73.57);
+        Coordinates montrealCoordinates = new Coordinates(45.50, -73.57);
+        City montreal = new City(stolenItem.origin(), montrealCoordinates);
         investigator.takeCase(montreal);
-        Assertions.assertEquals(investigator.isInCity(montreal), true);
+        Assertions.assertTrue(investigator.isInCity(montreal));
         investigator.travel(mexico);
-        Assertions.assertEquals(investigator.isInCity(mexico), true);
+        Assertions.assertTrue(investigator.isInCity(mexico));
     }
 
     @Test
-    public void Case03() throws FileNotFoundException {
+    public void Case03SuspectsFilteredByClues() throws FileNotFoundException {
         Suspects suspects = new Suspects();
         SuspectReader suspectReader = new SuspectReader(suspects);
         suspectReader.read();
         PoliceStation policeStation = spy(new PoliceStation(suspects, planisphere));
-        policeStation.obtainFeatures(new String[]{"Female", "", "Brown", "", "Motorcyle"});
+        policeStation.obtainFeatures(new String[]{"Female", "", "Brown", "", "Motorcycle"});
         ArrayList<Suspect> possibleSuspects = policeStation.findSuspects();
         Assertions.assertEquals(possibleSuspects.size(), 1);
     }
 
     @Test
-    public void Case04() {
+    public void Case04ArrestMadeWithoutWarrantShouldFail() {
         Suspect suspect = spy(new Suspect("Merey Laroc", "Female", "Mountain Climbing", "Brown", "Jewelry", "Limousine"));
         suspect.convertToRobber();
         Police police = new Detective();
@@ -70,16 +72,17 @@ public class Delivery02 {
     }
 
     @Test
-    public void Case05() throws FileNotFoundException {
+    public void Case05DetectiveWithSixArrestsInvestigatesAndCatchesTheif() throws FileNotFoundException {
 
         this.player = new Player("Mauro",6);
 
         Cities cities = new Cities();
-        City lima = new City("Lima", 19.43, -99.13);
-        City mexico = new City("Mexico", 19.43, -99.13);
-        City montreal = new City("Montreal", 19.43, -99.13);
-        City baghdad = new City("Baghdad", 19.43, -99.13);
-        City beijing = new City("Beijing", 19.43, -99.13);
+        Coordinates coordinates = new Coordinates(45.50, -73.57);
+        City lima = new City("Lima", coordinates);
+        City mexico = new City("Mexico", coordinates);
+        City montreal = new City("Montreal", coordinates);
+        City baghdad = new City("Baghdad",coordinates);
+        City beijing = new City("Beijing", coordinates);
 
         cities.add(lima);
         cities.add(mexico);
@@ -110,7 +113,6 @@ public class Delivery02 {
 
         Assertions.assertEquals(12,player.totalCasesWon());
         Assertions.assertNotEquals(Detective.class,police.getClass());
-
         this.police = policeStation.assignCase(this.player);
         police.takeCase(cities.find(stolenItem.origin()));
 
@@ -121,8 +123,8 @@ public class Delivery02 {
 
         police.travel(planisphere.getCity("Mexico"));
 
-        Clue clueMexicolibrary = new Clue("Pista de library facil", "Pista de library media", "Pista de library dificil");
-        Library libraryMexico = new Library(clueMexicolibrary);
+        Clue clueMexicoLibrary = new Clue("Pista de library facil", "Pista de library media", "Pista de library dificil");
+        Library libraryMexico = new Library(clueMexicoLibrary);
         police.enter(libraryMexico);
         //El policia deduce las pistas y viaja a la siguiente ciudad correctamente
 
@@ -132,7 +134,6 @@ public class Delivery02 {
         player.addFinishedCase(police.finishedCases());
 
         Assertions.assertEquals(13,player.totalCasesWon());
-
     }
 
 

@@ -1,4 +1,5 @@
 package MainObjects;
+import java.util.Objects;
 
 public class Coordinates {
     private final double latitude;
@@ -23,5 +24,20 @@ public class Coordinates {
         double distance = radioEarth * value2;
         return (int) Math.round(distance);
     }
+
+    /*@Override
+    public boolean equals(Object city){
+        return (Objects.equals(this.latitude, ((Coordinates) coordinates).getLatitude()) && (Objects.equals(this.longitude, ((Coordinates) coordinates).getLongitude()));
+    }*/
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+
 
 }
