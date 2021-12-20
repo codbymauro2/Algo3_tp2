@@ -10,39 +10,20 @@ import java.util.stream.IntStream;
 public class Suspect {
 
     private String name, gender,hobby, accessory,vehicle,hair;
+    private ArrayList<Feature> features;
     private boolean isRobber, isArrested;
-    private Feature feature;
     private java.util.ArrayList<City> path;
 
-    public Suspect(String name, String gender,String hair, String hobby, String accessory, String vehicle, Feature feature) {
+    public Suspect(String name, Feature feature1, Feature feature2, Feature feature3, Feature feature4, Feature feature5) {
         this.name = name;
-        this.feature = feature;
-        this.gender = gender;
-        this.hair = hair;
-        this.accessory = accessory;
-        this.vehicle = vehicle;
-        this.hobby = hobby;
+        this.features = new ArrayList<>();
+        this.features.add(feature1);
+        this.features.add(feature2);
+        this.features.add(feature3);
+        this.features.add(feature4);
+        this.features.add(feature5);
         this.isRobber = false;
         this.isArrested = false;
-    }
-
-    public Suspect(String name, String gender, String hobby, String hair, String accessory, String vehicle) {
-        this.name = name;
-        this.gender = gender;
-        this.hair = hair;
-        this.accessory = accessory;
-        this.vehicle = vehicle;
-        this.hobby = hobby;
-        this.isRobber = false;
-        this.isArrested = false;
-    }
-
-    public Suspect(String[] array) {
-        this.name = array[0];
-        this.gender = array[1];
-        this.hobby = array[2];
-        this.accessory = array[3];
-        this.vehicle = array[4];
     }
 
     @Override
@@ -54,19 +35,19 @@ public class Suspect {
         return name;
     }
 
-    public boolean hasHair(String hair) {
-        return this.hair.equals(hair);
+    public boolean isGender(Feature feature) { return this.features.get(0).equals(feature); }
+
+    public boolean hasHobby(Feature feature) {
+        return this.features.get(1).equals(feature);
     }
 
-    public boolean hasHobby(String hobby) {
-        return this.hobby.equals(hobby);
+    public boolean hasHair(Feature feature) {
+        return this.features.get(2).equals(feature);
     }
 
-    public boolean isGender(String gender) { return this.gender.equals(gender); }
+    public boolean hasAccessory(Feature feature) { return this.features.get(3).equals(feature); }
 
-    public boolean hasAccessory(String accessory) { return this.accessory.equals(accessory); }
-
-    public boolean hasVehicle(String vehicle) { return this.vehicle.equals(vehicle); }
+    public boolean hasVehicle(Feature feature) { return this.features.get(4).equals(feature); }
 
     public void convertToRobber() {
         this.isRobber = true;

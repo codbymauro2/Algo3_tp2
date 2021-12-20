@@ -10,7 +10,7 @@ public class PoliceStation {
     Suspects suspects;
     Suspect robber;
     ArrayList<Suspect> possibleSuspects;
-    ArrayList<String> features;
+    ArrayList<Feature> features;
     Player player;
     Planisphere planisphere;
 
@@ -22,7 +22,7 @@ public class PoliceStation {
         this.possibleSuspects = new ArrayList<>();
     }
 
-    public void getSuspects(ArrayList<String> features) {
+    public void getSuspects(ArrayList<Feature> features) {
         ArrayList<Suspect> possibleSuspects = suspects.filter(features);
         possibleSuspects.forEach(suspect -> {
             System.out.println(suspect.getName());
@@ -34,22 +34,22 @@ public class PoliceStation {
         return possibleSuspects.size();
     }
 
-    public void obtainFeatures(String[] features) {
-        updateFeatures(features);
+    public void obtainFeatures(Feature feature1, Feature feature2, Feature feature3, Feature feature4, Feature feature5) {
+        updateFeatures(feature1, feature2, feature3, feature4, feature5);
     }
 
-    private void updateFeatures(String[] features) {
-        this.features.set(0, features[0]);
-        this.features.set(1, features[1]);
-        this.features.set(2, features[2]);
-        this.features.set(3, features[3]);
-        this.features.set(4, features[4]);
+    private void updateFeatures(Feature feature1, Feature feature2, Feature feature3, Feature feature4, Feature feature5) {
+        this.features.set(0, feature1);
+        this.features.set(1, feature2);
+        this.features.set(2, feature3);
+        this.features.set(3, feature4);
+        this.features.set(4, feature5);
     }
 
     private void startFeatures() {
         features = new ArrayList<>();
         IntStream.range(0, 5).forEach(i -> {
-            features.add("");
+            features.add(new Feature(""));
         });
     }
 

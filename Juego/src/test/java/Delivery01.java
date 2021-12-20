@@ -7,6 +7,7 @@ import Readers.CityReader;
 import org.junit.jupiter.api.*;
 import org.junit.Test;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.stream.IntStream;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -17,9 +18,9 @@ public class Delivery01 {
     public void Case01RookieVisitsBankInMontreal() throws IOException {
         Coordinates coordinates = new Coordinates(45.50, -73.57);
         City montreal = new City("Montreal", coordinates);
-        Feature feature = new Feature("Female","Mountain Climbing","Brown","Jewelry","Limousine");
+
         Suspects suspects = new Suspects();
-        Suspect suspect = new Suspect("Merey Laroc","Female","Mountain Climbing","Brown","Jewelry","Limousine",feature);
+        Suspect suspect = new Suspect("Merey Laroc",new Feature("Female"),new Feature("Mountain Climbing"),new Feature("Brown"),new Feature("Jewelry"),new Feature("Limousine"));
         suspects.add(suspect);
         Clue clue = new Clue("Pista Banco Facil","Pista Banco Facil","Pista Banco Facil");
         Rookie rookie = new Rookie();
@@ -33,7 +34,7 @@ public class Delivery01 {
         montreal.setSuspect(suspect);
 
         rookie.travel(montreal);
-        Assertions.assertTrue(suspect.isGender("Female"));
+        Assertions.assertTrue(suspect.isGender(new Feature("Female")));
         Assertions.assertEquals(stolenItem.getName(),"Tesoro Nacional Montreal");
         Assertions.assertEquals(rookie.enter(bank),"Pista Banco Facil");
     }

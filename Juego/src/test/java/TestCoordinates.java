@@ -75,7 +75,7 @@ public class TestCoordinates {
         Assertions.assertEquals(cities.getStartCity(),lima);
 
         Suspects suspects = new Suspects();
-        Suspect suspect = spy(new Suspect("Merey Laroc", "Female", "Mountain Climbing", "Brown", "Jewelry", "Limousine"));
+        Suspect suspect = spy(new Suspect("Merey Laroc", new Feature("Female"), new Feature("Mountain Climbing"), new Feature("Brown"),new Feature("Jewelry"),new Feature( "Limousine")));
         suspects.add(suspect);
 
         cities.setSuspect(suspect);

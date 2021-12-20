@@ -1,5 +1,6 @@
 package MainObjects;
 
+import MainObjects.Buildings.Airport;
 import MainObjects.Buildings.Bank;
 import MainObjects.Buildings.Library;
 
@@ -32,12 +33,14 @@ public abstract class Police {
         this.timer = new Timer();
         this.warrant = false;
         this.casesWon = 0;
+        this.timesAttacked = 0;
         visitedCities = new Stack<>();
     }
 
     public abstract String enter(Bank bank);
 
     public abstract String enter(Library library);
+
 
     public void travel(City city){
         if (this.passedThrough(city))
@@ -66,11 +69,8 @@ public abstract class Police {
         this.currentCity = city;
     }
 
-    public void beAttacked(Knife knife){
-        if(timesAttacked >= 1)
-            timer.reduce(1);
-        else
-            timer.reduce(2);
+    public void beAttacked(Weapon weapon){
+        timesAttacked = weapon.hurt(timer,timesAttacked);
     }
 
     public void sleep() {
@@ -116,8 +116,8 @@ public abstract class Police {
         return currentCity.correctCity();
     };
 
-    public void investigate(String[] features) {
-        policeStation.obtainFeatures(features);
+    public void investigate( Feature feature1, Feature feature2, Feature feature3, Feature feature4, Feature feature5) {
+        policeStation.obtainFeatures( feature1, feature2, feature3, feature4, feature5);
         policeStation.findSuspects();
         this.emitWarrant(policeStation.getRobber());
     }

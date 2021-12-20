@@ -1,21 +1,25 @@
 package MainObjects;
 
+import java.util.Objects;
+
 public class Feature {
-    private String gender;
-    private String hobby;
-    private String hair;
-    private String accessory;
-    private String vehicle;
+    private String feature;
 
-    public Feature(String gender, String hobby, String hair, String accessory, String vehicle) {
-     this.gender = gender;
-     this.hobby = hobby;
-     this.hair = hair;
-     this.accessory = accessory;
-     this.vehicle = vehicle;
-   }
+    public Feature(String feature) {
+        this.feature = feature;
+    }
 
+    @Override
+    public boolean equals(Object feature) {
+        return (Objects.equals(this.feature, ((Feature) feature).getFeature()));
+    }
 
+    private String getFeature() {
+        return feature;
+    }
 
+    public boolean notDefinite() {
+        return feature.isEmpty();
+    }
 }
 

@@ -7,6 +7,7 @@ import Readers.SuspectReader;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
+import java.beans.FeatureDescriptor;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.stream.IntStream;
@@ -34,6 +35,8 @@ public class Delivery02 {
         Assertions.assertEquals(detective.getTimeLeftInHours(), 150);
         detective.sleep();
         Assertions.assertEquals(detective.getTimeLeftInHours(), 142);
+        detective.beAttacked(knife);
+        Assertions.assertEquals(detective.getTimeLeftInHours(), 141);
     }
 
     @Test
@@ -53,17 +56,17 @@ public class Delivery02 {
     @Test
     public void Case03SuspectsFilteredByClues() throws FileNotFoundException {
         Suspects suspects = new Suspects();
-        Suspect suspect = spy(new Suspect("Merey Laroc", "Female", "Brown", "Mountain Climbing", "Jewelry", "Limousine"));
+        Suspect suspect = spy(new Suspect("Merey Laroc", new Feature("Female"), new Feature("Mountain Climbing"),new Feature("Brown"), new Feature("Jewelry"), new Feature("Limousine")));
         suspects.add(suspect);
         PoliceStation policeStation = spy(new PoliceStation(suspects, planisphere));
-        policeStation.obtainFeatures(new String[]{"Female", "Brown", "", "", "Limousine"});
+        policeStation.obtainFeatures(new Feature("Female"),new Feature(""),new Feature("Brown"),new Feature(""), new Feature("Limousine"));
         ArrayList<Suspect> possibleSuspects = policeStation.findSuspects();
         Assertions.assertEquals(possibleSuspects.size(), 1);
     }
 
     @Test
     public void Case04ArrestMadeWithoutWarrantShouldFail() {
-        Suspect suspect = spy(new Suspect("Merey Laroc", "Female", "Mountain Climbing", "Brown", "Jewelry", "Limousine"));
+        Suspect suspect = spy(new Suspect("Merey Laroc", new Feature("Female"), new Feature("Mountain Climbing"),new Feature("Brown"), new Feature("Jewelry"), new Feature("Limousine")));
         suspect.convertToRobber();
         Police police = new Detective();
         police.arrest(suspect);
@@ -94,7 +97,7 @@ public class Delivery02 {
         Assertions.assertEquals(cities.getStartCity(),lima);
 
         Suspects suspects = new Suspects();
-        Suspect suspect = spy(new Suspect("Merey Laroc", "Female", "Mountain Climbing", "Brown", "Jewelry", "Limousine"));
+        Suspect suspect = spy(new Suspect("Merey Laroc", new Feature("Female"), new Feature("Mountain Climbing"), new Feature("Brown"), new Feature("Jewelry"), new Feature("Limousine")));
         suspects.add(suspect);
 
         cities.setSuspect(suspect);
@@ -107,7 +110,7 @@ public class Delivery02 {
             this.police = policeStation.assignCase(this.player);
             City endCity = suspect.getPath().get(suspect.getPath().size() - 1);
             this.police.travel(endCity);
-            this.police.investigate(new String[]{"Female", "", "Brown", "", "Limousine"});
+            this.police.investigate(new Feature("Female"),new Feature(""),new Feature("Brown"),new Feature(""),new Feature("Limousine"));
             this.police.arrest(suspects.getRobber());
             player.addFinishedCase(this.police.finishedCases());
         });
@@ -134,7 +137,7 @@ public class Delivery02 {
             //El policia deduce las pistas y viaja a la siguiente ciudad correctamente
         }
 
-        police.investigate(new String[]{"Female", "", "Brown", "", "Limousine"});
+        police.investigate(new Feature("Female"), new Feature(""), new Feature("Brown"), new Feature(""), new Feature("Limousine"));
         police.arrest(suspect);
         player.addFinishedCase(police.finishedCases());
 
