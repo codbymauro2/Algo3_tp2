@@ -12,14 +12,17 @@ public class Player {
 
     public Player(String name){
         this.name = name;
-        this.casesWon = 0;
-        this.difficulty = 0;
+        this.casesWon = 5;
+        this.difficulty = 5;
     }
 
     public String getName() {
         return name;
     }
 
+    public int getDifficulty(){
+        return difficulty;
+    }
 
     public int totalCasesWon() {
         return casesWon;

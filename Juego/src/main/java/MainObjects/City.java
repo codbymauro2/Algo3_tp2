@@ -3,7 +3,6 @@ import MainObjects.Buildings.Airport;
 import MainObjects.Buildings.Bank;
 import MainObjects.Buildings.Building;
 import MainObjects.Buildings.Library;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class City {
@@ -26,8 +25,8 @@ public class City {
     }
 
     @Override
-    public boolean equals(Object city){
-        return (Objects.equals(this.name, ((City) city).getName()));
+    public boolean equals(Object city) {
+        return (Objects.equals(this.name, ((City) city).getName()) && coordinates.equals(((City) city).getCoordinates()));
     }
 
     public String getName() {
@@ -50,8 +49,6 @@ public class City {
         this.nextCity = nextCity;
     }
 
-    public int distanceNexCity() { return coordinates.distance(nextCity.getCoordinates()); }
-
     private Coordinates getCoordinates() {return coordinates; }
 
     public void setSuspect(Suspect suspect) {
@@ -60,6 +57,9 @@ public class City {
 
     public boolean correctCity() { return suspect.passedThrough(this); }
 
+    public int calculateDistanceTo(City city) {
+        return coordinates.distanceKms(city.getCoordinates());
+    }
 }
 
 

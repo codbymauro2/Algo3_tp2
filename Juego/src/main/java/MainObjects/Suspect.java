@@ -9,52 +9,64 @@ import java.util.stream.IntStream;
 
 public class Suspect {
 
-    private String Name, Gender, Hobby, Hair, Accessory, Vehicle;
+    private String name, gender,hobby, accessory,vehicle,hair;
     private boolean isRobber, isArrested;
+    private Feature feature;
     private java.util.ArrayList<City> path;
 
-    public Suspect(String name, String gender, String hobby, String hair, String accessory, String vehicle) {
-        this.Name = name;
-        this.Gender = gender;
-        this.Hobby = hobby;
-        this.Hair = hair;
-        this.Accessory = accessory;
-        this.Vehicle = vehicle;
+    public Suspect(String name, String gender,String hair, String hobby, String accessory, String vehicle, Feature feature) {
+        this.name = name;
+        this.feature = feature;
+        this.gender = gender;
+        this.hair = hair;
+        this.accessory = accessory;
+        this.vehicle = vehicle;
+        this.hobby = hobby;
         this.isRobber = false;
         this.isArrested = false;
-        this.path = createPath();
+    }
+
+    public Suspect(String name, String gender, String hobby, String hair, String accessory, String vehicle) {
+        this.name = name;
+        this.gender = gender;
+        this.hair = hair;
+        this.accessory = accessory;
+        this.vehicle = vehicle;
+        this.hobby = hobby;
+        this.isRobber = false;
+        this.isArrested = false;
     }
 
     public Suspect(String[] array) {
-        this.Name = array[0];
-        this.Gender = array[1];
-        this.Hobby = array[2];
-        this.Accessory = array[3];
-        this.Vehicle = array[4];
+        this.name = array[0];
+        this.gender = array[1];
+        this.hobby = array[2];
+        this.accessory = array[3];
+        this.vehicle = array[4];
     }
 
     @Override
     public boolean equals(Object obj){
-        return this.Name.equals( ( (Suspect) obj).getName() );
+        return this.name.equals( ( (Suspect) obj).getName() );
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public boolean hasHair(String hair) {
-        return this.Hair.equals(hair);
+        return this.hair.equals(hair);
     }
 
     public boolean hasHobby(String hobby) {
-        return this.Hobby.equals(hobby);
+        return this.hobby.equals(hobby);
     }
 
-    public boolean isGender(String gender) { return this.Gender.equals(gender); }
+    public boolean isGender(String gender) { return this.gender.equals(gender); }
 
-    public boolean hasAccessory(String accessory) { return this.Accessory.equals(accessory); }
+    public boolean hasAccessory(String accessory) { return this.accessory.equals(accessory); }
 
-    public boolean hasVehicle(String vehicle) { return this.Vehicle.equals(vehicle); }
+    public boolean hasVehicle(String vehicle) { return this.vehicle.equals(vehicle); }
 
     public void convertToRobber() {
         this.isRobber = true;
@@ -75,23 +87,27 @@ public class Suspect {
         return city.equals(path.get(path.size() - 1));
     }
 
-    private ArrayList<City> createPath(Cities cities, City origin, int difficulty) {
+    public ArrayList<City> getPath(){
+        return path;
+    }
+
+    public void createPath(Cities cities, int difficulty) {
         ArrayList<City> path = new ArrayList<>();
-        cities.remove(origin);
+        City origin = cities.getStartCity();
         Random random = new Random();
-        int bound = difficulty - 1;
-        for (int i = 0; i < bound; i++) {
+        for (int i = 0; i < difficulty; i++) {
+            cities.remove(origin);
+            path.add(origin);
+            if (cities.size() == 0) break;
             int randomInt = random.nextInt(cities.size());
             City nextCity = cities.get(randomInt);
             origin.setNextCity(nextCity);
-            path.add(origin);
             origin = nextCity;
-            cities.remove(origin);
-        }        
+        }
         Coordinates coordinates = new Coordinates(0.00, 0.00);
         City suspectCurrenCity = new City("Ganador", coordinates);
         origin.setNextCity(suspectCurrenCity);
-        return path;
+        this.path = path;
     }
 
 }

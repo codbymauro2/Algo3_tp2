@@ -88,11 +88,12 @@ public class Suspects {
     }
 
 
-    public void randomSuspect() {
+    public void randomSuspect(Cities cities, int difficulty) {
       Random random = new Random();
       int randomInt = random.nextInt(suspectsList.size());
       this.robber = suspectsList.get(randomInt);
       this.robber.convertToRobber();
+      this.robber.createPath(cities, difficulty);
     }
 
     public Suspect getRobber() {

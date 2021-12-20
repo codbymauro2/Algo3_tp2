@@ -7,24 +7,15 @@ public class Feature {
     private String accessory;
     private String vehicle;
 
-    public void setHair(String hair) {
-        this.hair = hair;
-    }
+    public Feature(String gender, String hobby, String hair, String accessory, String vehicle) {
+     this.gender = gender;
+     this.hobby = hobby;
+     this.hair = hair;
+     this.accessory = accessory;
+     this.vehicle = vehicle;
+   }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
 
-    public void setAccessory(String accessory) {
-        this.accessory = accessory;
-    }
 
-    public void setVehicle(String vehicle) {
-        this.vehicle = vehicle;
-    }
-
-    public void setHobby(String hobby) {
-        this.hobby = hobby;
-    }
 }
 

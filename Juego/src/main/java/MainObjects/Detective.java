@@ -3,10 +3,11 @@ package MainObjects;
 import MainObjects.Buildings.Bank;
 import MainObjects.Buildings.Library;
 
-public class Detective extends Police{
+public class Detective extends Police {
 
     public Detective() {
         super();
+        this.velocityKmH = 1100;
     }
 
     public Detective(PoliceStation policeStation, Planisphere planisphere) {

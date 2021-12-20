@@ -1,4 +1,5 @@
 import Lists.Cities;
+import Lists.Suspects;
 import MainObjects.*;
 import MainObjects.Buildings.Bank;
 import MainObjects.Buildings.Library;
@@ -14,22 +15,27 @@ public class Delivery01 {
 
     @Test
     public void Case01RookieVisitsBankInMontreal() throws IOException {
-        Suspect suspect = new Suspect("Merey Laroc","Female","Mountain Climbing","Brown","Jewelry","Limousine");
+        Coordinates coordinates = new Coordinates(45.50, -73.57);
+        City montreal = new City("Montreal", coordinates);
+        Feature feature = new Feature("Female","Mountain Climbing","Brown","Jewelry","Limousine");
+        Suspects suspects = new Suspects();
+        Suspect suspect = new Suspect("Merey Laroc","Female","Mountain Climbing","Brown","Jewelry","Limousine",feature);
+        suspects.add(suspect);
         Clue clue = new Clue("Pista Banco Facil","Pista Banco Facil","Pista Banco Facil");
-        Rookie detective = new Rookie();
+        Rookie rookie = new Rookie();
         Bank bank = new Bank(clue);
         Cities cities = new Cities();
-        CityReader cityReader = new CityReader(cities);
+        cities.add(montreal);
         StolenItem stolenItem = new StolenItem("Tesoro Nacional Montreal","Comun","Montreal");
-        Coordinates coordinates = new Coordinates(19.43, -99.13);
-        City montreal = new City("Montreal", coordinates);
-        cityReader.read();
+        cities.startCity(stolenItem);
+        suspects.randomSuspect(cities, 5);
+        rookie.takeCase(montreal);
         montreal.setSuspect(suspect);
 
-        detective.travel(montreal);
+        rookie.travel(montreal);
         Assertions.assertTrue(suspect.isGender("Female"));
         Assertions.assertEquals(stolenItem.getName(),"Tesoro Nacional Montreal");
-        Assertions.assertEquals(detective.enter(bank),"No paso por Aca");
+        Assertions.assertEquals(rookie.enter(bank),"Pista Banco Facil");
     }
 
     @Test
@@ -59,7 +65,9 @@ public class Delivery01 {
     public void Case03DetectiveTravelsFromMontrealToMexico() throws IOException {
         Detective detective = new Detective();
         Coordinates coordinates = new Coordinates(45.50, -73.57);
+        City montreal = new City("Montreal", coordinates);
         City mexico = new City("Mexico", coordinates);
+        detective.setCurrentCity(montreal);
         Assertions.assertNotEquals(detective.getCurrentCity(),mexico);
         detective.travel(mexico);
         Assertions.assertEquals(detective.getCurrentCity(),mexico);

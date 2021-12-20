@@ -10,7 +10,7 @@ public abstract class Police {
 
     protected City currentCity;
     protected Planisphere planisphere;
-    protected int velocity, timesAttacked, casesWon;
+    protected int velocityKmH, timesAttacked, casesWon;
     protected Timer timer;
     protected PoliceStation policeStation;
     protected boolean warrant;
@@ -44,7 +44,13 @@ public abstract class Police {
             visitedCities.pop();
         else
             visitedCities.push(city);
+
+        this.reduceTime(city);
         currentCity = city;
+    }
+
+    private void reduceTime(City city) {
+        this.timer.reduce(this.velocityKmH * this.currentCity.calculateDistanceTo(city));
     }
 
     private boolean passedThrough(City city) {
@@ -54,6 +60,10 @@ public abstract class Police {
 
     public City getCurrentCity(){
         return currentCity;
+    }
+
+    public void setCurrentCity(City city) {
+        this.currentCity = city;
     }
 
     public void beAttacked(Knife knife){
@@ -81,7 +91,7 @@ public abstract class Police {
     }
 
     protected void emitWarrant(Suspect suspect){
-        if(policeStation.getPossibleSuspectsSize() == 1 /*&& suspect.isInCity(currentCity)*/){
+        if(policeStation.getPossibleSuspectsSize() == 1 && suspect.isInCity(currentCity)) {
             this.warrant = true;
             this.warrantSuspect = suspect;
         }
@@ -92,7 +102,7 @@ public abstract class Police {
     };
 
     public void arrest(Suspect suspect){
-        if(warrant && warrantSuspect.equals(suspect)){
+        if(warrant && warrantSuspect.equals(suspect)){;
             suspect.arrest();
             policeStation.completeCase();
         }

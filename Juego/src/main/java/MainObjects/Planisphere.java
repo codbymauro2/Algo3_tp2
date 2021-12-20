@@ -38,18 +38,19 @@ public class Planisphere {
         Stack<City> suspectCities = new Stack<>();
         allCities.remove(origin);
         Random random = new Random();
-        IntStream.range(0, difficulty - 1).forEach(i -> {
+        for (int i = 0; i < difficulty - 1; i++) {
+            if (allCities.size() == 0) break;
             int randomInt = random.nextInt(allCities.size());
             City nextCity = allCities.get(randomInt);
             origin.setNextCity(nextCity);
             suspectCities.push(origin);
             origin = nextCity;
             allCities.remove(origin);
-        });
+        }
         Coordinates coordinates = new Coordinates(0.00, 0.00);
         City suspectCurrenCity = new City("Ganador", coordinates);
         origin.setNextCity(suspectCurrenCity);
-        suspectCities.peek();
+        //suspectCities.peek();
         reverseStack(suspectCities);
         return suspectCities; 
     }

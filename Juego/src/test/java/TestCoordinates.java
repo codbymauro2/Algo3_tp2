@@ -26,14 +26,35 @@ public class TestCoordinates {
         Coordinates coordinates = new Coordinates(-54.807222,-68.304444); //Ushuaia
         Coordinates otherCoordinates = new Coordinates(-53.783333,-67.7); // Rio Grande
 
-        Assert.assertEquals(coordinates.distance(otherCoordinates),120);
+        Assertions.assertEquals(coordinates.distanceKms(otherCoordinates),120);
     }
 
-    public void TestPoliceGoesThroughCities() {
+    @Test
+    public void Test02TimeReducedCorrectly() {
+        Rookie rookie = new Rookie();
+        Detective detective = new Detective();
+        Coordinates montrealCoordinates = new Coordinates(45.50, -73.57);
+        Coordinates mexicoCoordinates = new Coordinates(19.43, -99.13);
+        City montreal = new City("Montreal", montrealCoordinates);
+        City mexico = new City("Mexico", mexicoCoordinates);
+
+        rookie.setCurrentCity(montreal);
+        rookie.travel(mexico);
+        detective.setCurrentCity(montreal);
+        detective.travel(mexico);
+
+        int distance = montreal.calculateDistanceTo(mexico);
+
+        Assertions.assertEquals(152 - (distance*900), rookie.getTimeLeftInHours());
+        Assertions.assertEquals(152 - (distance*1100), detective.getTimeLeftInHours());
+    }
+
+    @Test
+    public void Test03PoliceGoesThroughCities() {
 
 
         this.player = new Player("Mauro",6);
-
+        //this.police = new Investigator();
 
         Cities cities = new Cities();
         Coordinates coordinates = new Coordinates(19.43, -99.13);
@@ -58,8 +79,10 @@ public class TestCoordinates {
         suspects.add(suspect);
 
         cities.setSuspect(suspect);
-        suspects.randomSuspect();
-
+        suspects.randomSuspect(cities, 3);
+        suspects.getRobber().getPath().forEach(c -> {
+            System.out.println(c.getName());
+        });
 
 
     }

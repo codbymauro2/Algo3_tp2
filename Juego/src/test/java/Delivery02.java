@@ -1,7 +1,6 @@
 import Lists.Cities;
 import Lists.Suspects;
 import MainObjects.Buildings.Bank;
-import MainObjects.Buildings.Library;
 import MainObjects.*;
 import Readers.CityReader;
 import Readers.SuspectReader;
@@ -54,10 +53,10 @@ public class Delivery02 {
     @Test
     public void Case03SuspectsFilteredByClues() throws FileNotFoundException {
         Suspects suspects = new Suspects();
-        SuspectReader suspectReader = new SuspectReader(suspects);
-        suspectReader.read();
+        Suspect suspect = spy(new Suspect("Merey Laroc", "Female", "Brown", "Mountain Climbing", "Jewelry", "Limousine"));
+        suspects.add(suspect);
         PoliceStation policeStation = spy(new PoliceStation(suspects, planisphere));
-        policeStation.obtainFeatures(new String[]{"Female", "", "Brown", "", "Motorcycle"});
+        policeStation.obtainFeatures(new String[]{"Female", "Brown", "", "", "Limousine"});
         ArrayList<Suspect> possibleSuspects = policeStation.findSuspects();
         Assertions.assertEquals(possibleSuspects.size(), 1);
     }
@@ -99,13 +98,15 @@ public class Delivery02 {
         suspects.add(suspect);
 
         cities.setSuspect(suspect);
-        suspects.randomSuspect();
+        suspects.randomSuspect(cities, 5);
 
         Planisphere planisphere = new Planisphere(cities);
         PoliceStation policeStation = new PoliceStation(suspects, planisphere);
 
         IntStream.range(0, 6).forEach(i -> {
             this.police = policeStation.assignCase(this.player);
+            City endCity = suspect.getPath().get(suspect.getPath().size() - 1);
+            this.police.travel(endCity);
             this.police.investigate(new String[]{"Female", "", "Brown", "", "Limousine"});
             this.police.arrest(suspects.getRobber());
             player.addFinishedCase(this.police.finishedCases());
@@ -113,23 +114,27 @@ public class Delivery02 {
 
         Assertions.assertEquals(12,player.totalCasesWon());
         Assertions.assertNotEquals(Detective.class,police.getClass());
+
+        cities.add(lima);
+        cities.add(mexico);
+        cities.add(montreal);
+        cities.add(baghdad);
+        cities.add(beijing);
+
         this.police = policeStation.assignCase(this.player);
         police.takeCase(cities.find(stolenItem.origin()));
+        police.travel(lima);
 
-        Clue clueLimaBank = new Clue("Pista de banco facil", "Pista de banco media", "Pista de banco dificil");
-        Bank bankLima = new Bank(clueLimaBank);
-        police.enter(bankLima);
-        //El policia deduce las pistas y viaja a la siguiente ciudad correctamente
-
-        police.travel(planisphere.getCity("Mexico"));
-
-        Clue clueMexicoLibrary = new Clue("Pista de library facil", "Pista de library media", "Pista de library dificil");
-        Library libraryMexico = new Library(clueMexicoLibrary);
-        police.enter(libraryMexico);
-        //El policia deduce las pistas y viaja a la siguiente ciudad correctamente
+        for (int i = 0; i < 5; i++) {
+            Clue clueBank = new Clue("Pista de banco facil", "Pista de banco media", "Pista de banco dificil");
+            Bank bank = new Bank(clueBank);
+            police.enter(bank);
+            City nextCity = suspect.getPath().get(i);
+            police.travel(nextCity);
+            //El policia deduce las pistas y viaja a la siguiente ciudad correctamente
+        }
 
         police.investigate(new String[]{"Female", "", "Brown", "", "Limousine"});
-
         police.arrest(suspect);
         player.addFinishedCase(police.finishedCases());
 

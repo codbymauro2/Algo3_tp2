@@ -7,6 +7,7 @@ public class Rookie extends Police {
 
     public Rookie() {
         super();
+        this.velocityKmH = 900;
     }
 
     public Rookie(PoliceStation policeStation, Planisphere planisphere) {

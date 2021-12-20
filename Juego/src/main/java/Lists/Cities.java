@@ -21,6 +21,11 @@ public class Cities {
         });
     }
 
+    public void printCities() {
+        cities.forEach(c -> {
+            System.out.println(c.getName());
+        });
+    }
     public void add(City city) {
         cities.add(city);
     }

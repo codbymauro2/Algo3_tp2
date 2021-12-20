@@ -3,7 +3,7 @@ package MainObjects;
 import MainObjects.Buildings.Bank;
 import MainObjects.Buildings.Library;
 
-public class Investigator extends Police{
+public class Investigator extends Police {
 
     public Investigator(PoliceStation policeStation, Planisphere planisphere) {
         super(policeStation,planisphere);
@@ -11,6 +11,7 @@ public class Investigator extends Police{
 
     public Investigator() {
         super();
+        this.velocityKmH = 1300;
     }
 
     @Override
