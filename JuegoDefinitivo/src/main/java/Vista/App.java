@@ -22,13 +22,13 @@ public class App extends Application {
         Game game = createModel();
 
         PrincipalContainer principalContainer = new PrincipalContainer(stage, game);
-        Scene gameScene = new Scene(principalContainer, 640, 480);
+        Scene gameScene = new Scene(principalContainer, 1180, 660);
 
         ApplicationOnKeyPressEventHandler ApplicationOnKeyPressEventHandler = new ApplicationOnKeyPressEventHandler(stage, principalContainer.getMenuBar());
         gameScene.setOnKeyPressed(ApplicationOnKeyPressEventHandler);
 
         WelcomeContainer welcomeContainer = new WelcomeContainer(stage, gameScene);
-        Scene welcomeScene = new Scene(welcomeContainer, 640, 480);
+        Scene welcomeScene = new Scene(welcomeContainer, 1180, 660);
 
         stage.setScene(welcomeScene);
 

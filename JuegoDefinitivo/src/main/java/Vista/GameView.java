@@ -2,28 +2,26 @@ package Vista;
 
 import Modelo.MainObjects.Game;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.paint.Color;
-
-import java.awt.*;
+import javafx.stage.Stage;
 
 public class GameView {
 
     private Canvas canvas;
     private Game game;
+    private Stage stage;
     
     public GameView(Game game, Canvas canvasCentral) {
-
-
+        this.canvas = canvasCentral;
+        this.game = game;
     }
 
-    public void clean() {
-//        canvas.getGraphicsContext2D().setFill(Color.BEIGE);
-//        canvas.getGraphicsContext2D().fillRect(0, 0, 460, 220);
+    public GameView(Game game, Stage stage) {
+        this.stage = stage;
+        this.game = game;
     }
 
     public void paint() {
-//        this.clean();
-//        Label label = new Label(game.getPlayerName());
+
     }
 
     public void update() {

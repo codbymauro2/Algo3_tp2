@@ -26,5 +26,6 @@ public class EnterNameEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         game.setPlayerName(playerName.getText());
+        System.out.println(game.getPlayerName());
     }
 }
