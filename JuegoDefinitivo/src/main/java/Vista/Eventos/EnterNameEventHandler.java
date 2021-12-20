@@ -4,6 +4,7 @@ import Modelo.MainObjects.Game;
 import Vista.GameView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -26,6 +27,8 @@ public class EnterNameEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event) {
         game.setPlayerName(playerName.getText());
-        System.out.println(game.getPlayerName());
+        String message = "Hola " + game.getPlayerName() + ", han robado el tesoro, y tu mision es recuperarlo";
+        //Label missionMessage = new Label(message);
+        System.out.println(message);
     }
 }

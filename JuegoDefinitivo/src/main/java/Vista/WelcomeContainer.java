@@ -32,7 +32,7 @@ public class WelcomeContainer extends VBox {
         this.setSpacing(20);
         this.setPadding(new Insets(20));
         Image image = new Image("main.png");
-        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         this.setBackground(new Background(backgroundImage));
 
         Button enterButton = new Button();

@@ -89,7 +89,7 @@ public class PrincipalContainer extends BorderPane {
         enterName.setPrefSize(400,490);
         enterName.setAlignment(Pos.TOP_CENTER);
         enterName.setPadding(new Insets(0,10,0,10));
-        Label labelName = new Label("Ingrese su nombre:");
+        Label labelName = new Label("Detective al teclado, por favor ingrese su nombre:");
         TextField playerTextField = new TextField();
         EnterNameEventHandler enterNameEventHandler = new EnterNameEventHandler(gameView,game,playerTextField);
         playerTextField.setOnAction(enterNameEventHandler);
