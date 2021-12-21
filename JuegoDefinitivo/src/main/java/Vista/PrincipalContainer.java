@@ -98,6 +98,15 @@ public class PrincipalContainer extends BorderPane {
         timeVbox.setPrefSize(420,80);
         timeVbox.setBackground(new Background(new BackgroundFill(Paint.valueOf("black"), CornerRadii.EMPTY, Insets.EMPTY)));
         timeVbox.setBorder(new Border(new BorderStroke(Paint.valueOf("white"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5))));
+        Label textTime = new Label(game.time());
+        Label textSpace = new Label(game.space());
+        textSpace.setTextFill(Color.web("#fcfcfc", 0.9));
+        textTime.setTextFill(Color.web("#fcfcfc", 0.9));
+        textSpace.setAlignment(Pos.TOP_CENTER);
+        textTime.setAlignment(Pos.TOP_CENTER);
+        textSpace.setFont(Font.font ("Verdana", 20));
+        textTime.setFont(Font.font ("Verdana", 20));
+        timeVbox.getChildren().addAll(textSpace, textTime);
 
         // INGRESO DE NOMBRE
         VBox enterName = new VBox(5);

@@ -72,4 +72,18 @@ public class Game {
         return this.stolenItem.getName();
     }
 
+    public String time() {
+        if (this.police == null){
+            return "9h00";
+        }
+        return String.valueOf(this.police.getTimeLeftInHours());
+
+    }
+
+    public String space() {
+        if (this.police == null){
+            return "Cuartel General";
+        }
+        return police.getCurrentCity().getName();
+    }
 }
