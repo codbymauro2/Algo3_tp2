@@ -4,6 +4,7 @@ import Modelo.MainObjects.Game;
 import Vista.Eventos.DirectionButtonHandler;
 import Vista.Eventos.EnterNameEventHandler;
 import Vista.Eventos.MoveButtonHandler;
+import Vista.Eventos.TravelButtonEventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -18,9 +19,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.scene.paint.*;
 
-import java.awt.*;
 
 
 public class PrincipalContainer extends BorderPane {
@@ -69,6 +71,17 @@ public class PrincipalContainer extends BorderPane {
         screen.setPrefSize(813,682);
         screen.setBackground(new Background(new BackgroundFill(Paint.valueOf("black"), CornerRadii.EMPTY, Insets.EMPTY)));
         screen.setBorder(new Border(new BorderStroke(Paint.valueOf("white"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5))));
+                        // Aca seteo la etiqueta nomás, podemos ver de reubicar todo esto en una función
+        Label knownPlayer = new Label();
+        knownPlayer.setMinWidth(75);
+        knownPlayer.setMinHeight(75);
+        knownPlayer.setWrapText(true);
+        double fontSize = 30.0;
+        knownPlayer.setFont(new Font(fontSize));
+        knownPlayer.setTextFill(Color.color(1,0,0));
+        knownPlayer.setPadding(new Insets(0,10,0,10));
+                        // Hasta acá
+        screen.getChildren().addAll(knownPlayer);
 
         // BOTONES
         HBox buttonBar = new HBox(20);
@@ -93,13 +106,16 @@ public class PrincipalContainer extends BorderPane {
         enterName.setPadding(new Insets(0,10,0,10));
         Label labelName = new Label("Detective al teclado, por favor indentifíquese:");
         TextField playerTextField = new TextField();
-        Label knownPlayer = new Label();
-        knownPlayer.setPadding(new Insets(0,10,0,10));
+
+        // EVENTOS DE LOS BOTONES
+        TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(screen);
+        travelButton.setOnAction(travelButtonEventHandler);
+
+
         EnterNameEventHandler enterNameEventHandler = new EnterNameEventHandler(gameView, game, playerTextField, knownPlayer);
         playerTextField.setOnAction(enterNameEventHandler);
 
-
-        enterName.getChildren().addAll(labelName,playerTextField,knownPlayer);
+        enterName.getChildren().addAll(labelName,playerTextField);
 
         canvasCentral = new Canvas(200, 200);
         gameView = new GameView(game, canvasCentral);
