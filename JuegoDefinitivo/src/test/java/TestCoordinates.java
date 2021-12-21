@@ -54,7 +54,6 @@ public class TestCoordinates {
 
 
         this.player = new Player("Mauro",6);
-        //this.police = new Investigator();
 
         Cities cities = new Cities();
         Coordinates coordinates = new Coordinates(19.43, -99.13);
@@ -79,7 +78,7 @@ public class TestCoordinates {
         suspects.add(suspect);
 
         cities.setSuspect(suspect);
-        suspects.randomSuspect(cities, 3);
+        suspects.randomSuspect(cities, 5);
         suspects.getRobber().getPath().forEach(c -> {
             System.out.println(c.getName());
         });

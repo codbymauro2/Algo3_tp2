@@ -44,6 +44,7 @@ public class Game {
     public void initializeCase() {
         this.police = this.policeStation.assignRange(this.player);
         this.stolenItem = stolenItems.assign(police.getStolenItemDifficulty());
+        this.cities.startCity(stolenItem);
         this.police.setCurrentCity(cities.find(stolenItem.city));
         this.suspects.randomSuspect(cities, this.police.getCitiesToTravel());
         this.thief = this.suspects.getRobber();
