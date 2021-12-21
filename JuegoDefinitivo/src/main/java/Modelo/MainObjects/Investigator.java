@@ -10,12 +10,14 @@ public class Investigator extends Police {
         super(policeStation);
         this.velocityKmH = 1300;
         this.stolenItemDifficulty = 2;
+        this.citiesToTravel = 5;
     }
 
     public Investigator() {
         super();
         this.velocityKmH = 1300;
         this.stolenItemDifficulty = 2;
+        this.citiesToTravel = 5;
     }
 
 

@@ -54,7 +54,6 @@ public class Suspects {
         return aux;
     }
 
-
     private ArrayList<Suspect> filterByAccessory(Feature feature) {
         ArrayList<Suspect> aux = new ArrayList<>();
         possibleSuspectsList.forEach(s -> {
@@ -88,13 +87,12 @@ public class Suspects {
         return  possibleSuspectsList;
     }
 
-
-    public void randomSuspect(Cities cities, int difficulty) {
+    public void randomSuspect(Cities cities, int citiesToTravel) {
         Random random = new Random();
         int randomInt = random.nextInt(suspectsList.size());
         this.robber = suspectsList.get(randomInt);
         this.robber.convertToRobber();
-        this.robber.createPath(cities, difficulty);
+        this.robber.createPath(cities, citiesToTravel);
     }
 
     public Suspect getRobber() {

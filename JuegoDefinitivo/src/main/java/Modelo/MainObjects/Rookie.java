@@ -10,12 +10,14 @@ public class Rookie extends Police {
         super();
         this.velocityKmH = 900;
         this.stolenItemDifficulty = 1;
+        this.citiesToTravel = 4;
     }
 
     public Rookie(PoliceStation policeStation) {
         super(policeStation);
         this.velocityKmH = 900;
         this.stolenItemDifficulty = 1;
+        this.citiesToTravel = 4;
     }
 
     @Override

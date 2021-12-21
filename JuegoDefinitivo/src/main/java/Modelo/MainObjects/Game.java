@@ -20,13 +20,13 @@ public class Game {
     private SuspectReader suspectReader;
     private Players players;
     private PlayerReader playerReader;
+    private Suspect thief;
 
 
     public Game() throws FileNotFoundException {
         players = new Players();
         playerReader = new PlayerReader(players);
     }
-
 
     public void setPlayer(String name) {
         this.player = this.players.getPlayer(name);
@@ -45,6 +45,8 @@ public class Game {
         this.police = this.policeStation.assignRange(this.player);
         this.stolenItem = stolenItems.assign(police.getStolenItemDifficulty());
         this.police.setCurrentCity(cities.find(stolenItem.city));
+        this.suspects.randomSuspect(cities, this.police.getCitiesToTravel());
+        this.thief = this.suspects.getRobber();
     }
 
 
@@ -72,4 +74,7 @@ public class Game {
         return this.stolenItem.getName();
     }
 
+    public String getThiefGender() {
+        return this.thief.getGender();
+    }
 }

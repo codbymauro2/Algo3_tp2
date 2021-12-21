@@ -13,14 +13,15 @@ public class EnterNameEventHandler implements EventHandler<ActionEvent> {
     private GameView gameView;
     private Game game;
     private TextField playerName;
-    private Label recognizedPlayer;
+    private Label recognizedPlayer, thiefInformation;
 
 
-    public EnterNameEventHandler(GameView gameView, Game game, TextField playerTextField, Label recognizedPlayerMessage){
+    public EnterNameEventHandler(GameView gameView, Game game, TextField playerTextField, Label recognizedPlayerMessage, Label thiefInformation){
         this.gameView = gameView;
         this.game = game;
         this.playerName = playerTextField;
         this.recognizedPlayer = recognizedPlayerMessage;
+        this.thiefInformation = thiefInformation;
     }
 
 
@@ -28,7 +29,9 @@ public class EnterNameEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
         game.setPlayer(playerName.getText());
         game.initializeCase();
-        String message = "Hola " + game.getPlayerName() + ", han robado el " + game.getStolenItemName() + ",y tu mision es recuperarlo";
-        recognizedPlayer.setText(message);
+        String playerMessage = "Hola " + game.getPlayerName() + ", han robado el " + game.getStolenItemName() + ",y tu mision es recuperarlo";
+        recognizedPlayer.setText(playerMessage);
+        String thiefInfoMessage = "El sospechoso en la escena del crimen fue reconocido como un " + game.getThiefGender();
+        thiefInformation.setText(thiefInfoMessage);
     }
 }

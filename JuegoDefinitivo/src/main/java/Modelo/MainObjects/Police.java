@@ -9,7 +9,7 @@ import java.util.Stack;
 public abstract class Police {
 
     protected City currentCity;
-    protected int velocityKmH, timesAttacked, casesWon, stolenItemDifficulty;
+    protected int velocityKmH, timesAttacked, casesWon, stolenItemDifficulty, citiesToTravel;
     protected Timer timer;
     protected PoliceStation policeStation;
     protected boolean warrant;
@@ -121,5 +121,9 @@ public abstract class Police {
         policeStation.obtainFeatures( feature1, feature2, feature3, feature4, feature5);
         policeStation.findSuspects();
         this.emitWarrant(policeStation.getRobber());
+    }
+
+    public int getCitiesToTravel(){
+        return citiesToTravel;
     }
 }

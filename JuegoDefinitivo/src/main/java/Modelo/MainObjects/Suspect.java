@@ -72,11 +72,12 @@ public class Suspect {
         return path;
     }
 
-    public void createPath(Cities cities, int difficulty) {
+    public void createPath(Cities cities, int citiesToTravel) {
         ArrayList<City> path = new ArrayList<>();
         City origin = cities.getStartCity();
         Random random = new Random();
-        for (int i = 0; i < difficulty; i++) {
+        System.out.println("CANTIDAD DE CIUDADES A RECORRER: " + citiesToTravel);
+        for (int i = 0; i < citiesToTravel; i++) {
             cities.remove(origin);
             path.add(origin);
             if (cities.size() == 0) break;
@@ -93,5 +94,9 @@ public class Suspect {
 
     public City getNextCity(City city) {
         return path.get(path.indexOf(city) + 1);
+    }
+
+    public String getGender() {
+        return this.gender;
     }
 }

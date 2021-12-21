@@ -62,6 +62,9 @@ public class PrincipalContainer extends BorderPane {
         Button enterBuildingButton = new Button("",new ImageView(new Image("enterButton.png")));
         enterBuildingButton.setPrefSize(128,113);
 
+        // PAISES A VIAJAR
+
+
 
         // CONTENEDOR PANTALLA/BOTONES
         VBox vRightContainer = new VBox(0);
@@ -81,7 +84,16 @@ public class PrincipalContainer extends BorderPane {
         knownPlayer.setTextFill(Color.color(1,0,0));
         knownPlayer.setPadding(new Insets(0,10,0,10));
                         // Hasta acá
-        screen.getChildren().addAll(knownPlayer);
+                        // Ahora seteo la etiqueta que nos va a decir la primera información del ladrón
+        Label thiefInformation = new Label();
+        thiefInformation.setMinWidth(75);
+        thiefInformation.setMinHeight(75);
+        thiefInformation.setWrapText(true);
+        thiefInformation.setFont(new Font(fontSize));
+        thiefInformation.setTextFill(Color.color(1,0,0));
+        thiefInformation.setPadding(new Insets(0,10,0,10));
+                        // Hasta acá
+        screen.getChildren().addAll(knownPlayer, thiefInformation);
 
         // BOTONES
         HBox buttonBar = new HBox(20);
@@ -112,7 +124,7 @@ public class PrincipalContainer extends BorderPane {
         travelButton.setOnAction(travelButtonEventHandler);
 
 
-        EnterNameEventHandler enterNameEventHandler = new EnterNameEventHandler(gameView, game, playerTextField, knownPlayer);
+        EnterNameEventHandler enterNameEventHandler = new EnterNameEventHandler(gameView, game, playerTextField, knownPlayer, thiefInformation);
         playerTextField.setOnAction(enterNameEventHandler);
 
         enterName.getChildren().addAll(labelName,playerTextField);

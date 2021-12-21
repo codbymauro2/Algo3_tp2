@@ -11,12 +11,14 @@ public class Detective extends Police {
         super();
         this.velocityKmH = 1100;
         this.stolenItemDifficulty = 2;
+        this.citiesToTravel = 5;
     }
 
     public Detective(PoliceStation policeStation) {
         super(policeStation);
         this.velocityKmH = 1100;
         this.stolenItemDifficulty = 2;
+        this.citiesToTravel = 5;
     }
 
     @Override
