@@ -64,12 +64,6 @@ public class Cities {
     }
 
     public ArrayList<City> getPossibleCities(Police police) {
-        //ciudad actual, ciudad anterior, lista del ladrón (ciudades correctas), cities (ciudades incorrectas)
-        //n = 0
-        //citiesToShow.add(pila.verTope()); n++
-        //if currentCity in correctCities {citiesToShow.add(correctCities(currentCity + 1))}; n++
-        // citiesToShow.add(random incorrectCity) * (4 - n)
-
         City currentCity = police.getCurrentCity();
         City previousCity = police.previousCity();
         Suspect suspect = currentCity.getSuspect();

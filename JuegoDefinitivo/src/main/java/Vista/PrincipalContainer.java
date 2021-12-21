@@ -1,5 +1,6 @@
 package Vista;
 
+import Modelo.MainObjects.City;
 import Modelo.MainObjects.Game;
 import Vista.Eventos.DirectionButtonHandler;
 import Vista.Eventos.EnterNameEventHandler;
@@ -23,6 +24,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.paint.*;
 
+import java.util.ArrayList;
 
 
 public class PrincipalContainer extends BorderPane {
@@ -128,15 +130,29 @@ public class PrincipalContainer extends BorderPane {
         Label labelName = new Label("Detective al teclado, por favor indentifíquese:");
         TextField playerTextField = new TextField();
 
-        // EVENTOS DE LOS BOTONES
-        TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(screen);
-        travelButton.setOnAction(travelButtonEventHandler);
-
-
         EnterNameEventHandler enterNameEventHandler = new EnterNameEventHandler(gameView, game, playerTextField, knownPlayer, thiefInformation);
         playerTextField.setOnAction(enterNameEventHandler);
 
         enterName.getChildren().addAll(labelName,playerTextField);
+
+        //POSIBLES CIUDADES A VIAJAR
+        HBox citiesBox = new HBox(5);
+        citiesBox.setPrefSize(400,490);
+        citiesBox.setAlignment(Pos.TOP_CENTER);
+        citiesBox.setPadding(new Insets(0,10,0,10));
+        Button countryToChoose1 = new Button();
+        Button countryToChoose2 = new Button();
+        Button countryToChoose3 = new Button();
+        Button countryToChoose4 = new Button();
+        countryToChoose1.setPrefSize(100,50);
+        countryToChoose2.setPrefSize(100,50);
+        countryToChoose3.setPrefSize(100,50);
+        countryToChoose4.setPrefSize(100,50);
+
+
+
+
+
 
         canvasCentral = new Canvas(200, 200);
         gameView = new GameView(game, canvasCentral);
@@ -164,6 +180,12 @@ public class PrincipalContainer extends BorderPane {
         centralContainer.setAlignment(Pos.CENTER);
         centralContainer.setSpacing(20);
         centralContainer.setPadding(new Insets(25));
+
+
+        // EVENTOS DE LOS BOTONES
+        TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(screen, enterName, citiesBox, countryToChoose1, countryToChoose2, countryToChoose3, countryToChoose4, game);
+        travelButton.setOnAction(travelButtonEventHandler);
+
 
         this.setCenter(centralContainer);
     }

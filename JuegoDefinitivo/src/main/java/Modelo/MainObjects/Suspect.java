@@ -80,8 +80,8 @@ public class Suspect {
     public void createPath(Cities cities, int citiesToTravel) {
         ArrayList<City> path = new ArrayList<>();
         City origin = cities.getStartCity();
+        origin.setSuspect(this);
         Random random = new Random();
-        System.out.println("CANTIDAD DE CIUDADES A RECORRER: " + citiesToTravel);
         for (int i = 0; i < citiesToTravel; i++) {
             cities.remove(origin);
             path.add(origin);
@@ -90,6 +90,7 @@ public class Suspect {
             City nextCity = cities.get(randomInt);
             origin.setNextCity(nextCity);
             origin = nextCity;
+            origin.setSuspect(this);
         }
         Coordinates coordinates = new Coordinates(0.00, 0.00);
         City suspectCurrenCity = new City("Ganador", coordinates);

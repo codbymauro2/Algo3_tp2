@@ -3,7 +3,7 @@
     "name":"NickBrunch",
     "features":
     [
-        {"element": "Male"},
+        {"element": "Masculino"},
         {"element": "MountainClimbing"},
         {"element": "Black"},
         {"element": "Ring"},
@@ -14,7 +14,7 @@
         "name":"Natalia",
         "features":
         [
-            {"element": "Female"},
+            {"element": "Femenino"},
             {"element": "MountainClimbing"},
             {"element": "Brown"},
             {"element": "Jewelry"},
@@ -25,7 +25,7 @@
         "name":"Merey Laroc",
         "features":
         [
-            {"element": "Female"},
+            {"element": "Femenino"},
             {"element": "MountainClimbing"},
             {"element": "Brown"},
             {"element": "Jewelry"},

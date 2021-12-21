@@ -5,6 +5,7 @@ import Modelo.Readers.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class Game {
 
@@ -48,6 +49,8 @@ public class Game {
         this.police.setCurrentCity(cities.find(stolenItem.city));
         this.suspects.randomSuspect(cities, this.police.getCitiesToTravel());
         this.thief = this.suspects.getRobber();
+        this.cities.setSuspect(this.thief);
+        System.out.println(this.thief.getPath().size());
     }
 
 
@@ -91,5 +94,9 @@ public class Game {
             return "Cuartel General";
         }
         return police.getCurrentCity().getName();
+    }
+
+    public ArrayList<City> getTravelCities() {
+        return this.cities.getPossibleCities(this.police);
     }
 }
