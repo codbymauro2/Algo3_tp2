@@ -10,6 +10,7 @@ public class Sergeant extends Police {
         super(policeStation);
         this.velocityKmH = 1500;
         this.stolenItemDifficulty = 3;
+        this.citiesToTravel = 7;
     }
 
 

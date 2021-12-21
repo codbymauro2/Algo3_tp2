@@ -222,6 +222,102 @@
                 "hard": "Pista dificil de airport de Rusia"
             }
         }
+    },
+    {
+        "name": "Brasilia",
+
+        "coordinates": {
+            "latitude": 38.32,
+            "longitude": 44.42
+        },
+
+        "bank": {
+            "clues":{
+                "easy": "Pista facil de bank de Brasilia",
+                "media": "Pista media de bank de Brasilia",
+                "hard": "Pista dificil de bank de Brasilia"
+            }
+        },
+
+        "port": {
+            "clues":  {
+                "easy": "Pista facil de port de Brasilia",
+                "medium": "Pista medio del port de Brasilia",
+                "hard": "Pista dificil de port de Brasilia"
+            }
+        },
+
+        "airport": {
+            "clues": {
+                "easy": "Pista facil del aeropuerto de Brasilia",
+                "medium": "Pista media del aeropuerto de Brasilia",
+                "hard": "Pista dificil de airport de Brasilia"
+            }
+        }
+    },
+    {
+        "name": "Washington",
+
+        "coordinates": {
+            "latitude": 21.32,
+            "longitude": 42.32
+        },
+
+        "bank": {
+            "clues":{
+                "easy": "Pista facil de bank de Washington",
+                "media": "Pista media de bank de Washington",
+                "hard": "Pista dificil de bank de Washington"
+            }
+        },
+
+        "port": {
+            "clues":  {
+                "easy": "Pista facil de port de Washington",
+                "medium": "Pista medio del port de Washington",
+                "hard": "Pista dificil de port de Washington"
+            }
+        },
+
+        "airport": {
+            "clues": {
+                "easy": "Pista facil del aeropuerto de Washington",
+                "medium": "Pista media del aeropuerto de Washington",
+                "hard": "Pista dificil de airport de Washington"
+            }
+        }
+    },
+    {
+        "name": "Londres",
+
+        "coordinates": {
+            "latitude": 12.32,
+            "longitude": 99.32
+        },
+
+        "bank": {
+            "clues":{
+                "easy": "Pista facil de bank de Londres",
+                "media": "Pista media de bank de Londres",
+                "hard": "Pista dificil de bank de Londres"
+            }
+        },
+
+        "port": {
+            "clues":  {
+                "easy": "Pista facil de port de Londres",
+                "medium": "Pista medio del port de Londres",
+                "hard": "Pista dificil de port de Londres"
+            }
+        },
+
+        "airport": {
+            "clues": {
+                "easy": "Pista facil del aeropuerto de Londres",
+                "medium": "Pista media del aeropuerto de Londres",
+                "hard": "Pista dificil de airport de Londres"
+            }
+        }
     }
 
 ]

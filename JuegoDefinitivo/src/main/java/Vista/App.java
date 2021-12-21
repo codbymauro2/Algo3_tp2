@@ -31,7 +31,6 @@ public class App extends Application {
         Scene welcomeScene = new Scene(welcomeContainer, 1180, 660);
 
         stage.setScene(welcomeScene);
-
         stage.show();
 
     }

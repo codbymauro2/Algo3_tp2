@@ -3,22 +3,22 @@ package Modelo.MainObjects;
 import java.util.Objects;
 
 public class Feature {
-    private String feature;
+    private String element;
 
     public Feature(String feature) {
-        this.feature = feature;
+        this.element = feature;
     }
 
     @Override
     public boolean equals(Object feature) {
-        return (Objects.equals(this.feature, ((Feature) feature).getFeature()));
+        return (Objects.equals(this.element, ((Feature) feature).getFeature()));
     }
 
-    private String getFeature() {
-        return feature;
+    public String getFeature() {
+        return element;
     }
 
     public boolean notDefinite() {
-        return feature.isEmpty();
+        return element.isEmpty();
     }
 }

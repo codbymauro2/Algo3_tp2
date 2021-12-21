@@ -9,19 +9,24 @@ import java.util.stream.IntStream;
 
 public class Suspect {
 
-    private String name, gender,hobby, accessory,vehicle,hair;
+    private String name, gender, hobby, hair, accessory, vehicle;
     private ArrayList<Feature> features;
     private boolean isRobber, isArrested;
     private java.util.ArrayList<City> path;
+    private final int GENDER = 0, HOBBY = 1, HAIR = 2, ACCESSORY = 3, VEHICLE = 4;
 
-    public Suspect(String name, Feature feature1, Feature feature2, Feature feature3, Feature feature4, Feature feature5) {
+    public Suspect(String name, Feature gender, Feature hobby, Feature hair, Feature accessory, Feature vehicle) {
         this.name = name;
         this.features = new ArrayList<>();
-        this.features.add(feature1);
-        this.features.add(feature2);
-        this.features.add(feature3);
-        this.features.add(feature4);
-        this.features.add(feature5);
+        this.features.add(gender);
+        this.features.add(hobby);
+        this.features.add(hair);
+        this.features.add(accessory);
+        this.features.add(vehicle);
+        this.isRobber = false;
+        this.isArrested = false;
+    }
+    public Suspect() {
         this.isRobber = false;
         this.isArrested = false;
     }
@@ -72,11 +77,12 @@ public class Suspect {
         return path;
     }
 
-    public void createPath(Cities cities, int difficulty) {
+    public void createPath(Cities cities, int citiesToTravel) {
         ArrayList<City> path = new ArrayList<>();
         City origin = cities.getStartCity();
         Random random = new Random();
-        for (int i = 0; i < difficulty; i++) {
+        System.out.println("CANTIDAD DE CIUDADES A RECORRER: " + citiesToTravel);
+        for (int i = 0; i < citiesToTravel; i++) {
             cities.remove(origin);
             path.add(origin);
             if (cities.size() == 0) break;
@@ -93,5 +99,22 @@ public class Suspect {
 
     public City getNextCity(City city) {
         return path.get(path.indexOf(city) + 1);
+    }
+
+    public String getGender() {
+        return this.features.get(0).getFeature();
+    }
+
+    private void createFeatures() {
+        Feature gender = new Feature(this.gender);
+        Feature hobby = new Feature(this.hobby);
+        Feature hair = new Feature(this.hair);
+        Feature accessory = new Feature(this.accessory);
+        Feature vehicle = new Feature(this.vehicle);
+        features.add(gender);
+        features.add(hobby);
+        features.add(hair);
+        features.add(accessory);
+        features.add(vehicle);
     }
 }

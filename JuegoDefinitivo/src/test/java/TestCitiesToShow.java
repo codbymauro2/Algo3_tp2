@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import static org.mockito.Mockito.spy;
 
 public class TestCitiesToShow {
+
+
     public Cities cityBuilder() {
         Cities cities = new Cities();
         Coordinates coordinates = new Coordinates(45.50, -73.57);
@@ -88,4 +90,5 @@ public class TestCitiesToShow {
             Assertions.assertFalse(suspect.getPath().contains(c));
         });
      }
+
 }
