@@ -164,9 +164,5 @@ public class PrincipalContainer extends BorderPane {
         return menuBar;
     }
 
-    public Game getGame(){
-        return this.game;
-    }
-
 }
 

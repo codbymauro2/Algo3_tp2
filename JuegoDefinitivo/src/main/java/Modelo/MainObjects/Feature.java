@@ -14,7 +14,7 @@ public class Feature {
         return (Objects.equals(this.feature, ((Feature) feature).getFeature()));
     }
 
-    private String getFeature() {
+    public String getFeature() {
         return feature;
     }
 

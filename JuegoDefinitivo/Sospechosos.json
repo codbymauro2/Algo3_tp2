@@ -1,26 +1,29 @@
 [
     {
-        "Name": "Merey Laroc",
-        "Gender": "Female",
-        "Hobby": "Mountain Climbing",
-        "Hair": "Brown",
-        "Accessory": "Jewelry",
-        "Vehicle": "Limousine"
-    },
+        "features": [{
+            "name": "Merey Laroc",
+            "gender": "Female",
+            "hobby": "MountainClimbing",
+            "hair": "Brown",
+            "accessory": "Jewelry",
+            "vehicle": "Limousine"}]
+        },
     {
-        "Name": "Natalia",
-        "Gender": "Female",
-        "Hobby": "Mountain Climbing",
-        "Hair": "Brown",
-        "Accessory": "Jewelry",
-        "Vehicle": "Motorcycle"
-    },
+        "features": [{
+            "name": "Natalia",
+            "gender": "Female",
+            "hobby": "MountainClimbing",
+            "hair": "Brown",
+            "accessory": "Jewelry",
+            "vehicle": "Motorcycle"}]
+        },
     {
-        "Name": "NickBrunch",
-        "Gender": "Male",
-        "Hobby": "MountainClimbing",
-        "Hair": "Black",
-        "Accessory": "Ring",
-        "Vehicle": "Motorcycle"
-    }
+        "features": [{
+            "name": "NickBrunch",
+            "gender": "Male",
+            "hobby": "MountainClimbing",
+            "hair": "Black",
+            "accessory": "Ring",
+            "vehicle": "Motorcycle"}]
+        }
 ]
