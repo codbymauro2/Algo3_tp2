@@ -5,13 +5,28 @@
         "city":"Montreal"
     },
     {
-        "name":"Plata",
-        "value":"Valioso",
-        "city":"Buenos Aires"
+        "name":"Baston Presidencial",
+        "value":"Muy Valioso",
+        "city":"Lima"
     },
     {
-        "name":"Plata",
+        "name":"Reserva Nacional",
         "value": "Muy Valioso",
-        "city": "Buenos Aires"
+        "city": "Mexico"
+    },
+    {
+        "name":"Corona",
+        "value": "Valioso",
+        "city": "Montreal"
+    },
+    {
+        "name":"Espada",
+        "value": "Comun",
+        "city": "Baghdad"
+    },
+    {
+        "name":"Navidad",
+        "value": "Valioso",
+        "city": "Canada"
     }
 ]

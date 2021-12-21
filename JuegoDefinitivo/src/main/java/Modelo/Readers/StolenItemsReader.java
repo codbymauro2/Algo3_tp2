@@ -22,7 +22,7 @@ public class StolenItemsReader implements Reader {
         this.stolenItems = stolenItems;
     }
 
-    @Override
+
     public void read() {
         if(!checkFiles(json)){
             storeData();
@@ -34,6 +34,7 @@ public class StolenItemsReader implements Reader {
         return json.isJsonNull();
     }
 
+    @Override
     public void storeData(){
         jsonArray = (JsonArray) json;
         jsonArray.forEach(s -> {

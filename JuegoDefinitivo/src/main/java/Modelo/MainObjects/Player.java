@@ -1,5 +1,7 @@
 package Modelo.MainObjects;
 
+import java.util.Objects;
+
 public class Player {
 
     private int casesWon, difficulty;
@@ -10,16 +12,13 @@ public class Player {
         this.casesWon = casesWon;
     };
 
-    public Player(String name){
-        this.name = name;
-        this.casesWon = 0;
-        this.difficulty = 0;
-    }
-
     public String getName() {
         return name;
     }
 
+    public int getDifficulty(){
+        return difficulty;
+    }
 
     public int totalCasesWon() {
         return casesWon;
@@ -27,5 +26,13 @@ public class Player {
 
     public void addFinishedCase(int finishedCases) {
         casesWon += finishedCases;
+    }
+
+    @Override
+    public boolean equals(Object player) {
+        return (Objects.equals(this.name, ((Player) player).getName()));
+    }
+    public boolean equalsName(String givenName) {
+        return (Objects.equals(this.name, givenName));
     }
 }

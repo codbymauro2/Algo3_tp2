@@ -5,9 +5,7 @@ import Vista.GameView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.control.TextField;;
 
 
 public class EnterNameEventHandler implements EventHandler<ActionEvent> {
@@ -15,20 +13,22 @@ public class EnterNameEventHandler implements EventHandler<ActionEvent> {
     private GameView gameView;
     private Game game;
     private TextField playerName;
+    private Label recognizedPlayer;
 
 
-    public EnterNameEventHandler(GameView gameView, Game game, TextField playerTextField){
+    public EnterNameEventHandler(GameView gameView, Game game, TextField playerTextField, Label recognizedPlayerMessage){
         this.gameView = gameView;
         this.game = game;
         this.playerName = playerTextField;
+        this.recognizedPlayer = recognizedPlayerMessage;
     }
 
 
     @Override
     public void handle(ActionEvent event) {
-        game.setPlayerName(playerName.getText());
-        String message = "Hola " + game.getPlayerName() + ", han robado el tesoro, y tu mision es recuperarlo";
-        //Label missionMessage = new Label(message);
-        System.out.println(message);
+        game.setPlayer(playerName.getText());
+        game.initializeCase();
+        String message = "Hola " + game.getPlayerName() + ", han robado el " + game.getStolenItemName() + ",y tu mision es recuperarlo";
+        recognizedPlayer.setText(message);
     }
 }

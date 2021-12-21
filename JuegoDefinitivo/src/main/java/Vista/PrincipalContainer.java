@@ -26,6 +26,7 @@ import java.awt.*;
 public class PrincipalContainer extends BorderPane {
 
     ApplicationMenuBar menuBar;
+    Game game;
     GameView gameView;
     Canvas canvasCentral;
     VBox centralContainer;
@@ -33,6 +34,7 @@ public class PrincipalContainer extends BorderPane {
     public PrincipalContainer (Stage stage, Game game) {
         this.setMenu(stage);
         this.setCentro(game);
+        this.game = game;
     }
 
     private void setMenu(Stage stage) {
@@ -89,11 +91,15 @@ public class PrincipalContainer extends BorderPane {
         enterName.setPrefSize(400,490);
         enterName.setAlignment(Pos.TOP_CENTER);
         enterName.setPadding(new Insets(0,10,0,10));
-        Label labelName = new Label("Detective al teclado, por favor ingrese su nombre:");
+        Label labelName = new Label("Detective al teclado, por favor indentifíquese:");
         TextField playerTextField = new TextField();
-        EnterNameEventHandler enterNameEventHandler = new EnterNameEventHandler(gameView,game,playerTextField);
+        Label knownPlayer = new Label();
+        knownPlayer.setPadding(new Insets(0,10,0,10));
+        EnterNameEventHandler enterNameEventHandler = new EnterNameEventHandler(gameView, game, playerTextField, knownPlayer);
         playerTextField.setOnAction(enterNameEventHandler);
-        enterName.getChildren().addAll(labelName,playerTextField);
+
+
+        enterName.getChildren().addAll(labelName,playerTextField,knownPlayer);
 
         canvasCentral = new Canvas(200, 200);
         gameView = new GameView(game, canvasCentral);
@@ -129,4 +135,10 @@ public class PrincipalContainer extends BorderPane {
     public ApplicationMenuBar getMenuBar() {
         return menuBar;
     }
+
+    public Game getGame(){
+        return this.game;
+    }
+
 }
+

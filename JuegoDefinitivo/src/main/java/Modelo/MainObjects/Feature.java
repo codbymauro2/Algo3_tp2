@@ -1,30 +1,24 @@
 package Modelo.MainObjects;
 
+import java.util.Objects;
+
 public class Feature {
-    private String gender;
-    private String hobby;
-    private String hair;
-    private String accessory;
-    private String vehicle;
+    private String feature;
 
-    public void setHair(String hair) {
-        this.hair = hair;
+    public Feature(String feature) {
+        this.feature = feature;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    @Override
+    public boolean equals(Object feature) {
+        return (Objects.equals(this.feature, ((Feature) feature).getFeature()));
     }
 
-    public void setAccessory(String accessory) {
-        this.accessory = accessory;
+    private String getFeature() {
+        return feature;
     }
 
-    public void setVehicle(String vehicle) {
-        this.vehicle = vehicle;
-    }
-
-    public void setHobby(String hobby) {
-        this.hobby = hobby;
+    public boolean notDefinite() {
+        return feature.isEmpty();
     }
 }
-

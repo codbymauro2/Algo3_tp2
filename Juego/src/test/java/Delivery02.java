@@ -14,6 +14,8 @@ import java.util.stream.IntStream;
 
 import static org.mockito.Mockito.*;
 
+
+
 public class Delivery02 {
 
     private Police police;
@@ -149,5 +151,3 @@ public class Delivery02 {
 
 
 }
-
-

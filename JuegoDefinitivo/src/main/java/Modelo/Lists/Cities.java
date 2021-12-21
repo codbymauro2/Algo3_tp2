@@ -1,11 +1,9 @@
 package Modelo.Lists;
 
-import Modelo.MainObjects.City;
-import Modelo.MainObjects.DoubleLinkedList;
-import Modelo.MainObjects.StolenItem;
-import Modelo.MainObjects.Suspect;
+import Modelo.MainObjects.*;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Cities {
 
@@ -22,6 +20,11 @@ public class Cities {
         });
     }
 
+    public void printCities() {
+        cities.forEach(c -> {
+            System.out.println(c.getName());
+        });
+    }
     public void add(City city) {
         cities.add(city);
     }
@@ -40,8 +43,8 @@ public class Cities {
 
     public City find(String city) {
         return cities.stream().filter(s -> city.equals(s.getName()))
-               .findAny()
-              .orElse(null);
+                .findAny()
+                .orElse(null);
     }
 
     public void remove(City city) {
@@ -56,4 +59,36 @@ public class Cities {
         return startCity;
     }
 
+    public void getCitiesToShow() {
+
+    }
+
+    public ArrayList<City> getPossibleCities(Police police) {
+        //ciudad actual, ciudad anterior, lista del ladrón (ciudades correctas), cities (ciudades incorrectas)
+        //n = 0
+        //citiesToShow.add(pila.verTope()); n++
+        //if currentCity in correctCities {citiesToShow.add(correctCities(currentCity + 1))}; n++
+        // citiesToShow.add(random incorrectCity) * (4 - n)
+
+        City currentCity = police.getCurrentCity();
+        City previousCity = police.previousCity();
+        Suspect suspect = currentCity.getSuspect();
+
+        ArrayList<City> possibleCities = new ArrayList<>();
+        if (previousCity != null) { possibleCities.add(previousCity); }
+        if (suspect.passedThrough(currentCity)) {
+            possibleCities.add(suspect.getNextCity(currentCity));
+        }
+
+        int numberOfCities = 4;
+        ArrayList<City> availableCities = new ArrayList<>(cities);
+        Random random = new Random();
+        for (int i = possibleCities.size(); i < numberOfCities; i++) {
+            int randomInt = random.nextInt(availableCities.size());
+            possibleCities.add(availableCities.get(randomInt));
+            availableCities.remove(randomInt);
+        }
+
+        return possibleCities;
+    }
 }

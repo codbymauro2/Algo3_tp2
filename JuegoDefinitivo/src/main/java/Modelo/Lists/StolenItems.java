@@ -1,20 +1,30 @@
 package Modelo.Lists;
 
-import Modelo.MainObjects.StolenItem;
+import Modelo.MainObjects.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class StolenItems {
 
     private ArrayList<StolenItem> stolenItemList;
 
-    public void add(StolenItem stolenItem) {
+    public StolenItems(){
         this.stolenItemList = new ArrayList<>();
+    }
+
+    public void add(StolenItem stolenItem) {
         this.stolenItemList.add(stolenItem);
     }
 
-    public void assign(Integer difficulty) {
+    private StolenItem selectRandomElement(){
+        Random random = new Random();
+        int randomInt = random.nextInt(this.stolenItemList.size());
+        return stolenItemList.get(randomInt);
+    }
+
+    public StolenItem assign(int difficulty) {
         switch (difficulty) {
             case 1 -> filter("Comun");
             case 2 -> filter("Valioso");
@@ -22,6 +32,7 @@ public class StolenItems {
             default -> {
             }
         }
+        return selectRandomElement();
     }
 
     private void filter(String value) {
@@ -47,5 +58,6 @@ public class StolenItems {
     public StolenItem get(int i) {
         return(stolenItemList.get(i));
     }
+
 }
 

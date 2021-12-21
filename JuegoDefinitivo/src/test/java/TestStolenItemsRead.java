@@ -6,7 +6,7 @@ import java.io.IOException;
 import org.junit.jupiter.api.Assertions;
 
 
-public class TestStolenObjectRead {
+public class TestStolenItemsRead {
 
     @Test
     public void TestQuantityStolenObjects() throws IOException {

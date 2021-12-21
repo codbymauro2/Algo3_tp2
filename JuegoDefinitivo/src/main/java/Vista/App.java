@@ -37,7 +37,9 @@ public class App extends Application {
     }
 
     private Game createModel() throws FileNotFoundException {
-        return new Game();
+        Game game = new Game();
+        game.startGame();
+        return game;
     }
 }
 

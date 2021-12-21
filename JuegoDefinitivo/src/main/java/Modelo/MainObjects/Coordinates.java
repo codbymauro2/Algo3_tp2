@@ -1,5 +1,7 @@
 package Modelo.MainObjects;
 
+import java.util.Objects;
+
 public class Coordinates {
     private final double latitude;
     private final double longitude;
@@ -11,11 +13,11 @@ public class Coordinates {
         this.radioEarth = 6371.0;
     }
 
-    public int distance(Coordinates coordinates) {
-        return coordinates.calculateDistance(latitude, longitude);
+    public int distanceKms(Coordinates coordinates) {
+        return coordinates.calculateDistanceKms(latitude, longitude);
     }
 
-    private int calculateDistance(double otherLatitude, double otherLongitude) {
+    private int calculateDistanceKms(double otherLatitude, double otherLongitude) {
         double DistanceLatitude = Math.toRadians(otherLatitude - latitude);
         double DistanceLongitude = Math.toRadians(otherLongitude - longitude);
         double value1 = Math.pow(Math.sin(DistanceLatitude/2),2) + Math.pow(Math.sin(DistanceLongitude/2),2) * Math.cos(Math.toRadians(otherLatitude)) * Math.cos(Math.toRadians(latitude));
@@ -24,16 +26,16 @@ public class Coordinates {
         return (int) Math.round(distance);
     }
 
-    /*@Override
-    public boolean equals(Object city){
-        return (Objects.equals(this.latitude, ((Coordinates) coordinates).getLatitude()) && (Objects.equals(this.longitude, ((Coordinates) coordinates).getLongitude()));
-    }*/
+    @Override
+    public boolean equals(Object coordinates){
+        return (Objects.equals(this.latitude, ((Coordinates) coordinates).getLatitude()) && Objects.equals(this.longitude, ((Coordinates) coordinates).getLongitude()));
+    }
 
-    public double getLatitude() {
+    private double getLatitude() {
         return latitude;
     }
 
-    public double getLongitude() {
+    private double getLongitude() {
         return longitude;
     }
 

@@ -1,6 +1,7 @@
 package Modelo.Lists;
 
 
+import Modelo.MainObjects.Feature;
 import Modelo.MainObjects.Suspect;
 import java.util.ArrayList;
 import java.util.Random;
@@ -23,30 +24,30 @@ public class Suspects {
         return suspectsList.get(i);
     }
 
-    private ArrayList<Suspect> filterByGender(String gender) {
+    private ArrayList<Suspect> filterByGender(Feature feature) {
         ArrayList<Suspect> aux = new ArrayList<>();
         possibleSuspectsList.forEach( s -> {
-            if( gender.isEmpty() || s.isGender(gender))
+            if( feature.notDefinite() || s.isGender(feature))
                 aux.add(s);
         });
 
         return aux;
     }
 
-    private ArrayList<Suspect> filterByHobby(String hobby) {
+    private ArrayList<Suspect> filterByHobby(Feature feature) {
         ArrayList<Suspect> aux = new ArrayList<>();
         possibleSuspectsList.forEach( s -> {
-            if( hobby.isEmpty() || s.hasHobby(hobby))
+            if( feature.notDefinite() || s.hasHobby(feature))
                 aux.add(s);
         });
 
         return aux;
     }
 
-    private ArrayList<Suspect> filterByHair(String hair) {
+    private ArrayList<Suspect> filterByHair(Feature feature) {
         ArrayList<Suspect> aux = new ArrayList<>();
         possibleSuspectsList.forEach( s -> {
-            if( hair.isEmpty() || s.hasHair(hair))
+            if( feature.notDefinite() || s.hasHair(feature))
                 aux.add(s);
         });
 
@@ -54,19 +55,19 @@ public class Suspects {
     }
 
 
-    private ArrayList<Suspect> filterByAccessory(String accessory) {
+    private ArrayList<Suspect> filterByAccessory(Feature feature) {
         ArrayList<Suspect> aux = new ArrayList<>();
         possibleSuspectsList.forEach(s -> {
-            if (accessory.isEmpty() || s.hasAccessory(accessory))
+            if (feature.notDefinite() || s.hasAccessory(feature))
                 aux.add(s);
         });
         return aux;
     }
 
-    private ArrayList<Suspect> filterByVehicle(String vehicle) {
+    private ArrayList<Suspect> filterByVehicle(Feature feature) {
         ArrayList<Suspect> aux = new ArrayList<>();
         possibleSuspectsList.forEach(s -> {
-            if (vehicle.isEmpty() || s.hasVehicle(vehicle))
+            if (feature.notDefinite() || s.hasVehicle(feature))
                 aux.add(s);
         });
         return aux;
@@ -77,7 +78,7 @@ public class Suspects {
         possibleSuspectsList.addAll(suspectsList);
     }
 
-    public ArrayList<Suspect> filter(ArrayList<String> features) {
+    public ArrayList<Suspect> filter(ArrayList<Feature> features) {
         fillPossibleSuspects();
         this.possibleSuspectsList = this.filterByGender(features.get(0));
         this.possibleSuspectsList = this.filterByHobby(features.get(1));
@@ -88,16 +89,15 @@ public class Suspects {
     }
 
 
-    public void randomSuspect() {
-      Random random = new Random();
-      int randomInt = random.nextInt(suspectsList.size());
-      this.robber = suspectsList.get(randomInt);
-      this.robber.convertToRobber();
+    public void randomSuspect(Cities cities, int difficulty) {
+        Random random = new Random();
+        int randomInt = random.nextInt(suspectsList.size());
+        this.robber = suspectsList.get(randomInt);
+        this.robber.convertToRobber();
+        this.robber.createPath(cities, difficulty);
     }
 
     public Suspect getRobber() {
         return robber;
     }
-
-
 }

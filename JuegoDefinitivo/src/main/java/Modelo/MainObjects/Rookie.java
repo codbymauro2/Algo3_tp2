@@ -1,5 +1,6 @@
 package Modelo.MainObjects;
 
+import Modelo.Lists.Cities;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Library;
 
@@ -7,10 +8,14 @@ public class Rookie extends Police {
 
     public Rookie() {
         super();
+        this.velocityKmH = 900;
+        this.stolenItemDifficulty = 1;
     }
 
-    public Rookie(PoliceStation policeStation, Planisphere planisphere) {
-        super(policeStation,planisphere);
+    public Rookie(PoliceStation policeStation) {
+        super(policeStation);
+        this.velocityKmH = 900;
+        this.stolenItemDifficulty = 1;
     }
 
     @Override
