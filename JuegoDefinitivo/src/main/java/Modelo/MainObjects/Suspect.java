@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 
 public class Suspect {
 
-    private String name;
+    private String name, gender, hobby, hair, accessory, vehicle;
     private ArrayList<Feature> features;
     private boolean isRobber, isArrested;
     private java.util.ArrayList<City> path;
@@ -27,10 +27,8 @@ public class Suspect {
         this.isArrested = false;
     }
     public Suspect() {
-        this.name = name;
         this.isRobber = false;
         this.isArrested = false;
-
     }
 
     @Override
@@ -105,5 +103,18 @@ public class Suspect {
 
     public String getGender() {
         return this.features.get(0).getFeature();
+    }
+
+    private void createFeatures() {
+        Feature gender = new Feature(this.gender);
+        Feature hobby = new Feature(this.hobby);
+        Feature hair = new Feature(this.hair);
+        Feature accessory = new Feature(this.accessory);
+        Feature vehicle = new Feature(this.vehicle);
+        features.add(gender);
+        features.add(hobby);
+        features.add(hair);
+        features.add(accessory);
+        features.add(vehicle);
     }
 }
