@@ -5,6 +5,7 @@ import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Building;
 import Modelo.MainObjects.Buildings.Library;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class City {
@@ -20,6 +21,7 @@ public class City {
     private Airport airport;
     private Building buildingToEnter;
     private Suspect suspect;
+    private ArrayList<City> connections;
 
     public City(String name, Coordinates coordinates) {
         this.name = name;
@@ -64,98 +66,11 @@ public class City {
     public int calculateDistanceTo(City city) {
         return coordinates.distanceKms(city.getCoordinates());
     }
-}
 
-
-/*
-public class Planisphere {
-
-    private int index, difficulty;
-    Stack<City> suspectCities; //ciudades por donde paso el sospechoso
-    Cities cities; //todas las ciudades, incluyendo por las que paso el sospechoso
-    ArrayList<City> allCities;
-    Stack<City> stack;
-    City origin;
-    Suspect suspect;
-
-    public Planisphere(Cities cities) throws FileNotFoundException {
-        this.index = 0;
-        this.cities = cities;
-        this.origin = cities.getStartCity();
-        this.difficulty = 5;
-        this.allCities = new ArrayList<City>();
-        this.copyCities();
-        this.suspectCities = createPath();
-
-        // this.setWrongCities();
+    public void setConnections(ArrayList<City> connections) {
+        this.connections = connections;
     }
-
-    private void copyCities() {
-        for (int i = 0; i < cities.size(); i++){ allCities.add(cities.get(i)); }
-    }
-
-
-    private Stack<City> createPath() {
-        Stack<City> suspectCities = new Stack<>();
-        allCities.remove(origin);
-        Random random = new Random();
-        for (int i = 0; i < difficulty - 1; i++) {
-            if (allCities.size() == 0) break;
-            int randomInt = random.nextInt(allCities.size());
-            City nextCity = allCities.get(randomInt);
-            origin.setNextCity(nextCity);
-            suspectCities.push(origin);
-            origin = nextCity;
-            allCities.remove(origin);
-        }
-        Coordinates coordinates = new Coordinates(0.00, 0.00);
-        City suspectCurrenCity = new City("Ganador", coordinates);
-        origin.setNextCity(suspectCurrenCity);
-        //suspectCities.peek();
-        reverseStack(suspectCities);
-        return suspectCities;
-    }
-
-
-    public static <City> void reverseStack(Stack<City> stack) {
-        if (stack.isEmpty()) {
-            return;
-        }
-        // Remove bottom element from stack
-        City bottom = stack.pop();
-
-        // Reverse everything else in stack
-        reverseStack(stack);
-
-        // Add original bottom element to top of stack
-        stack.push(bottom);
-    }
-
-    public City currentCity() {
-        return cities.get(index);
-    }
-
-    public City getNextCity() {
-        return cities.get(index+1);
-    }
-
-    public void goForward() {
-
-    }
-
-    public Stack<City> getStack(){
-        return stack;
-    }
-
-    public City getCity(String city) {
-        return cities.find(city);
-    }
-
-    public City getOrigin() {
-        return origin;
+    public ArrayList<City> getConnections() {
+        return connections;
     }
 }
-*/
-
-
-

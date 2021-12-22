@@ -126,4 +126,8 @@ public abstract class Police {
     public int getCitiesToTravel(){
         return citiesToTravel;
     }
+
+    public ArrayList<City> getConnections() {
+        return currentCity.getConnections();
+    };
 }

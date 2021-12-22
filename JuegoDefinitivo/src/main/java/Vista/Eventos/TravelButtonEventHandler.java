@@ -2,24 +2,24 @@ package Vista.Eventos;
 
 import Modelo.MainObjects.City;
 import Modelo.MainObjects.Game;
+import Vista.CityButtonsBox;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.*;
 import javafx.scene.image.Image;
-import javafx.scene.control.Button;
 
 import java.util.ArrayList;
 
 public class TravelButtonEventHandler implements EventHandler<ActionEvent> {
 
     VBox screen, enterName;
-    HBox citiesBox;
+    CityButtonsBox cityButtonsBox;
     Game game;
 
-    public TravelButtonEventHandler(VBox screen, VBox enterName, HBox citiesBox, Game game){
+    public TravelButtonEventHandler(VBox screen, VBox enterName, CityButtonsBox cityButtonsBox, Game game){
         this.screen = screen;
         this.enterName = enterName;
-        this.citiesBox = citiesBox;
+        this.cityButtonsBox = cityButtonsBox;
         this.game = game;
     }
 
@@ -31,13 +31,7 @@ public class TravelButtonEventHandler implements EventHandler<ActionEvent> {
         screen.setBackground(new Background(backgroundImage));
         enterName.getChildren().clear();
         ArrayList<City> travelCities = game.getTravelCities();
-
-
-        citiesBox.getChildren().forEach(c -> {
-            c.setVisible(true);
-            c.setDisable(false);
-        });
-
-        enterName.getChildren().addAll(citiesBox);
+        cityButtonsBox.show(travelCities);
+        enterName.getChildren().addAll(cityButtonsBox.getHBox());
     }
 }

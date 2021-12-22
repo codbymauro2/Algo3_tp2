@@ -2,6 +2,7 @@ package Vista;
 
 import Modelo.MainObjects.Game;
 import Vista.Eventos.EnterNameEventHandler;
+import Vista.Eventos.ConnectionsButtonEventHandler;
 import Vista.Eventos.TravelButtonEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -101,23 +102,13 @@ public class PrincipalContainer extends BorderPane {
         enterName.getChildren().addAll(labelName, playerTextField);
 
         //POSIBLES CIUDADES A VIAJAR
-        HBox citiesBox = new HBox(5);
-        citiesBox.setPrefSize(400, 490);
-        citiesBox.setAlignment(Pos.TOP_CENTER);
-        citiesBox.setPadding(new Insets(0, 10, 0, 10));
+        CityButtonsBox cityButtonsBox = new CityButtonsBox(game);
         Button countryToChoose1 = new Button();
         Button countryToChoose2 = new Button();
         Button countryToChoose3 = new Button();
         Button countryToChoose4 = new Button();
-        countryToChoose1.setPrefSize(100, 50);
-        countryToChoose2.setPrefSize(100, 50);
-        countryToChoose3.setPrefSize(100, 50);
-        countryToChoose4.setPrefSize(100, 50);
-        citiesBox.getChildren().addAll(countryToChoose1,countryToChoose2,countryToChoose3,countryToChoose4);
-        citiesBox.getChildren().forEach(c -> {
-            c.setVisible(false);
-            c.setDisable(true);
-        });
+        cityButtonsBox.addCities(countryToChoose1, countryToChoose2, countryToChoose3, countryToChoose4);
+        cityButtonsBox.hide();
 
 
         // PANTALLA IZQUIERDA
@@ -146,8 +137,11 @@ public class PrincipalContainer extends BorderPane {
 
 
         // EVENTOS DE LOS BOTONES
-        TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(screen, enterName, citiesBox, game);
+        TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(screen, enterName, cityButtonsBox, game);
         buttonBar.setTravelAction(travelButtonEventHandler);
+
+        ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game);
+        buttonBar.setConnectionsAction(connectionsButtonEventHandlerEventHandler);
 
         this.setCenter(centralContainer);
 

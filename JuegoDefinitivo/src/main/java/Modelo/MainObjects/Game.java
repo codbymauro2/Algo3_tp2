@@ -3,7 +3,6 @@ package Modelo.MainObjects;
 import Modelo.Lists.*;
 import Modelo.Readers.*;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -50,7 +49,6 @@ public class Game {
         this.suspects.randomSuspect(cities, this.police.getCitiesToTravel());
         this.thief = this.suspects.getRobber();
         this.cities.setSuspect(this.thief);
-        System.out.println(this.thief.getPath().size());
     }
 
 
@@ -97,6 +95,7 @@ public class Game {
     }
 
     public ArrayList<City> getTravelCities() {
-        return this.cities.getPossibleCities(this.police);
+        cities.setPossibleCities(police);
+        return police.getConnections();
     }
 }

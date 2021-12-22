@@ -44,7 +44,8 @@ public class TestCitiesToShow {
         Suspect suspect = setGame(cities);
         Detective detective = new Detective();
         detective.setCurrentCity(lima);
-        ArrayList<City> possibleCities = cities.getPossibleCities(detective);
+        cities.setPossibleCities(detective);
+        ArrayList<City> possibleCities = detective.getConnections();
 
         possibleCities.forEach(c -> {
             Assertions.assertNotEquals(c, lima);
@@ -66,7 +67,8 @@ public class TestCitiesToShow {
         detective.setCurrentCity(lima);
         City nextCity = suspect.getPath().get(1);
         detective.travel(nextCity);
-        ArrayList<City> possibleCities = cities.getPossibleCities(detective);
+        cities.setPossibleCities(detective);
+        ArrayList<City> possibleCities = detective.getConnections();
 
         Assertions.assertTrue(possibleCities.contains(lima));
         Assertions.assertFalse(possibleCities.contains(nextCity));
@@ -84,11 +86,30 @@ public class TestCitiesToShow {
         detective.setCurrentCity(lima);
         detective.travel(cities.get(0));
         detective.travel(cities.get(1));
-        ArrayList<City> possibleCities = cities.getPossibleCities(detective);
+        cities.setPossibleCities(detective);
+        ArrayList<City> possibleCities = detective.getConnections();
 
         possibleCities.forEach(c -> {
             Assertions.assertFalse(suspect.getPath().contains(c));
         });
      }
+
+    @Test
+    public void Test04GetConnectionsTwiceShowsSameCities() {
+        Cities cities = cityBuilder();
+        City lima = new City("Lima", new Coordinates(45.50, -73.57));
+        cities.add(lima);
+        Suspect suspect = setGame(cities);
+        Detective detective = new Detective();
+        detective.setCurrentCity(lima);
+        cities.setPossibleCities(detective);
+        ArrayList<City> possibleCities1 = detective.getConnections();
+        cities.setPossibleCities(detective);
+        ArrayList<City> possibleCities2 = detective.getConnections();
+
+        for (int i = 0; i < possibleCities1.size(); i++) {
+            Assertions.assertEquals(possibleCities1.get(i), possibleCities2.get(i));
+        }
+    }
 
 }

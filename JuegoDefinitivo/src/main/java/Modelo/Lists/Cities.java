@@ -63,8 +63,9 @@ public class Cities {
 
     }
 
-    public ArrayList<City> getPossibleCities(Police police) {
+    public void setPossibleCities(Police police) {
         City currentCity = police.getCurrentCity();
+        if (currentCity.getConnections() != null) return;
         City previousCity = police.previousCity();
         Suspect suspect = currentCity.getSuspect();
 
@@ -83,6 +84,6 @@ public class Cities {
             availableCities.remove(randomInt);
         }
 
-        return possibleCities;
+        currentCity.setConnections(possibleCities);
     }
 }
