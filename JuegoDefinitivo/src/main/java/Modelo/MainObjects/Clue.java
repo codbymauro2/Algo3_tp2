@@ -1,5 +1,7 @@
 package Modelo.MainObjects;
 
+import com.sun.source.doctree.SerialFieldTree;
+
 public class Clue {
 
     String easy, medium, hard;
@@ -10,15 +12,19 @@ public class Clue {
         this.hard = hard;
     }
 
-    public String easy() {
+    public String deploy(Rookie rookie) {
         return easy;
     }
 
-    public String medium() {
+    public String deploy(Detective detective) {
         return medium;
     }
 
-    public String hard(){
+    public String deploy(Investigator investigator){
+        return medium;
+    }
+
+    public String deploy(Sergeant sergeant){
         return hard;
     }
 }

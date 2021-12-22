@@ -10,21 +10,21 @@ public class Port extends Building{
 
     @Override
     public String deployClue(Rookie rookie) {
-        return clues.easy();
+        return clues.deploy(rookie);
     }
 
     @Override
     public String deployClue(Detective detective) {
-        return clues.medium();
+        return clues.deploy(detective);
     }
 
     @Override
     public String deployClue(Investigator investigator) {
-        return (clues.medium() + clues.hard());
+        return (clues.deploy(investigator) + clues.deploy(investigator));
     }
 
     @Override
     public String deployClue(Sergeant sergeant) {
-        return clues.hard();
+        return clues.deploy(sergeant);
     }
 }
