@@ -10,14 +10,12 @@ import javafx.scene.control.TextField;;
 
 public class EnterNameEventHandler implements EventHandler<ActionEvent> {
 
-    private GameView gameView;
     private Game game;
     private TextField playerName;
     private Label recognizedPlayer, thiefInformation;
 
 
-    public EnterNameEventHandler(GameView gameView, Game game, TextField playerTextField, Label recognizedPlayerMessage, Label thiefInformation){
-        this.gameView = gameView;
+    public EnterNameEventHandler( Game game, TextField playerTextField, Label recognizedPlayerMessage, Label thiefInformation){
         this.game = game;
         this.playerName = playerTextField;
         this.recognizedPlayer = recognizedPlayerMessage;
