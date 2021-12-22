@@ -10,9 +10,7 @@ import java.io.FileNotFoundException;
 
 public class App extends Application {
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    public static void main(String[] args) { launch(args); }
 
     @Override
     public void start(final Stage stage) throws Exception {
@@ -29,6 +27,7 @@ public class App extends Application {
 
         WelcomeContainer welcomeContainer = new WelcomeContainer(stage, gameScene);
         Scene welcomeScene = new Scene(welcomeContainer, 1180, 660);
+        welcomeScene.getStylesheets().add(getClass().getResource("/stylesheets/welcomeScene.css").toExternalForm());
 
         stage.setScene(welcomeScene);
         stage.show();

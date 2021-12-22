@@ -40,6 +40,6 @@ public  class Game extends Application{
 
     public void paint() {
         graphics.fillRect(0,0,100,100 );
-        graphics.drawImage(new Image(getClass().getResourceAsStream("main.png")),0,0);
+        graphics.drawImage(new Image(getClass().getResourceAsStream("images/main.png")),0,0);
     }
 }

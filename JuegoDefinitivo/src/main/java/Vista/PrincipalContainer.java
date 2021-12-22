@@ -1,20 +1,13 @@
 package Vista;
 
-import Modelo.MainObjects.City;
 import Modelo.MainObjects.Game;
-import Vista.Eventos.DirectionButtonHandler;
 import Vista.Eventos.EnterNameEventHandler;
-import Vista.Eventos.MoveButtonHandler;
 import Vista.Eventos.TravelButtonEventHandler;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,8 +16,6 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.paint.*;
-
-import java.util.ArrayList;
 
 
 public class PrincipalContainer extends BorderPane {
@@ -49,19 +40,19 @@ public class PrincipalContainer extends BorderPane {
     private void setCentro(Game game) {
 
         // BOTON VIAJAR
-        Button travelButton = new Button("",new ImageView(new Image("travelButton.png")));
+        Button travelButton = new Button("",new ImageView(new Image("images/travelButton.png")));
         travelButton.setPrefSize(128,113);
 
         // BOTON INVESTIGAR
-        Button investigateButton = new Button("",new ImageView(new Image("emitOrderButton.png")));
+        Button investigateButton = new Button("",new ImageView(new Image("images/emitOrderButton.png")));
         investigateButton.setPrefSize(128,113);
 
         // BOTON CIUDADES
-        Button emitOrderButton = new Button("",new ImageView(new Image("citiesButtton.png")));
+        Button emitOrderButton = new Button("",new ImageView(new Image("images/citiesButtton.png")));
         emitOrderButton.setPrefSize(128,113);
 
         // BOTON ENTRAR EDIFICIO
-        Button enterBuildingButton = new Button("",new ImageView(new Image("enterButton.png")));
+        Button enterBuildingButton = new Button("",new ImageView(new Image("images/enterButton.png")));
         enterBuildingButton.setPrefSize(128,113);
 
         // PAISES A VIAJAR
@@ -149,11 +140,6 @@ public class PrincipalContainer extends BorderPane {
         countryToChoose3.setPrefSize(100,50);
         countryToChoose4.setPrefSize(100,50);
 
-
-
-
-
-
         canvasCentral = new Canvas(200, 200);
         gameView = new GameView(game, canvasCentral);
         gameView.paint();
@@ -185,7 +171,6 @@ public class PrincipalContainer extends BorderPane {
         // EVENTOS DE LOS BOTONES
         TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(screen, enterName, citiesBox, countryToChoose1, countryToChoose2, countryToChoose3, countryToChoose4, game);
         travelButton.setOnAction(travelButtonEventHandler);
-
 
         this.setCenter(centralContainer);
     }

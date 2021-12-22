@@ -1,22 +1,13 @@
 package Vista;
 
-import Modelo.MainObjects.*;
+import Vista.Eventos.ExitOptionEventHandler;
 import Vista.Eventos.PlayButtonEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class WelcomeContainer extends VBox {
@@ -31,8 +22,8 @@ public class WelcomeContainer extends VBox {
 
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
-        this.setPadding(new Insets(20));
-        Image image = new Image("main.png");
+        this.setPadding(new Insets(60, 10, 10, 10));
+        Image image = new Image("images/main.png");
         BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, new BackgroundSize(1.0, 1.0, true, true, false, false));
         this.setBackground(new Background(backgroundImage));
 
@@ -51,6 +42,8 @@ public class WelcomeContainer extends VBox {
         PlayButtonEventHandler playButtonHandler = new PlayButtonEventHandler(stage, proximaEscena);
         enterButton.setOnAction(playButtonHandler);
 
+        ExitOptionEventHandler exitOptionHandler = new ExitOptionEventHandler();
+        exitButton.setOnAction(exitOptionHandler);
 
         this.getChildren().addAll(enterButton,creditsButton,exitButton);
     }

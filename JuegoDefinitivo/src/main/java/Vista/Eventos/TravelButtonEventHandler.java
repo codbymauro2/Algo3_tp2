@@ -8,7 +8,6 @@ import javafx.scene.layout.*;
 import javafx.scene.image.Image;
 import javafx.scene.control.Button;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 public class TravelButtonEventHandler implements EventHandler<ActionEvent> {
@@ -32,7 +31,7 @@ public class TravelButtonEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent){
         screen.getChildren().clear();
-        Image image = new Image("CarmenMap.jpg");
+        Image image = new Image("images/CarmenMap.jpg");
         BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, new BackgroundSize(1.0, 1.0, true, true, false, false));
         screen.setBackground(new Background(backgroundImage));
         enterName.getChildren().clear();
