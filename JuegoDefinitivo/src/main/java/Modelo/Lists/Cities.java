@@ -42,6 +42,7 @@ public class Cities {
     }
 
     public City find(String city) {
+        //System.out.println(city);
         return cities.stream().filter(s -> city.equals(s.getName()))
                 .findAny()
                 .orElse(null);

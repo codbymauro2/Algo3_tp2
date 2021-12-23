@@ -21,6 +21,7 @@ public class App extends Application {
 
         PrincipalContainer principalContainer = new PrincipalContainer(stage, game);
         Scene gameScene = new Scene(principalContainer, 1180, 660);
+        gameScene.getStylesheets().add(getClass().getResource("/stylesheets/welcomeScene.css").toExternalForm());
 
         ApplicationOnKeyPressEventHandler ApplicationOnKeyPressEventHandler = new ApplicationOnKeyPressEventHandler(stage, principalContainer.getMenuBar());
         gameScene.setOnKeyPressed(ApplicationOnKeyPressEventHandler);

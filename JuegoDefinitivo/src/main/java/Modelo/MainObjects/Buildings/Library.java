@@ -5,8 +5,13 @@ import Modelo.MainObjects.*;
 
 public class Library extends Building {
 
+    public Library(){};
+
+    private String name;
+
     public Library(Clue clue) {
         super(clue);
+        this.name = "Library";
     }
 
     @Override
@@ -29,5 +34,9 @@ public class Library extends Building {
         return clues.deploy(sergeant);
     }
 
+    @Override
+    public String getName(){
+        return name;
+    }
 
 }

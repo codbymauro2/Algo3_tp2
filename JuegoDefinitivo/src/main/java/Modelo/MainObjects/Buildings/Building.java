@@ -11,6 +11,9 @@ public abstract class Building {
         this.clues = clue;
     }
 
+    protected Building() {
+    }
+
     public abstract String deployClue(Rookie rookie);
 
     public abstract String deployClue(Detective detective);
@@ -19,5 +22,5 @@ public abstract class Building {
 
     public abstract String deployClue(Sergeant sergeant);
 
-    
+    public abstract String getName();
 }

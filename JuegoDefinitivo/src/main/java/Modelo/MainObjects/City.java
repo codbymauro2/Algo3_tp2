@@ -4,7 +4,6 @@ import Modelo.MainObjects.Buildings.Airport;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Building;
 import Modelo.MainObjects.Buildings.Library;
-import org.mockito.exceptions.verification.ArgumentsAreDifferent;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -39,7 +38,7 @@ public class City {
     }
 
     public City getNextCity() {
-        return nextCity;
+        return suspect.getNextCity(this);
     }
 
     public Bank getBuilding(Bank bank) {
@@ -71,6 +70,7 @@ public class City {
     public void setConnections(ArrayList<City> connections) {
         this.connections = connections;
     }
+
     public ArrayList<City> getConnections() {
         return connections;
     }
@@ -81,5 +81,30 @@ public class City {
         buildings.add(this.airport);
         buildings.add(this.library);
         return buildings;
+    }
+
+    public Building getAirport() {
+        //if (this.airport == null) return new Airport(?????);
+        return this.airport;
+    }
+
+    public void setAirport(Airport airport) {
+        this.airport = airport;
+    }
+
+    public Building getBank() {
+        return this.bank;
+    }
+
+    public Building getLibrary() {
+        return this.library;
+    }
+
+    public boolean isFinalCity() {
+        return suspect.isInCity(this);
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
     }
 }

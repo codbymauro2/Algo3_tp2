@@ -5,11 +5,11 @@ import Modelo.MainObjects.Game;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 
-public class CityButtonsBox extends HBox {
+public class CityButtonsBox extends VBox {
     Game game;
     ArrayList<Button> citiesToChoose;
 
@@ -41,15 +41,15 @@ public class CityButtonsBox extends HBox {
         }
     }
 
-    public HBox getHBox() {
-        HBox hBox = new HBox();
-        hBox.setPrefSize(400, 490);
-        hBox.setAlignment(Pos.TOP_CENTER);
-        hBox.setPadding(new Insets(5));
-        hBox.setSpacing(10);
+    public VBox getVBox() {
+        VBox vBox = new VBox();
+        vBox.setPrefSize(400, 420);
+        vBox.setAlignment(Pos.TOP_CENTER);
+        vBox.setSpacing(10);
         citiesToChoose.forEach( c -> {
-            hBox.getChildren().add(c);
+            c.setMaxWidth(420);
+            vBox.getChildren().add(c);
         });
-        return hBox;
+        return vBox;
     }
 }

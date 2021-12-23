@@ -2,17 +2,17 @@ package Modelo.MainObjects;
 
 public class Timer {
 
-    private int duration;
+    private float duration;
 
     public Timer(){
-        duration = 152;
+        this.duration = 152;
     }
 
-    public void reduce(int hours) {
-        duration -= hours;
+    public void reduce(float hours) {
+        this.duration -= hours;
     }
 
-    public int timeLeft() {
-        return duration;
+    public float timeLeft() {
+        return this.duration;
     }
 }

@@ -3,6 +3,7 @@ package Modelo.MainObjects;
 import Modelo.Lists.Cities;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Library;
+import Modelo.MainObjects.Buildings.Airport;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -36,6 +37,7 @@ public abstract class Police {
 
     public abstract String enter(Library library);
 
+    public abstract String enter(Airport airport);
 
     public void travel(City city){
         if (this.passedThrough(city))
@@ -48,7 +50,8 @@ public abstract class Police {
     }
 
     private void reduceTime(City city) {
-        this.timer.reduce(this.velocityKmH * this.currentCity.calculateDistanceTo(city));
+        float timerH = this.currentCity.calculateDistanceTo(city) / this.velocityKmH;
+        this.timer.reduce(timerH);
     }
 
     private boolean passedThrough(City city) {
@@ -78,7 +81,7 @@ public abstract class Police {
         timer.reduce(8);
     }
 
-    public int getTimeLeftInHours() {
+    public float getTimeLeftInHours() {
         return timer.timeLeft();
     }
 
@@ -130,4 +133,5 @@ public abstract class Police {
     public ArrayList<City> getConnections() {
         return currentCity.getConnections();
     };
+
 }

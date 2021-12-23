@@ -1,6 +1,7 @@
 package Modelo.MainObjects;
 
 import Modelo.Lists.Cities;
+import Modelo.MainObjects.Buildings.Airport;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Library;
 
@@ -31,6 +32,10 @@ public class Investigator extends Police {
         return null;
     }
 
+    @Override
+    public String enter(Airport airport) {
+        return airport.deployClue(this);
+    }
 
     @Override
     public City getCurrentCity() {

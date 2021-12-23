@@ -3,6 +3,7 @@ package Modelo.MainObjects;
 import Modelo.Lists.Cities;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Library;
+import Modelo.MainObjects.Buildings.Airport;
 
 public class Rookie extends Police {
 
@@ -23,16 +24,31 @@ public class Rookie extends Police {
     @Override
     public String enter(Bank bank) {
 
-        if (this.isInCorrectCity())
-            return bank.deployClue(this);
-        else
+        if (this.getCurrentCity().isFinalCity()) {
+            return "última ciudad";
+        } else if (this.isInCorrectCity()) {
+            return this.getCurrentCity().getNextCity().getBank().deployClue(this);
+        } else {
             return "No paso por Aca";
-
+        }
     }
 
     @Override
     public String enter(Library library) {
-        return library.deployClue(this);
+
+        if (this.isInCorrectCity())
+            return this.getCurrentCity().getNextCity().getLibrary().deployClue(this);
+        else
+            return "No paso por Aca";
+    }
+
+    @Override
+    public String enter(Airport airport) {
+
+        if (this.isInCorrectCity())
+            return this.getCurrentCity().getNextCity().getAirport().deployClue(this);
+        else
+            return "No paso por Aca";
     }
 
 }

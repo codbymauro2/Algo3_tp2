@@ -1,10 +1,7 @@
 package Vista;
 
 import Modelo.MainObjects.Game;
-import Vista.Eventos.EnterBuildingEventHandler;
-import Vista.Eventos.EnterNameEventHandler;
-import Vista.Eventos.ConnectionsButtonEventHandler;
-import Vista.Eventos.TravelButtonEventHandler;
+import Vista.Eventos.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
@@ -83,7 +80,7 @@ public class PrincipalContainer extends BorderPane {
         timeVbox.setBackground(new Background(new BackgroundFill(Paint.valueOf("black"), CornerRadii.EMPTY, Insets.EMPTY)));
         timeVbox.setBorder(new Border(new BorderStroke(Paint.valueOf("white"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5))));
         Label textTime = new Label(game.time());
-        Label textSpace = new Label(game.space());
+        Label textSpace = new Label(game.getCityName());
         textSpace.setTextFill(Color.web("#fcfcfc", 0.9));
         textTime.setTextFill(Color.web("#fcfcfc", 0.9));
         textSpace.setAlignment(Pos.TOP_CENTER);
@@ -100,18 +97,18 @@ public class PrincipalContainer extends BorderPane {
         Label labelName = new Label("Detective al teclado, por favor indentifíquese:");
         TextField playerTextField = new TextField();
 
-        EnterNameEventHandler enterNameEventHandler = new EnterNameEventHandler(game, playerTextField, knownPlayer, thiefInformation);
+        EnterNameEventHandler enterNameEventHandler = new EnterNameEventHandler(enterName, game, playerTextField, knownPlayer, thiefInformation);
         playerTextField.setOnAction(enterNameEventHandler);
 
         enterName.getChildren().addAll(labelName, playerTextField);
 
         //POSIBLES CIUDADES A VIAJAR
         CityButtonsBox cityButtonsBox = new CityButtonsBox(game);
-        Button countryToChoose1 = new Button();
-        Button countryToChoose2 = new Button();
-        Button countryToChoose3 = new Button();
-        Button countryToChoose4 = new Button();
-        cityButtonsBox.addCities(countryToChoose1, countryToChoose2, countryToChoose3, countryToChoose4);
+        Button cityToChoose1 = new Button();
+        Button cityToChoose2 = new Button();
+        Button cityToChoose3 = new Button();
+        Button cityToChoose4 = new Button();
+        cityButtonsBox.addCities(cityToChoose1, cityToChoose2, cityToChoose3, cityToChoose4);
         cityButtonsBox.hide();
 
 
@@ -141,13 +138,13 @@ public class PrincipalContainer extends BorderPane {
 
 
         // EVENTOS DE LOS BOTONES
-        TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(screen, enterName, cityButtonsBox, game);
+        TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(enterName, screen, timeVbox, game);
         buttonBar.setTravelAction(travelButtonEventHandler);
 
-        ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game, screen);
+        ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game, screen, cityButtonsBox);
         buttonBar.setConnectionsAction(connectionsButtonEventHandlerEventHandler);
 
-        EnterBuildingEventHandler enterBuildingEventHandler = new EnterBuildingEventHandler(game);
+        EnterBuildingEventHandler enterBuildingEventHandler = new EnterBuildingEventHandler(game, left, screen);
 
         this.setCenter(centralContainer);
 

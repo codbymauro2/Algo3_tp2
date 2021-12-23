@@ -4,8 +4,12 @@ import Modelo.MainObjects.*;
 
 public class Port extends Building{
 
+    public Port(){}
+    private String name;
+
     public Port(Clue clue) {
         super(clue);
+        this.name = "Port";
     }
 
     @Override
@@ -26,5 +30,10 @@ public class Port extends Building{
     @Override
     public String deployClue(Sergeant sergeant) {
         return clues.deploy(sergeant);
+    }
+
+    @Override
+    public String getName(){
+        return name;
     }
 }

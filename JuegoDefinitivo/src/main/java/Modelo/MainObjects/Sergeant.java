@@ -1,6 +1,7 @@
 package Modelo.MainObjects;
 
 import Modelo.Lists.Cities;
+import Modelo.MainObjects.Buildings.Airport;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Library;
 
@@ -22,5 +23,10 @@ public class Sergeant extends Police {
     @Override
     public String enter(Library library) {
         return library.deployClue(this);
+    }
+
+    @Override
+    public String enter(Airport airport) {
+        return airport.deployClue(this);
     }
 }

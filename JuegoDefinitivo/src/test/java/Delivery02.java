@@ -1,12 +1,10 @@
 
 import Modelo.Lists.StolenItems;
-import Modelo.MainObjects.Weapon;
 import Modelo.Lists.Cities;
 import Modelo.Lists.Suspects;
 import Modelo.MainObjects.*;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.Readers.CityReader;
-import Modelo.Readers.StolenItemsReader;
 import Modelo.Readers.SuspectReader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -40,6 +38,7 @@ public class Delivery02 {
         detective.beAttacked(knife);
         Assertions.assertEquals(detective.getTimeLeftInHours(), 141);
     }
+
 
     @Test
     public void Case02InvestigatorTakesCaseAndTravelsFromMontrealToMexico() {

@@ -1,6 +1,7 @@
 package Modelo.MainObjects;
 
 import Modelo.Lists.*;
+import Modelo.MainObjects.Buildings.Airport;
 import Modelo.MainObjects.Buildings.Building;
 import Modelo.Readers.*;
 
@@ -23,8 +24,6 @@ public class Game {
     private PlayerReader playerReader;
     private Suspect thief;
     private City currentCity;
-
-
 
     public Game() throws FileNotFoundException {
         players = new Players();
@@ -84,17 +83,12 @@ public class Game {
     }
 
     public String time() {
-        if (this.police == null){
-            return "9h00";
-        }
+        if (this.police == null) return "9h00";
         return String.valueOf(this.police.getTimeLeftInHours());
-
     }
 
-    public String space() {
-        if (this.police == null) {
-            return "Cuartel General";
-        }
+    public String getCityName() {
+        if (this.police == null) return "Cuartel General";
         return police.getCurrentCity().getName();
     }
 
@@ -107,4 +101,21 @@ public class Game {
         return (this.currentCity.getBuildings());
     }
 
+    public String deployAirportClue() {
+        return (this.police.enter(new Airport()));
+    }
+
+    public String deployLibraryClue() {
+        return "";
+        //return (this.police.enter(currentCity.getNextCity().getLibrary()));
+    }
+
+    public String deployBankClue() {
+        return "";
+        //return (this.police.enter(currentCity.getNextCity().getBank()));
+    }
+
+    public void travel(City city) {
+        police.travel(city);
+    }
 }
