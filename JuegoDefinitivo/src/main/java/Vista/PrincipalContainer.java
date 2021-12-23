@@ -1,6 +1,7 @@
 package Vista;
 
 import Modelo.MainObjects.Game;
+import Vista.Eventos.EnterBuildingEventHandler;
 import Vista.Eventos.EnterNameEventHandler;
 import Vista.Eventos.ConnectionsButtonEventHandler;
 import Vista.Eventos.TravelButtonEventHandler;
@@ -46,6 +47,7 @@ public class PrincipalContainer extends BorderPane {
         screen.setPrefSize(813, 682);
         screen.setBackground(new Background(new BackgroundFill(Paint.valueOf("black"), CornerRadii.EMPTY, Insets.EMPTY)));
         screen.setBorder(new Border(new BorderStroke(Paint.valueOf("white"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5))));
+
         // Aca seteo la etiqueta nomás, podemos ver de reubicar todo esto en una función
         Label knownPlayer = new Label();
         knownPlayer.setMinWidth(75);
@@ -56,6 +58,7 @@ public class PrincipalContainer extends BorderPane {
         knownPlayer.setTextFill(Color.color(1, 0, 0));
         knownPlayer.setPadding(new Insets(0, 10, 0, 10));
         // Hasta acá
+
         // Ahora seteo la etiqueta que nos va a decir la primera información del ladrón
         Label thiefInformation = new Label();
         thiefInformation.setMinWidth(75);
@@ -64,6 +67,7 @@ public class PrincipalContainer extends BorderPane {
         thiefInformation.setFont(new Font(fontSize));
         thiefInformation.setTextFill(Color.color(1, 0, 0));
         thiefInformation.setPadding(new Insets(0, 10, 0, 10));
+
         // Hasta acá
         screen.getChildren().addAll(knownPlayer, thiefInformation);
 
@@ -140,8 +144,10 @@ public class PrincipalContainer extends BorderPane {
         TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(screen, enterName, cityButtonsBox, game);
         buttonBar.setTravelAction(travelButtonEventHandler);
 
-        ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game);
+        ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game, screen);
         buttonBar.setConnectionsAction(connectionsButtonEventHandlerEventHandler);
+
+        EnterBuildingEventHandler enterBuildingEventHandler = new EnterBuildingEventHandler(game);
 
         this.setCenter(centralContainer);
 

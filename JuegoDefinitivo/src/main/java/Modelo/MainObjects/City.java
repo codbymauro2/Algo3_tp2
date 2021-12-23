@@ -4,6 +4,7 @@ import Modelo.MainObjects.Buildings.Airport;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Building;
 import Modelo.MainObjects.Buildings.Library;
+import org.mockito.exceptions.verification.ArgumentsAreDifferent;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -72,5 +73,13 @@ public class City {
     }
     public ArrayList<City> getConnections() {
         return connections;
+    }
+
+    public ArrayList<Building> getBuildings() {
+        ArrayList<Building> buildings = new ArrayList<>();
+        buildings.add(this.bank);
+        buildings.add(this.airport);
+        buildings.add(this.library);
+        return buildings;
     }
 }

@@ -1,6 +1,7 @@
 package Modelo.MainObjects;
 
 import Modelo.Lists.*;
+import Modelo.MainObjects.Buildings.Building;
 import Modelo.Readers.*;
 
 import java.io.FileNotFoundException;
@@ -21,6 +22,8 @@ public class Game {
     private Players players;
     private PlayerReader playerReader;
     private Suspect thief;
+    private City currentCity;
+
 
 
     public Game() throws FileNotFoundException {
@@ -49,8 +52,8 @@ public class Game {
         this.suspects.randomSuspect(cities, this.police.getCitiesToTravel());
         this.thief = this.suspects.getRobber();
         this.cities.setSuspect(this.thief);
+        this.currentCity = police.getCurrentCity();
     }
-
 
     private void collectData() throws FileNotFoundException {
 
@@ -79,6 +82,7 @@ public class Game {
     public String getThiefGender() {
         return this.thief.getGender();
     }
+
     public String time() {
         if (this.police == null){
             return "9h00";
@@ -98,4 +102,9 @@ public class Game {
         cities.setPossibleCities(police);
         return police.getConnections();
     }
+
+    public ArrayList<Building> getBuildings(){
+        return (this.currentCity.getBuildings());
+    }
+
 }

@@ -50,6 +50,10 @@ public class ButtonBar extends HBox {
         connectionsButton.setOnAction(connectionsButtonEventHandler);
     }
 
+    public void setEnterBuildingAction(){
+
+    }
+
     public void setDisable() {
         travelButton.setDisable(true);
         connectionsButton.setDisable(true);
