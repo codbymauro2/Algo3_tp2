@@ -6,7 +6,29 @@
     -fx-padding: 8px 100px;
     -fx-background-radius: 0;
     -fx-background-insets: 1px;
-    -fx-border-color: #363636;
+    -fx-background-color: #e2e2e2;
+    -fx-border-color: #1e1e1e;
     -fx-border-width: 3px;
-    -fx-effect: dropshadow(gaussian, #363536, 0.2, 10, 3, 3);
+    -fx-effect: dropshadow(gaussian, #1e1e1e, 0.2, 10, 3, 3);
+    -fx-max-width: 420px;
+}
+
+.travel-box {
+    -fx-pref-width: 500;
+    -fx-pref-height: 1000;
+    -fx-alignment: center;
+    -fx-padding: 10;
+    -fx-background-color: #e2e2e2;
+    -fx-border-width: 3px;
+    -fx-border-color: #1e1e1e;
+}
+
+.time-box {
+    -fx-pref-width: 500;
+    -fx-pref-height: 80;
+    -fx-alignment: center;
+}
+
+.time-label {
+    -fx-font: 24px 'VT323', monospace;
 }

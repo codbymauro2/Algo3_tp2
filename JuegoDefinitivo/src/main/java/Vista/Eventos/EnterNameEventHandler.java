@@ -35,7 +35,7 @@ public class EnterNameEventHandler implements EventHandler<ActionEvent> {
         PrincipalContainer principalContainer = new PrincipalContainer(stage, game);
         Scene gameScene = new Scene(principalContainer, 1180, 660);
         Timeline timeline = new Timeline(
-            new KeyFrame(Duration.millis(7000), event1 ->  stage.setScene(gameScene))
+            new KeyFrame(Duration.millis(1), event1 ->  stage.setScene(gameScene))
         );
         timeline.play();
     }
