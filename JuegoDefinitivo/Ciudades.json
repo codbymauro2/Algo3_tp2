@@ -19,7 +19,7 @@
             "clues": {
                 "easy": "Pista facil de biblioteca de Montreal",
                 "medium": "Pista media de biblioteca de Montreal",
-                "dificil": "Pista dificil de biblioteca de Montreal"
+                "hard": "Pista dificil de biblioteca de Montreal"
             }
         },
 
@@ -74,7 +74,7 @@
         "bank": {
             "clues":{
                 "easy": "Pista facil de bank de Baghdad",
-                "media": "Pista media de bank de Baghdad",
+                "medium": "Pista media de bank de Baghdad",
                 "hard": "Pista dificil de bank de Baghdad"
         }
     },
@@ -106,7 +106,7 @@
         "bank": {
             "clues":{
                 "easy": "Pista facil de bank de Buenos Aires",
-                "media": "Pista media de bank de Buenos Aires",
+                "medium": "Pista media de bank de Buenos Aires",
                 "hard": "Pista dificil de bank de Buenos Aires"
             }
         },
@@ -138,7 +138,7 @@
         "bank": {
             "clues":{
                 "easy": "Pista facil de bank de Lima",
-                "media": "Pista media de bank de Lima",
+                "medium": "Pista media de bank de Lima",
                 "hard": "Pista dificil de bank de Lima"
             }
         },
@@ -170,7 +170,7 @@
         "bank": {
             "clues":{
                 "easy": "Pista facil de bank de Canada",
-                "media": "Pista media de bank de Canada",
+                "medium": "Pista media de bank de Canada",
                 "hard": "Pista dificil de bank de Canada"
             }
         },
@@ -202,7 +202,7 @@
         "bank": {
             "clues":{
                 "easy": "Pista facil de bank de Rusia",
-                "media": "Pista media de bank de Rusia",
+                "medium": "Pista media de bank de Rusia",
                 "hard": "Pista dificil de bank de Rusia"
             }
         },
@@ -234,7 +234,7 @@
         "bank": {
             "clues":{
                 "easy": "Pista facil de bank de Brasilia",
-                "media": "Pista media de bank de Brasilia",
+                "medium": "Pista media de bank de Brasilia",
                 "hard": "Pista dificil de bank de Brasilia"
             }
         },
@@ -266,7 +266,7 @@
         "bank": {
             "clues":{
                 "easy": "Pista facil de bank de Washington",
-                "media": "Pista media de bank de Washington",
+                "medium": "Pista media de bank de Washington",
                 "hard": "Pista dificil de bank de Washington"
             }
         },
@@ -298,7 +298,7 @@
         "bank": {
             "clues":{
                 "easy": "Pista facil de bank de Londres",
-                "media": "Pista media de bank de Londres",
+                "medium": "Pista media de bank de Londres",
                 "hard": "Pista dificil de bank de Londres"
             }
         },

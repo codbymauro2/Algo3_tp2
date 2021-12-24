@@ -24,7 +24,7 @@ public class Airport extends Building {
 
     @Override
     public String deployClue(Investigator investigator) {
-        return (clues.deploy(investigator) + clues.deploy(investigator));
+        return  clues.deploy(investigator);
     }
 
     @Override

@@ -36,19 +36,25 @@ public class Rookie extends Police {
     @Override
     public String enter(Library library) {
 
-        if (this.isInCorrectCity())
+        if (this.getCurrentCity().isFinalCity()) {
+            return "última ciudad";
+        } else if (this.isInCorrectCity()) {
             return this.getCurrentCity().getNextCity().getLibrary().deployClue(this);
-        else
+        } else {
             return "No paso por Aca";
+        }
     }
 
     @Override
     public String enter(Airport airport) {
 
-        if (this.isInCorrectCity())
+        if (this.getCurrentCity().isFinalCity()) {
+            return "última ciudad";
+        } else if (this.isInCorrectCity()) {
             return this.getCurrentCity().getNextCity().getAirport().deployClue(this);
-        else
+        } else {
             return "No paso por Aca";
+        }
     }
 
 }

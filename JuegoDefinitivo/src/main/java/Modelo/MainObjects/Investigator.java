@@ -1,6 +1,5 @@
 package Modelo.MainObjects;
 
-import Modelo.Lists.Cities;
 import Modelo.MainObjects.Buildings.Airport;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Library;
@@ -24,26 +23,39 @@ public class Investigator extends Police {
 
     @Override
     public String enter(Bank bank) {
-        return bank.deployClue(this);
+        if (this.getCurrentCity().isFinalCity()) {
+            return "última ciudad";
+        } else if (this.isInCorrectCity()) {
+            return this.getCurrentCity().getNextCity().getBank().deployClue(this);
+        } else {
+            return "No paso por Aca";
+        }
     }
 
     @Override
     public String enter(Library library) {
-        return null;
+        if (this.getCurrentCity().isFinalCity()) {
+            return "última ciudad";
+        } else if (this.isInCorrectCity()) {
+            return this.getCurrentCity().getNextCity().getLibrary().deployClue(this);
+        } else {
+            return "No paso por Aca";
+        }
     }
 
     @Override
     public String enter(Airport airport) {
-        return airport.deployClue(this);
+        if (this.getCurrentCity().isFinalCity()) {
+            return "última ciudad";
+        } else if (this.isInCorrectCity()) {
+            return this.getCurrentCity().getNextCity().getAirport().deployClue(this);
+        } else {
+            return "No paso por Aca";
+        }
     }
 
-    @Override
-    public City getCurrentCity() {
-        return null;
-    }
-
-    @Override
-    public void sleep() {
-
-    }
 }
+
+
+
+
