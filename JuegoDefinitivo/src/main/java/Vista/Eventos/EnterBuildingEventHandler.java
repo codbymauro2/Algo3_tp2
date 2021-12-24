@@ -7,6 +7,8 @@ import Modelo.MainObjects.Buildings.Library;
 import Modelo.MainObjects.Game;
 import javafx.event.ActionEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 
 import java.util.ArrayList;
 
@@ -20,10 +22,9 @@ public class EnterBuildingEventHandler {
         this.game = game;
         this.left = left;
         this.screen = screen;
-
     }
 
-    /*
+
     @Override
     public void handle(ActionEvent event) {
 
@@ -35,20 +36,20 @@ public class EnterBuildingEventHandler {
         Airport building2 = (Airport) buildings.get(1);
         Library building3 = (Library) buildings.get(2);
 
-        EnterBankEventHandler() enterBankEventHandler = new EnterBankEventHandler();
-        EnterAirportEventHandler() enterAirportEventHandler = new EnterAirportEventHandler();
-        EnterLibraryEventHandler() enterLibraryEventHandler = new EnterLibraryEventHandler();
+        EnterBankEventHandler enterBankEventHandler = new EnterBankEventHandler(game);
+        EnterAirportEventHandler enterAirportEventHandler = new EnterAirportEventHandler(game);
+        EnterLibraryEventHandler enterLibraryEventHandler = new EnterLibraryEventHandler(game);
 
         Button building1Button = new Button(building1.getName());
         Button building2Button = new Button(building2.getName());
         Button building3Button = new Button(building3.getName());
 
-        building1.setOnAction(enterBankEventHandler);
-        building2.setOnAction(enterAirportEventHandler);
-        building3.setOnAction(enterLibraryEventHandler);
+        building1Button.setOnAction(enterBankEventHandler);
+        building2Button.setOnAction(enterAirportEventHandler);
+        building3Button.setOnAction(enterLibraryEventHandler);
 
 
 
-    }*/
+    }
 
 }

@@ -2,6 +2,7 @@ package Vista.Eventos;
 
 import Modelo.MainObjects.Game;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Label;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -14,9 +15,9 @@ public class EnterAirportEventHandler {
         this.game = game;
 
     }
-/*
+
     @Override
     public void handle(ActionEvent event){
         Label clue = new Label(this.game.deployAirportClue());
-    }*/
+    }
 }

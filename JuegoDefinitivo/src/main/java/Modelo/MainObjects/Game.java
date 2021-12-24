@@ -2,6 +2,8 @@ package Modelo.MainObjects;
 
 import Modelo.Lists.*;
 import Modelo.MainObjects.Buildings.Airport;
+import Modelo.MainObjects.Buildings.Library;
+import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Building;
 import Modelo.Readers.*;
 
@@ -106,13 +108,11 @@ public class Game {
     }
 
     public String deployLibraryClue() {
-        return "";
-        //return (this.police.enter(currentCity.getNextCity().getLibrary()));
+        return (this.police.enter(new Library()));
     }
 
     public String deployBankClue() {
-        return "";
-        //return (this.police.enter(currentCity.getNextCity().getBank()));
+        return (this.police.enter(new Bank()));
     }
 
     public void travel(City city) {
