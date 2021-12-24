@@ -85,12 +85,14 @@ public class Game {
     }
 
     public String time() {
-        if (this.police == null) return "9h00";
-        return String.valueOf(this.police.getTimeLeftInHours());
+        if (this.police == null)
+            return "152 Hours Left";
+        return String.valueOf(this.police.getTimeLeftInHours()) + " Hours Left";
     }
 
     public String getCityName() {
-        if (this.police == null) return "Cuartel General";
+        if (this.police == null)
+            return "Cuartel General";
         return police.getCurrentCity().getName();
     }
 
@@ -117,5 +119,9 @@ public class Game {
 
     public void travel(City city) {
         police.travel(city);
+    }
+
+    public String getRank() {
+        return police.getClass().getSimpleName();
     }
 }

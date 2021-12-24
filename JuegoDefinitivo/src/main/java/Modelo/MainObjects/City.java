@@ -41,14 +41,6 @@ public class City {
         return suspect.getNextCity(this);
     }
 
-    public Bank getBuilding(Bank bank) {
-        return this.bank;
-    }
-
-    public Library getBuilding(Library library) {
-        return this.library;
-    }
-
     public void setNextCity(City nextCity){
         this.nextCity = nextCity;
     }
@@ -63,7 +55,7 @@ public class City {
 
     public boolean correctCity() { return suspect.passedThrough(this); }
 
-    public int calculateDistanceTo(City city) {
+    public double calculateDistanceTo(City city) {
         return coordinates.distanceKms(city.getCoordinates());
     }
 
@@ -83,7 +75,7 @@ public class City {
         return buildings;
     }
 
-    public Building getAirport() {
+    public Airport getAirport() {
         //if (this.airport == null) return new Airport(?????);
         return this.airport;
     }
@@ -92,11 +84,11 @@ public class City {
         this.airport = airport;
     }
 
-    public Building getBank() {
+    public Bank getBank() {
         return this.bank;
     }
 
-    public Building getLibrary() {
+    public Library getLibrary() {
         return this.library;
     }
 

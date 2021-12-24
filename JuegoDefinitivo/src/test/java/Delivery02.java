@@ -28,7 +28,7 @@ public class Delivery02 {
 
     @Test
     public void Case01DetectiveIsStabbedAndSleeps() {
-        Rookie detective = new Rookie();
+        Police detective = new Rookie();
         Knife knife = new Knife();
         Assertions.assertEquals(detective.getTimeLeftInHours(), 152);
         detective.beAttacked(knife);
@@ -37,8 +37,8 @@ public class Delivery02 {
         Assertions.assertEquals(detective.getTimeLeftInHours(), 142);
         detective.beAttacked(knife);
         Assertions.assertEquals(detective.getTimeLeftInHours(), 141);
-    }
 
+    }
 
     @Test
     public void Case02InvestigatorTakesCaseAndTravelsFromMontrealToMexico() {

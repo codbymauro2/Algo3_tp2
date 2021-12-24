@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.travel-button {
+    -fx-font: 24px 'VT323', monospace;
+    -fx-text-fill: #363536;
+    -fx-padding: 8px 100px;
+    -fx-background-radius: 0;
+    -fx-background-insets: 1px;
+    -fx-border-color: #363636;
+    -fx-border-width: 3px;
+    -fx-effect: dropshadow(gaussian, #363536, 0.2, 10, 3, 3);
+}

@@ -32,8 +32,4 @@ public class Port extends Building{
         return clues.deploy(sergeant);
     }
 
-    @Override
-    public String getName(){
-        return name;
-    }
 }

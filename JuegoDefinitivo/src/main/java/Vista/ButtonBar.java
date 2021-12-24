@@ -1,6 +1,7 @@
 package Vista;
 
 import Vista.Eventos.ConnectionsButtonEventHandler;
+import Vista.Eventos.InvestigateButtonEventHandler;
 import Vista.Eventos.TravelButtonEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -50,8 +51,8 @@ public class ButtonBar extends HBox {
         connectionsButton.setOnAction(connectionsButtonEventHandler);
     }
 
-    public void setEnterBuildingAction(){
-
+    public void setInvestigateAction(InvestigateButtonEventHandler investigateButtonEventHandlerEventHandler) {
+        enterBuildingButton.setOnAction(investigateButtonEventHandlerEventHandler);
     }
 
     public void setDisable() {
@@ -67,4 +68,5 @@ public class ButtonBar extends HBox {
         emitOrderButton.setDisable(false);
         enterBuildingButton.setDisable(false);
     }
+
 }

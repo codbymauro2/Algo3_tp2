@@ -5,9 +5,9 @@ import Modelo.MainObjects.*;
 
 public class Bank extends Building {
 
-    private String name;
-
-    public Bank(){}
+    public Bank(){
+        this.name = "Banco";
+    }
 
     public Bank(Clue clue) {
         super(clue);
@@ -27,7 +27,6 @@ public class Bank extends Building {
     @Override
     public String deployClue(Investigator investigator) {
         return (clues.deploy(investigator) + clues.deploy(investigator));
-        //return (clues.medium() + clues.hard());
     }
 
     @Override
@@ -35,8 +34,4 @@ public class Bank extends Building {
         return clues.deploy(sergeant);
     }
 
-    @Override
-    public String getName(){
-        return name;
-    }
 }

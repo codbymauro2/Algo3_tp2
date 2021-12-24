@@ -3,7 +3,7 @@
         "name": "Montreal",
 
         "coordinates": {
-            "longitude": -73.57,
+            "longitude": -73.58,
             "latitude": 45.50
         },
 
@@ -67,8 +67,8 @@
         "name": "Baghdad",
 
         "coordinates": {
-            "latitude": 33.32,
-            "longitude": 44.42
+            "latitude": 33.34,
+            "longitude": 44.40
         },
 
         "bank": {
@@ -79,11 +79,11 @@
         }
     },
 
-        "port": {
+        "library": {
             "clues":  {
-                "easy": "Pista facil de port de Baghdad",
-                "medium": "Pista medio del port de Baghdad",
-                "hard": "Pista dificil de port de Baghdad"
+                "easy": "Pista facil de library de Baghdad",
+                "medium": "Pista medio del library de Baghdad",
+                "hard": "Pista dificil de library de Baghdad"
         }
     },
 
@@ -99,8 +99,8 @@
         "name": "Buenos Aires",
         
         "coordinates": {
-            "latitude": 33.32,
-            "longitude": 44.42
+            "latitude": -34.61,
+            "longitude": -58.37
         },
         
         "bank": {
@@ -111,11 +111,11 @@
             }
         },
         
-        "port": {
+        "library": {
             "clues":  {
-                "easy": "Pista facil de port de Buenos Aires",
-                "medium": "Pista medio del port de Buenos Aires",
-                "hard": "Pista dificil de port de Buenos Aires"
+                "easy": "Pista facil de library de Buenos Aires",
+                "medium": "Pista medio del library de Buenos Aires",
+                "hard": "Pista dificil de library de Buenos Aires"
             }
         },
         
@@ -131,8 +131,8 @@
         "name": "Lima",
         
         "coordinates": {
-            "latitude": 33.32,
-            "longitude": 44.42
+            "latitude": -12.04,
+            "longitude": -77.02
         },
         
         "bank": {
@@ -143,11 +143,11 @@
             }
         },
         
-        "port": {
+        "library": {
             "clues":  {
-                "easy": "Pista facil de port de Lima",
-                "medium": "Pista medio del port de Lima",
-                "hard": "Pista dificil de port de Lima"
+                "easy": "Pista facil de library de Lima",
+                "medium": "Pista medio del library de Lima",
+                "hard": "Pista dificil de library de Lima"
             }
         },
         
@@ -160,11 +160,11 @@
         }
     },
     {
-        "name": "Canada",
+        "name": "Abuya",
         
         "coordinates": {
-            "latitude": 33.32,
-            "longitude": 44.42
+            "latitude": 9.90,
+            "longitude": 4.42
         },
         
         "bank": {
@@ -175,11 +175,11 @@
             }
         },
         
-        "port": {
+        "library": {
             "clues":  {
-                "easy": "Pista facil de port de Canada",
-                "medium": "Pista medio del port de Canada",
-                "hard": "Pista dificil de port de Canada"
+                "easy": "Pista facil de library de Canada",
+                "medium": "Pista medio del library de Canada",
+                "hard": "Pista dificil de library de Canada"
             }
         },
         
@@ -192,11 +192,11 @@
         }
     },
     {
-        "name": "Rusia",
+        "name": "Moscu",
         
         "coordinates": {
-            "latitude": 33.32,
-            "longitude": 44.42
+            "latitude": 55.75,
+            "longitude": 37.62
         },
         
         "bank": {
@@ -207,11 +207,11 @@
             }
         },
         
-        "port": {
+        "library": {
             "clues":  {
-                "easy": "Pista facil de port de Rusia",
-                "medium": "Pista medio del port de Rusia",
-                "hard": "Pista dificil de port de Rusia"
+                "easy": "Pista facil de library de Rusia",
+                "medium": "Pista medio del library de Rusia",
+                "hard": "Pista dificil de library de Rusia"
             }
         },
         
@@ -227,8 +227,8 @@
         "name": "Brasilia",
 
         "coordinates": {
-            "latitude": 38.32,
-            "longitude": 44.42
+            "latitude": -15.78,
+            "longitude": -47.93
         },
 
         "bank": {
@@ -239,11 +239,11 @@
             }
         },
 
-        "port": {
+        "library": {
             "clues":  {
-                "easy": "Pista facil de port de Brasilia",
-                "medium": "Pista medio del port de Brasilia",
-                "hard": "Pista dificil de port de Brasilia"
+                "easy": "Pista facil de library de Brasilia",
+                "medium": "Pista medio del library de Brasilia",
+                "hard": "Pista dificil de library de Brasilia"
             }
         },
 
@@ -259,8 +259,8 @@
         "name": "Washington",
 
         "coordinates": {
-            "latitude": 21.32,
-            "longitude": 42.32
+            "latitude": 38.90,
+            "longitude": -77.03
         },
 
         "bank": {
@@ -271,11 +271,11 @@
             }
         },
 
-        "port": {
+        "library": {
             "clues":  {
-                "easy": "Pista facil de port de Washington",
-                "medium": "Pista medio del port de Washington",
-                "hard": "Pista dificil de port de Washington"
+                "easy": "Pista facil de library de Washington",
+                "medium": "Pista medio del library de Washington",
+                "hard": "Pista dificil de library de Washington"
             }
         },
 
@@ -291,8 +291,8 @@
         "name": "Londres",
 
         "coordinates": {
-            "latitude": 12.32,
-            "longitude": 99.32
+            "latitude": 51.51,
+            "longitude": -0.09
         },
 
         "bank": {
@@ -303,11 +303,11 @@
             }
         },
 
-        "port": {
+        "library": {
             "clues":  {
-                "easy": "Pista facil de port de Londres",
-                "medium": "Pista medio del port de Londres",
-                "hard": "Pista dificil de port de Londres"
+                "easy": "Pista facil de library de Londres",
+                "medium": "Pista medio del library de Londres",
+                "hard": "Pista dificil de library de Londres"
             }
         },
 

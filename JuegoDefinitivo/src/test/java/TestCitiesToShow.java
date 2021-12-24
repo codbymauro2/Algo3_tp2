@@ -1,7 +1,6 @@
 import Modelo.Lists.Cities;
 import Modelo.Lists.Suspects;
 import Modelo.MainObjects.*;
-import Modelo.MainObjects.Buildings.Airport;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -113,20 +112,5 @@ public class TestCitiesToShow {
         }
     }
 
-    @Test
-    public void Test04() {
-        Cities cities = cityBuilder();
-        City lima = new City("Lima", new Coordinates(45.50, -73.57));
-        Clue clueAirport = new Clue("Pista Aeropuerto Facil","Pista Aeropuerto Media","Pista Aeropuerto Dificil");
-        Airport airport = new Airport(clueAirport);
-        cities.add(lima);
-        Suspect suspect = setGame(cities);
-        lima.getNextCity().setAirport(airport);
-        Detective detective = new Detective();
-        detective.setCurrentCity(lima);
-        //para peti
-        //String pista = detective.enter(detective.getCurrentCity().getAirport());
-        //Assertions.assertEquals(pista, "Pista Aeropuerto Media");
-    }
 
 }

@@ -1,11 +1,11 @@
 package Modelo.MainObjects.Buildings;
 
-
 import Modelo.MainObjects.*;
 
 public abstract class Building {
 
     protected Clue clues;
+    protected String name;
 
     public Building(Clue clue) {
         this.clues = clue;
@@ -22,5 +22,7 @@ public abstract class Building {
 
     public abstract String deployClue(Sergeant sergeant);
 
-    public abstract String getName();
+    public String getName() {
+        return name;
+    }
 }

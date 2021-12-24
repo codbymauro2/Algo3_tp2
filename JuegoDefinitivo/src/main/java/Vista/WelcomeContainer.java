@@ -14,12 +14,10 @@ public class WelcomeContainer extends VBox {
 
     Stage stage;
 
-    public WelcomeContainer(Stage stage, Scene proximaEscena) {
+    public WelcomeContainer(Stage stage, Scene nextScene) {
 
         super();
-
         this.stage = stage;
-
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
         this.setPadding(new Insets(60, 10, 10, 10));
@@ -39,7 +37,7 @@ public class WelcomeContainer extends VBox {
         exitButton.setText("Salir");
         exitButton.setMinSize(75,25);
 
-        PlayButtonEventHandler playButtonHandler = new PlayButtonEventHandler(stage, proximaEscena);
+        PlayButtonEventHandler playButtonHandler = new PlayButtonEventHandler(stage, nextScene);
         enterButton.setOnAction(playButtonHandler);
 
         ExitOptionEventHandler exitOptionHandler = new ExitOptionEventHandler();

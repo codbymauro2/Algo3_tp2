@@ -3,27 +3,36 @@ package Modelo.MainObjects;
 import java.util.Objects;
 
 public class Coordinates {
-    private final double latitude;
-    private final double longitude;
-    private final double radioEarth;
+
+    private double latitude;
+    private double longitude;
+    private double radioEarth;
 
     public Coordinates(double latitude, double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
-        this.radioEarth = 6371.0;
+        this.radioEarth = 6371;
     }
 
-    public int distanceKms(Coordinates coordinates) {
+    public Coordinates() {
+        this.radioEarth = 6371;
+    }
+
+    public double distanceKms(Coordinates coordinates) {
         return coordinates.calculateDistanceKms(latitude, longitude);
     }
 
-    private int calculateDistanceKms(double otherLatitude, double otherLongitude) {
-        double DistanceLatitude = Math.toRadians(otherLatitude - latitude);
-        double DistanceLongitude = Math.toRadians(otherLongitude - longitude);
-        double value1 = Math.pow(Math.sin(DistanceLatitude/2),2) + Math.pow(Math.sin(DistanceLongitude/2),2) * Math.cos(Math.toRadians(otherLatitude)) * Math.cos(Math.toRadians(latitude));
-        double value2 = 2 * Math.asin(Math.sqrt(value1));
-        double distance = radioEarth * value2;
-        return (int) Math.round(distance);
+    private double calculateDistanceKms(double otherLatitude, double otherLongitude) {
+        double dLat = Math.toRadians(otherLatitude - latitude);
+        double dLng = Math.toRadians(otherLongitude - longitude);
+        double sindLat = Math.sin(dLat / 2);
+        double sindLng = Math.sin(dLng / 2);
+        double va1 = Math.pow(sindLat, 2) + Math.pow(sindLng, 2)
+                * Math.cos(Math.toRadians(latitude)) * Math.cos(Math.toRadians(otherLatitude));
+        double va2 = 2 * Math.atan2(Math.sqrt(va1), Math.sqrt(1 - va1));
+        double distancia = this.radioEarth * va2;
+
+        return Math.round(distancia);
     }
 
     @Override

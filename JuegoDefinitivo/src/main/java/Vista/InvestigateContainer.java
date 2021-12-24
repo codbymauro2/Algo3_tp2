@@ -1,50 +1,48 @@
 package Vista;
 
+import Modelo.MainObjects.Buildings.Airport;
+import Modelo.MainObjects.Buildings.Bank;
+import Modelo.MainObjects.Buildings.Building;
+import Modelo.MainObjects.Buildings.Library;
 import Modelo.MainObjects.Game;
-import Vista.Eventos.EnterNameEventHandler;
-import Vista.Eventos.ConnectionsButtonEventHandler;
-import Vista.Eventos.InvestigateButtonEventHandler;
-import Vista.Eventos.TravelButtonEventHandler;
+import Vista.Eventos.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.scene.paint.*;
-import org.kordamp.bootstrapfx.scene.layout.Panel;
 
-import javax.swing.*;
-import java.net.URL;
-import java.util.Collection;
+import java.util.ArrayList;
+
+public class InvestigateContainer extends BorderPane {
+
+    private Stage stage;
+    private Game game;
+    private VBox centralContainer;
+    private ApplicationMenuBar menuBar;
 
 
-public class PrincipalContainer extends BorderPane {
-
-    private final Stage stage;
-    private final Game game;
-    ApplicationMenuBar menuBar;
-    VBox centralContainer;
-
-    public PrincipalContainer (Stage stage, Game game) {
-        this.game = game;
+    public InvestigateContainer(Stage stage, Game game) {
         this.stage = stage;
+        this.game = game;
+        centralContainer = new VBox();
         this.setMenu();
-        this.setCentro();
+        this.setCenter();
     }
+
 
     private void setMenu() {
         this.menuBar = new ApplicationMenuBar(stage);
         this.setTop(menuBar);
     }
 
-    private void setCentro() {
+
+    private void setCenter() {
+
 
         // CONTENEDOR PANTALLA/BOTONES
         VBox vRightContainer = new VBox(0);
@@ -52,12 +50,19 @@ public class PrincipalContainer extends BorderPane {
         // PANTALLA DERECHA DE JUEGO
         VBox screen = new VBox(0);
         screen.setPrefSize(813, 682);
+        screen.setAlignment(Pos.TOP_CENTER);
+        screen.setPadding(new Insets(20,0,0,0));
         screen.setBackground(new Background(new BackgroundFill(Paint.valueOf("black"), CornerRadii.EMPTY, Insets.EMPTY)));
         screen.setBorder(new Border(new BorderStroke(Paint.valueOf("white"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5))));
+        Label clueLabel = new Label();
+        clueLabel.setTextFill(Color.web("#ffffff", 0.9));
+        clueLabel.setFont(Font.font("Verdana", 20));
 
         // BOTONERA
         ButtonBar buttonBar = new ButtonBar(20);
 
+
+        screen.getChildren().addAll(clueLabel);
         vRightContainer.getChildren().addAll(screen, buttonBar);
 
         // ESPACIO PARA CIUDAD ACTUAL Y TIEMPO RESTANTE
@@ -66,8 +71,8 @@ public class PrincipalContainer extends BorderPane {
         timeVbox.setPrefSize(420, 80);
         timeVbox.setBackground(new Background(new BackgroundFill(Paint.valueOf("black"), CornerRadii.EMPTY, Insets.EMPTY)));
         timeVbox.setBorder(new Border(new BorderStroke(Paint.valueOf("white"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
-        Label textSpace = new Label(game.getCityName());
         Label textTime = new Label(game.time());
+        Label textSpace = new Label(game.getCityName());
         textSpace.setTextFill(Color.web("#BDB629", 0.9));
         textTime.setTextFill(Color.web("#fcfcfc", 0.9));
         textSpace.setAlignment(Pos.TOP_CENTER);
@@ -76,17 +81,44 @@ public class PrincipalContainer extends BorderPane {
         textTime.setFont(Font.font("Verdana", 20));
         timeVbox.getChildren().addAll(textSpace, textTime);
 
-        VBox nameBox = new VBox(5);
-        nameBox.setAlignment(Pos.TOP_CENTER);
-        nameBox.setPrefSize(500, 500);
-        nameBox.setPadding(new Insets(100, 0, 0, 0));
-        String string = ("-fx-background-image: url('images/" + game.getCityName() + ".jpg'" + ");");
-        nameBox.setStyle(string +
-                "-fx-background-repeat: stretch;" +
-                "-fx-background-size: 450 400;" +
-                "-fx-background-position: center center;" );
+        VBox enterBuildingOptions = new VBox(5);
+        enterBuildingOptions.setAlignment(Pos.TOP_CENTER);
+        enterBuildingOptions.setPrefSize(500, 500);
+        enterBuildingOptions.setPadding(new Insets(100, 0, 0, 0));
+        enterBuildingOptions.setBackground(new Background(new BackgroundFill(Paint.valueOf("black"), CornerRadii.EMPTY, Insets.EMPTY)));
+        enterBuildingOptions.setBorder(new Border(new BorderStroke(Paint.valueOf("white"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
 
 
+        // BOTONES EDIFICIOS
+        ArrayList<Building> buildings = game.getBuildings();
+
+        System.out.println(buildings.size());
+
+
+        Building building1 = buildings.get(0);
+        Building building2 = buildings.get(1);
+        Building building3 = buildings.get(2);
+
+        EnterBankEventHandler enterBankEventHandler = new EnterBankEventHandler(game, clueLabel);
+        EnterAirportEventHandler enterAirportEventHandler = new EnterAirportEventHandler(game, clueLabel);
+        EnterLibraryEventHandler enterLibraryEventHandler = new EnterLibraryEventHandler(game, clueLabel);
+
+        Button building1Button = new Button();
+        building1Button.setText(building1.getName());
+        Button building2Button = new Button(building2.getName());
+        building2Button.setText(building2.getName());
+        Button building3Button = new Button(building3.getName());
+        building3Button.setText(building3.getName());
+
+        building1Button.setOnAction(enterBankEventHandler);
+        building2Button.setOnAction(enterAirportEventHandler);
+        building3Button.setOnAction(enterLibraryEventHandler);
+
+        enterBuildingOptions.getChildren().addAll(building1Button,building2Button,building3Button);
+
+
+
+        // ESPACIO PARA MOSTRAR CIUDADES
         VBox showCities = new VBox();
         showCities.setAlignment(Pos.CENTER);
         showCities.setPrefSize(420, 200);
@@ -98,7 +130,7 @@ public class PrincipalContainer extends BorderPane {
         VBox left = new VBox(5);
         left.setPrefSize(426, 570);
         left.setBorder(new Border(new BorderStroke(Paint.valueOf("black"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
-        left.getChildren().addAll(timeVbox, nameBox, showCities);
+        left.getChildren().addAll(timeVbox, enterBuildingOptions, showCities);
 
         // PANTALLA DERECHA
         VBox right = new VBox(5);
@@ -124,17 +156,10 @@ public class PrincipalContainer extends BorderPane {
         ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game, stage);
         buttonBar.setConnectionsAction(connectionsButtonEventHandlerEventHandler);
 
-        InvestigateButtonEventHandler investigateButtonEventHandler = new InvestigateButtonEventHandler(game, stage);
-        buttonBar.setInvestigateAction(investigateButtonEventHandler);
-
         this.setCenter(centralContainer);
 
     }
 
 
-    public ApplicationMenuBar getMenuBar() {
-        return menuBar;
-    }
 
 }
-

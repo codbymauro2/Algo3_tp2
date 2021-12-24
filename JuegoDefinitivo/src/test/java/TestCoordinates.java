@@ -43,7 +43,7 @@ public class TestCoordinates {
         detective.setCurrentCity(montreal);
         detective.travel(mexico);
 
-        int distance = montreal.calculateDistanceTo(mexico);
+        double distance = montreal.calculateDistanceTo(mexico);
 
         Assertions.assertEquals(152 - (distance*900), rookie.getTimeLeftInHours());
         Assertions.assertEquals(152 - (distance*1100), detective.getTimeLeftInHours());

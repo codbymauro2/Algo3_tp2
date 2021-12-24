@@ -4,7 +4,9 @@ import Modelo.MainObjects.*;
 
 public class Airport extends Building {
 
-    public Airport(){}
+    public Airport(){
+        this.name = "Aeropuerto";
+    }
 
     public Airport(Clue clue) {
         super(clue);
@@ -32,7 +34,7 @@ public class Airport extends Building {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
 }

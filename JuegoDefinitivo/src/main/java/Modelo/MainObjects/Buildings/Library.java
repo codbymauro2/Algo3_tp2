@@ -1,13 +1,12 @@
 package Modelo.MainObjects.Buildings;
 
-
 import Modelo.MainObjects.*;
 
 public class Library extends Building {
 
-    public Library(){};
-
-    private String name;
+    public Library(){
+        this.name = "Biblioteca";
+    }
 
     public Library(Clue clue) {
         super(clue);
@@ -32,11 +31,6 @@ public class Library extends Building {
     @Override
     public String deployClue(Sergeant sergeant) {
         return clues.deploy(sergeant);
-    }
-
-    @Override
-    public String getName(){
-        return name;
     }
 
 }

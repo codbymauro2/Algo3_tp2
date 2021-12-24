@@ -1,6 +1,5 @@
 package Modelo.MainObjects;
 
-import Modelo.Lists.Cities;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Library;
 import Modelo.MainObjects.Buildings.Airport;
@@ -10,7 +9,8 @@ import java.util.Stack;
 public abstract class Police {
 
     protected City currentCity;
-    protected int velocityKmH, timesAttacked, casesWon, stolenItemDifficulty, citiesToTravel;
+    protected double velocityKmH;
+    protected int timesAttacked, casesWon, stolenItemDifficulty, citiesToTravel;
     protected Timer timer;
     protected PoliceStation policeStation;
     protected boolean warrant;
@@ -50,12 +50,12 @@ public abstract class Police {
     }
 
     private void reduceTime(City city) {
-        float timerH = this.currentCity.calculateDistanceTo(city) / this.velocityKmH;
-        this.timer.reduce(timerH);
+        this.timer.reduce(currentCity.calculateDistanceTo(city) / this.velocityKmH);
     }
 
     private boolean passedThrough(City city) {
-        if (visitedCities.isEmpty()) { return false; }
+        if (visitedCities.isEmpty())
+            return false;
         return visitedCities.peek().equals(city);
     }
 
@@ -69,7 +69,6 @@ public abstract class Police {
     }
 
     public void setCurrentCity(City city) {
-        //visitedCities.push(city);
         this.currentCity = city;
     }
 
@@ -81,7 +80,7 @@ public abstract class Police {
         timer.reduce(8);
     }
 
-    public float getTimeLeftInHours() {
+    public int getTimeLeftInHours() {
         return timer.timeLeft();
     }
 

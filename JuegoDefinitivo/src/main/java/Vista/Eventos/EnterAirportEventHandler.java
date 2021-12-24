@@ -7,17 +7,20 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class EnterAirportEventHandler {
+public class EnterAirportEventHandler implements EventHandler<ActionEvent>{
 
     private Game game;
+    private Label clueLabel;
 
-    public EnterAirportEventHandler(Game game){
+    public EnterAirportEventHandler(Game game, Label label){
         this.game = game;
+        this.clueLabel = label;
 
     }
 
     @Override
     public void handle(ActionEvent event){
-        Label clue = new Label(this.game.deployAirportClue());
+        this.clueLabel.setText(this.game.deployAirportClue());
+
     }
 }
