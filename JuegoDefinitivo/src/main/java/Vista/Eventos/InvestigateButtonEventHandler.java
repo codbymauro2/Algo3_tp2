@@ -21,6 +21,7 @@ public class InvestigateButtonEventHandler implements EventHandler<ActionEvent> 
     @Override
     public void handle(ActionEvent event) {
         InvestigateContainer travelContainer = new InvestigateContainer(stage, game);
+        travelContainer.getStylesheets().add(getClass().getResource("/stylesheets/gameScene.css").toExternalForm());
         Scene investigateScene = new Scene(travelContainer, 1180, 660);
         stage.setScene(investigateScene);
     }

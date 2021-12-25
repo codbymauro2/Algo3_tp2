@@ -21,7 +21,7 @@ public class TravelButtonEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         TravelContainer travelContainer = new TravelContainer(stage, game);
         Scene travelScene = new Scene(travelContainer, 1180, 660);
-        travelScene.getStylesheets().add(getClass().getResource("/stylesheets/travelScene.css").toExternalForm());
+        travelScene.getStylesheets().add(getClass().getResource("/stylesheets/gameScene.css").toExternalForm());
 
         stage.setScene(travelScene);
     }

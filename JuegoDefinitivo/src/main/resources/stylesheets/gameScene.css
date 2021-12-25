@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.travel-button {
+    -fx-font: 24px 'VT323', monospace;
+    -fx-text-fill: #1e2429;
+    -fx-padding: 8px 100px;
+    -fx-background-radius: 0;
+    -fx-background-insets: 1px;
+    -fx-background-color: #c0c5ce;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+    -fx-effect: dropshadow(gaussian, #000000, 0.2, 10, 3, 3);
+    -fx-max-width: 420px;
+}
+
+.travel-button:hover {
+    -fx-font: 24px 'VT323', monospace;
+    -fx-text-fill: #1e2429;
+    -fx-padding: 8px 100px;
+    -fx-background-radius: 0;
+    -fx-background-insets: 1px;
+    -fx-background-color: #dfe2e6;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+    -fx-effect: dropshadow(gaussian, #000000, 0.2, 10, 3, 3);
+    -fx-max-width: 420px;
+}
+
+.travel-button:pressed {
+    -fx-font: 24px 'VT323', monospace;
+    -fx-text-fill: #1e2429;
+    -fx-padding: 8px 100px;
+    -fx-background-radius: 0;
+    -fx-background-insets: 1px;
+    -fx-background-color: #dfe2e6;
+    -fx-border-color: #396c03;
+    -fx-border-width: 5px;
+    -fx-effect: dropshadow(gaussian, #000000, 0.2, 10, 5, 5);
+    -fx-max-width: 420px;
+}
+
+.travel-box {
+    -fx-pref-width: 500;
+    -fx-pref-height: 1000;
+    -fx-alignment: center;
+    -fx-padding: 10px;
+    -fx-background-color: #1e2429;
+    -fx-border-width: 3px;
+    -fx-border-color: #000000;
+}
+
+.time-box {
+    -fx-pref-width: 500;
+    -fx-pref-height: 80;
+    -fx-alignment: center;
+    -fx-background-color: #1e2429;
+    -fx-border-width: 3px;
+    -fx-border-color: #000000;
+}
+
+.time-label {
+    -fx-font: 24px 'VT323', monospace;
+    -fx-text-fill: #c0c5ce;
+}
+
+.city-label {
+    -fx-font: 30px 'VT323', monospace;
+    -fx-text-fill: #c45a12;
+}
+
+.button-box {
+    -fx-pref-width: 800;
+    -fx-pref-height: 200;
+    -fx-alignment: center;
+    -fx-background-color: #1e2429;
+    -fx-border-width: 3px;
+    -fx-border-color: #000000;
+    -fx-spacing: 20px;}
+
+.map {
+    -fx-pref-width: 810;
+    -fx-pref-height: 455;
+    -fx-background-image: url("/images/CarmenMap.jpg");
+    -fx-background-repeat: stretch;
+    -fx-border-width: 3px;
+    -fx-border-color: #000000;
+}
+
+.right-side-box {
+    -fx-background-color: #c0c5ce;
+    -fx-spacing: 10px;
+}
+
+.central-container {
+    -fx-alignment: center;
+    -fx-spacing: 20px;
+    -fx-padding: 25px;
+    -fx-background-color: #c0c5ce;
+}
+
+.action-button {
+    -fx-padding: 10px;
+    -fx-background-radius: 0;
+    -fx-background-insets: 1px;
+    -fx-background-color: #c0c5ce;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+    -fx-effect: dropshadow(gaussian, #000000, 0.2, 10, 3, 3);
+}
+
+.action-button:hover {
+    -fx-padding: 10px;
+    -fx-background-radius: 0;
+    -fx-background-insets: 1px;
+    -fx-background-color: #dfe2e6;
+    -fx-border-color: #000000;
+    -fx-border-width: 3px;
+    -fx-effect: dropshadow(gaussian, #000000, 0.2, 10, 3, 3);
+}
+
+.action-button:pressed {
+    -fx-padding: 10px;
+    -fx-background-radius: 0;
+    -fx-background-insets: 1px;
+    -fx-background-color: #dfe2e6;
+    -fx-border-color: #396c03;
+    -fx-border-width: 5px;
+    -fx-effect: dropshadow(gaussian, #000000, 0.2, 10, 5, 5);
+}

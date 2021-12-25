@@ -20,7 +20,6 @@ import java.util.ArrayList;
 
 public class TravelContainer extends BorderPane {
 
-
     private final Stage stage;
     private final Game game;
     private VBox centralContainer;
@@ -34,7 +33,6 @@ public class TravelContainer extends BorderPane {
         this.setCenter();
     }
 
-
     private void setMenu() {
         this.menuBar = new ApplicationMenuBar(stage);
         this.setTop(menuBar);
@@ -44,35 +42,29 @@ public class TravelContainer extends BorderPane {
 
         // CONTENEDOR PANTALLA/BOTONES
         VBox vRightContainer = new VBox(0);
+        vRightContainer.getStyleClass().add("right-side-box");
 
-        // PANTALLA DERECHA DE JUEGO
+        // MAPA
         VBox screen = new VBox(0);
-        screen.setPrefSize(813, 682);
-        Image image = new Image("images/CarmenMap.jpg");
-        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, new BackgroundSize(1.0, 1.0, true, true, false, false));
-        screen.setBackground(new Background(backgroundImage));
-        screen.setBorder(new Border(new BorderStroke(Paint.valueOf("white"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5))));
+        screen.getStyleClass().add("map");
 
         // BOTONERA
         ButtonBar buttonBar = new ButtonBar(20);
+        buttonBar.getStyleClass().add("button-box");
+        InvestigateButtonEventHandler investigateButtonEventHandler = new InvestigateButtonEventHandler(game,stage);
+        buttonBar.setInvestigateAction(investigateButtonEventHandler);
 
         vRightContainer.getChildren().addAll(screen, buttonBar);
 
         // ESPACIO PARA CIUDAD ACTUAL Y TIEMPO RESTANTE
         VBox timeVbox = new VBox();
         timeVbox.getStyleClass().add("time-box");
-        timeVbox.setBackground(new Background(new BackgroundFill(Paint.valueOf("black"), CornerRadii.EMPTY, Insets.EMPTY)));
-        timeVbox.setBorder(new Border(new BorderStroke(Paint.valueOf("white"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
+
         Label textTime = new Label(game.time());
         Label textSpace = new Label(game.getCityName());
         textTime.getStyleClass().add("time-label");
-        textSpace.getStyleClass().add("time-label");
-        textSpace.setTextFill(Color.web("#BDB629", 0.9));
-        textTime.setTextFill(Color.web("#fcfcfc", 0.9));
-        textSpace.setAlignment(Pos.TOP_CENTER);
-        textTime.setAlignment(Pos.TOP_CENTER);
-        textSpace.setFont(Font.font("Verdana", 20));
-        textTime.setFont(Font.font("Verdana", 20));
+        textSpace.getStyleClass().add("city-label");
+
         timeVbox.getChildren().addAll(textSpace, textTime);
         
         // BOTONES VIAJAR
@@ -80,7 +72,6 @@ public class TravelContainer extends BorderPane {
         travelOptions.getStyleClass().add("travel-box");
 
         // BOTONES DE PAISES
-
         ArrayList<City> travelCities = game.getTravelCities();
 
         Button cityToChoose1 = new Button(travelCities.get(0).getName());
@@ -108,28 +99,19 @@ public class TravelContainer extends BorderPane {
         // PANTALLA IZQUIERDA
         VBox left = new VBox(5);
         left.setPrefSize(426, 570);
-        left.setBorder(new Border(new BorderStroke(Paint.valueOf("black"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
         left.getChildren().addAll(timeVbox, travelOptions);
 
         // PANTALLA DERECHA
         VBox right = new VBox(5);
         right.setPrefSize(713, 570);
-        right.setBorder(new Border(new BorderStroke(Paint.valueOf("black"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
         right.getChildren().addAll(vRightContainer);
 
         // PANTALLA COMPLETA
         HBox fullScreen = new HBox(20);
         fullScreen.getChildren().addAll(left, right);
-        fullScreen.setBorder(new Border(new BorderStroke(Paint.valueOf("black"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
-        fullScreen.setPadding(new Insets(10));
 
         centralContainer = new VBox(fullScreen);
-        centralContainer.setAlignment(Pos.CENTER);
-        centralContainer.setSpacing(20);
-        centralContainer.setPadding(new Insets(25));
-
-        InvestigateButtonEventHandler investigateButtonEventHandler = new InvestigateButtonEventHandler(game,stage);
-        buttonBar.setInvestigateAction(investigateButtonEventHandler);
+        centralContainer.getStyleClass().add("central-container");
 
         this.setCenter(centralContainer);
 
