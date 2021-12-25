@@ -48,6 +48,10 @@ public class ButtonBar extends HBox {
         enterBuildingButton.setOnAction(investigateButtonEventHandlerEventHandler);
     }
 
+    public void setWarrantAction(EmitWarrantEventHandler emitWarrantEventHandler) {
+        emitOrderButton.setOnAction(emitWarrantEventHandler);
+    }
+
     public void setDisable() {
         travelButton.setDisable(true);
         connectionsButton.setDisable(true);

@@ -127,3 +127,18 @@
     -fx-border-width: 5px;
     -fx-effect: dropshadow(gaussian, #000000, 0.2, 10, 5, 5);
 }
+
+.right-screen {
+    -fx-pref-width: 810;
+    -fx-pref-height: 455;
+    -fx-background-color: #1e2429;
+    -fx-border-width: 3px;
+    -fx-border-color: #000000;
+}
+
+.clue-label {
+    -fx-font: 36px 'VT323', monospace;
+    -fx-text-fill: #c0c5ce;
+    -fx-padding: 20px;
+    -fx-wrap-text: true;
+}

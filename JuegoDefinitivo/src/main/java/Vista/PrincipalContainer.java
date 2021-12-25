@@ -48,6 +48,7 @@ public class PrincipalContainer extends BorderPane {
 
         // CONTENEDOR PANTALLA/BOTONES
         VBox vRightContainer = new VBox(0);
+        vRightContainer.getStyleClass().add("right-side-box");
 
         // PANTALLA DERECHA DE JUEGO
         VBox screen = new VBox(0);
@@ -57,23 +58,18 @@ public class PrincipalContainer extends BorderPane {
 
         // BOTONERA
         ButtonBar buttonBar = new ButtonBar(20);
-
+        buttonBar.getStyleClass().add("button-box");
         vRightContainer.getChildren().addAll(screen, buttonBar);
 
         // ESPACIO PARA CIUDAD ACTUAL Y TIEMPO RESTANTE
         VBox timeVbox = new VBox();
-        timeVbox.setAlignment(Pos.CENTER);
-        timeVbox.setPrefSize(420, 80);
-        timeVbox.setBackground(new Background(new BackgroundFill(Paint.valueOf("black"), CornerRadii.EMPTY, Insets.EMPTY)));
-        timeVbox.setBorder(new Border(new BorderStroke(Paint.valueOf("white"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
+        timeVbox.getStyleClass().add("time-box");
+
         Label textSpace = new Label(game.getCityName());
         Label textTime = new Label(game.time());
-        textSpace.setTextFill(Color.web("#BDB629", 0.9));
-        textTime.setTextFill(Color.web("#fcfcfc", 0.9));
-        textSpace.setAlignment(Pos.TOP_CENTER);
-        textTime.setAlignment(Pos.TOP_CENTER);
-        textSpace.setFont(Font.font("Verdana", 20));
-        textTime.setFont(Font.font("Verdana", 20));
+        textTime.getStyleClass().add("time-label");
+        textSpace.getStyleClass().add("city-label");
+
         timeVbox.getChildren().addAll(textSpace, textTime);
 
         VBox nameBox = new VBox(5);
@@ -127,14 +123,15 @@ public class PrincipalContainer extends BorderPane {
         InvestigateButtonEventHandler investigateButtonEventHandler = new InvestigateButtonEventHandler(game, stage);
         buttonBar.setInvestigateAction(investigateButtonEventHandler);
 
+        EmitWarrantEventHandler emitWarrantEventHandler = new EmitWarrantEventHandler(game, stage);
+        buttonBar.setWarrantAction(emitWarrantEventHandler);
+
         this.setCenter(centralContainer);
 
     }
 
-
     public ApplicationMenuBar getMenuBar() {
         return menuBar;
     }
-
 }
 

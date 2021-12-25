@@ -2,6 +2,7 @@ package Vista;
 
 import Modelo.MainObjects.City;
 import Modelo.MainObjects.Game;
+import Vista.Eventos.ConnectionsButtonEventHandler;
 import Vista.Eventos.InvestigateButtonEventHandler;
 import Vista.Eventos.TravelToCityEventHandler;
 import javafx.geometry.Insets;
@@ -51,8 +52,6 @@ public class TravelContainer extends BorderPane {
         // BOTONERA
         ButtonBar buttonBar = new ButtonBar(20);
         buttonBar.getStyleClass().add("button-box");
-        InvestigateButtonEventHandler investigateButtonEventHandler = new InvestigateButtonEventHandler(game,stage);
-        buttonBar.setInvestigateAction(investigateButtonEventHandler);
 
         vRightContainer.getChildren().addAll(screen, buttonBar);
 
@@ -112,6 +111,16 @@ public class TravelContainer extends BorderPane {
 
         centralContainer = new VBox(fullScreen);
         centralContainer.getStyleClass().add("central-container");
+
+        // EVENTOS DE LOS BOTONES
+        EmitWarrantEventHandler emitWarrantEventHandler = new EmitWarrantEventHandler(game, stage);
+        buttonBar.setWarrantAction(emitWarrantEventHandler);
+
+        InvestigateButtonEventHandler investigateButtonEventHandler = new InvestigateButtonEventHandler(game,stage);
+        buttonBar.setInvestigateAction(investigateButtonEventHandler);
+
+        ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game, stage);
+        buttonBar.setConnectionsAction(connectionsButtonEventHandlerEventHandler);
 
         this.setCenter(centralContainer);
 
