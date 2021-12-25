@@ -61,7 +61,6 @@ public class Cities {
     }
 
     public void getCitiesToShow() {
-
     }
 
     public void setPossibleCities(Police police) {

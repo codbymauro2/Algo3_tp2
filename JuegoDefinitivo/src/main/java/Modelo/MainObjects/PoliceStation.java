@@ -21,9 +21,12 @@ public class PoliceStation {
         this.cities = cities;
         this.suspects = suspects;
         this.startFeatures();
+        this.possibleSuspects = new ArrayList<>();
+    }
+
+    public void setSuspect(){
         this.thief = suspects.getRobber();
         this.thief.createFeatureClues();
-        this.possibleSuspects = new ArrayList<>();
     }
 
     public ArrayList<Suspect> getSuspects(ArrayList<Feature> features) {

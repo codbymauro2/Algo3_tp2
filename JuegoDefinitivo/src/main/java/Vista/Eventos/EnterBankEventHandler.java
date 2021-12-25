@@ -17,8 +17,5 @@ public class EnterBankEventHandler implements EventHandler<ActionEvent> {
 
 
     @Override
-    public void handle(ActionEvent event){
-        this.clueLabel.setText(this.game.deployBankClue());
-    }
-
+    public void handle(ActionEvent event){ this.clueLabel.setText(this.game.deployBankClue()); }
 }

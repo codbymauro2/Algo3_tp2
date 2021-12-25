@@ -43,7 +43,6 @@ public class Game {
 
     public void startGame() throws FileNotFoundException{
         this.collectData();
-        this.suspects.randomSuspect(cities, this.player.getTotalCitites());
         this.policeStation = new PoliceStation(suspects,cities);
     }
 
@@ -51,6 +50,8 @@ public class Game {
         this.police = this.policeStation.assignRange(this.player);
         this.stolenItem = stolenItems.assign(police.getStolenItemDifficulty());
         this.cities.startCity(stolenItem);
+        this.suspects.randomSuspect(cities, this.police.getCitiesToTravel());
+        this.policeStation.setSuspect();
         this.police.setCurrentCity(cities.getStartCity());
         this.thief = this.suspects.getRobber();
         this.cities.setSuspect(this.thief);

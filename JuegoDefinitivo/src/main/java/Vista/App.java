@@ -14,7 +14,6 @@ public class App extends Application {
 
     @Override
     public void start(final Stage stage) throws Exception {
-
         stage.setTitle("AlgoTheif - Algo 3");
 
         Game game = createModel();
@@ -25,7 +24,6 @@ public class App extends Application {
 
         stage.setScene(welcomeScene);
         stage.show();
-
     }
 
     private Game createModel() throws FileNotFoundException {
