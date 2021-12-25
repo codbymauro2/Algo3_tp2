@@ -1,24 +1,13 @@
 package Vista;
 
-import Modelo.MainObjects.Buildings.Airport;
-import Modelo.MainObjects.Buildings.Bank;
-import Modelo.MainObjects.Buildings.Building;
-import Modelo.MainObjects.Buildings.Library;
 import Modelo.MainObjects.Game;
 import Vista.Eventos.*;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
 
 public class InvestigateContainer extends BorderPane {
     private Stage stage;

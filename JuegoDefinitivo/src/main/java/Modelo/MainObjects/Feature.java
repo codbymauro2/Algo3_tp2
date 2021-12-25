@@ -3,10 +3,16 @@ package Modelo.MainObjects;
 import java.util.Objects;
 
 public class Feature {
+
     private String element;
 
     public Feature(String feature) {
         this.element = feature;
+    }
+
+    @Override
+    public String toString() {
+        return element;
     }
 
     @Override

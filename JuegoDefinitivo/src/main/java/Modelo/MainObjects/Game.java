@@ -8,6 +8,7 @@ import Modelo.MainObjects.Buildings.Building;
 import Modelo.Readers.*;
 
 import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Game {
@@ -42,6 +43,7 @@ public class Game {
 
     public void startGame() throws FileNotFoundException{
         this.collectData();
+        this.suspects.randomSuspect(cities, this.player.getTotalCitites());
         this.policeStation = new PoliceStation(suspects,cities);
     }
 
@@ -49,8 +51,7 @@ public class Game {
         this.police = this.policeStation.assignRange(this.player);
         this.stolenItem = stolenItems.assign(police.getStolenItemDifficulty());
         this.cities.startCity(stolenItem);
-        this.police.setCurrentCity(cities.find(stolenItem.city));
-        this.suspects.randomSuspect(cities, this.police.getCitiesToTravel());
+        this.police.setCurrentCity(cities.getStartCity());
         this.thief = this.suspects.getRobber();
         this.cities.setSuspect(this.thief);
         this.currentCity = police.getCurrentCity();
@@ -86,8 +87,8 @@ public class Game {
 
     public String time() {
         if (this.police == null)
-            return "152 Hours Left";
-        return String.valueOf(this.police.getTimeLeftInHours()) + " Hours Left";
+            return "Monday 9hs";
+        return String.valueOf(this.police.getTimeLeftInHours());
     }
 
     public String getCityName() {
@@ -123,5 +124,13 @@ public class Game {
 
     public String getRank() {
         return police.getClass().getSimpleName();
+    }
+
+    public ArrayList<Suspect> filterFeatures(ArrayList<Feature> features) {
+        return (this.policeStation.getSuspects(features));
+    }
+
+    public void emitWarrant(Suspect suspect) {
+        police.emitWarrant(suspect);
     }
 }

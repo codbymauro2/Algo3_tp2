@@ -81,6 +81,10 @@ public class Cities {
         Random random = new Random();
         for (int i = possibleCities.size(); i < numberOfCities; i++) {
             int randomInt = random.nextInt(availableCities.size());
+            if (suspect.passedThrough(availableCities.get(randomInt)) || possibleCities.contains(availableCities.get(randomInt))) {
+              i--;
+              continue;
+            }
             possibleCities.add(availableCities.get(randomInt));
             availableCities.remove(randomInt);
         }

@@ -1,10 +1,10 @@
 package Vista;
 
+import Modelo.MainObjects.Game;
 import Vista.Eventos.ExitOptionEventHandler;
 import Vista.Eventos.PlayButtonEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
@@ -14,7 +14,7 @@ public class WelcomeContainer extends VBox {
 
     Stage stage;
 
-    public WelcomeContainer(Stage stage, Scene nextScene) {
+    public WelcomeContainer(Stage stage, Game game) {
 
         super();
         this.stage = stage;
@@ -37,7 +37,7 @@ public class WelcomeContainer extends VBox {
         exitButton.setText("Salir");
         exitButton.setMinSize(75,25);
 
-        PlayButtonEventHandler playButtonHandler = new PlayButtonEventHandler(stage, nextScene);
+        PlayButtonEventHandler playButtonHandler = new PlayButtonEventHandler(stage, game);
         enterButton.setOnAction(playButtonHandler);
 
         ExitOptionEventHandler exitOptionHandler = new ExitOptionEventHandler();

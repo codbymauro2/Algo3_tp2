@@ -80,7 +80,7 @@ public abstract class Police {
         timer.reduce(8);
     }
 
-    public int getTimeLeftInHours() {
+    public String getTimeLeftInHours() {
         return timer.timeLeft();
     }
 
@@ -94,9 +94,10 @@ public abstract class Police {
     }
 
     protected void emitWarrant(Suspect suspect){
-        if(policeStation.getPossibleSuspectsSize() == 1 && suspect.isInCity(currentCity)) {
+        if(policeStation.getPossibleSuspectsSize() == 1) {
             this.warrant = true;
             this.warrantSuspect = suspect;
+            System.out.println("Orden emitida");
         }
     }
 

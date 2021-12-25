@@ -33,9 +33,10 @@ public class EnterNameEventHandler implements EventHandler<ActionEvent> {
         game.initializeCase();
         enterNameView.update();
         PrincipalContainer principalContainer = new PrincipalContainer(stage, game);
+        principalContainer.getStylesheets().add(getClass().getResource("/stylesheets/gameScene.css").toExternalForm());
         Scene gameScene = new Scene(principalContainer, 1180, 660);
         Timeline timeline = new Timeline(
-            new KeyFrame(Duration.millis(1), event1 ->  stage.setScene(gameScene))
+            new KeyFrame(Duration.millis(5000), event1 ->  stage.setScene(gameScene))
         );
         timeline.play();
     }

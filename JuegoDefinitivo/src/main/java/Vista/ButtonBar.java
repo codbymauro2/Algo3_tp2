@@ -1,6 +1,7 @@
 package Vista;
 
 import Vista.Eventos.ConnectionsButtonEventHandler;
+import Vista.Eventos.EmitWarrantEventHandler;
 import Vista.Eventos.InvestigateButtonEventHandler;
 import Vista.Eventos.TravelButtonEventHandler;
 import javafx.scene.control.Button;

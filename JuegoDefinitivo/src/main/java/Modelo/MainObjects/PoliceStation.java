@@ -1,15 +1,16 @@
 package Modelo.MainObjects;
 
 import Modelo.Lists.Cities;
-import Modelo.Lists.StolenItems;
 import Modelo.Lists.Suspects;
+import Modelo.MainObjects.Buildings.Building;
+
 import java.util.ArrayList;
 import java.util.stream.IntStream;
 
 public class PoliceStation {
 
     private Suspects suspects;
-    private Suspect robber;
+    private Suspect thief;
     private ArrayList<Suspect> possibleSuspects;
     private ArrayList<Feature> features;
     private Player player;
@@ -20,16 +21,15 @@ public class PoliceStation {
         this.cities = cities;
         this.suspects = suspects;
         this.startFeatures();
-        this.robber = suspects.getRobber();
+        this.thief = suspects.getRobber();
+        this.thief.createFeatureClues();
         this.possibleSuspects = new ArrayList<>();
     }
 
-    public void getSuspects(ArrayList<Feature> features) {
+    public ArrayList<Suspect> getSuspects(ArrayList<Feature> features) {
         ArrayList<Suspect> possibleSuspects = suspects.filter(features);
-        possibleSuspects.forEach(suspect -> {
-            System.out.println(suspect.getName());
-        });
         this.possibleSuspects = possibleSuspects;
+        return this.possibleSuspects;
     }
 
     public int getPossibleSuspectsSize() {
@@ -81,5 +81,9 @@ public class PoliceStation {
 
     public void completeCase() {
         this.player.addFinishedCase(1);
+    }
+
+    public Suspect getThief() {
+        return this.thief;
     }
 }

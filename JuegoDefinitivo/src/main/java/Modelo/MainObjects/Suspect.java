@@ -9,6 +9,7 @@ import java.util.stream.IntStream;
 
 public class Suspect {
 
+    private ArrayList<String> featureClues;
     private String name, gender, hobby, hair, accessory, vehicle;
     private ArrayList<Feature> features;
     private boolean isRobber, isArrested;
@@ -26,9 +27,18 @@ public class Suspect {
         this.isRobber = false;
         this.isArrested = false;
     }
+
     public Suspect() {
         this.isRobber = false;
         this.isArrested = false;
+    }
+
+    public void createFeatureClues() {
+        featureClues = new ArrayList<>();
+        featureClues.add("I heard that the suspect liked " + features.get(HOBBY).getFeature());
+        featureClues.add("The suspect had " + features.get(HAIR).getFeature() + " hair");
+        featureClues.add("The suspect had a distinctive " + features.get(ACCESSORY).getFeature());
+        featureClues.add("The suspect was driving a " + features.get(VEHICLE).getFeature());
     }
 
     @Override
@@ -103,7 +113,7 @@ public class Suspect {
     }
 
     public String getGender() {
-        return this.features.get(0).getFeature();
+        return this.features.get(GENDER).getFeature();
     }
 
     private void createFeatures() {
@@ -117,5 +127,58 @@ public class Suspect {
         features.add(hair);
         features.add(accessory);
         features.add(vehicle);
+    }
+
+    public String getFeatureClue(Rookie police) {
+        System.out.println(this.featureClues.get(0));
+        return "";
+        /*
+        Random random = new Random();
+        if (random.nextInt(10) <= 4)
+            return "";
+        int randomInt = random.nexInt(FeatureClues.size())
+        String FeatureClue = FeatureClues.get(randomInt);
+        FeatureClues.remove(randomInt);
+        return FeatureClue;
+         */
+    }
+
+    public String getFeatureClue(Detective police) {
+        return "";
+        /*
+        Random random = new Random();
+        if (random.nextInt(10) <= 3)
+            return "";
+        int randomInt = random.nexInt(FeatureClues.size())
+        String FeatureClue = FeatureClues.get(randomInt);
+        FeatureClues.remove(randomInt);
+        return FeatureClue;
+         */
+    }
+
+    public String getFeatureClue(Investigator police) {
+        return "";
+        /*
+        Random random = new Random();
+        if (random.nextInt(10) <= 2)
+            return "";
+        int randomInt = random.nexInt(FeatureClues.size())
+        String FeatureClue = FeatureClues.get(randomInt);
+        FeatureClues.remove(randomInt);
+        return FeatureClue;
+         */
+    }
+
+    public String getFeatureClue(Sergeant police) {
+        return "";
+        /*
+        Random random = new Random();
+        if (random.nextInt(10) <= 1)
+            return "";
+        int randomInt = random.nexInt(FeatureClues.size())
+        String FeatureClue = FeatureClues.get(randomInt);
+        FeatureClues.remove(randomInt);
+        return FeatureClue;
+         */
     }
 }

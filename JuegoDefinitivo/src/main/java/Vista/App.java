@@ -19,10 +19,7 @@ public class App extends Application {
 
         Game game = createModel();
 
-        PlayerNameContainer playerNameContainer = new PlayerNameContainer(game,stage);
-        Scene playerScene = new Scene(playerNameContainer, 1180, 660);
-
-        WelcomeContainer welcomeContainer = new WelcomeContainer(stage, playerScene);
+        WelcomeContainer welcomeContainer = new WelcomeContainer(stage, game);
         Scene welcomeScene = new Scene(welcomeContainer, 1180, 660);
         welcomeScene.getStylesheets().add(getClass().getResource("/stylesheets/welcomeScene.css").toExternalForm());
 

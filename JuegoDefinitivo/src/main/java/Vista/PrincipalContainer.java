@@ -1,29 +1,13 @@
 package Vista;
 
 import Modelo.MainObjects.Game;
-import Vista.Eventos.EnterNameEventHandler;
-import Vista.Eventos.ConnectionsButtonEventHandler;
-import Vista.Eventos.InvestigateButtonEventHandler;
-import Vista.Eventos.TravelButtonEventHandler;
+import Vista.Eventos.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.scene.paint.*;
-import org.kordamp.bootstrapfx.scene.layout.Panel;
-
-import javax.swing.*;
-import java.net.URL;
-import java.util.Collection;
-
 
 public class PrincipalContainer extends BorderPane {
 
@@ -45,16 +29,13 @@ public class PrincipalContainer extends BorderPane {
     }
 
     private void setCentro() {
-
         // CONTENEDOR PANTALLA/BOTONES
         VBox vRightContainer = new VBox(0);
         vRightContainer.getStyleClass().add("right-side-box");
 
         // PANTALLA DERECHA DE JUEGO
         VBox screen = new VBox(0);
-        screen.setPrefSize(813, 682);
-        screen.setBackground(new Background(new BackgroundFill(Paint.valueOf("black"), CornerRadii.EMPTY, Insets.EMPTY)));
-        screen.setBorder(new Border(new BorderStroke(Paint.valueOf("white"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5))));
+        screen.getStyleClass().add("right-screen");
 
         // BOTONERA
         ButtonBar buttonBar = new ButtonBar(20);
@@ -72,16 +53,16 @@ public class PrincipalContainer extends BorderPane {
 
         timeVbox.getChildren().addAll(textSpace, textTime);
 
+        // CIUDADES
         VBox nameBox = new VBox(5);
         nameBox.setAlignment(Pos.TOP_CENTER);
         nameBox.setPrefSize(500, 500);
         nameBox.setPadding(new Insets(100, 0, 0, 0));
-        String string = ("-fx-background-image: url('images/" + game.getCityName() + ".jpg'" + ");");
+        String string = ("-fx-background-image: url('/images/cities" + game.getCityName() + ".jpg'" + ");");
         nameBox.setStyle(string +
                 "-fx-background-repeat: stretch;" +
                 "-fx-background-size: 450 400;" +
                 "-fx-background-position: center center;" );
-
 
         VBox showCities = new VBox();
         showCities.setAlignment(Pos.CENTER);
@@ -89,29 +70,22 @@ public class PrincipalContainer extends BorderPane {
         showCities.setBackground(new Background(new BackgroundFill(Paint.valueOf("black"), CornerRadii.EMPTY, Insets.EMPTY)));
         showCities.setBorder(new Border(new BorderStroke(Paint.valueOf("white"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
 
-
         // PANTALLA IZQUIERDA
         VBox left = new VBox(5);
         left.setPrefSize(426, 570);
-        left.setBorder(new Border(new BorderStroke(Paint.valueOf("black"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
         left.getChildren().addAll(timeVbox, nameBox, showCities);
 
         // PANTALLA DERECHA
         VBox right = new VBox(5);
         right.setPrefSize(713, 570);
-        right.setBorder(new Border(new BorderStroke(Paint.valueOf("black"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
         right.getChildren().addAll(vRightContainer);
 
         // PANTALLA COMPLETA
         HBox fullScreen = new HBox(20);
         fullScreen.getChildren().addAll(left, right);
-        fullScreen.setBorder(new Border(new BorderStroke(Paint.valueOf("black"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
-        fullScreen.setPadding(new Insets(10));
 
         centralContainer = new VBox(fullScreen);
-        centralContainer.setAlignment(Pos.CENTER);
-        centralContainer.setSpacing(20);
-        centralContainer.setPadding(new Insets(25));
+        centralContainer.getStyleClass().add("central-container");
 
         // EVENTOS DE LOS BOTONES
         TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(game, stage);
@@ -127,7 +101,6 @@ public class PrincipalContainer extends BorderPane {
         buttonBar.setWarrantAction(emitWarrantEventHandler);
 
         this.setCenter(centralContainer);
-
     }
 
     public ApplicationMenuBar getMenuBar() {
