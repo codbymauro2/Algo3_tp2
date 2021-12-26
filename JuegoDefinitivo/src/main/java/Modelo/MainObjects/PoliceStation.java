@@ -89,4 +89,5 @@ public class PoliceStation {
     public Suspect getThief() {
         return this.thief;
     }
+
 }

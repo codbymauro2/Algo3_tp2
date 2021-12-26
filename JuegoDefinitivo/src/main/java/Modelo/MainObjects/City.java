@@ -101,4 +101,7 @@ public class City {
     public void setBank(Bank bank) {
         this.bank = bank;
     }
+
+    public Weapon getWeapon(Bank bank) {
+    }
 }

@@ -11,6 +11,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Random;
+
 public class FinalInvestigateContainer extends BorderPane {
     private Stage stage;
     private Game game;
@@ -63,10 +67,6 @@ public class FinalInvestigateContainer extends BorderPane {
         enterBuildingOptions.getStyleClass().add("travel-box");
 
         // BOTONES EDIFICIOS
-        EnterFinalBankEventHandler enterBankEventHandler = new EnterFinalBankEventHandler(game, clueLabel, textTime);
-        EnterFinalAirportEventHandler enterAirportEventHandler = new EnterFinalAirportEventHandler(game, clueLabel, textTime);
-        EnterFinalLibraryEventHandler enterLibraryEventHandler = new EnterFinalLibraryEventHandler(game, clueLabel, textTime);
-
         ImageView bankImage = new ImageView(new Image("/images/bankButton.png", 80, 80, false, false));
         ImageView libraryImage = new ImageView(new Image("/images/libraryButton.png", 80, 80, false, false));
         ImageView airportImage = new ImageView(new Image("/images/airportButton.png", 80, 80, false, false));
@@ -79,9 +79,8 @@ public class FinalInvestigateContainer extends BorderPane {
         libraryButton.getStyleClass().add("action-button");
         airportButton.getStyleClass().add("action-button");
 
-        bankButton.setOnAction(enterBankEventHandler);
-        libraryButton.setOnAction(enterLibraryEventHandler);
-        airportButton.setOnAction(enterAirportEventHandler);
+        this.randomAttackEvent(bankButton,libraryButton,airportButton, textTime);
+
 
         enterBuildingOptions.getChildren().addAll(bankButton, libraryButton, airportButton);
 
@@ -120,5 +119,27 @@ public class FinalInvestigateContainer extends BorderPane {
         buttonBar.setWarrantAction(emitWarrantEventHandler);
 
         this.setCenter(centralContainer);
+    }
+
+    private void randomAttackEvent(Button bank, Button library, Button airport, Label time){
+
+        AttackedByKnifeEventHandler attackedByKnifeEventHandler = new AttackedByKnifeEventHandler(game, stage, time);
+        AttackedByGunEventHandler attackedByGunEventHandler = new AttackedByGunEventHandler(game, stage);
+
+        ArrayList<Button> buttons = new ArrayList<>();
+        buttons.add(bank);
+        buttons.add(library);
+        buttons.add(airport);
+
+        Random random = new Random();
+        int randomInt = random.nextInt(3);
+
+        (buttons.get(randomInt)).setOnAction(attackedByGunEventHandler);
+        buttons.remove(randomInt);
+
+        buttons.forEach( e ->{
+            e.setOnAction(attackedByKnifeEventHandler);
+        });
+
     }
 }

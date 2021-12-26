@@ -170,4 +170,8 @@ public class Suspect {
         return featureClue;
 
     }
+
+    public boolean isArrested() {
+        return this.isArrested;
+    }
 }

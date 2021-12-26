@@ -142,4 +142,19 @@ public class Game {
     public City getCurrentCity() {
         return currentCity;
     }
+
+    public void gunAttack() {
+        this.police.beAttacked(new Pistol());
+
+    }
+
+    public void knifeAttack() {
+        this.police.beAttacked(new Knife());
+
+    }
+
+    public boolean end() {
+        police.arrest(this.thief);
+        return thief.isArrested();
+    }
 }
