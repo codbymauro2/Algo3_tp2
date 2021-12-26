@@ -58,7 +58,7 @@ public class PrincipalContainer extends BorderPane {
         nameBox.setAlignment(Pos.TOP_CENTER);
         nameBox.setPrefSize(500, 500);
         nameBox.setPadding(new Insets(100, 0, 0, 0));
-        String string = ("-fx-background-image: url('/images/cities" + game.getCityName() + ".jpg'" + ");");
+        String string = ("-fx-background-image: url('/images/cities/" + game.getCityName() + ".jpg'" + ");");
         nameBox.setStyle(string +
                 "-fx-background-repeat: stretch;" +
                 "-fx-background-size: 450 400;" +
