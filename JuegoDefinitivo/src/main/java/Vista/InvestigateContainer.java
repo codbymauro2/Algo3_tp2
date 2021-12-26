@@ -112,7 +112,4 @@ public class InvestigateContainer extends BorderPane {
 
         this.setCenter(centralContainer);
     }
-
-
-
 }

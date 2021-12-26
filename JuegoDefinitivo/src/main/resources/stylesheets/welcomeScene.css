@@ -1,12 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 .button {
-    -fx-font: 24px 'VT323', monospace;
-    -fx-text-fill: #363536;
+    -fx-font: 26px 'VT323', monospace;;
+    -fx-text-fill: #1e2429;
+    -fx-background-color: #c0c5ce;
     -fx-padding: 8px 24px;
     -fx-background-radius: 0;
     -fx-background-insets: 1px;
-    -fx-border-color: #363636;
+    -fx-border-color: #1e2429;
     -fx-border-width: 3px;
-    -fx-effect: dropshadow(gaussian, #363536, 0.2, 10, 3, 3);
+    -fx-effect: dropshadow(gaussian, #1e2429, 0.2, 10, 3, 3);
+    -fx-pref-width: 200px;
+}
+
+.button:hover:pressed {
+    -fx-font: 26px 'VT323', monospace;
+    -fx-text-fill: #1e2429;
+    -fx-background-color: #dfe2e6;
+    -fx-padding: 8px 24px;
+    -fx-background-radius: 0;
+    -fx-background-insets: 1px;
+    -fx-border-color: #1e2429;
+    -fx-border-width: 3px;
+    -fx-effect: dropshadow(gaussian, #1e2429, 0.2, 10, 3, 3);
+    -fx-pref-width: 200px;
 }

@@ -40,11 +40,11 @@ public class Coordinates {
         return (Objects.equals(this.latitude, ((Coordinates) coordinates).getLatitude()) && Objects.equals(this.longitude, ((Coordinates) coordinates).getLongitude()));
     }
 
-    private double getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    private double getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 

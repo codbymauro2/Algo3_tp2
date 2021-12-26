@@ -2,11 +2,7 @@ package Vista;
 
 import Modelo.MainObjects.City;
 import Modelo.MainObjects.Game;
-import Vista.Eventos.ConnectionsButtonEventHandler;
-import Vista.Eventos.EmitWarrantEventHandler;
-import Vista.Eventos.InvestigateButtonEventHandler;
-import Vista.Eventos.TravelToCityEventHandler;
-import javafx.scene.canvas.Canvas;
+import Vista.Eventos.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
@@ -14,15 +10,13 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-
-public class TravelContainer extends BorderPane {
-
+public class ConnectionsContainer extends BorderPane {
     private final Stage stage;
     private final Game game;
     private VBox centralContainer;
     private ApplicationMenuBar menuBar;
 
-    public TravelContainer(Stage stage, Game game) {
+    public ConnectionsContainer(Stage stage, Game game) {
         this.stage = stage;
         this.game = game;
         this.centralContainer = new VBox();
@@ -36,19 +30,12 @@ public class TravelContainer extends BorderPane {
     }
 
     private void setCenter() {
-
         // CONTENEDOR PANTALLA/BOTONES
         VBox vRightContainer = new VBox(0);
         vRightContainer.getStyleClass().add("right-side-box");
 
-        // LISTADO DE CIUDADES
-        ArrayList<City> travelCities = game.getTravelCities();
-
         // MAPA
-        Canvas canvas =  new Canvas(728,410);
-        MapView mapView = new MapView(canvas,travelCities, game.getCurrentCity());
-
-        VBox screen = new VBox(canvas);
+        VBox screen = new VBox(0);
         screen.getStyleClass().add("map");
 
         // BOTONERA
@@ -68,31 +55,20 @@ public class TravelContainer extends BorderPane {
 
         timeVbox.getChildren().addAll(textSpace, textTime);
 
-        // BOTONES VIAJAR
+        // CIUDADES POSIBLES
         VBox travelOptions = new VBox(5);
         travelOptions.getStyleClass().add("travel-box");
+        ArrayList<City> travelCities = game.getTravelCities();
 
-        // BOTONES DE PAISES
+        Label cityToChoose1 = new Label(travelCities.get(0).getName());
+        Label cityToChoose2 = new Label(travelCities.get(1).getName());
+        Label cityToChoose3 = new Label(travelCities.get(2).getName());
+        Label cityToChoose4 = new Label(travelCities.get(3).getName());
 
-        Button cityToChoose1 = new Button(travelCities.get(0).getName());
-        Button cityToChoose2 = new Button(travelCities.get(1).getName());
-        Button cityToChoose3 = new Button(travelCities.get(2).getName());
-        Button cityToChoose4 = new Button(travelCities.get(3).getName());
-
-        cityToChoose1.getStyleClass().add("travel-button");
-        cityToChoose2.getStyleClass().add("travel-button");
-        cityToChoose3.getStyleClass().add("travel-button");
-        cityToChoose4.getStyleClass().add("travel-button");
-
-        TravelToCityEventHandler travelToCity1EventHandler = new TravelToCityEventHandler(game, stage, travelCities.get(0));
-        TravelToCityEventHandler travelToCity2EventHandler = new TravelToCityEventHandler(game, stage, travelCities.get(1));
-        TravelToCityEventHandler travelToCity3EventHandler = new TravelToCityEventHandler(game, stage, travelCities.get(2));
-        TravelToCityEventHandler travelToCity4EventHandler = new TravelToCityEventHandler(game, stage, travelCities.get(3));
-
-        cityToChoose1.setOnAction(travelToCity1EventHandler);
-        cityToChoose2.setOnAction(travelToCity2EventHandler);
-        cityToChoose3.setOnAction(travelToCity3EventHandler);
-        cityToChoose4.setOnAction(travelToCity4EventHandler);
+        cityToChoose1.getStyleClass().add("connections-label");
+        cityToChoose2.getStyleClass().add("connections-label");
+        cityToChoose3.getStyleClass().add("connections-label");
+        cityToChoose4.getStyleClass().add("connections-label");
 
         travelOptions.getChildren().addAll(cityToChoose1,cityToChoose2,cityToChoose3,cityToChoose4);
 
@@ -109,7 +85,6 @@ public class TravelContainer extends BorderPane {
         // PANTALLA COMPLETA
         HBox fullScreen = new HBox(20);
         fullScreen.getChildren().addAll(left, right);
-
         centralContainer = new VBox(fullScreen);
         centralContainer.getStyleClass().add("central-container");
 
@@ -120,10 +95,9 @@ public class TravelContainer extends BorderPane {
         InvestigateButtonEventHandler investigateButtonEventHandler = new InvestigateButtonEventHandler(game,stage);
         buttonBar.setInvestigateAction(investigateButtonEventHandler);
 
-        ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game, stage);
-        buttonBar.setConnectionsAction(connectionsButtonEventHandlerEventHandler);
+        TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(game, stage);
+        buttonBar.setTravelAction(travelButtonEventHandler);
 
         this.setCenter(centralContainer);
-
     }
 }

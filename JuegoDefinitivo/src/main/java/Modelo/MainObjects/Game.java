@@ -134,4 +134,8 @@ public class Game {
     public void emitWarrant(Suspect suspect) {
         police.emitWarrant(suspect);
     }
+
+    public City getCurrentCity() {
+        return currentCity;
+    }
 }

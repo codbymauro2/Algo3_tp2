@@ -45,7 +45,7 @@ public class City {
         this.nextCity = nextCity;
     }
 
-    private Coordinates getCoordinates() {return coordinates; }
+    public Coordinates getCoordinates() {return coordinates; }
 
     public void setSuspect(Suspect suspect) {
         this.suspect = suspect;

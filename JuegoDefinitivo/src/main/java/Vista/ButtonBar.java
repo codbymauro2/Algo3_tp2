@@ -10,14 +10,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 public class ButtonBar extends HBox {
-
     private Button travelButton;
     private Button emitOrderButton;
     private Button connectionsButton;
     private Button enterBuildingButton;
 
     public ButtonBar(int spacing) {
-
         ImageView travelImage = new ImageView(new Image("/images/departButton.png", 80, 80, false, false));
         ImageView warrantImage = new ImageView(new Image("/images/warrantButton.png", 80, 80, false, false));
         ImageView citiesImage = new ImageView(new Image("/images/citiesButton.png", 80, 80, false, false));
@@ -28,13 +26,8 @@ public class ButtonBar extends HBox {
         connectionsButton = new Button("",citiesImage);
         enterBuildingButton = new Button("",investigateImage);
 
-        travelButton.getStyleClass().add("action-button");
-        emitOrderButton.getStyleClass().add("action-button");
-        connectionsButton.getStyleClass().add("action-button");
-        enterBuildingButton.getStyleClass().add("action-button");
-
         this.getChildren().addAll(travelButton,connectionsButton,emitOrderButton,enterBuildingButton);
-
+        this.getChildren().forEach(c -> { c.getStyleClass().add("action-button"); });
     }
 
     public void setTravelAction(TravelButtonEventHandler travelButtonEventHandler) {

@@ -54,9 +54,7 @@ public class PlayerNameContainer extends BorderPane {
 
         // INGRESO DE NOMBRE
         VBox nameBox = new VBox(5);
-
-        nameBox.setAlignment(Pos.TOP_CENTER);
-        nameBox.setPadding(new Insets(60));
+        nameBox.getStyleClass().add("name-box");
 
         Label name = new Label("INGRESE SU NOMBRE: ");
         name.getStyleClass().add("name-label");
@@ -103,7 +101,6 @@ public class PlayerNameContainer extends BorderPane {
         // PANTALLA IZQUIERDA
         VBox left = new VBox(5);
         left.setPrefSize(426, 570);
-        left.setBorder(new Border(new BorderStroke(Paint.valueOf("green"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
         left.getChildren().addAll(timeVbox, nameBox);
 
         // PANTALLA DERECHA

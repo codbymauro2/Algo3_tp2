@@ -2,8 +2,11 @@ package Vista.Eventos;
 
 import Modelo.MainObjects.Game;
 import Modelo.MainObjects.City;
+import Vista.ConnectionsContainer;
+import Vista.TravelContainer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
@@ -22,18 +25,10 @@ public class ConnectionsButtonEventHandler implements EventHandler<ActionEvent> 
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        ConnectionsContainer connectionsContainer = new ConnectionsContainer(stage, game);
+        Scene connectionsScene = new Scene(connectionsContainer, 1180, 660);
+        connectionsScene.getStylesheets().add(getClass().getResource("/stylesheets/gameScene.css").toExternalForm());
 
-        ArrayList<City> travelCities = game.getTravelCities();
-
-        Label city1 = new Label(travelCities.get(0).getName());
-        Label city2 = new Label(travelCities.get(1).getName());
-        Label city3 = new Label(travelCities.get(2).getName());
-        Label city4 = new Label(travelCities.get(3).getName());
-
-        Image image = new Image("images/CarmenMap.jpg");
-        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, new BackgroundSize(1.0, 1.0, true, true, false, false));
-//          screen.setBackground(new Background(backgroundImage));
-
-
+        stage.setScene(connectionsScene);
     }
 }
