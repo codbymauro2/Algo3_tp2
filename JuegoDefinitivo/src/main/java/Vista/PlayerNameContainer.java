@@ -13,9 +13,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class PlayerNameContainer extends BorderPane {
-
     ApplicationMenuBar menuBar;
-    Scene nextScene;
     Game game;
     VBox centralContainer;
     Stage stage;
@@ -30,6 +28,7 @@ public class PlayerNameContainer extends BorderPane {
     private void setCentro()  {
         // CONTENEDOR PANTALLA/BOTONES
         VBox vRightContainer = new VBox(0);
+        vRightContainer.getStyleClass().add("right-side-box");
 
         // PANTALLA DERECHA DE JUEGO
         VBox screen = new VBox(0);
@@ -44,7 +43,7 @@ public class PlayerNameContainer extends BorderPane {
 
         // ESPACIO PARA CIUDAD ACTUAL Y TIEMPO RESTANTE
         VBox timeVbox = new VBox();
-       timeVbox.getStyleClass().add("time-box");
+        timeVbox.getStyleClass().add("time-box");
 
         Label textTime = new Label(game.time());
         Label textSpace = new Label(game.getCityName());
@@ -55,10 +54,15 @@ public class PlayerNameContainer extends BorderPane {
 
         // INGRESO DE NOMBRE
         VBox nameBox = new VBox(5);
+
         nameBox.setAlignment(Pos.TOP_CENTER);
+        nameBox.setPadding(new Insets(60));
+
         Label name = new Label("INGRESE SU NOMBRE: ");
         name.getStyleClass().add("name-label");
+
         TextField enterName = new TextField();
+        enterName.getStyleClass().add("welcome-label");
         enterName.setBackground(Background.EMPTY);
         enterName.setPadding(new Insets(0, 50, 0, 50));
         nameBox.setPrefSize(500, 500);
@@ -67,22 +71,29 @@ public class PlayerNameContainer extends BorderPane {
                 "-fx-background-repeat: stretch;" +
                 "-fx-background-size: 450 575;" +
                 "-fx-background-position: center center;");
+
         TextField playerDescription = new TextField();
+        playerDescription.getStyleClass().add("welcome-label");
         playerDescription.setBackground(Background.EMPTY);
         playerDescription.setPadding(new Insets(0, 50, 0, 50));
         playerDescription.setAlignment(Pos.TOP_CENTER);
         playerDescription.setFont(Font.font ("Verdana", 11));
+
         TextField suspectDescription = new TextField();
+        suspectDescription.getStyleClass().add("welcome-label");
         suspectDescription.setPrefSize(5,5);
         suspectDescription.setBackground(Background.EMPTY);
         suspectDescription.setPadding(new Insets(0, 50, 0, 50));
         suspectDescription.setAlignment(Pos.TOP_CENTER);
         suspectDescription.setFont(Font.font ("Verdana", 11));
+
         TextField stolenItemDescription = new TextField();
+        stolenItemDescription.getStyleClass().add("welcome-label");
         stolenItemDescription.setBackground(Background.EMPTY);
         stolenItemDescription.setPadding(new Insets(0, 50, 0, 50));
         stolenItemDescription.setAlignment(Pos.TOP_CENTER);
         stolenItemDescription.setFont(Font.font ("Verdana", 11));
+
         nameBox.getChildren().addAll(name, enterName, playerDescription, suspectDescription, stolenItemDescription);
 
         EnterNameView enterNameView = new EnterNameView(nameBox, game);
@@ -92,7 +103,7 @@ public class PlayerNameContainer extends BorderPane {
         // PANTALLA IZQUIERDA
         VBox left = new VBox(5);
         left.setPrefSize(426, 570);
-        left.setBorder(new Border(new BorderStroke(Paint.valueOf("black"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
+        left.setBorder(new Border(new BorderStroke(Paint.valueOf("green"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(3))));
         left.getChildren().addAll(timeVbox, nameBox);
 
         // PANTALLA DERECHA

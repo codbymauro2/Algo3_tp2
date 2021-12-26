@@ -22,7 +22,7 @@ public class PlayButtonEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent){
         PlayerNameContainer playerNameContainer = new PlayerNameContainer(game,stage);
         Scene playerScene = new Scene(playerNameContainer, 1180, 660);
-        playerScene.getStylesheets().add(getClass().getResource("/stylesheets/welcomeScene.css").toExternalForm());
+        playerScene.getStylesheets().add(getClass().getResource("/stylesheets/gameScene.css").toExternalForm());
         stage.setScene(playerScene);
         stage.setFullScreenExitHint("");
         stage.setFullScreen(false);

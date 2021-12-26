@@ -40,7 +40,6 @@ public class Timer {
     }
 
     public String timeLeft() {
-        System.out.println(duration);
         return days.get(daysIterator) + " " + String.valueOf(this.hour) + "hs";
     }
 }

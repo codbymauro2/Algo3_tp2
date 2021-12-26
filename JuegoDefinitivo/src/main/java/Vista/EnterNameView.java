@@ -30,7 +30,6 @@ public class EnterNameView {
                 new KeyFrame(Duration.millis(3000), event -> ((TextField) nameBox.getChildren().get(1)).appendText(game.getStolenItemName())),
                 new KeyFrame(Duration.millis(3500), event -> ((TextField) nameBox.getChildren().get(2)).appendText(game.getThiefGender() + " suspect reported ")),
                 new KeyFrame(Duration.millis(4000), event -> ((TextField) nameBox.getChildren().get(2)).appendText("from " + game.getCityName()))
-
         );
         timeline.play();
     }

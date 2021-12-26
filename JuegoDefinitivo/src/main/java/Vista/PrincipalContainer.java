@@ -54,26 +54,19 @@ public class PrincipalContainer extends BorderPane {
         timeVbox.getChildren().addAll(textSpace, textTime);
 
         // CIUDADES
-        VBox nameBox = new VBox(5);
-        nameBox.setAlignment(Pos.TOP_CENTER);
-        nameBox.setPrefSize(500, 500);
-        nameBox.setPadding(new Insets(100, 0, 0, 0));
+        VBox cityImageBox = new VBox(5);
+        cityImageBox.getStyleClass().add("city-image-box");
+
         String string = ("-fx-background-image: url('/images/cities/" + game.getCityName() + ".jpg'" + ");");
-        nameBox.setStyle(string +
-                "-fx-background-repeat: stretch;" +
-                "-fx-background-size: 450 400;" +
-                "-fx-background-position: center center;" );
+        cityImageBox.setStyle(string + "-fx-background-repeat: stretch;" + "-fx-background-size: 450 400;" + "-fx-background-position: center center;" );
 
         VBox showCities = new VBox();
-        showCities.setAlignment(Pos.CENTER);
-        showCities.setPrefSize(420, 200);
-        showCities.setBackground(new Background(new BackgroundFill(Paint.valueOf("black"), CornerRadii.EMPTY, Insets.EMPTY)));
-        showCities.setBorder(new Border(new BorderStroke(Paint.valueOf("white"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(2))));
+        showCities.getStyleClass().add("bottom-box");
 
         // PANTALLA IZQUIERDA
         VBox left = new VBox(5);
         left.setPrefSize(426, 570);
-        left.getChildren().addAll(timeVbox, nameBox, showCities);
+        left.getChildren().addAll(timeVbox, cityImageBox, showCities);
 
         // PANTALLA DERECHA
         VBox right = new VBox(5);
