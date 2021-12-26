@@ -27,6 +27,7 @@ public class Investigator extends Police {
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
         } else if (this.isInCorrectCity()) {
+            this.policeStation.getThief().getFeatureClue(this);
             return this.getCurrentCity().getNextCity().getBank().deployClue(this);
         } else {
             return "No paso por Aca";
@@ -39,6 +40,7 @@ public class Investigator extends Police {
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
         } else if (this.isInCorrectCity()) {
+            this.policeStation.getThief().getFeatureClue(this);
             return this.getCurrentCity().getNextCity().getLibrary().deployClue(this);
         } else {
             return "No paso por Aca";
@@ -51,6 +53,7 @@ public class Investigator extends Police {
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
         } else if (this.isInCorrectCity()) {
+            this.policeStation.getThief().getFeatureClue(this);
             return this.getCurrentCity().getNextCity().getAirport().deployClue(this);
         } else {
             return "No paso por Aca";

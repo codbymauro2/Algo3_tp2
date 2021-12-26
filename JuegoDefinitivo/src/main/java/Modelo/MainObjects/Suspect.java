@@ -130,55 +130,44 @@ public class Suspect {
     }
 
     public String getFeatureClue(Rookie police) {
-        System.out.println(this.featureClues.get(0));
-        return "";
-        /*
         Random random = new Random();
         if (random.nextInt(10) <= 4)
             return "";
-        int randomInt = random.nexInt(FeatureClues.size())
-        String FeatureClue = FeatureClues.get(randomInt);
-        FeatureClues.remove(randomInt);
-        return FeatureClue;
-         */
+        int randomInt = random.nextInt(featureClues.size());
+        String featureClue = featureClues.get(randomInt);
+        featureClues.remove(randomInt);
+        return featureClue;
     }
 
     public String getFeatureClue(Detective police) {
-        return "";
-        /*
         Random random = new Random();
         if (random.nextInt(10) <= 3)
             return "";
-        int randomInt = random.nexInt(FeatureClues.size())
-        String FeatureClue = FeatureClues.get(randomInt);
-        FeatureClues.remove(randomInt);
-        return FeatureClue;
-         */
+        int randomInt = random.nextInt(featureClues.size());
+        String featureClue = featureClues.get(randomInt);
+        featureClues.remove(randomInt);
+        return featureClue;
     }
 
     public String getFeatureClue(Investigator police) {
-        return "";
-        /*
         Random random = new Random();
         if (random.nextInt(10) <= 2)
             return "";
-        int randomInt = random.nexInt(FeatureClues.size())
-        String FeatureClue = FeatureClues.get(randomInt);
-        FeatureClues.remove(randomInt);
-        return FeatureClue;
-         */
+        int randomInt = random.nextInt(featureClues.size());
+        String featureClue = featureClues.get(randomInt);
+        featureClues.remove(randomInt);
+        return featureClue;
     }
 
     public String getFeatureClue(Sergeant police) {
-        return "";
-        /*
+
         Random random = new Random();
         if (random.nextInt(10) <= 1)
             return "";
-        int randomInt = random.nexInt(FeatureClues.size())
-        String FeatureClue = FeatureClues.get(randomInt);
-        FeatureClues.remove(randomInt);
-        return FeatureClue;
-         */
+        int randomInt = random.nextInt(featureClues.size());
+        String featureClue = featureClues.get(randomInt);
+        featureClues.remove(randomInt);
+        return featureClue;
+
     }
 }
