@@ -32,7 +32,9 @@ public class TestTimeReduced {
         Bank bank = new Bank(clueBank);
         dublin.setBank(bank);
 
-        Detective detective = new Detective();
+        PoliceStation policeStation = new PoliceStation(suspects, cities);
+        policeStation.setSuspect();
+        Detective detective = new Detective(policeStation);
         detective.setCurrentCity(lima);
 
         Assertions.assertEquals("Monday 9hs", detective.getTimeLeftInHours());
@@ -41,16 +43,17 @@ public class TestTimeReduced {
         detective.enter(bank);
         System.out.println("\n");
         System.out.println(detective.getTimeLeftInHours());
-        //Assertions.assertEquals("Monday 10hs", detective.getTimeLeftInHours());
+        Assertions.assertEquals("Monday 10hs", detective.getTimeLeftInHours());
 
         detective.enter(bank);
         System.out.println("\n");
         System.out.println(detective.getTimeLeftInHours());
-        //Assertions.assertEquals("Monday 12hs", detective.getTimeLeftInHours());
+        Assertions.assertEquals("Monday 12hs", detective.getTimeLeftInHours());
 
         detective.enter(bank);
         System.out.println("\n");
         System.out.println(detective.getTimeLeftInHours());
+        Assertions.assertEquals("Monday 15hs", detective.getTimeLeftInHours());
     }
 
 

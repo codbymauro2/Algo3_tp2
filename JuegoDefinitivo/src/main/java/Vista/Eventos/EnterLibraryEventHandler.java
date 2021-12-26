@@ -7,17 +7,19 @@ import javafx.event.ActionEvent;
 
 public class EnterLibraryEventHandler implements EventHandler<ActionEvent> {
 
-    private final Label clueLabel;
+    private Label clueLabel, time;
     private Game game;
 
-    public EnterLibraryEventHandler(Game game, Label label){
+    public EnterLibraryEventHandler(Game game, Label label, Label time){
         this.clueLabel = label;
         this.game = game;
+        this.time = time;
     }
 
 
     @Override
-    public void handle(ActionEvent event){
+    public void handle(ActionEvent event) {
         this.clueLabel.setText(this.game.deployLibraryClue());
+        this.time.setText(game.time());
     }
 }

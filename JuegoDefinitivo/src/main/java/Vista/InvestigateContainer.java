@@ -61,9 +61,9 @@ public class InvestigateContainer extends BorderPane {
         enterBuildingOptions.getStyleClass().add("travel-box");
 
         // BOTONES EDIFICIOS
-        EnterBankEventHandler enterBankEventHandler = new EnterBankEventHandler(game, clueLabel);
-        EnterAirportEventHandler enterAirportEventHandler = new EnterAirportEventHandler(game, clueLabel);
-        EnterLibraryEventHandler enterLibraryEventHandler = new EnterLibraryEventHandler(game, clueLabel);
+        EnterBankEventHandler enterBankEventHandler = new EnterBankEventHandler(game, clueLabel, textTime);
+        EnterAirportEventHandler enterAirportEventHandler = new EnterAirportEventHandler(game, clueLabel, textTime);
+        EnterLibraryEventHandler enterLibraryEventHandler = new EnterLibraryEventHandler(game, clueLabel, textTime);
 
         ImageView bankImage = new ImageView(new Image("/images/bankButton.png", 80, 80, false, false));
         ImageView libraryImage = new ImageView(new Image("/images/libraryButton.png", 80, 80, false, false));

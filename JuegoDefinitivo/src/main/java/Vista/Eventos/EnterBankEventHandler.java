@@ -8,14 +8,17 @@ import javafx.event.ActionEvent;
 public class EnterBankEventHandler implements EventHandler<ActionEvent> {
 
     private Game game;
-    private Label clueLabel;
+    private Label clueLabel, time;
 
-    public EnterBankEventHandler(Game game, Label label){
+    public EnterBankEventHandler(Game game, Label label, Label time){
         this.game = game;
         this.clueLabel = label;
+        this.time = time;
     }
 
-
     @Override
-    public void handle(ActionEvent event){ this.clueLabel.setText(this.game.deployBankClue()); }
+    public void handle(ActionEvent event) {
+        this.clueLabel.setText(this.game.deployBankClue());
+        this.time.setText(game.time());
+    }
 }

@@ -4,7 +4,7 @@
     "features":
     [
         {"element": "Male"},
-        {"element": "MountainClimbing"},
+        {"element": "Mountain Climbing"},
         {"element": "Black"},
         {"element": "Ring"},
         {"element": "Motorcycle"}
@@ -15,7 +15,7 @@
         "features":
         [
             {"element": "Female"},
-            {"element": "MountainClimbing"},
+            {"element": "Mountain Climbing"},
             {"element": "Brown"},
             {"element": "Jewelry"},
             {"element": "Motorcycle"}
@@ -26,7 +26,7 @@
         "features":
         [
             {"element": "Female"},
-            {"element": "MountainClimbing"},
+            {"element": "Mountain Climbing"},
             {"element": "Brown"},
             {"element": "Jewelry"},
             {"element": "Limousine"}

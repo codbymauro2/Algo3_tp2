@@ -9,51 +9,38 @@ public class Timer {
     private String day;
     private int hour;
 
-    private ArrayList<String> daysWeek;
-    private Iterator<String> daysWeekIterator;
+    private ArrayList<String> days;
+    private int daysIterator;
     private final int sleepHours;
 
-    public Timer(){
+    public Timer() {
         this.duration = 152;
 
-        this.daysWeek = new ArrayList<>();
-        this.daysWeek.add("Monday");
-        this.daysWeek.add("Tuesday");
-        this.daysWeek.add("Wednesday");
-        this.daysWeek.add("Thursday");
-        this.daysWeek.add("Friday");
-        this.daysWeek.add("Saturday");
-        this.daysWeek.add("Sunday");
-        this.daysWeekIterator = this.daysWeek.iterator();
-        this.day = this.daysWeekIterator.next();
+        this.days = new ArrayList<>();
+        this.days.add("Monday");
+        this.days.add("Tuesday");
+        this.days.add("Wednesday");
+        this.days.add("Thursday");
+        this.days.add("Friday");
+        this.days.add("Saturday");
+        this.days.add("Sunday");
+        this.daysIterator = 0;
+
         this.hour = 9;
         this.sleepHours = 8;
     }
 
     public void reduce(double hours) {
         this.duration -= Math.round(hours);
-        this.updateDay();
-    }
-
-    public void updateDay(){
-        this.hour += (152 - this.duration);
-        if (hour >= 24){
-
-            if (this.daysWeekIterator.hasNext()) {
-                this.day = this.daysWeekIterator.next();
-                //duerme 8 horas cuando llegan las 24
-                this.hour = this.sleepHours + (this.hour - 24);
-            }
-            else
-                System.out.println("perdiste");
+        hour += Math.round(hours);
+        if (hour >=24) {
+            hour -= 24;
+            daysIterator += 1;
         }
     }
 
     public String timeLeft() {
-        //return (int) this.duration;
-        return this.day + " " + String.valueOf(this.hour) + "hs";
+        System.out.println(duration);
+        return days.get(daysIterator) + " " + String.valueOf(this.hour) + "hs";
     }
-
-
 }
-

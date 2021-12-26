@@ -35,10 +35,10 @@ public class Suspect {
 
     public void createFeatureClues() {
         featureClues = new ArrayList<>();
-        featureClues.add("I heard that the suspect liked " + features.get(HOBBY).getFeature());
-        featureClues.add("The suspect had " + features.get(HAIR).getFeature() + " hair");
-        featureClues.add("The suspect had a distinctive " + features.get(ACCESSORY).getFeature());
-        featureClues.add("The suspect was driving a " + features.get(VEHICLE).getFeature());
+        featureClues.add("I heard that the suspect liked " + features.get(HOBBY).getFeature() + ".");
+        featureClues.add("The suspect had " + features.get(HAIR).getFeature() + " hair.");
+        featureClues.add("The suspect had a distinctive " + features.get(ACCESSORY).getFeature() + ".");
+        featureClues.add("The suspect was driving a " + features.get(VEHICLE).getFeature() + ".");
     }
 
     @Override
@@ -131,7 +131,7 @@ public class Suspect {
 
     public String getFeatureClue(Rookie police) {
         Random random = new Random();
-        if (random.nextInt(10) <= 4)
+        if (random.nextInt(10) <= 6)
             return "";
         int randomInt = random.nextInt(featureClues.size());
         String featureClue = featureClues.get(randomInt);
@@ -141,7 +141,7 @@ public class Suspect {
 
     public String getFeatureClue(Detective police) {
         Random random = new Random();
-        if (random.nextInt(10) <= 3)
+        if (random.nextInt(10) <= 7)
             return "";
         int randomInt = random.nextInt(featureClues.size());
         String featureClue = featureClues.get(randomInt);
@@ -151,7 +151,7 @@ public class Suspect {
 
     public String getFeatureClue(Investigator police) {
         Random random = new Random();
-        if (random.nextInt(10) <= 2)
+        if (random.nextInt(10) <= 8)
             return "";
         int randomInt = random.nextInt(featureClues.size());
         String featureClue = featureClues.get(randomInt);
@@ -162,7 +162,7 @@ public class Suspect {
     public String getFeatureClue(Sergeant police) {
 
         Random random = new Random();
-        if (random.nextInt(10) <= 1)
+        if (random.nextInt(10) <= 8)
             return "";
         int randomInt = random.nextInt(featureClues.size());
         String featureClue = featureClues.get(randomInt);
