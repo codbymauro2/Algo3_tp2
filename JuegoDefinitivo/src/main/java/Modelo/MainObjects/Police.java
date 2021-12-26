@@ -1,6 +1,7 @@
 package Modelo.MainObjects;
 
 import Modelo.MainObjects.Buildings.Bank;
+import Modelo.MainObjects.Buildings.Building;
 import Modelo.MainObjects.Buildings.Library;
 import Modelo.MainObjects.Buildings.Airport;
 import java.util.ArrayList;
@@ -51,6 +52,11 @@ public abstract class Police {
 
     private void reduceTime(City city) {
         this.timer.reduce(currentCity.calculateDistanceTo(city) / this.velocityKmH);
+    }
+
+    public void reduceTimeEnteringBuilding(Building building)  {
+        timer.reduce(building.getTimesEntered() + 1);
+        building.enter();
     }
 
     private boolean passedThrough(City city) {
@@ -133,5 +139,6 @@ public abstract class Police {
     public ArrayList<City> getConnections() {
         return currentCity.getConnections();
     };
+
 
 }

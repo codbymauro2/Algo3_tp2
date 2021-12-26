@@ -13,9 +13,6 @@ public class Timer {
     private Iterator<String> daysWeekIterator;
     private final int sleepHours;
 
-
-
-
     public Timer(){
         this.duration = 152;
 
@@ -31,8 +28,6 @@ public class Timer {
         this.day = this.daysWeekIterator.next();
         this.hour = 9;
         this.sleepHours = 8;
-
-
     }
 
     public void reduce(double hours) {

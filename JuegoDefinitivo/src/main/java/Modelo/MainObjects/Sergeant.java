@@ -23,6 +23,7 @@ public class Sergeant extends Police {
 
     @Override
     public String enter(Bank bank) {
+        this.reduceTimeEnteringBuilding(bank);
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
         } else if (this.isInCorrectCity()) {
@@ -34,6 +35,7 @@ public class Sergeant extends Police {
 
     @Override
     public String enter(Library library) {
+        this.reduceTimeEnteringBuilding(library);
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
         } else if (this.isInCorrectCity()) {
@@ -44,7 +46,7 @@ public class Sergeant extends Police {
 
     @Override
     public String enter(Airport airport) {
-
+        this.reduceTimeEnteringBuilding(airport);
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
         } else if (this.isInCorrectCity()) {
