@@ -1,9 +1,6 @@
 package Vista;
 
-import Vista.Eventos.ConnectionsButtonEventHandler;
-import Vista.Eventos.EmitWarrantEventHandler;
-import Vista.Eventos.InvestigateButtonEventHandler;
-import Vista.Eventos.TravelButtonEventHandler;
+import Vista.Eventos.*;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,14 +35,18 @@ public class ButtonBar extends HBox {
         connectionsButton.setOnAction(connectionsButtonEventHandler);
     }
 
-    public void setInvestigateAction(InvestigateButtonEventHandler investigateButtonEventHandlerEventHandler) {
-        enterBuildingButton.setOnAction(investigateButtonEventHandlerEventHandler);
-    }
-
     public void setWarrantAction(EmitWarrantEventHandler emitWarrantEventHandler) {
         emitOrderButton.setOnAction(emitWarrantEventHandler);
     }
 
+    public void setInvestigateAction(InvestigateButtonEventHandler investigateButtonEventHandlerEventHandler) {
+        enterBuildingButton.setOnAction(investigateButtonEventHandlerEventHandler);
+    }
+
+    public void setFinalInvestigateAction(FinalCityInvestigateButtonEventHandler finalCityInvestigateButtonEventHandler) {
+        enterBuildingButton.setOnAction(finalCityInvestigateButtonEventHandler);
+    }
+    
     public void setDisable() {
         travelButton.setDisable(true);
         connectionsButton.setDisable(true);

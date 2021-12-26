@@ -120,9 +120,6 @@ public class TravelContainer extends BorderPane {
         InvestigateButtonEventHandler investigateButtonEventHandler = new InvestigateButtonEventHandler(game,stage);
         buttonBar.setInvestigateAction(investigateButtonEventHandler);
 
-        ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game, stage);
-        buttonBar.setConnectionsAction(connectionsButtonEventHandlerEventHandler);
-
         this.setCenter(centralContainer);
 
     }

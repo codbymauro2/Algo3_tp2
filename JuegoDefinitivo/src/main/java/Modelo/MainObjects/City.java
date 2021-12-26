@@ -38,6 +38,8 @@ public class City {
     }
 
     public City getNextCity() {
+//        if(this.isFinalCity())
+//            return new FinalCity();
         return suspect.getNextCity(this);
     }
 

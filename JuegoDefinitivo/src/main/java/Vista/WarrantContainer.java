@@ -42,6 +42,13 @@ public class WarrantContainer extends BorderPane {
         VBox screen = new VBox(0);
         screen.getStyleClass().add("right-screen-warrant");
 
+        // PANTALLA IZQUIERDA DE JUEGO
+        VBox showCities = new VBox();
+        HBox leftCities = new HBox();
+        HBox rightCities = new HBox();
+        showCities.getChildren().addAll(leftCities, rightCities);
+        showCities.getStyleClass().add("bottom-box");
+
         // COMBOS BOX
         ComboBox<String> cbxSex = new ComboBox();
         cbxSex.setPromptText("Select gender");
@@ -117,7 +124,7 @@ public class WarrantContainer extends BorderPane {
         // PANTALLA IZQUIERDA
         VBox left = new VBox(5);
         left.setPrefSize(426, 570);
-        left.getChildren().addAll(timeVbox, emitWarrantBox);
+        left.getChildren().addAll(timeVbox, emitWarrantBox, showCities);
 
         // PANTALLA DERECHA
         VBox right = new VBox(5);
@@ -135,7 +142,7 @@ public class WarrantContainer extends BorderPane {
         TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(game, stage);
         buttonBar.setTravelAction(travelButtonEventHandler);
 
-        ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game, stage);
+        ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game, stage, showCities);
         buttonBar.setConnectionsAction(connectionsButtonEventHandlerEventHandler);
 
         EmitWarrantEventHandler emitWarrantEventHandler = new EmitWarrantEventHandler(game, stage);

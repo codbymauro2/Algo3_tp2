@@ -121,6 +121,10 @@ public class Game {
 
     public void travel(City city) {
         police.travel(city);
+        this.currentCity = city;
+        if (city.isFinalCity()) {
+            throw new FinalCityException();
+        }
     }
 
     public String getRank() {

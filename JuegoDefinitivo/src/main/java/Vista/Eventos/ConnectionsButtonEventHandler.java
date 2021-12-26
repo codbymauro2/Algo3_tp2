@@ -17,18 +17,34 @@ import javafx.scene.image.Image;
 public class ConnectionsButtonEventHandler implements EventHandler<ActionEvent> {
     private final Stage stage;
     private Game game;
+    private VBox showCities;
 
-    public ConnectionsButtonEventHandler(Game game, Stage stage) {
+    public ConnectionsButtonEventHandler(Game game, Stage stage, VBox showCities) {
         this.game = game;
         this.stage = stage;
+        this.showCities = showCities;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        ConnectionsContainer connectionsContainer = new ConnectionsContainer(stage, game);
-        Scene connectionsScene = new Scene(connectionsContainer, 1180, 660);
-        connectionsScene.getStylesheets().add(getClass().getResource("/stylesheets/gameScene.css").toExternalForm());
+        ArrayList<City> citiesToShow = game.getTravelCities();
+        HBox left = (HBox) showCities.getChildren().get(0);
+        HBox right = (HBox) showCities.getChildren().get(1);
 
-        stage.setScene(connectionsScene);
+        left.getStyleClass().add("show-cities-box");
+        right.getStyleClass().add("show-cities-box");
+
+        Label city0 = new Label(citiesToShow.get(0).getName());
+        Label city1 = new Label(citiesToShow.get(1).getName());
+        Label city2 = new Label(citiesToShow.get(2).getName());
+        Label city3 = new Label(citiesToShow.get(3).getName());
+
+        city0.getStyleClass().add("cities-label");
+        city1.getStyleClass().add("cities-label");
+        city2.getStyleClass().add("cities-label");
+        city3.getStyleClass().add("cities-label");
+
+        left.getChildren().addAll(city0, city1);
+        right.getChildren().addAll(city2, city3);
     }
 }

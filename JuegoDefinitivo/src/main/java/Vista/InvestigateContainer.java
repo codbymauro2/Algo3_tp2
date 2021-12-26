@@ -61,9 +61,9 @@ public class InvestigateContainer extends BorderPane {
         enterBuildingOptions.getStyleClass().add("travel-box");
 
         // BOTONES EDIFICIOS
-        EnterBankEventHandler enterBankEventHandler = new EnterBankEventHandler(game, clueLabel, textTime);
-        EnterAirportEventHandler enterAirportEventHandler = new EnterAirportEventHandler(game, clueLabel, textTime);
-        EnterLibraryEventHandler enterLibraryEventHandler = new EnterLibraryEventHandler(game, clueLabel, textTime);
+        EnterFinalBankEventHandler enterFinalBankEventHandler = new EnterFinalBankEventHandler(game, clueLabel, textTime);
+        EnterFinalAirportEventHandler enterFinalAirportEventHandler = new EnterFinalAirportEventHandler(game, clueLabel, textTime);
+        EnterFinalLibraryEventHandler enterFinalLibraryEventHandler = new EnterFinalLibraryEventHandler(game, clueLabel, textTime);
 
         ImageView bankImage = new ImageView(new Image("/images/bankButton.png", 80, 80, false, false));
         ImageView libraryImage = new ImageView(new Image("/images/libraryButton.png", 80, 80, false, false));
@@ -77,16 +77,23 @@ public class InvestigateContainer extends BorderPane {
         libraryButton.getStyleClass().add("action-button");
         airportButton.getStyleClass().add("action-button");
 
-        bankButton.setOnAction(enterBankEventHandler);
-        libraryButton.setOnAction(enterLibraryEventHandler);
-        airportButton.setOnAction(enterAirportEventHandler);
+        bankButton.setOnAction(enterFinalBankEventHandler);
+        libraryButton.setOnAction(enterFinalLibraryEventHandler);
+        airportButton.setOnAction(enterFinalAirportEventHandler);
 
         enterBuildingOptions.getChildren().addAll(bankButton, libraryButton, airportButton);
+
+        VBox showCities = new VBox();
+        showCities.getStyleClass().add("bottom-box");
+        HBox leftCities = new HBox();
+        HBox rightCities = new HBox();
+        showCities.getChildren().addAll(leftCities, rightCities);
+        showCities.getStyleClass().add("bottom-box");
 
         // PANTALLA IZQUIERDA
         VBox left = new VBox(5);
         left.setPrefSize(426, 570);
-        left.getChildren().addAll(timeVbox, enterBuildingOptions);
+        left.getChildren().addAll(timeVbox, enterBuildingOptions, showCities);
 
         // PANTALLA DERECHA
         VBox right = new VBox(5);
@@ -104,7 +111,7 @@ public class InvestigateContainer extends BorderPane {
         TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(game, stage);
         buttonBar.setTravelAction(travelButtonEventHandler);
 
-        ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game, stage);
+        ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game, stage, showCities);
         buttonBar.setConnectionsAction(connectionsButtonEventHandlerEventHandler);
 
         EmitWarrantEventHandler emitWarrantEventHandler = new EmitWarrantEventHandler(game, stage);

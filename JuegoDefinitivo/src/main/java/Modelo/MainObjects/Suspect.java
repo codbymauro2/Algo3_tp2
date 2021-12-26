@@ -131,7 +131,7 @@ public class Suspect {
 
     public String getFeatureClue(Rookie police) {
         Random random = new Random();
-        if (random.nextInt(10) <= 6)
+        if (random.nextInt(10) <= 6 || featureClues.size() == 0)
             return "";
         int randomInt = random.nextInt(featureClues.size());
         String featureClue = featureClues.get(randomInt);
@@ -141,7 +141,7 @@ public class Suspect {
 
     public String getFeatureClue(Detective police) {
         Random random = new Random();
-        if (random.nextInt(10) <= 7)
+        if (random.nextInt(10) <= 7 || featureClues.size() == 0)
             return "";
         int randomInt = random.nextInt(featureClues.size());
         String featureClue = featureClues.get(randomInt);
@@ -151,7 +151,7 @@ public class Suspect {
 
     public String getFeatureClue(Investigator police) {
         Random random = new Random();
-        if (random.nextInt(10) <= 8)
+        if (random.nextInt(10) <= 8 || featureClues.size() == 0)
             return "";
         int randomInt = random.nextInt(featureClues.size());
         String featureClue = featureClues.get(randomInt);
@@ -162,7 +162,7 @@ public class Suspect {
     public String getFeatureClue(Sergeant police) {
 
         Random random = new Random();
-        if (random.nextInt(10) <= 8)
+        if (random.nextInt(10) <= 8 || featureClues.size() == 0)
             return "";
         int randomInt = random.nextInt(featureClues.size());
         String featureClue = featureClues.get(randomInt);

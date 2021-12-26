@@ -2,21 +2,21 @@ package Vista;
 
 import Modelo.MainObjects.Game;
 import Vista.Eventos.*;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Paint;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.scene.layout.*;
 
-public class PrincipalContainer extends BorderPane {
+
+public class FinalCityContainer extends BorderPane {
 
     private final Stage stage;
     private final Game game;
     ApplicationMenuBar menuBar;
     VBox centralContainer;
 
-    public PrincipalContainer (Stage stage, Game game) {
+    public FinalCityContainer (Stage stage, Game game) {
         this.game = game;
         this.stage = stage;
         this.setMenu();
@@ -58,7 +58,7 @@ public class PrincipalContainer extends BorderPane {
         cityImageBox.getStyleClass().add("city-image-box");
 
         String string = ("-fx-background-image: url('/images/cities/" + game.getCityName().replaceAll(" ", "") + ".jpg'" + ");");
-        cityImageBox.setStyle(string + "-fx-background-repeat: stretch;" + "-fx-background-size: 450 400;" + "-fx-background-position: center center;" );
+        cityImageBox.setStyle(string + "-fx-background-repeat: stretch;" + "-fx-background-size: 450 400;" + "-fx-background-position: center center;");
 
         VBox showCities = new VBox();
         showCities.getStyleClass().add("bottom-box");
@@ -90,18 +90,13 @@ public class PrincipalContainer extends BorderPane {
 
         ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game, stage, showCities);
         buttonBar.setConnectionsAction(connectionsButtonEventHandlerEventHandler);
-
-        InvestigateButtonEventHandler investigateButtonEventHandler = new InvestigateButtonEventHandler(game, stage);
-        buttonBar.setInvestigateAction(investigateButtonEventHandler);
-
+        
         EmitWarrantEventHandler emitWarrantEventHandler = new EmitWarrantEventHandler(game, stage);
         buttonBar.setWarrantAction(emitWarrantEventHandler);
 
+        FinalCityInvestigateButtonEventHandler finalCityInvestigateButtonEventHandler = new FinalCityInvestigateButtonEventHandler(game,stage);
+        buttonBar.setFinalInvestigateAction(finalCityInvestigateButtonEventHandler);
+
         this.setCenter(centralContainer);
     }
-
-    public ApplicationMenuBar getMenuBar() {
-        return menuBar;
-    }
 }
-

@@ -132,7 +132,7 @@
         
         "coordinates": {
             "latitude": -12.04,
-            "longitude": -77.02
+            "longitude": -72.02
         },
         
         "bank": {
@@ -169,25 +169,25 @@
         
         "bank": {
             "clues":{
-                "easy": "Pista facil de bank de Canada",
-                "medium": "Pista media de bank de Canada",
-                "hard": "Pista dificil de bank de Canada"
+                "easy": "Pista facil de bank de Abuya",
+                "medium": "Pista media de bank de Abuya",
+                "hard": "Pista dificil de bank de Abuya"
             }
         },
         
         "library": {
             "clues":  {
-                "easy": "Pista facil de library de Canada",
-                "medium": "Pista medio del library de Canada",
-                "hard": "Pista dificil de library de Canada"
+                "easy": "Pista facil de library de Abuya",
+                "medium": "Pista medio del library de Abuya",
+                "hard": "Pista dificil de library de Abuya"
             }
         },
         
         "airport": {
             "clues": {
-                "easy": "Pista facil del aeropuerto de Canada",
-                "medium": "Pista media del aeropuerto de Canada",
-                "hard": "Pista dificil de airport de Canada"
+                "easy": "Pista facil del aeropuerto de Abuya",
+                "medium": "Pista media del aeropuerto de Abuya",
+                "hard": "Pista dificil de airport de Abuya"
             }
         }
     },
