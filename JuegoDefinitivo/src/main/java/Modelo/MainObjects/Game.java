@@ -59,7 +59,6 @@ public class Game {
     }
 
     private void collectData() throws FileNotFoundException {
-
         this.players = new Players();
         this.playerReader = new PlayerReader(players);
         playerReader.read();

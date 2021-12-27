@@ -48,7 +48,6 @@ public abstract class Police {
 
         this.reduceTime(city);
         currentCity = city;
-        this.checkTimeLeft();
     }
 
     private void reduceTime(City city) {
@@ -81,7 +80,6 @@ public abstract class Police {
 
     public void beAttacked(Weapon weapon){
         timesAttacked = weapon.hurt(timer,timesAttacked);
-        this.checkTimeLeft();
     }
 
     public void sleep() {
@@ -143,8 +141,5 @@ public abstract class Police {
         return currentCity.getConnections();
     };
 
-    public void checkTimeLeft() {
-        if (timer.outOfTime()) { }
-    }
 
 }

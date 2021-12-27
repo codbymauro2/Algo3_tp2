@@ -12,6 +12,8 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+
 public class PlayerNameContainer extends BorderPane {
     ApplicationMenuBar menuBar;
     Game game;
@@ -56,7 +58,7 @@ public class PlayerNameContainer extends BorderPane {
         VBox nameBox = new VBox(5);
         nameBox.getStyleClass().add("name-box");
 
-        Label name = new Label("INGRESE SU NOMBRE: ");
+        Label name = new Label("ENTER NAME: ");
         name.getStyleClass().add("name-label");
 
         TextField enterName = new TextField();
@@ -70,29 +72,15 @@ public class PlayerNameContainer extends BorderPane {
                 "-fx-background-size: 450 575;" +
                 "-fx-background-position: center center;");
 
-        TextField playerDescription = new TextField();
-        playerDescription.getStyleClass().add("welcome-label");
-        playerDescription.setBackground(Background.EMPTY);
-        playerDescription.setPadding(new Insets(0, 50, 0, 50));
-        playerDescription.setAlignment(Pos.TOP_CENTER);
-        playerDescription.setFont(Font.font ("Verdana", 11));
+        Label labelName = new Label();
+        labelName.getStyleClass().add("welcome-label");
+        labelName.setBackground(Background.EMPTY);
+        labelName.setPadding(new Insets(0, 50, 0, 50));
+        labelName.setAlignment(Pos.TOP_CENTER);
+        labelName.setFont(Font.font ("Verdana", 11));
 
-        TextField suspectDescription = new TextField();
-        suspectDescription.getStyleClass().add("welcome-label");
-        suspectDescription.setPrefSize(5,5);
-        suspectDescription.setBackground(Background.EMPTY);
-        suspectDescription.setPadding(new Insets(0, 50, 0, 50));
-        suspectDescription.setAlignment(Pos.TOP_CENTER);
-        suspectDescription.setFont(Font.font ("Verdana", 11));
-
-        TextField stolenItemDescription = new TextField();
-        stolenItemDescription.getStyleClass().add("welcome-label");
-        stolenItemDescription.setBackground(Background.EMPTY);
-        stolenItemDescription.setPadding(new Insets(0, 50, 0, 50));
-        stolenItemDescription.setAlignment(Pos.TOP_CENTER);
-        stolenItemDescription.setFont(Font.font ("Verdana", 11));
-
-        nameBox.getChildren().addAll(name, enterName, playerDescription, suspectDescription, stolenItemDescription);
+//        nameBox.getChildren().addAll(name, enterName, playerDescription, suspectDescription, stolenItemDescription);
+        nameBox.getChildren().addAll(name, enterName, labelName);
 
         EnterNameView enterNameView = new EnterNameView(nameBox, game);
         EnterNameEventHandler enterNameEventHandler = new EnterNameEventHandler(game, stage, enterNameView);

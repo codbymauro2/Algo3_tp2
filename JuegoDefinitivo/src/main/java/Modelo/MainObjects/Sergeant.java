@@ -42,6 +42,7 @@ public class Sergeant extends Police {
     public String enter(Library library) {
         Library nextLibrary = this.getCurrentCity().getNextCity().getLibrary();
         this.reduceTimeEnteringBuilding(nextLibrary);
+
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
         } else if (this.isInCorrectCity()) {
@@ -58,6 +59,7 @@ public class Sergeant extends Police {
     public String enter(Airport airport) {
         Airport nextAirport = this.getCurrentCity().getNextCity().getAirport();
         this.reduceTimeEnteringBuilding(nextAirport);
+
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
         } else if (this.isInCorrectCity()) {
