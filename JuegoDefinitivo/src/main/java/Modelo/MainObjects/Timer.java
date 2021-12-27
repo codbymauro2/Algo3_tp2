@@ -46,4 +46,8 @@ public class Timer {
         if (daysIterator <= 6) return days.get(daysIterator) + " " + String.valueOf(this.hour) + "hs";
         return "";
     }
+
+    public double timeLeftInHours() {
+        return duration;
+    }
 }

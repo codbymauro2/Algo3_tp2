@@ -13,7 +13,7 @@ public class TestStolenItemsRead {
         StolenItems stolenItemsList = new StolenItems();
         StolenItemsReader reader = new StolenItemsReader(stolenItemsList);
         reader.read();
-        Assertions.assertEquals(stolenItemsList.size(),3);
+        Assertions.assertEquals(stolenItemsList.size(),6);
     }
 
     @Test

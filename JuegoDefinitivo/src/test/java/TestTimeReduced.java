@@ -5,9 +5,6 @@ import Modelo.MainObjects.Buildings.Bank;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
-import java.util.stream.IntStream;
-
 import static org.mockito.Mockito.spy;
 
 public class TestTimeReduced {
@@ -37,23 +34,23 @@ public class TestTimeReduced {
         Detective detective = new Detective(policeStation);
         detective.setCurrentCity(lima);
 
-        Assertions.assertEquals("Monday 9hs", detective.getTimeLeftInHours());
-        System.out.println(detective.getTimeLeftInHours());
+        Assertions.assertEquals("Monday 9hs", detective.getTimeLeft());
+        System.out.println(detective.getTimeLeft());
 
         detective.enter(bank);
         System.out.println("\n");
-        System.out.println(detective.getTimeLeftInHours());
-        Assertions.assertEquals("Monday 10hs", detective.getTimeLeftInHours());
+        System.out.println(detective.getTimeLeft());
+        Assertions.assertEquals("Monday 10hs", detective.getTimeLeft());
 
         detective.enter(bank);
         System.out.println("\n");
-        System.out.println(detective.getTimeLeftInHours());
-        Assertions.assertEquals("Monday 12hs", detective.getTimeLeftInHours());
+        System.out.println(detective.getTimeLeft());
+        Assertions.assertEquals("Monday 12hs", detective.getTimeLeft());
 
         detective.enter(bank);
         System.out.println("\n");
-        System.out.println(detective.getTimeLeftInHours());
-        Assertions.assertEquals("Monday 15hs", detective.getTimeLeftInHours());
+        System.out.println(detective.getTimeLeft());
+        Assertions.assertEquals("Monday 15hs", detective.getTimeLeft());
     }
 
 

@@ -86,8 +86,12 @@ public abstract class Police {
         timer.reduce(8);
     }
 
-    public String getTimeLeftInHours() {
+    public String getTimeLeft() {
         return timer.timeLeft();
+    }
+
+    public double getTimeLeftInHours() {
+        return timer.timeLeftInHours();
     }
 
     public void takeCase(City city){

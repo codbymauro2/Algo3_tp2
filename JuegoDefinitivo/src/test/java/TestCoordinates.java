@@ -45,8 +45,8 @@ public class TestCoordinates {
 
         double distance = montreal.calculateDistanceTo(mexico);
 
-        Assertions.assertEquals(152 - (distance*900), rookie.getTimeLeftInHours());
-        Assertions.assertEquals(152 - (distance*1100), detective.getTimeLeftInHours());
+        Assertions.assertEquals(152 - Math.round(distance/900), rookie.getTimeLeftInHours());
+        Assertions.assertEquals(152 - Math.round(distance/1100), detective.getTimeLeftInHours());
     }
 
     @Test

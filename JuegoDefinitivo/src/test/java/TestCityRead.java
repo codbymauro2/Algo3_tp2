@@ -13,7 +13,7 @@ public class TestCityRead {
         Cities cityList = new Cities();
         CityReader reader = new CityReader(cityList);
         reader.read();
-        assertEquals(cityList.size(),7);
+        assertEquals(cityList.size(),10);
     }
 
     @Test

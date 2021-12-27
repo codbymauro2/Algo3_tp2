@@ -9,8 +9,6 @@ import Modelo.Readers.*;
 import Modelo.Writer.PlayerWriter;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Game {
@@ -91,7 +89,7 @@ public class Game {
     public String time() {
         if (this.police == null)
             return "Monday 9hs";
-        return String.valueOf(this.police.getTimeLeftInHours());
+        return String.valueOf(this.police.getTimeLeft());
     }
 
     public String getCityName() {

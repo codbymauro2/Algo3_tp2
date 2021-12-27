@@ -14,7 +14,6 @@ import java.util.stream.IntStream;
 
 import static org.mockito.Mockito.*;
 
-
 public class Delivery02 {
     private Police police;
     private Player player;
@@ -81,7 +80,6 @@ public class Delivery02 {
 
     @Test
     public void Case05DetectiveWithSixArrestsInvestigatesAndCatchesTheif() throws FileNotFoundException {
-
         this.player = new Player("Mauro",6);
 
         Cities cities = new Cities();
@@ -135,10 +133,14 @@ public class Delivery02 {
         police.travel(lima);
 
         for (int i = 0; i < 5; i++) {
-            Clue clueBank = new Clue("Pista de banco facil", "Pista de banco media", "Pista de banco dificil");
-            Bank bank = new Bank(clueBank);
-            police.enter(bank);
+            Clue bankClue = new Clue("Pista de banco facil", "Pista de banco media", "Pista de banco dificil");
+            Bank bank = new Bank(bankClue);
             City nextCity = suspect.getPath().get(i);
+            nextCity.setBank(bank);
+
+            Assertions.assertNotNull(nextCity.getBank());
+
+            police.enter(bank);
             police.travel(nextCity);
             //El policia deduce las pistas y viaja a la siguiente ciudad correctamente
         }
@@ -149,9 +151,4 @@ public class Delivery02 {
 
         Assertions.assertEquals(13,player.totalCasesWon());
     }
-
-
-
-
-
 }
