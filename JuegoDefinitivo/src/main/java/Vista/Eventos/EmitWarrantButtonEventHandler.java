@@ -6,6 +6,7 @@ import Modelo.MainObjects.Suspect;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
@@ -26,8 +27,22 @@ public class EmitWarrantButtonEventHandler implements EventHandler<ActionEvent> 
     @Override
     public void handle(ActionEvent event) {
         ArrayList<Suspect> suspects = game.filterFeatures(this.setFeatures());
+        ArrayList<Label> suspectsToShow = new ArrayList<Label>();
 
-        game.emitWarrant(suspects.get(0));
+        String filterResult;
+
+        if (suspects.size() == 1){
+            game.emitWarrant(suspects.get(0));
+        }
+        else if (suspects.size() > 1) {
+            suspects.forEach( s ->{
+                filterResult += (s.getName() + "\n");
+            });
+
+        }
+        else filterResult = "There are no suspects that fit to the description";
+
+
 
         suspects.forEach( s -> {
             System.out.println(s.getName());
