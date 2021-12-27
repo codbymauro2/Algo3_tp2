@@ -95,7 +95,7 @@ public class WarrantContainer extends BorderPane {
         allCBX.getChildren().addAll(cbxSex,cbxHair,cbxHobby, cbxAccessory, cbxVehicle);
 
         EmitWarrantButtonEventHandler emitWarrantButtonEventHandler = new EmitWarrantButtonEventHandler(game,allCBX);
-        Button emitWarrantButton = new Button("EMIT WARRANT");
+        Button emitWarrantButton = new Button("SEARCH");
         emitWarrantButton.getStyleClass().add("emit-button");
         emitWarrantButton.setOnAction(emitWarrantButtonEventHandler);
 

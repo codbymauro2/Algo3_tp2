@@ -25,6 +25,7 @@ public class Rookie extends Police {
     public String enter(Bank bank) {
         Bank nextBank = this.getCurrentCity().getNextCity().getBank();
         this.reduceTimeEnteringBuilding(nextBank);
+        this.checkTimeLeft();
 
         if (this.getCurrentCity().isFinalCity()){
             return "última ciudad";
@@ -37,17 +38,13 @@ public class Rookie extends Police {
         }
     }
 
-    public String enterFinalBank() {
-        Weapon weapon = currentCity.getWeapon(new Bank());
-        this.reduceTimeEnteringBuilding(currentCity.finalBank());
-        this.reduceTimeForInjury(weapon);
-        return "You have been injured with a " + weapon.getName() + ".";
-    }
-
     @Override
     public String enter(Library library) {
+
         Library nextLibrary = this.getCurrentCity().getNextCity().getLibrary();
         this.reduceTimeEnteringBuilding(nextLibrary);
+        this.checkTimeLeft();
+
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
         } else if (this.isInCorrectCity()) {
@@ -65,6 +62,8 @@ public class Rookie extends Police {
         Airport nextAirport = this.getCurrentCity().getNextCity().getAirport();
         //acordarme de decirle a mauro que esta linea puede romper
         this.reduceTimeEnteringBuilding(nextAirport);
+        this.checkTimeLeft();
+
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
             /*

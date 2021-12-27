@@ -21,7 +21,6 @@ public class EnterBankEventHandler implements EventHandler<ActionEvent> {
         if (game.getCurrentCity().isFinalCity()) {
 
         }
-
         this.clueLabel.setText(this.game.deployBankClue());
         this.time.setText(game.time());
 

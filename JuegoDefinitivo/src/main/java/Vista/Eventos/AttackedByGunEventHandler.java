@@ -5,6 +5,7 @@ import Vista.DefeatContainer;
 import Vista.VictoryContainer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
@@ -21,8 +22,13 @@ public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
         game.gunAttack();
         if (game.end()){
             VictoryContainer victoryContainer = new VictoryContainer(game, stage);
-        } else {
+            Scene victoryScene = new Scene(victoryContainer,1180, 660);
+            stage.setScene(victoryScene);
+        }
+        else {
             DefeatContainer defeatContainer = new DefeatContainer(game, stage);
+            Scene defeatScene = new Scene(defeatContainer,1180, 660);
+            stage.setScene(defeatScene);
         }
     }
 }

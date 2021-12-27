@@ -20,16 +20,5 @@
             {"element": "Jewelry"},
             {"element": "Motorcycle"}
         ]
-    },
-    {
-        "name":"Merey Laroc",
-        "features":
-        [
-            {"element": "Female"},
-            {"element": "Mountain Climbing"},
-            {"element": "Brown"},
-            {"element": "Jewelry"},
-            {"element": "Limousine"}
-        ]
     }
 ]

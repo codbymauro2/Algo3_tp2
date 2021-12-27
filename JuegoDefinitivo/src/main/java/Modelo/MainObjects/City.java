@@ -102,6 +102,4 @@ public class City {
         this.bank = bank;
     }
 
-    public Weapon getWeapon(Bank bank) {
-    }
 }

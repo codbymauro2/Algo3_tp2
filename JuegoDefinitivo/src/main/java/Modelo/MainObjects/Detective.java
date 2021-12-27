@@ -27,6 +27,7 @@ public class Detective extends Police {
     public String enter(Bank bank) {
         Bank nextBank = this.getCurrentCity().getNextCity().getBank();
         this.reduceTimeEnteringBuilding(nextBank);
+        this.checkTimeLeft();
 
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
@@ -43,6 +44,8 @@ public class Detective extends Police {
     public String enter(Library library) {
         Library nextLibrary = this.getCurrentCity().getNextCity().getLibrary();
         this.reduceTimeEnteringBuilding(nextLibrary);
+        this.checkTimeLeft();
+
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
         } else if (this.isInCorrectCity()) {
@@ -59,6 +62,8 @@ public class Detective extends Police {
     public String enter(Airport airport) {
         Airport nextAirport = this.getCurrentCity().getNextCity().getAirport();
         this.reduceTimeEnteringBuilding(nextAirport);
+        this.checkTimeLeft();
+
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
         } else if (this.isInCorrectCity()) {

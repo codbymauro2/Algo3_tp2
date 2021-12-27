@@ -31,6 +31,7 @@ public class Timer {
     }
 
     public void reduce(double hours) {
+        if (hours + hour >= 24) { hours += sleepHours; }
         this.duration -= Math.round(hours);
         hour += Math.round(hours);
         if (hour >=24) {
@@ -38,6 +39,8 @@ public class Timer {
             daysIterator += 1;
         }
     }
+
+    public boolean outOfTime() { return duration >= 152; }
 
     public String timeLeft() {
         return days.get(daysIterator) + " " + String.valueOf(this.hour) + "hs";

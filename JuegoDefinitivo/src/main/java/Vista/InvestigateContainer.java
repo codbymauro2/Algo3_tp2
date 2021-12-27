@@ -61,9 +61,9 @@ public class InvestigateContainer extends BorderPane {
         enterBuildingOptions.getStyleClass().add("travel-box");
 
         // BOTONES EDIFICIOS
-        EnterFinalBankEventHandler enterFinalBankEventHandler = new EnterFinalBankEventHandler(game, clueLabel, textTime);
-        EnterFinalAirportEventHandler enterFinalAirportEventHandler = new EnterFinalAirportEventHandler(game, clueLabel, textTime);
-        EnterFinalLibraryEventHandler enterFinalLibraryEventHandler = new EnterFinalLibraryEventHandler(game, clueLabel, textTime);
+        EnterBankEventHandler enterBankEventHandler = new EnterBankEventHandler(game, clueLabel, textTime);
+        EnterAirportEventHandler enterAirportEventHandler = new EnterAirportEventHandler(game, clueLabel, textTime);
+        EnterLibraryEventHandler enterLibraryEventHandler = new EnterLibraryEventHandler(game, clueLabel, textTime);
 
         ImageView bankImage = new ImageView(new Image("/images/bankButton.png", 80, 80, false, false));
         ImageView libraryImage = new ImageView(new Image("/images/libraryButton.png", 80, 80, false, false));
@@ -77,9 +77,9 @@ public class InvestigateContainer extends BorderPane {
         libraryButton.getStyleClass().add("action-button");
         airportButton.getStyleClass().add("action-button");
 
-        bankButton.setOnAction(enterFinalBankEventHandler);
-        libraryButton.setOnAction(enterFinalLibraryEventHandler);
-        airportButton.setOnAction(enterFinalAirportEventHandler);
+        bankButton.setOnAction(enterBankEventHandler);
+        libraryButton.setOnAction(enterLibraryEventHandler);
+        airportButton.setOnAction(enterAirportEventHandler);
 
         enterBuildingOptions.getChildren().addAll(bankButton, libraryButton, airportButton);
 

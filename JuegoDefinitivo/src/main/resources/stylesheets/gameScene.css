@@ -94,6 +94,7 @@ COLORES:
     -fx-background-repeat: stretch;
     -fx-alignment: top-center;
     -fx-background-insets: 60px;
+    -fx-padding: 20px;
 }
 
 .map {

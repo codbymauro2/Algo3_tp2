@@ -6,7 +6,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 
 public class EnterFinalBankEventHandler implements EventHandler<ActionEvent> {
-
+    //BORRAR
     private Game game;
     private Label clueLabel,label;
 
