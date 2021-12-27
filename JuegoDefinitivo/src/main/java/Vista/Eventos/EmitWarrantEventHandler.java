@@ -13,10 +13,8 @@ public class EmitWarrantEventHandler implements EventHandler<ActionEvent> {
     private Stage stage;
 
     public EmitWarrantEventHandler(Game game, Stage stage){
-
         this.game = game;
         this.stage = stage;
-
     }
 
     @Override
@@ -25,6 +23,5 @@ public class EmitWarrantEventHandler implements EventHandler<ActionEvent> {
         Scene warrantScene = new Scene(warrantContainer, 1180, 660);
         warrantScene.getStylesheets().add(getClass().getResource("/stylesheets/gameScene.css").toExternalForm());
         stage.setScene(warrantScene);
-        //System.out.println(game.getThief());
     }
 }

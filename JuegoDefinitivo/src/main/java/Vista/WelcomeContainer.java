@@ -16,13 +16,12 @@ public class WelcomeContainer extends VBox {
     Stage stage;
 
     public WelcomeContainer(Stage stage, Game game) {
-
         super();
         this.stage = stage;
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
         this.setPadding(new Insets(60, 10, 10, 10));
-        Image image = new Image("images/main.png");
+        Image image = new Image("/images/cover.png");
         BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, new BackgroundSize(1.0, 1.0, true, true, false, false));
         this.setBackground(new Background(backgroundImage));
 

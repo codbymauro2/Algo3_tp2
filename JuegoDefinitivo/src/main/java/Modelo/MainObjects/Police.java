@@ -104,7 +104,6 @@ public abstract class Police {
             this.warrant = true;
             this.warrantSuspect = suspect;
             timer.reduce(3);
-            System.out.println("Orden emitida");
         }
     }
 

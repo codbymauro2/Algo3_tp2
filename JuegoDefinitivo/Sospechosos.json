@@ -1,6 +1,6 @@
 [
     {
-    "name":"NickBrunch",
+    "name":"Nick Brunch",
     "features":
     [
         {"element": "Male"},
@@ -11,14 +11,103 @@
     ]
     },
     {
-        "name":"Natalia",
+        "name":"Len Bulk",
+        "features":
+        [
+            {"element": "Male"},
+            {"element": "Mountain Climbing"},
+            {"element": "Red"},
+            {"element": "Tattoo"},
+            {"element": "Convertible"}
+        ]
+    },
+    {
+        "name":"Ihor Ihorovitch",
+        "features":
+        [
+            {"element": "Male"},
+            {"element": "Croquet"},
+            {"element": "Blond"},
+            {"element": "Tattoo"},
+            {"element": "Limousine"}
+        ]
+    },
+    {
+        "name":"Fast Eddie B.",
+        "features":
+        [
+            {"element": "Male"},
+            {"element": "Croquet"},
+            {"element": "Black"},
+            {"element": "Jewelry"},
+            {"element": "Convertible"}
+        ]
+    },
+    {
+    "name":"Scar Graynolt",
+    "features":
+    [
+        {"element": "Male"},
+        {"element": "Croquet"},
+        {"element": "Red"},
+        {"element": "Ring"},
+        {"element": "Limousine"}
+    ]
+    },
+    {
+        "name":"Merey Laroc",
         "features":
         [
             {"element": "Female"},
             {"element": "Mountain Climbing"},
             {"element": "Brown"},
             {"element": "Jewelry"},
+            {"element": "Limousine"}
+        ]
+    },
+    {
+        "name":"Lady Agatha",
+        "features":
+        [
+            {"element": "Female"},
+            {"element": "Tennis"},
+            {"element": "Red"},
+            {"element": "Ring"},
+            {"element": "Convertible"}
+        ]
+    },
+    {
+        "name":"Katherine Drib",
+        "features":
+        [
+            {"element": "Female"},
+            {"element": "Mountain Climbing"},
+            {"element": "Brown"},
+            {"element": "Tattoo"},
             {"element": "Motorcycle"}
         ]
+    },
+    {
+        "name":"Dazzle Annie",
+        "features":
+        [
+            {"element": "Female"},
+            {"element": "Tennis"},
+            {"element": "Blond"},
+            {"element": "Tattoo"},
+            {"element": "Limousine"}
+        ]
+    },
+    {
+        "name":"Carmen Sandiego",
+        "features":
+        [
+            {"element": "Female"},
+            {"element": "Tennis"},
+            {"element": "Brown"},
+            {"element": "Jewelry"},
+            {"element": "Convertible"}
+        ]
     }
+
 ]

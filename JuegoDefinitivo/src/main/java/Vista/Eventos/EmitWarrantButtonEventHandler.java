@@ -18,10 +18,12 @@ public class EmitWarrantButtonEventHandler implements EventHandler<ActionEvent> 
     private Game game;
     private Feature sex, hair, hobby, accessory, vehicle;
     private VBox allCBX;
+    private Label searchResult;
 
-    public EmitWarrantButtonEventHandler(Game game, VBox allCBX) {
+    public EmitWarrantButtonEventHandler(Game game, VBox allCBX, Label searchResult) {
         this.game = game;
         this.allCBX = allCBX;
+        this.searchResult = searchResult;
     }
 
     @Override
@@ -33,20 +35,20 @@ public class EmitWarrantButtonEventHandler implements EventHandler<ActionEvent> 
 
         if (suspects.size() == 1){
             game.emitWarrant(suspects.get(0));
+            filterResult =  "Bingo! We have found only one suspect that fits the description.\n"
+                            +"An arrest warrant has been issued for " + suspects.get(0).getName() + ".";
         }
+
         else if (suspects.size() > 1) {
-            suspects.forEach( s ->{
-                filterResult += (s.getName() + "\n");
-            });
+            filterResult = "The suspects that match your description are:\n";
+            for (Suspect s : suspects) {
+                filterResult += s.getName() + "\n";
+            }
 
         }
-        else filterResult = "There are no suspects that fit to the description";
+        else filterResult = "There are no suspects that fit the description.";
 
-
-
-        suspects.forEach( s -> {
-            System.out.println(s.getName());
-        });
+        searchResult.setText(filterResult);
 
     }
 

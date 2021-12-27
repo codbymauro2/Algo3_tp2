@@ -19,13 +19,15 @@ public class PlayerWriter {
         this.players = players;
     }
 
-    public void write() throws IOException {
+    public void write() throws FileNotFoundException {
 
-        try (FileOutputStream fos = new FileOutputStream("hola.json");
+        try (FileOutputStream fos = new FileOutputStream("Players.json");
              OutputStreamWriter isr = new OutputStreamWriter(fos,
                      StandardCharsets.UTF_8)) {
-
             gson.toJson(players.getPlayers(), isr);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        }
+
+    }
     }

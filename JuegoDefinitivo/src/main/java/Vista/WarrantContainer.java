@@ -42,6 +42,10 @@ public class WarrantContainer extends BorderPane {
         VBox screen = new VBox(0);
         screen.getStyleClass().add("right-screen-warrant");
 
+        Label searchResult = new Label();
+        searchResult.getStyleClass().add("clue-label");
+        screen.getChildren().add(searchResult);
+
         // PANTALLA IZQUIERDA DE JUEGO
         VBox showCities = new VBox();
         HBox leftCities = new HBox();
@@ -55,7 +59,7 @@ public class WarrantContainer extends BorderPane {
         cbxSex.setEditable(true);
         cbxSex.getEditor().setEditable(false);
         cbxSex.getStyleClass().add("feature-select");
-        cbxSex.getItems().addAll("Male","Female","");
+        cbxSex.getItems().addAll("Male", "Female", "");
         cbxSex.getSelectionModel().select(2);
 
         ComboBox<String> cbxHair = new ComboBox();
@@ -63,7 +67,7 @@ public class WarrantContainer extends BorderPane {
         cbxHair.setEditable(true);
         cbxHair.getEditor().setEditable(false);
         cbxHair.getStyleClass().add("feature-select");
-        cbxHair.getItems().addAll("Blonde", "Black", "Brown", "Red","");
+        cbxHair.getItems().addAll("Blond", "Black", "Brown", "Red", "");
         cbxHair.getSelectionModel().select(4);
 
         ComboBox<String> cbxHobby = new ComboBox();
@@ -71,7 +75,7 @@ public class WarrantContainer extends BorderPane {
         cbxHobby.setEditable(true);
         cbxHobby.getEditor().setEditable(false);
         cbxHobby.getStyleClass().add("feature-select");
-        cbxHobby.getItems().addAll("Mountain Climbing", "Tennis", "Music", "Skydiving", "Swimming", "Croquet","");
+        cbxHobby.getItems().addAll("Mountain Climbing", "Tennis", "Music", "Skydiving", "Swimming", "Croquet", "");
         cbxHobby.getSelectionModel().select(6);
 
         ComboBox<String> cbxAccessory = new ComboBox();
@@ -79,7 +83,7 @@ public class WarrantContainer extends BorderPane {
         cbxAccessory.setEditable(true);
         cbxAccessory.getEditor().setEditable(false);
         cbxAccessory.getStyleClass().add("feature-select");
-        cbxAccessory.getItems().addAll("Ring", "Tattoo", "Scar", "Jewelery","");
+        cbxAccessory.getItems().addAll("Ring", "Tattoo", "Scar", "Jewelry", "");
         cbxAccessory.getSelectionModel().select(4);
 
         ComboBox<String> cbxVehicle = new ComboBox();
@@ -87,14 +91,14 @@ public class WarrantContainer extends BorderPane {
         cbxVehicle.setEditable(true);
         cbxVehicle.getEditor().setEditable(false);
         cbxVehicle.getStyleClass().add("feature-select");
-        cbxVehicle.getItems().addAll("Convertible", "Limousine", "Sport", "Motorcycle","");
+        cbxVehicle.getItems().addAll("Convertible", "Limousine", "Sport", "Motorcycle", "");
         cbxVehicle.getSelectionModel().select(4);
 
         VBox allCBX = new VBox();
         allCBX.getStyleClass().add("combo-box");
-        allCBX.getChildren().addAll(cbxSex,cbxHair,cbxHobby, cbxAccessory, cbxVehicle);
+        allCBX.getChildren().addAll(cbxSex, cbxHobby, cbxHair, cbxAccessory, cbxVehicle);
 
-        EmitWarrantButtonEventHandler emitWarrantButtonEventHandler = new EmitWarrantButtonEventHandler(game,allCBX);
+        EmitWarrantButtonEventHandler emitWarrantButtonEventHandler = new EmitWarrantButtonEventHandler(game, allCBX, searchResult);
         Button emitWarrantButton = new Button("SEARCH");
         emitWarrantButton.getStyleClass().add("emit-button");
         emitWarrantButton.setOnAction(emitWarrantButtonEventHandler);
@@ -148,33 +152,9 @@ public class WarrantContainer extends BorderPane {
         EmitWarrantEventHandler emitWarrantEventHandler = new EmitWarrantEventHandler(game, stage);
         buttonBar.setWarrantAction(emitWarrantEventHandler);
 
+        InvestigateButtonEventHandler investigateButtonEventHandler = new InvestigateButtonEventHandler(game, stage);
+        buttonBar.setInvestigateAction(investigateButtonEventHandler);
+
         this.setCenter(centralContainer);
     }
-
-    /*
-        // COMBOS BOX
-        ObservableList<String> sex = FXCollections.observableArrayList();
-        sex.addAll("Male","Female");
-        ComboBox<String> cbxSex = new ComboBox<>(sex);
-
-        ObservableList<String> hairColour = FXCollections.observableArrayList();
-        hairColour.addAll("Blonde", "Black", "Brown", "Red");
-        ComboBox<String> cbxHair = new ComboBox<>(hairColour);
-
-        ObservableList<String> hobby = FXCollections.observableArrayList();
-        hobby.addAll("Mountain Climbing", "Tennis", "Music", "Skydiving", "Swimming", "Croquet");
-        ComboBox<String> cbxHobby = new ComboBox<>(hobby);
-
-        ObservableList<String> accessory = FXCollections.observableArrayList();
-        accessory.addAll("Ring", "Tattoo", "Scar", "Jewelery");
-        ComboBox<String> cbxAccessory = new ComboBox<>(accessory);
-
-        ObservableList<String> vehicle = FXCollections.observableArrayList();
-        vehicle.addAll("Convertible", "Limousine", "Sport", "Motorcycle");
-        ComboBox<String> cbxVehicle = new ComboBox<>(vehicle);
-
-        VBox allCBX = new VBox();
-        allCBX.getChildren().addAll(cbxSex,cbxHair,cbxHobby,  cbxAccessory, cbxVehicle);
-
-     */
 }

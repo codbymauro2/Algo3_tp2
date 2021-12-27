@@ -95,6 +95,8 @@ COLORES:
     -fx-alignment: top-center;
     -fx-background-insets: 60px;
     -fx-padding: 20px;
+    -fx-border-width: 3px;
+    -fx-border-color: #000000;
 }
 
 .map {

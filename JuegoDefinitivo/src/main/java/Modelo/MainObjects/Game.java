@@ -29,6 +29,7 @@ public class Game {
     private PlayerReader playerReader;
     private Suspect thief;
     private City currentCity;
+    private PlayerWriter playerWriter;
 
     public Game() throws FileNotFoundException {
         players = new Players();
@@ -132,6 +133,8 @@ public class Game {
         return police.getClass().getSimpleName();
     }
 
+    public Suspect getThief() { return thief; }
+
     public ArrayList<Suspect> filterFeatures(ArrayList<Feature> features) {
         return (this.policeStation.getSuspects(features));
     }
@@ -157,8 +160,8 @@ public class Game {
         return police.isOutOfTime();
     }
 
-    public void updatePlayers() throws IOException {
-        PlayerWriter playerWriter = new PlayerWriter(this.players);
+    public void updatePlayers() throws FileNotFoundException {
+        this.playerWriter = new PlayerWriter(this.players);
         playerWriter.write();
     }
 }

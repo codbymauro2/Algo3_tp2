@@ -20,7 +20,6 @@ public class Player {
         return casesWon;
     }
 
-
     public int totalCasesWon() {
         return casesWon;
     }

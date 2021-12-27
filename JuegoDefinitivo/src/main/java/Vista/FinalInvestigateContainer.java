@@ -42,14 +42,14 @@ public class FinalInvestigateContainer extends BorderPane {
         VBox screen = new VBox(0);
         screen.getStyleClass().add("right-screen");
 
-        Label clueLabel = new Label();
-        clueLabel.getStyleClass().add("clue-label");
+        Label eventLabel = new Label();
+        eventLabel.getStyleClass().add("clue-label");
 
         // BOTONERA
         ButtonBar buttonBar = new ButtonBar(20);
         buttonBar.getStyleClass().add("button-box");
 
-        screen.getChildren().addAll(clueLabel);
+        screen.getChildren().addAll(eventLabel);
         vRightContainer.getChildren().addAll(screen, buttonBar);
 
         // ESPACIO PARA CIUDAD ACTUAL Y TIEMPO RESTANTE
@@ -79,7 +79,7 @@ public class FinalInvestigateContainer extends BorderPane {
         libraryButton.getStyleClass().add("action-button");
         airportButton.getStyleClass().add("action-button");
 
-        this.randomAttackEvent(bankButton,libraryButton,airportButton, textTime);
+        this.randomAttackEvent(bankButton,libraryButton,airportButton, textTime, eventLabel);
 
 
         enterBuildingOptions.getChildren().addAll(bankButton, libraryButton, airportButton);
@@ -121,10 +121,10 @@ public class FinalInvestigateContainer extends BorderPane {
         this.setCenter(centralContainer);
     }
 
-    private void randomAttackEvent(Button bank, Button library, Button airport, Label time){
+    private void randomAttackEvent(Button bank, Button library, Button airport, Label time, Label eventLabel){
 
-        AttackedByKnifeEventHandler attackedByKnifeEventHandler = new AttackedByKnifeEventHandler(game, stage, time);
-        AttackedByGunEventHandler attackedByGunEventHandler = new AttackedByGunEventHandler(game, stage);
+        AttackedByKnifeEventHandler attackedByKnifeEventHandler = new AttackedByKnifeEventHandler(game, stage, time, eventLabel);
+        AttackedByGunEventHandler attackedByGunEventHandler = new AttackedByGunEventHandler(game, stage, eventLabel);
 
         ArrayList<Button> buttons = new ArrayList<>();
         buttons.add(bank);

@@ -50,6 +50,8 @@ public class Suspect {
         return name;
     }
 
+    public ArrayList<Feature> getFeatures() { return features; }
+
     public boolean isGender(Feature feature) { return this.features.get(0).equals(feature); }
 
     public boolean hasHobby(Feature feature) {
