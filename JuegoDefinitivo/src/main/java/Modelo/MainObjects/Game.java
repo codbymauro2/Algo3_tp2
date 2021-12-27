@@ -6,8 +6,10 @@ import Modelo.MainObjects.Buildings.Library;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Building;
 import Modelo.Readers.*;
+import Modelo.Writer.PlayerWriter;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -142,18 +144,21 @@ public class Game {
         return currentCity;
     }
 
-    public void gunAttack() {
-        this.police.beAttacked(new Pistol());
+    public void gunAttack() { this.police.beAttacked(new Pistol()); }
 
-    }
-
-    public void knifeAttack() {
-        this.police.beAttacked(new Knife());
-
-    }
+    public void knifeAttack() { this.police.beAttacked(new Knife()); }
 
     public boolean end() {
         police.arrest(this.thief);
         return thief.isArrested();
+    }
+
+    public boolean isOutOfTime() {
+        return police.isOutOfTime();
+    }
+
+    public void updatePlayers() throws IOException {
+        PlayerWriter playerWriter = new PlayerWriter(this.players);
+        playerWriter.write();
     }
 }

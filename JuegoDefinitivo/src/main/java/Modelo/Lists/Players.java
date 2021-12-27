@@ -29,6 +29,13 @@ public class Players {
                 return  p;
             }
         }
-        return new Player(name,0);
+        Player newPlayer = new Player(name,0);
+        this.add(newPlayer);
+        return newPlayer;
     }
+
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
 }

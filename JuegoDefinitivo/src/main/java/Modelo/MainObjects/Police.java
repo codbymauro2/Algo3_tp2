@@ -141,5 +141,5 @@ public abstract class Police {
         return currentCity.getConnections();
     };
 
-
+    public boolean isOutOfTime() { return timer.outOfTime(); }
 }

@@ -40,9 +40,10 @@ public class Timer {
         }
     }
 
-    public boolean outOfTime() { return duration >= 152; }
+    public boolean outOfTime() { return duration <= 0; }
 
     public String timeLeft() {
-        return days.get(daysIterator) + " " + String.valueOf(this.hour) + "hs";
+        if (daysIterator <= 6) return days.get(daysIterator) + " " + String.valueOf(this.hour) + "hs";
+        return "";
     }
 }

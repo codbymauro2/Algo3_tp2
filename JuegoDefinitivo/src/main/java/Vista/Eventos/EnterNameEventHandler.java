@@ -11,7 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-;
+
+import java.io.IOException;
 
 
 public class EnterNameEventHandler implements EventHandler<ActionEvent> {
@@ -36,7 +37,7 @@ public class EnterNameEventHandler implements EventHandler<ActionEvent> {
         principalContainer.getStylesheets().add(getClass().getResource("/stylesheets/gameScene.css").toExternalForm());
         Scene gameScene = new Scene(principalContainer, 1180, 660);
         Timeline timeline = new Timeline(
-            new KeyFrame(Duration.millis(5000), event1 ->  stage.setScene(gameScene))
+            new KeyFrame(Duration.millis(11000), event1 ->  stage.setScene(gameScene))
         );
         timeline.play();
     }

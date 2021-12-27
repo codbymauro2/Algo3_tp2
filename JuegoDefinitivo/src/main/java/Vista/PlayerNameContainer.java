@@ -79,7 +79,6 @@ public class PlayerNameContainer extends BorderPane {
         labelName.setAlignment(Pos.TOP_CENTER);
         labelName.setFont(Font.font ("Verdana", 11));
 
-//        nameBox.getChildren().addAll(name, enterName, playerDescription, suspectDescription, stolenItemDescription);
         nameBox.getChildren().addAll(name, enterName, labelName);
 
         EnterNameView enterNameView = new EnterNameView(nameBox, game);

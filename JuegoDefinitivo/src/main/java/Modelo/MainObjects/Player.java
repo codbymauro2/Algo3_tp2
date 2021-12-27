@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Player {
 
-    private int casesWon, difficulty;
+    private int casesWon;
     private String name;
 
     public Player(String name, int casesWon) {
@@ -16,9 +16,10 @@ public class Player {
         return name;
     }
 
-    public int getDifficulty(){
-        return difficulty;
+    public int getCasesWon() {
+        return casesWon;
     }
+
 
     public int totalCasesWon() {
         return casesWon;
@@ -34,5 +35,10 @@ public class Player {
     }
     public boolean equalsName(String givenName) {
         return (Objects.equals(this.name, givenName));
+    }
+
+    @Override
+    public String toString() {
+        return "Player [name =" + name +", casesWon=" + casesWon + "]";
     }
 }
