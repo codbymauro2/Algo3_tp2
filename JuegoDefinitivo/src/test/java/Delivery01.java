@@ -1,11 +1,13 @@
 import Modelo.Lists.Cities;
 import Modelo.Lists.Suspects;
 import Modelo.MainObjects.*;
+import Modelo.MainObjects.Buildings.Airport;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Library;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.stream.IntStream;
 
 import static org.mockito.Mockito.*;
@@ -14,44 +16,68 @@ public class Delivery01 {
 
     @Test
     public void Case01RookieVisitsBankInMontreal() throws IOException {
-        Coordinates coordinates = new Coordinates(45.50, -73.57);
-        City montreal = new City("Montreal", coordinates);
-        Suspects suspects = new Suspects();
-        Suspect suspect = new Suspect("Merey Laroc",new Feature("Female"),new Feature("Mountain Climbing"),new Feature("Brown"),new Feature("Jewelry"),new Feature("Limousine"));
-        suspects.add(suspect);
-        Clue clue = new Clue("Pista Banco Facil","Pista Banco Facil","Pista Banco Facil");
-        Rookie rookie = new Rookie();
-        Bank bank = new Bank(clue);
+        Clue clueBank = new Clue("Pista Banco Facil","Pista Banco Media","Pista Banco Dificil");
+        Bank bank = new Bank(clueBank);
+
         Cities cities = new Cities();
+        City montreal = new City("Montreal", new Coordinates(45.50, -73.57));
         cities.add(montreal);
+        City mexico = new City("Mexico", new Coordinates(45.50, -73.57));
+        cities.add(mexico);
         StolenItem stolenItem = new StolenItem("Tesoro Nacional Montreal","Comun","Montreal");
         cities.startCity(stolenItem);
+
+        Suspects suspects = new Suspects();
+        Suspect suspect = spy(new Suspect("Merey Laroc", new Feature("Female"), new Feature("Mountain Climbing"), new Feature("Brown"), new Feature("Jewelry"), new Feature("Limousine")));
+        suspects.add(suspect);
+        cities.setSuspect(suspect);
         suspects.randomSuspect(cities, 5);
-        rookie.takeCase(montreal);
-        montreal.setSuspect(suspect);
-        rookie.travel(montreal);
-        Assertions.assertTrue(suspect.isGender(new Feature("Female")));
-        Assertions.assertEquals(stolenItem.getName(),"Tesoro Nacional Montreal");
-        Assertions.assertEquals(rookie.enter(bank),"Pista Banco Facil");
+
+        PoliceStation policeStation = new PoliceStation(suspects, cities);
+        policeStation.setSuspect();
+
+        Rookie rookie = new Rookie(policeStation);
+        rookie.takeCase(cities.find(stolenItem.origin()));
+        rookie.setCurrentCity(montreal);
+        rookie.getCurrentCity().getNextCity().setBank(bank);
+
+        Assertions.assertEquals(rookie.getCurrentCity().getName(), montreal.getName());
+        Assertions.assertTrue(rookie.enter(bank).contains("Pista Banco Facil."));
     }
 
     @Test
     public void Case02DetectiveVisitsBankAndLibraryInMontreal() throws IOException {
-        Police detective = new Detective();
         Clue clueBank = new Clue("Pista Banco Facil","Pista Banco Media","Pista Banco Dificil");
         Clue clueLibrary = new Clue("Pista Libreria Facil","Pista Libreria Media","Pista Libreria Dificil");
         Bank bank = new Bank(clueBank);
         Library library = new Library(clueLibrary);
-        Coordinates coordinates = new Coordinates(45.50, -73.57);
-        City montreal = new City("Montreal", coordinates);
+
         Cities cities = new Cities();
+        City montreal = new City("Montreal", new Coordinates(45.50, -73.57));
         cities.add(montreal);
+        City mexico = new City("Mexico", new Coordinates(45.50, -73.57));
+        cities.add(mexico);
         StolenItem stolenItem = new StolenItem("Tesoro Nacional Montreal","Comun","Montreal");
         cities.startCity(stolenItem);
+
+        Suspects suspects = new Suspects();
+        Suspect suspect = spy(new Suspect("Merey Laroc", new Feature("Female"), new Feature("Mountain Climbing"), new Feature("Brown"), new Feature("Jewelry"), new Feature("Limousine")));
+        suspects.add(suspect);
+        cities.setSuspect(suspect);
+        suspects.randomSuspect(cities, 5);
+
+        PoliceStation policeStation = new PoliceStation(suspects, cities);
+        policeStation.setSuspect();
+
+        Detective detective = new Detective(policeStation);
         detective.takeCase(cities.find(stolenItem.origin()));
-        Assertions.assertEquals(detective.getCurrentCity(),montreal);
-        Assertions.assertEquals(detective.enter(bank),"Pista Banco Media");
-        Assertions.assertEquals(detective.enter(library),"Pista Libreria Media");
+        detective.setCurrentCity(montreal);
+        detective.getCurrentCity().getNextCity().setBank(bank);
+        detective.getCurrentCity().getNextCity().setLibrary(library);
+
+        Assertions.assertEquals(detective.getCurrentCity().getName(), montreal.getName());
+        Assertions.assertTrue(detective.enter(bank).contains("Pista Banco Media."));
+        Assertions.assertTrue(detective.enter(library).contains("Pista Libreria Media."));
     }
 
     @Test
@@ -68,30 +94,57 @@ public class Delivery01 {
 
     @Test
     public void Case04DetectiveVisitsAirportAndPortMultipleTimes() {
-        Detective detective = new Detective();
-        Clue clueAirport = new Clue("Pista Aeropuerto Facil","Pista Aeropuerto Media","Pista Aeropuerto Dificil");
-        Clue cluePort = new Clue("Pista Puerto Facil","Pista Puerto Media","Pista Puerto Dificil");
-        Bank spyAirport = spy(new Bank(clueAirport));
-        Library spyPort = spy(new Library(cluePort));
+        Clue clueAirport = new Clue("Pista Banco Facil","Pista Banco Media","Pista Banco Dificil");
+        Clue cluePort = new Clue("Pista Libreria Facil","Pista Libreria Media","Pista Libreria Dificil");
+        Airport airport = new Airport(clueAirport);
+        Library port = new Library(cluePort);
+
+        Cities cities = new Cities();
+        City montreal = new City("Montreal", new Coordinates(45.50, -73.57));
+        cities.add(montreal);
+        City mexico = new City("Mexico", new Coordinates(45.50, -73.57));
+        cities.add(mexico);
+        StolenItem stolenItem = new StolenItem("Tesoro Nacional Montreal","Comun","Montreal");
+        cities.startCity(stolenItem);
+
+        Suspects suspects = new Suspects();
+        Suspect suspect = spy(new Suspect("Merey Laroc", new Feature("Female"), new Feature("Mountain Climbing"), new Feature("Brown"), new Feature("Jewelry"), new Feature("Limousine")));
+        suspects.add(suspect);
+        cities.setSuspect(suspect);
+        suspects.randomSuspect(cities, 5);
+
+        PoliceStation policeStation = new PoliceStation(suspects, cities);
+        policeStation.setSuspect();
+
+        Detective detective = new Detective(policeStation);
+        detective.takeCase(cities.find(stolenItem.origin()));
+        detective.setCurrentCity(montreal);
+        detective.getCurrentCity().getNextCity().setAirport(airport);
+        detective.getCurrentCity().getNextCity().setLibrary(port);
+
+        ArrayList<String> airportClues = new ArrayList<>();
+        ArrayList<String> portClues = new ArrayList<>();
+
         IntStream.range(0, 5).forEach(i -> {
-            detective.enter(spyAirport);
+            airportClues.add(detective.enter(airport));
         });
         IntStream.range(0, 55).forEach(i -> {
-            detective.enter(spyPort);
+            portClues.add(detective.enter(port));
         });
-        verify(spyAirport,times(5)).deployClue(any(Detective.class));
-        verify(spyPort,times(55)).deployClue(any(Detective.class));
+
+        Assertions.assertEquals(5, airportClues.size());
+        Assertions.assertEquals(55, portClues.size());
     }
 
     @Test
     public void Case05DetectiveIsStabbedAndSleeps() {
         Detective detective = new Detective();
         Knife knife = new Knife();
-        Assertions.assertEquals(detective.getTimeLeft(),152);
+        Assertions.assertEquals(detective.getTimeLeftInHours(),152);
         detective.beAttacked(knife);
-        Assertions.assertEquals(detective.getTimeLeft(),150);
+        Assertions.assertEquals(detective.getTimeLeftInHours(),150);
         detective.sleep();
-        Assertions.assertEquals(detective.getTimeLeft(),142);
+        Assertions.assertEquals(detective.getTimeLeftInHours(),142);
     }
 
 }

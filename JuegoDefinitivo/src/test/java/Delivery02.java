@@ -82,6 +82,60 @@ public class Delivery02 {
     public void Case05DetectiveWithSixArrestsInvestigatesAndCatchesTheif() throws FileNotFoundException {
         this.player = new Player("Mauro",6);
 
+        Cities cities = cityBuilder();
+        City lima = new City("Lima", new Coordinates(45.50, -73.57));
+        cities.add(lima);
+        StolenItem stolenItem = new StolenItem("Incan Gold Mask", "Valioso", "Lima");
+        cities.startCity(stolenItem);
+        Suspects suspects = new Suspects();
+        Suspect suspect = spy(new Suspect("Merey Laroc", new Feature("Female"), new Feature("Mountain Climbing"), new Feature("Brown"), new Feature("Jewelry"), new Feature("Limousine")));
+        suspects.add(suspect);
+        cities.setSuspect(suspect);
+        suspects.randomSuspect(cities, 5);
+        Detective detective = new Detective();
+        detective.setCurrentCity(lima);
+
+        PoliceStation policeStation = new PoliceStation(suspects, cities);
+        policeStation.setSuspect();
+
+        IntStream.range(0, 6).forEach(i -> {
+            this.police = policeStation.assignRange(this.player);
+            City endCity = suspect.getPath().get(suspect.getPath().size() - 1);
+            this.police.setCurrentCity(endCity);
+            this.police.travel(endCity);
+            this.police.investigate(new Feature("Female"),new Feature(""),new Feature("Brown"),new Feature(""),new Feature("Limousine"));
+            this.police.arrest(suspects.getRobber());
+            player.addFinishedCase(this.police.finishedCases());
+        });
+
+        Assertions.assertEquals(12,player.totalCasesWon());
+        Assertions.assertNotEquals(Detective.class,police.getClass());
+
+        police.travel(lima);
+        for (int i = 0; i < 5; i++) {
+            Clue bankClue = new Clue("Pista de banco facil", "Pista de banco media", "Pista de banco dificil");
+            Bank bank = new Bank(bankClue);
+            City nextCity = suspect.getPath().get(i);
+            nextCity.setBank(bank);
+            police.getCurrentCity().getNextCity().setBank(bank);
+
+            Assertions.assertNotNull(nextCity.getBank());
+            Assertions.assertEquals(police.getCurrentCity().getNextCity().getBank(), bank);
+
+            police.enter(bank);
+            police.travel(nextCity);
+            //El policia deduce las pistas y viaja a la siguiente ciudad correctamente
+        }
+
+        police.investigate(new Feature("Female"), new Feature(""), new Feature("Brown"), new Feature(""), new Feature("Limousine"));
+        police.arrest(suspect);
+        player.addFinishedCase(police.finishedCases());
+
+        Assertions.assertEquals(13,player.totalCasesWon());
+
+        /*
+        this.player = new Player("Mauro",6);
+
         Cities cities = new Cities();
         Coordinates coordinates = new Coordinates(45.50, -73.57);
         City lima = new City("Lima", coordinates);
@@ -150,5 +204,21 @@ public class Delivery02 {
         player.addFinishedCase(police.finishedCases());
 
         Assertions.assertEquals(13,player.totalCasesWon());
+         */
     }
+
+    public Cities cityBuilder() {
+        Cities cities = new Cities();
+        Coordinates coordinates = new Coordinates(45.50, -73.57);
+        cities.add(new City("Mexico", coordinates));
+        cities.add(new City("Montreal", coordinates));
+        cities.add(new City("Baghdad", coordinates));
+        cities.add(new City("Beijing", coordinates));
+        cities.add(new City("Athens", coordinates));
+        cities.add(new City("Montevideo", coordinates));
+        cities.add(new City("NewDelhi", coordinates));
+        cities.add(new City("Dublin", coordinates));
+        return cities;
+    }
+
 }

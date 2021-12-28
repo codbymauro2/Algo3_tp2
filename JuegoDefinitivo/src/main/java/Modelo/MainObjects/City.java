@@ -39,8 +39,6 @@ public class City {
     }
 
     public City getNextCity() {
-//        if(this.isFinalCity())
-//            return new FinalCity();
         return suspect.getNextCity(this);
     }
 
@@ -101,6 +99,10 @@ public class City {
 
     public void setBank(Bank bank) {
         this.bank = bank;
+    }
+
+    public void setLibrary(Library library) {
+        this.library = library;
     }
 
     public String getDescription() {

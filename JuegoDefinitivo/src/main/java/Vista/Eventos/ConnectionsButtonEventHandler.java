@@ -31,6 +31,9 @@ public class ConnectionsButtonEventHandler implements EventHandler<ActionEvent> 
         HBox left = (HBox) showCities.getChildren().get(0);
         HBox right = (HBox) showCities.getChildren().get(1);
 
+        left.getChildren().clear();
+        right.getChildren().clear();
+
         left.getStyleClass().add("show-cities-box");
         right.getStyleClass().add("show-cities-box");
 

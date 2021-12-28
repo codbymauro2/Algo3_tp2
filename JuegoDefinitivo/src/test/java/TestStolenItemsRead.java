@@ -21,7 +21,7 @@ public class TestStolenItemsRead {
         StolenItems stolenItemsList = new StolenItems();
         StolenItemsReader reader = new StolenItemsReader(stolenItemsList);
         reader.read();
-        Assertions.assertEquals(stolenItemsList.get(0).getName(),"Tesoro Nacional");
+        Assertions.assertEquals(stolenItemsList.get(0).getName(),"National Treasure");
     }
 
     @Test

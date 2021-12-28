@@ -32,10 +32,8 @@ public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
         game.gunAttack();
         if (game.end()) {
 
-            Timeline timeline = new Timeline(
-                    new KeyFrame(Duration.millis(20000), event1 ->  eventLabel.setText("CONGRATULATIONS! YOU HAVE CATCHED THE THIEF AND RETURNED WHAT HAD BEEN STOLEN!"))
-            );
-            timeline.play();
+
+            eventLabel.setText("CONGRATULATIONS!\n You have catched the thief and returned the" + game.getStolenItemName() + " back.");
 
             VictoryContainer victoryContainer = null;
             try {
@@ -45,7 +43,11 @@ public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
             }
 
             Scene victoryScene = new Scene(victoryContainer,1180, 660);
-            stage.setScene(victoryScene);
+            Timeline timeline = new Timeline(
+                    new KeyFrame(Duration.millis(3500), event1 -> stage.setScene(victoryScene))
+            );
+            timeline.play();
+
         } else {
             DefeatContainer defeatContainer = new DefeatContainer(game, stage);
             Scene defeatScene = new Scene(defeatContainer,1180, 660);
