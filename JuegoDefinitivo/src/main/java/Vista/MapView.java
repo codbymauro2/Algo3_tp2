@@ -21,7 +21,8 @@ public class MapView {
         this.canvas = canvas;
         this.travelCities = travelCities;
         this.currentCity = currentCity;
-        canvas.getGraphicsContext2D().drawImage(new Image("/images/mapImage.png"), 0, 0);
+        Image image = new Image("/images/mapImage.png", 728, 410, false, false);
+        canvas.getGraphicsContext2D().drawImage(new Image("/images/mapImage.png"), 0, 0, 728, 410);
         travelCities.forEach( city -> {
             drawCities(city);
         });
