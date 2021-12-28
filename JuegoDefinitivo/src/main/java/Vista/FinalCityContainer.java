@@ -35,7 +35,10 @@ public class FinalCityContainer extends BorderPane {
 
         // PANTALLA DERECHA DE JUEGO
         VBox screen = new VBox(0);
+        Label cityDescription = new Label(game.getCityDescription());
+        cityDescription.getStyleClass().add("description-label");
         screen.getStyleClass().add("right-screen");
+        screen.getChildren().add(cityDescription);
 
         // BOTONERA
         ButtonBar buttonBar = new ButtonBar(20);

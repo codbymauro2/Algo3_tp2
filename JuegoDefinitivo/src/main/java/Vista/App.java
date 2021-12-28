@@ -15,7 +15,7 @@ public class App extends Application {
     @Override
     public void start(final Stage stage) throws Exception {
 
-        stage.setTitle("AlgoTheif - Algo 3");
+        stage.setTitle("AlgoThief - Algo 3");
 
         Game game = createModel();
 

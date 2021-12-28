@@ -11,7 +11,6 @@ import Modelo.MainObjects.Weapons.Pistol;
 import Modelo.Readers.*;
 import Modelo.Writer.PlayerWriter;
 import Vista.Eventos.GameMusic;
-import Vista.Eventos.GunShotsSound;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -34,7 +33,6 @@ public class Game {
     private City currentCity;
     private PlayerWriter playerWriter;
     private GameMusic gameMusic;
-    private GunShotsSound gunShot;
 
     public Game() throws FileNotFoundException {
         players = new Players();
@@ -183,7 +181,4 @@ public class Game {
         this.gameMusic.pause();
     }
 
-    public void gunshot() {
-        this.gunShot.play();
-    }
 }
