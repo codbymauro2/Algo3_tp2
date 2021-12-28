@@ -33,13 +33,14 @@ public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         game.gunAttack();
 
+        eventLabel.setText("Oh no, you've been shot, and it seems to have been by " + game.getThief().getName() + "! Quick, arrest him before he gets away!");
+
         if (game.end()) {
             try {
                 game.updatePlayers();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            eventLabel.setText("Oh no, you've been shot, and it seems to have been by " + game.getThief().getName() + "! Quick, arrest him before he gets away!");
 
             VictoryContainer victoryContainer = null;
             victoryContainer = new VictoryContainer(game, stage);
@@ -51,10 +52,16 @@ public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
             timeline.play();
 
         } else {
+
+
             String label = "You didn't have a warrant and the thief got away. Better luck next time. Are you ready for your next case?";
             DefeatContainer defeatContainer = new DefeatContainer(game, stage, label);
+
             Scene defeatScene = new Scene(defeatContainer,1180, 660);
-            stage.setScene(defeatScene);
+            Timeline timeline = new Timeline(
+                    new KeyFrame(Duration.millis(3000), event1 -> stage.setScene(defeatScene))
+            );
+            timeline.play();
         }
     }
 }

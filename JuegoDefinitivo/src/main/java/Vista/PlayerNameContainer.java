@@ -58,7 +58,7 @@ public class PlayerNameContainer extends BorderPane {
         VBox nameBox = new VBox(5);
         nameBox.getStyleClass().add("name-box");
 
-        Label name = new Label("ENTER NAME: ");
+        Label name = new Label("IDENTIFY YOURSELF: ");
         name.getStyleClass().add("name-label");
 
         TextField enterName = new TextField();
