@@ -1,11 +1,13 @@
 package Modelo.MainObjects;
 
 import Modelo.Lists.Cities;
+import Modelo.MainObjects.Polices.Detective;
+import Modelo.MainObjects.Polices.Investigator;
+import Modelo.MainObjects.Polices.Rookie;
+import Modelo.MainObjects.Polices.Sergeant;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Stack;
-import java.util.stream.IntStream;
 
 public class Suspect {
 

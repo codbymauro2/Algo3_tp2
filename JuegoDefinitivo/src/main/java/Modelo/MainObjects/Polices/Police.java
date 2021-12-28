@@ -1,9 +1,11 @@
-package Modelo.MainObjects;
+package Modelo.MainObjects.Polices;
 
+import Modelo.MainObjects.*;
 import Modelo.MainObjects.Buildings.Bank;
-import Modelo.MainObjects.Buildings.Building;
 import Modelo.MainObjects.Buildings.Library;
 import Modelo.MainObjects.Buildings.Airport;
+import Modelo.MainObjects.Weapons.Weapon;
+
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -101,7 +103,7 @@ public abstract class Police {
         return city.equals(currentCity);
     }
 
-    protected void emitWarrant(Suspect suspect){
+    public void emitWarrant(Suspect suspect){
         if(policeStation.getPossibleSuspectsSize() == 1) {
             this.warrant = true;
             this.warrantSuspect = suspect;

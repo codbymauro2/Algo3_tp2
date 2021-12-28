@@ -1,6 +1,7 @@
 package Modelo.Lists;
 
 import Modelo.MainObjects.*;
+import Modelo.MainObjects.Polices.Police;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -30,10 +31,6 @@ public class Cities {
 
     public City get(int i) {
         return cities.get(i);
-    }
-
-    public void connect(DoubleLinkedList<City> list) {
-        cities.forEach(list::insert);
     }
 
     public City find(String city) {

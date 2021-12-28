@@ -1,6 +1,7 @@
 package Modelo.MainObjects;
 
 import Modelo.Lists.Suspects;
+import Modelo.MainObjects.Polices.*;
 
 import java.util.ArrayList;
 import java.util.stream.IntStream;

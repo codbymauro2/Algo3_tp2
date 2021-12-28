@@ -1,4 +1,6 @@
-package Modelo.MainObjects;
+package Modelo.MainObjects.Weapons;
+
+import Modelo.MainObjects.Timer;
 
 public class Knife implements  Weapon{
     @Override

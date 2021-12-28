@@ -5,11 +5,13 @@ import Modelo.MainObjects.Buildings.Airport;
 import Modelo.MainObjects.Buildings.Library;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Building;
+import Modelo.MainObjects.Polices.Police;
+import Modelo.MainObjects.Weapons.Knife;
+import Modelo.MainObjects.Weapons.Pistol;
 import Modelo.Readers.*;
 import Modelo.Writer.PlayerWriter;
 import Vista.Eventos.GameMusic;
 import Vista.Eventos.GunShotsSound;
-import Vista.Eventos.TypewriterSound;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

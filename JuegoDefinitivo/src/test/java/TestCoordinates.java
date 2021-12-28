@@ -2,6 +2,9 @@
 import Modelo.Lists.Cities;
 import Modelo.Lists.Suspects;
 import Modelo.MainObjects.*;
+import Modelo.MainObjects.Polices.Detective;
+import Modelo.MainObjects.Polices.Police;
+import Modelo.MainObjects.Polices.Rookie;
 import Modelo.Readers.CityReader;
 import Modelo.Readers.SuspectReader;
 import org.junit.jupiter.api.Assertions;

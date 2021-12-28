@@ -1,4 +1,6 @@
-package Modelo.MainObjects;
+package Modelo.MainObjects.Weapons;
+
+import Modelo.MainObjects.Timer;
 
 public class Pistol implements Weapon {
     private int recoveryTime = 4;

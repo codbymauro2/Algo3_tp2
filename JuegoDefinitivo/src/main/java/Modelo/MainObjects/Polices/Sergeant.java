@@ -1,31 +1,32 @@
-package Modelo.MainObjects;
+package Modelo.MainObjects.Polices;
 
-import Modelo.Lists.Cities;
+import Modelo.MainObjects.Buildings.Airport;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Library;
-import Modelo.MainObjects.Buildings.Airport;
+import Modelo.MainObjects.PoliceStation;
 
-public class Rookie extends Police {
+public class Sergeant extends Police {
 
-    public Rookie() {
-        super();
-        this.velocityKmH = 900;
-        this.stolenItemDifficulty = 1;
-        this.citiesToTravel = 4;
+    public Sergeant(PoliceStation policeStation) {
+        super(policeStation);
+        this.velocityKmH = 1500;
+        this.stolenItemDifficulty = 3;
+        this.citiesToTravel = 7;
     }
 
-    public Rookie(PoliceStation policeStation) {
-        super(policeStation);
-        this.velocityKmH = 900;
-        this.stolenItemDifficulty = 1;
-        this.citiesToTravel = 4;
+    public Sergeant() {
+        super();
+        this.velocityKmH = 1500;
+        this.stolenItemDifficulty = 3;
+        this.citiesToTravel = 7;
     }
 
     @Override
     public String enter(Bank bank) {
         Bank nextBank = this.getCurrentCity().getNextCity().getBank();
         this.reduceTimeEnteringBuilding(currentCity);
-        if (this.getCurrentCity().isFinalCity()){
+
+        if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
         } else if (this.isInCorrectCity()) {
             String bankClue = nextBank.deployClue(this);
@@ -36,9 +37,9 @@ public class Rookie extends Police {
         }
     }
 
+
     @Override
     public String enter(Library library) {
-
         Library nextLibrary = this.getCurrentCity().getNextCity().getLibrary();
         this.reduceTimeEnteringBuilding(currentCity);
 
@@ -57,14 +58,10 @@ public class Rookie extends Police {
     @Override
     public String enter(Airport airport) {
         Airport nextAirport = this.getCurrentCity().getNextCity().getAirport();
-        //acordarme de decirle a mauro que esta linea puede romper
         this.reduceTimeEnteringBuilding(currentCity);
 
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
-            /*
-            if (this.warrant)
-             */
         } else if (this.isInCorrectCity()) {
             String airportClue = nextAirport.deployClue(this);
             String suspectClue = this.policeStation.getThief().getFeatureClue(this);

@@ -1,6 +1,10 @@
 package Modelo.MainObjects.Buildings;
 
 import Modelo.MainObjects.*;
+import Modelo.MainObjects.Polices.Detective;
+import Modelo.MainObjects.Polices.Investigator;
+import Modelo.MainObjects.Polices.Rookie;
+import Modelo.MainObjects.Polices.Sergeant;
 
 public abstract class Building {
     protected Clue clues;

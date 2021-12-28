@@ -1,6 +1,7 @@
 import Modelo.Lists.Cities;
 import Modelo.Lists.Suspects;
 import Modelo.MainObjects.*;
+import Modelo.MainObjects.Polices.Detective;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

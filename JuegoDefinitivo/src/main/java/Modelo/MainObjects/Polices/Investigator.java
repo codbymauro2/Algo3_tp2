@@ -1,23 +1,22 @@
-package Modelo.MainObjects;
+package Modelo.MainObjects.Polices;
 
-
-import Modelo.Lists.Cities;
 import Modelo.MainObjects.Buildings.Airport;
 import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Library;
+import Modelo.MainObjects.PoliceStation;
 
-public class Detective extends Police {
+public class Investigator extends Police {
 
-    public Detective() {
-        super();
-        this.velocityKmH = 1100;
+    public Investigator(PoliceStation policeStation) {
+        super(policeStation);
+        this.velocityKmH = 1300;
         this.stolenItemDifficulty = 2;
         this.citiesToTravel = 5;
     }
 
-    public Detective(PoliceStation policeStation) {
-        super(policeStation);
-        this.velocityKmH = 1100;
+    public Investigator() {
+        super();
+        this.velocityKmH = 1300;
         this.stolenItemDifficulty = 2;
         this.citiesToTravel = 5;
     }
@@ -38,6 +37,7 @@ public class Detective extends Police {
             return "No paso por Aca";
         }
     }
+
 
     @Override
     public String enter(Library library) {
@@ -74,3 +74,7 @@ public class Detective extends Police {
     }
 
 }
+
+
+
+
