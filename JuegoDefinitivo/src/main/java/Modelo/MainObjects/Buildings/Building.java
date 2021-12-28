@@ -2,7 +2,7 @@ package Modelo.MainObjects.Buildings;
 
 import Modelo.MainObjects.*;
 
-public abstract class Building<timesEntered> {
+public abstract class Building {
     protected Clue clues;
     protected String name;
 

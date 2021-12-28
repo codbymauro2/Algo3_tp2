@@ -15,11 +15,10 @@ public class City {
 
     // NUEVOS ATRIBUTOS
     private String name;
-    private Coordinates coordinates;
+    private final Coordinates coordinates;
     private Bank bank;
     private Library library;
     private Airport airport;
-    private Building buildingToEnter;
     private Suspect suspect;
     private ArrayList<City> connections;
     private String description;

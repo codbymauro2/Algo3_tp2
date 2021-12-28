@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 public class Suspect {
 
     private ArrayList<String> featureClues;
-    private String name, gender, hobby, hair, accessory, vehicle;
+    private String name;
     private ArrayList<Feature> features;
     private boolean isRobber, isArrested;
     private java.util.ArrayList<City> path;
@@ -52,19 +52,19 @@ public class Suspect {
 
     public ArrayList<Feature> getFeatures() { return features; }
 
-    public boolean isGender(Feature feature) { return this.features.get(0).equals(feature); }
+    public boolean isGender(Feature feature) { return this.features.get(GENDER).equals(feature); }
 
     public boolean hasHobby(Feature feature) {
-        return this.features.get(1).equals(feature);
+        return this.features.get(HOBBY).equals(feature);
     }
 
     public boolean hasHair(Feature feature) {
-        return this.features.get(2).equals(feature);
+        return this.features.get(HAIR).equals(feature);
     }
 
-    public boolean hasAccessory(Feature feature) { return this.features.get(3).equals(feature); }
+    public boolean hasAccessory(Feature feature) { return this.features.get(ACCESSORY).equals(feature); }
 
-    public boolean hasVehicle(Feature feature) { return this.features.get(4).equals(feature); }
+    public boolean hasVehicle(Feature feature) { return this.features.get(VEHICLE).equals(feature); }
 
     public void convertToRobber() {
         this.isRobber = true;
@@ -73,8 +73,6 @@ public class Suspect {
     public void arrest() {
         isArrested = true;
     }
-
-    public void setNextCity(City city) { this.path.add(city); }
 
     public boolean passedThrough(City city) {
         return path.contains(city);
@@ -116,19 +114,6 @@ public class Suspect {
 
     public String getGender() {
         return this.features.get(GENDER).getFeature();
-    }
-
-    private void createFeatures() {
-        Feature gender = new Feature(this.gender);
-        Feature hobby = new Feature(this.hobby);
-        Feature hair = new Feature(this.hair);
-        Feature accessory = new Feature(this.accessory);
-        Feature vehicle = new Feature(this.vehicle);
-        features.add(gender);
-        features.add(hobby);
-        features.add(hair);
-        features.add(accessory);
-        features.add(vehicle);
     }
 
     public String getFeatureClue(Rookie police) {
