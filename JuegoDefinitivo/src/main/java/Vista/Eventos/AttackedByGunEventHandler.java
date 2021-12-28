@@ -33,6 +33,11 @@ public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         game.gunAttack();
         if (game.end()) {
+            try {
+                game.updatePlayers();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
             eventLabel.setText("Oh no, you've been shot, and it seems to have been by " + game.getThief().getName() + "! Quick, arrest him before he gets away!");
 
             VictoryContainer victoryContainer = null;
@@ -40,7 +45,7 @@ public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
 
             Scene victoryScene = new Scene(victoryContainer,1180, 660);
             Timeline timeline = new Timeline(
-                    new KeyFrame(Duration.millis(3500), event1 -> stage.setScene(victoryScene))
+                    new KeyFrame(Duration.millis(5000), event1 -> stage.setScene(victoryScene))
             );
             timeline.play();
 

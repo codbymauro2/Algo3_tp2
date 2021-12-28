@@ -170,7 +170,7 @@
         
         "bank": {
             "clues":{
-                "easy": "ABUJAI listened to someone asking to exchange his money for Nairas",
+                "easy": "I listened to someone asking to exchange his money for Nairas",
                 "medium": "The person that you are talking about, asked for a country where the main income is the oil industry.",
                 "hard": "I think that the  guy asked for a place where they export lots of crude petroleum."
             }
@@ -266,7 +266,7 @@
 
         "bank": {
             "clues":{
-                "easy": "Washington I listened to someone asking to exchange his money for US Dollars",
+                "easy": "I listened to someone asking to exchange his money for US Dollars",
                 "medium": "The person that you are talking about, asked for a country where the main income is the real estate industry.",
                 "hard": "I think that the  guy asked for a place where they export lots of food, beverage and feed."
             }
@@ -274,7 +274,7 @@
 
         "library": {
             "clues":  {
-                "easy": "The person you're talking about mentioned tacos.",
+                "easy": "The person you're talking about mentioned hotdogs.",
                 "medium": "Chicharito Hernández was born in the country where the suspect was going.",
                 "hard": "The suspect mentioned that a football World Cup was disputed in the '86 in the country where they were leading."
             }

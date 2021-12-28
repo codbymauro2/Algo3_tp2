@@ -16,6 +16,7 @@ public class VictoryContainer extends VBox {
 
     public VictoryContainer(Game game, Stage stage) {
         super();
+        this.getStylesheets().add(getClass().getResource("/stylesheets/gameScene.css").toExternalForm());
         this.stage = stage;
         this.setAlignment(Pos.CENTER);
         this.setSpacing(60);
