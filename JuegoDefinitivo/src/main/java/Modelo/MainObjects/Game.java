@@ -162,4 +162,8 @@ public class Game {
         this.playerWriter = new PlayerWriter(this.players);
         playerWriter.write();
     }
+
+    public String getCityDescription() {
+        return this.currentCity.getDescription();
+    }
 }

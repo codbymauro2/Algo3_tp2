@@ -1,7 +1,7 @@
 [
     {
         "name": "Montreal",
-
+        "description": "Montreal is a major industrial centre, commercial and financial metropolis, railway and maritime bridgehead, and one of the centres of francophone culture in North America. It is one of the world's great cities and enjoys international acclaim",
         "coordinates": {
             "longitude": -73.58,
             "latitude": 45.50
@@ -33,7 +33,7 @@
     },
     {
         "name": "Mexico",
-
+        "description": "Mexico is a land of extremes, with high mountains and deep canyons in the center of the country, sweeping deserts in the north, and dense rain forests in the south and east. Mountains cover much of Mexico. ... The stretch of land called the Yucatán Peninsula juts into the Gulf of Mexico from Mexico's southeastern tip.",
         "coordinates": {
             "latitude": 19.43,
             "longitude": -99.13
@@ -65,6 +65,7 @@
     },
     {
         "name": "Baghdad",
+        "description": "Baghdad, also spelled Bagdad, Arabic Baghdād, formerly Madīnat al-Salām (Arabic: “City of Peace”), city, capital of Iraq and capital of Baghdad governorate, central Iraq. ... Baghdad is Iraq's largest city and one of the most populous urban agglomerations of the Middle East.",
 
         "coordinates": {
             "latitude": 33.34,
@@ -97,7 +98,7 @@
     },
     {
         "name": "Buenos Aires",
-        
+        "description": "Buenos Aires, city and capital of Argentina. The city is coextensive with the Federal District (Distrito Federal) and is situated on the shore of the Río de la Plata, 150 miles (240 km) from the Atlantic Ocean. Buenos Aires is one of Latin America’s most important ports and most populous cities, as well as the national centre of commerce, industry, politics, culture, and technology.",
         "coordinates": {
             "latitude": -34.61,
             "longitude": -58.37
@@ -129,7 +130,7 @@
     },
     {
         "name": "Lima",
-        
+        "description": "Lima, city, capital of Peru. It is the country's commercial and industrial centre. ... Its name is a corruption of the Quechua name Rímac, meaning “Talker.” The city forms a modern oasis, surrounded by the Peruvian coastal desert a short distance west of the Andes Mountains. Area 1,506 square miles (3,900 square km).",
         "coordinates": {
             "latitude": -12.04,
             "longitude": -72.02
@@ -160,8 +161,8 @@
         }
     },
     {
-        "name": "Abuya",
-        
+        "name": "Abuja",
+        "description": "Abuja is the capital and eighth most populous city of Nigeria. Located in the centre of the country within the Federal Capital Territory (FCT), it is a planned city built in the 1980s based on a master plan by Japanese architect Kenzo Tange.",
         "coordinates": {
             "latitude": 9.90,
             "longitude": 4.42
@@ -169,31 +170,31 @@
         
         "bank": {
             "clues":{
-                "easy": "Pista facil de bank de Abuya",
-                "medium": "Pista media de bank de Abuya",
-                "hard": "Pista dificil de bank de Abuya"
+                "easy": "Pista facil de bank de Abuja",
+                "medium": "Pista media de bank de Abuja",
+                "hard": "Pista dificil de bank de Abuja"
             }
         },
         
         "library": {
             "clues":  {
-                "easy": "Pista facil de library de Abuya",
-                "medium": "Pista medio del library de Abuya",
-                "hard": "Pista dificil de library de Abuya"
+                "easy": "Pista facil de library de Abuja",
+                "medium": "Pista medio del library de Abua",
+                "hard": "Pista dificil de library de Abuja"
             }
         },
         
         "airport": {
             "clues": {
-                "easy": "Pista facil del aeropuerto de Abuya",
-                "medium": "Pista media del aeropuerto de Abuya",
-                "hard": "Pista dificil de airport de Abuya"
+                "easy": "Pista facil del aeropuerto de Abuja",
+                "medium": "Pista media del aeropuerto de Abuja",
+                "hard": "Pista dificil de airport de Abuja"
             }
         }
     },
     {
         "name": "Moscu",
-        
+        "description": "Moscow is the capital and most heavily populated city in Russia, as well as being the largest city on the European continent. It is an iconic and global city and is the key political, economic, cultural and scientific centre of not only Russia but of Eastern Europe as well.",
         "coordinates": {
             "latitude": 55.75,
             "longitude": 37.62
@@ -225,7 +226,7 @@
     },
     {
         "name": "Brasilia",
-
+        "description": "Brasília. Brasília, city, federal capital of Brazil. It is located in the Federal District (Distrito Federal) carved out of Goiás state on the central plateau of Brazil. At an elevation of some 3,500 feet (1,100 metres), it lies between the headwaters of the Tocantins, Paraná, and São Francisco rivers.",
         "coordinates": {
             "latitude": -15.78,
             "longitude": -47.93
@@ -257,7 +258,7 @@
     },
     {
         "name": "Washington",
-
+        "description": "Washington, D.C., is the capital city of the United States, located between Virginia and Maryland on the north bank of the Potomac River. The city is home to all three branches of the federal government, as well as the White House, the Supreme Court and the Capitol Building.",
         "coordinates": {
             "latitude": 38.90,
             "longitude": -77.03
@@ -289,7 +290,7 @@
     },
     {
         "name": "Londres",
-
+        "description": "London is the capital city of the United Kingdom. It is the U.K.'s largest metropolis and its economic, transportation, and cultural centre. London is also among the oldest of the world's great cities, with its history spanning nearly two millennia.",
         "coordinates": {
             "latitude": 51.51,
             "longitude": -0.09

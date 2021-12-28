@@ -22,6 +22,7 @@ public class City {
     private Building buildingToEnter;
     private Suspect suspect;
     private ArrayList<City> connections;
+    private String description;
 
     public City(String name, Coordinates coordinates) {
         this.name = name;
@@ -102,4 +103,7 @@ public class City {
         this.bank = bank;
     }
 
+    public String getDescription() {
+        return description;
+    }
 }

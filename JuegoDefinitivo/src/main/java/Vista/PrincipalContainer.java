@@ -36,6 +36,9 @@ public class PrincipalContainer extends BorderPane {
         // PANTALLA DERECHA DE JUEGO
         VBox screen = new VBox(0);
         screen.getStyleClass().add("right-screen");
+        Label cityDescription = new Label(game.getCityDescription());
+        cityDescription.getStyleClass().add("clue-label");
+        screen.getChildren().add(cityDescription);
 
         // BOTONERA
         ButtonBar buttonBar = new ButtonBar(20);

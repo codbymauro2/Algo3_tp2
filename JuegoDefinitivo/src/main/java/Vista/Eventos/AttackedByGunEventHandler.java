@@ -3,11 +3,15 @@ package Vista.Eventos;
 import Modelo.MainObjects.Game;
 import Vista.DefeatContainer;
 import Vista.VictoryContainer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
+import javafx.util.Duration;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -28,9 +32,10 @@ public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
         game.gunAttack();
         if (game.end()) {
 
-            eventLabel.setText("CONGRATULATIONS! YOU HAVE CATCHED THE THIEF AND RETURNED WHAT HAD BEEN STOLEN!");
-
-            // DELAY MAURO DEBERÍA SABER COMO HACERLO
+            Timeline timeline = new Timeline(
+                    new KeyFrame(Duration.millis(20000), event1 ->  eventLabel.setText("CONGRATULATIONS! YOU HAVE CATCHED THE THIEF AND RETURNED WHAT HAD BEEN STOLEN!"))
+            );
+            timeline.play();
 
             VictoryContainer victoryContainer = null;
             try {
