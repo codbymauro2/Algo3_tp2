@@ -26,7 +26,7 @@ public class EnterBankEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
         this.clueLabel.setText(this.game.deployBankClue());
         if (game.isOutOfTime()) {
-            DefeatContainer defeatContainer = new DefeatContainer(game, stage);
+            DefeatContainer defeatContainer = new DefeatContainer(game, stage, "Game over, the theif got away! Better luck next time. Are you ready for your next case?");
             Scene defeatScene = new Scene(defeatContainer,1180, 660);
             stage.setScene(defeatScene);
         } else {

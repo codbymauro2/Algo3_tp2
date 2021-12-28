@@ -72,7 +72,9 @@ public class Cities {
         ArrayList<City> possibleCities = new ArrayList<>();
         if (previousCity != null) { possibleCities.add(previousCity); }
         if (suspect.passedThrough(currentCity)) {
-            possibleCities.add(suspect.getNextCity(currentCity));
+            try {
+                possibleCities.add(suspect.getNextCity(currentCity));
+            } catch (FinalCityException ignored) {}
         }
 
         int numberOfCities = 4;

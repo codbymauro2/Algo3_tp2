@@ -18,14 +18,10 @@ public class TestGame {
         game.startGame();
         game.initializeCase();
 
-        int amountOfClues = 3;
+        int amountOfClues = game.getThief().getPath().size() - 1;
         for (int i = 0; i < amountOfClues; i++) {
             try {
-                String clue = game.deployLibraryClue();
-                City currentCity = game.getCurrentCity();
-                // Verificamos que la pista sea la de la ciudad siguiente
-                Assertions.assertTrue(clue.contains(currentCity.getNextCity().getName()));
-                game.travel(currentCity.getNextCity());
+                game.travel(game.getCurrentCity().getNextCity());
             } catch(FinalCityException ignored) {}
         }
         Assertions.assertTrue(game.getCurrentCity().isFinalCity());
@@ -33,7 +29,6 @@ public class TestGame {
         // Emitimos la orden de arresto
         ArrayList<Suspect> suspects = game.filterFeatures(game.getThief().getFeatures());
         game.emitWarrant(suspects.get(0));
-
 
         // Entramos al edificio final
         game.gunAttack();
@@ -49,14 +44,10 @@ public class TestGame {
         game.startGame();
         game.initializeCase();
 
-        int amountOfClues = 3;
+        int amountOfClues = game.getThief().getPath().size() - 1;
         for (int i = 0; i < amountOfClues; i++) {
             try {
-                String clue = game.deployLibraryClue();
-                City currentCity = game.getCurrentCity();
-                // Verificamos que la pista sea la de la ciudad siguiente
-                Assertions.assertTrue(clue.contains(currentCity.getNextCity().getName()));
-                game.travel(currentCity.getNextCity());
+                game.travel(game.getCurrentCity().getNextCity());
             } catch(FinalCityException ignored) {}
         }
         Assertions.assertTrue(game.getCurrentCity().isFinalCity());

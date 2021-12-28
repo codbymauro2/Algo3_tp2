@@ -2,37 +2,43 @@ package Vista;
 
 import Modelo.MainObjects.Game;
 import Vista.Eventos.ContinueButtonEventHandler;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import java.io.IOException;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
-public class VictoryContainer extends BorderPane {
+public class VictoryContainer extends VBox {
 
-    private final Game game;
-    private final Stage stage;
+    Stage stage;
 
-    public VictoryContainer(Game game, Stage stage) throws IOException {
-        this.game = game;
+    public VictoryContainer(Game game, Stage stage) {
+        super();
         this.stage = stage;
-        this.game.updatePlayers();
-        this.getStyleClass().add("end-screen");
+        this.setAlignment(Pos.CENTER);
+        this.setSpacing(60);
+        this.setPadding(new Insets(100));
+        Image image = new Image("/images/end.png");
+        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, new BackgroundSize(1.0, 1.0, true, true, false, false));
+        this.setBackground(new Background(backgroundImage));
 
         VBox screen = new VBox();
-        screen.getStyleClass().add("end-screen");
 
-        Label label = new Label("Good work" + game.getRank() + " ! The thief has been arrested and the stolen item has been returned. Are you ready for your next case?");
+        Label label = new Label("Good work " + game.getRank() + "! The thief has been arrested and the stolen item has been returned. Are you ready for your next case?");
+        label.getStyleClass().add("end-label");
+
         Button continueButton = new Button();
-        continueButton.getStyleClass().add("end-button");
+        continueButton.setText("Continue");
+        continueButton.setMinSize(75,25);
+
         ContinueButtonEventHandler continueButtonEventHandler = new ContinueButtonEventHandler(stage);
         continueButton.setOnAction(continueButtonEventHandler);
+        continueButton.getStyleClass().add("end-button");
 
-        screen.getChildren().addAll(continueButton, label);
-        this.getChildren().addAll(screen);
-
-        //this.setStyle("-fx-background-image: url('/images/victory.jpg')");
+        this.getChildren().addAll(label, continueButton);
     }
 
 }
+

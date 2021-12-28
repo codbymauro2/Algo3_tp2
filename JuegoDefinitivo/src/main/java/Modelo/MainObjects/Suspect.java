@@ -111,6 +111,7 @@ public class Suspect {
     }
 
     public City getNextCity(City city) {
+        if (city.isFinalCity()) throw new FinalCityException();
         return path.get(path.indexOf(city) + 1);
     }
 

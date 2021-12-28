@@ -5,7 +5,9 @@ import Vista.DefeatContainer;
 import Vista.VictoryContainer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
+import javafx.event.ActionEvent
+
+        ;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -31,16 +33,10 @@ public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         game.gunAttack();
         if (game.end()) {
-
-
-            eventLabel.setText("CONGRATULATIONS!\n You have catched the thief and returned the" + game.getStolenItemName() + " back.");
+            eventLabel.setText("CONGRATULATIONS!\n You have caught the thief and returned the" + game.getStolenItemName() + ".");
 
             VictoryContainer victoryContainer = null;
-            try {
-                victoryContainer = new VictoryContainer(game, stage);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            victoryContainer = new VictoryContainer(game, stage);
 
             Scene victoryScene = new Scene(victoryContainer,1180, 660);
             Timeline timeline = new Timeline(
@@ -49,7 +45,8 @@ public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
             timeline.play();
 
         } else {
-            DefeatContainer defeatContainer = new DefeatContainer(game, stage);
+            "Game over, the theif got away! Better luck next time. Are you ready for your next case?"
+            DefeatContainer defeatContainer = new DefeatContainer(game, stage, );
             Scene defeatScene = new Scene(defeatContainer,1180, 660);
             stage.setScene(defeatScene);
         }

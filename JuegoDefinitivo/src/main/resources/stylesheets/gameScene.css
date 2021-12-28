@@ -284,7 +284,6 @@ COLORES:
     -fx-background-image: url('images/cover.png');
     -fx-background-repeat: stretch;
     -fx-alignment: center;
-    -fx-background-insets: 60px;
     -fx-font: 40px 'VT323', monospace;
     -fx-text-fill: #c0c5ce;
     -fx-padding: 30px;
@@ -293,6 +292,14 @@ COLORES:
 .clue-label {
     -fx-font: 36px 'VT323', monospace;
     -fx-text-fill: #c0c5ce;
+    -fx-padding: 20px;
+    -fx-wrap-text: true;
+}
+
+.end-label {
+    -fx-text-alignment: center;
+    -fx-font: 60px 'VT323', monospace;
+    -fx-text-fill: #1e2429;
     -fx-padding: 20px;
     -fx-wrap-text: true;
 }
