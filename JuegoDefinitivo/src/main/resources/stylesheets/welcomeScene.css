@@ -13,7 +13,7 @@
     -fx-pref-width: 200px;
 }
 
-.button:hover:pressed {
+.button:hover {
     -fx-font: 26px 'VT323', monospace;
     -fx-text-fill: #1e2429;
     -fx-background-color: #dfe2e6;
@@ -23,6 +23,19 @@
     -fx-border-color: #1e2429;
     -fx-border-width: 3px;
     -fx-effect: dropshadow(gaussian, #1e2429, 0.2, 10, 3, 3);
+    -fx-pref-width: 200px;
+}
+
+.button:pressed {
+    -fx-font: 26px 'VT323', monospace;
+    -fx-text-fill: #1e2429;
+    -fx-background-color: #dfe2e6;
+    -fx-padding: 8px 24px;
+    -fx-background-radius: 0;
+    -fx-background-insets: 1px;
+    -fx-border-color: #396c03;
+    -fx-border-width: 5px;
+    -fx-effect: dropshadow(gaussian, #1e2429, 0.2, 10, 5, 5);
     -fx-pref-width: 200px;
 }
 

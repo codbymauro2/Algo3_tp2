@@ -33,7 +33,7 @@ public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         game.gunAttack();
         if (game.end()) {
-            eventLabel.setText("CONGRATULATIONS!\n You have caught the thief and returned the" + game.getStolenItemName() + ".");
+            eventLabel.setText("Oh no, you've been shot, and it seems to have been by " + game.getThief().getName() + "! Quick, arrest him before he gets away!");
 
             VictoryContainer victoryContainer = null;
             victoryContainer = new VictoryContainer(game, stage);
@@ -45,7 +45,8 @@ public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
             timeline.play();
 
         } else {
-            DefeatContainer defeatContainer = new DefeatContainer(game, stage, "Game over, the theif got away! Better luck next time. Are you ready for your next case?");
+            String label = "You didn't have a warrant and the thief got away. Better luck next time. Are you ready for your next case?";
+            DefeatContainer defeatContainer = new DefeatContainer(game, stage, label);
             Scene defeatScene = new Scene(defeatContainer,1180, 660);
             stage.setScene(defeatScene);
         }
