@@ -45,8 +45,7 @@ public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
             timeline.play();
 
         } else {
-            "Game over, the theif got away! Better luck next time. Are you ready for your next case?"
-            DefeatContainer defeatContainer = new DefeatContainer(game, stage, );
+            DefeatContainer defeatContainer = new DefeatContainer(game, stage, "Game over, the theif got away! Better luck next time. Are you ready for your next case?");
             Scene defeatScene = new Scene(defeatContainer,1180, 660);
             stage.setScene(defeatScene);
         }

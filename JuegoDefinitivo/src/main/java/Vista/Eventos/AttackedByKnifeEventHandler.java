@@ -26,7 +26,7 @@ public class AttackedByKnifeEventHandler implements EventHandler<ActionEvent> {
         game.knifeAttack();
         String outOfTimeLabel;
         if (game.isOutOfTime()) {
-            DefeatContainer defeatContainer = new DefeatContainer(game, stage);
+            DefeatContainer defeatContainer = new DefeatContainer(game, stage, "");
             Scene defeatScene = new Scene(defeatContainer,1180, 660);
             outOfTimeLabel = "Oh no! The thief jas tabbed you and you couldn't get him on time!";
             this.eventLabel.setText(outOfTimeLabel);

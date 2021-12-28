@@ -20,11 +20,6 @@ public class Cities {
         });
     }
 
-    public void printCities() {
-        cities.forEach(c -> {
-            System.out.println(c.getName());
-        });
-    }
     public void add(City city) {
         cities.add(city);
     }
@@ -58,9 +53,6 @@ public class Cities {
 
     public City getStartCity() {
         return startCity;
-    }
-
-    public void getCitiesToShow() {
     }
 
     public void setPossibleCities(Police police) {

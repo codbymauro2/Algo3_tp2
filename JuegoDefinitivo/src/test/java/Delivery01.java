@@ -33,7 +33,7 @@ public class Delivery01 {
         cities.setSuspect(suspect);
         suspects.randomSuspect(cities, 5);
 
-        PoliceStation policeStation = new PoliceStation(suspects, cities);
+        PoliceStation policeStation = new PoliceStation(suspects);
         policeStation.setSuspect();
 
         Rookie rookie = new Rookie(policeStation);
@@ -66,7 +66,7 @@ public class Delivery01 {
         cities.setSuspect(suspect);
         suspects.randomSuspect(cities, 5);
 
-        PoliceStation policeStation = new PoliceStation(suspects, cities);
+        PoliceStation policeStation = new PoliceStation(suspects);
         policeStation.setSuspect();
 
         Detective detective = new Detective(policeStation);
@@ -113,7 +113,7 @@ public class Delivery01 {
         cities.setSuspect(suspect);
         suspects.randomSuspect(cities, 5);
 
-        PoliceStation policeStation = new PoliceStation(suspects, cities);
+        PoliceStation policeStation = new PoliceStation(suspects);
         policeStation.setSuspect();
 
         Detective detective = new Detective(policeStation);

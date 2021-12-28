@@ -29,7 +29,7 @@ public class TestTimeReduced {
         Bank bank = new Bank(clueBank);
         dublin.setBank(bank);
 
-        PoliceStation policeStation = new PoliceStation(suspects, cities);
+        PoliceStation policeStation = new PoliceStation(suspects);
         policeStation.setSuspect();
         Detective detective = new Detective(policeStation);
         detective.setCurrentCity(lima);

@@ -16,10 +16,6 @@ public class Player {
         return name;
     }
 
-    public int getCasesWon() {
-        return casesWon;
-    }
-
     public int totalCasesWon() {
         return casesWon;
     }
@@ -32,12 +28,10 @@ public class Player {
     public boolean equals(Object player) {
         return (Objects.equals(this.name, ((Player) player).getName()));
     }
+
     public boolean equalsName(String givenName) {
         return (Objects.equals(this.name, givenName));
     }
 
-    @Override
-    public String toString() {
-        return "Player [name =" + name +", casesWon=" + casesWon + "]";
-    }
+
 }

@@ -27,7 +27,7 @@ public class TravelToCityEventHandler implements EventHandler<ActionEvent> {
         try {
             game.travel(travelCity);
             if (game.isOutOfTime()) {
-                DefeatContainer defeatContainer = new DefeatContainer(game, stage);
+                DefeatContainer defeatContainer = new DefeatContainer(game, stage, "");
                 Scene defeatScene = new Scene(defeatContainer,1180, 660);
                 stage.setScene(defeatScene);
             } else {

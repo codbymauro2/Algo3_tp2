@@ -51,7 +51,7 @@
             "clues": {
                 "easy": "The person you're talking about mentioned tacos.",
                 "medium": "Chicharito Hernández was born in the country where the suspect was going.",
-                "hard": "The suspect mentioned that a football World Cup was disputed in the '86 in the country where they were leading."
+                "hard": "The suspect mentioned that the Football World Cup was disputed in the '86 in the country where they were leading."
             }
         },
 
@@ -107,8 +107,8 @@
         "bank": {
             "clues":{
                 "easy": "I listened to someone asking to exchange his money for Argentinian Pesos",
-                "medium": "The person that you are talking about, asked for a country where the main income is the services and manufacturing industry.",
-                "hard": "I think that the  guy asked for a place where they export lots of soybean meal."
+                "medium": "I think that the  guy asked for a place where they export lots of soybean meal.",
+                "hard": "The person that you are talking about, asked for a country where the main income is the services and manufacturing industry."
             }
         },
         
@@ -139,8 +139,8 @@
         "bank": {
             "clues":{
                 "easy": "I listened to someone asking to exchange his money for Soles",
-                "medium": "The person that you are talking about, asked for a country where the main income is the foreign trade.",
-                "hard": "I think that the guy asked for a place where they export lots of coper and zinc."
+                "medium": "I think that the guy asked for a place where they export lots of coper and zinc.",
+                "hard": "The person that you are talking about, asked for a country where the main income is the foreign trade."
             }
         },
         
@@ -218,8 +218,8 @@
         
         "airport": {
             "clues": {
-                "easy": "They were going to a country with white, blue and red colors on the flag.",
-                "medium": "They said that russian was spoken in the country they're going to.",
+                "easy": "They said that russian was spoken in the country they're going to.",
+                "medium": "They were going to a country with white, blue and red colors on the flag.",
                 "hard": "They mentioned going to a country with a population of 144 million."
             }
         }
@@ -234,25 +234,25 @@
 
         "bank": {
             "clues":{
-                "easy": "Brasilia I listened to someone asking to exchange his money for Mexican Dollars",
-                "medium": "The person that you are talking about, asked for a country where the main income is the food and beverages industry.",
-                "hard": "I think that the  guy asked for a place where they export lots of vehicles."
+                "easy": "I listened to someone asking to exchange his money for Reales",
+                "medium": "I think that the  guy asked for a place where they export lots of iron ore.",
+                "hard": "The person that you are talking about, asked for a country where the main income is the services industry."
             }
         },
 
         "library": {
             "clues":  {
-                "easy": "The person you're talking about mentioned tacos.",
-                "medium": "Chicharito Hernández was born in the country where the suspect was going.",
-                "hard": "The suspect mentioned that a football World Cup was disputed in the '86 in the country where they were leading."
+                "easy": "The person you're talking about mentioned feijoada.",
+                "medium": "Ronaldinho was born in the country where the suspect was going.",
+                "hard": "The suspect mentioned that the country where they were leading had won 5 Football World Cups."
             }
         },
 
         "airport": {
             "clues": {
-                "easy": "They were going to a country with an eagle on the flag.",
-                "medium": "They said that spanish was spoken in the country they're going to.",
-                "hard": "They mentioned going to a country with a population of 129 million."
+                "easy": "They were going to a country with green, yellow and blue colors on the flag.",
+                "medium": "They said that portuguese was spoken in the country they're going to.",
+                "hard": "They mentioned going to a country with a population of 212 million."
             }
         }
     },
@@ -266,9 +266,9 @@
 
         "bank": {
             "clues":{
-                "easy": "Washington I listened to someone asking to exchange his money for Mexican Dollars",
-                "medium": "The person that you are talking about, asked for a country where the main income is the food and beverages industry.",
-                "hard": "I think that the  guy asked for a place where they export lots of vehicles."
+                "easy": "Washington I listened to someone asking to exchange his money for US Dollars",
+                "medium": "The person that you are talking about, asked for a country where the main income is the real estate industry.",
+                "hard": "I think that the  guy asked for a place where they export lots of food, beverage and feed."
             }
         },
 
@@ -282,9 +282,9 @@
 
         "airport": {
             "clues": {
-                "easy": "They were going to a country with an eagle on the flag.",
-                "medium": "They said that spanish was spoken in the country they're going to.",
-                "hard": "They mentioned going to a country with a population of 129 million."
+                "easy": "They were going to a country with red and white strips on the flag.",
+                "medium": "They said that english was spoken in the country they're going to.",
+                "hard": "They mentioned going to a country with a population of 330 million."
             }
         }
     },
@@ -298,25 +298,25 @@
 
         "bank": {
             "clues":{
-                "easy": "London I listened to someone asking to exchange his money for Mexican Dollars",
-                "medium": "The person that you are talking about, asked for a country where the main income is the food and beverages industry.",
-                "hard": "I think that the  guy asked for a place where they export lots of vehicles."
+                "easy": "London I listened to someone asking to exchange his money for sterling pounds",
+                "medium": "The person that you are talking about, asked for a country where the main income are services, manufacturing, construction, and tourism industries.",
+                "hard": "I think that the  guy asked for a place where they export lots of crude oil."
             }
         },
 
         "library": {
             "clues":  {
-                "easy": "The person you're talking about mentioned tacos.",
-                "medium": "Chicharito Hernández was born in the country where the suspect was going.",
-                "hard": "The suspect mentioned that a football World Cup was disputed in the '86 in the country where they were leading."
+                "easy": "The person you're talking about mentioned fish and chips.",
+                "medium": "Benedict Cumberbatch was born in the country where the suspect was going.",
+                "hard": "The suspect mentioned that the country where they were leading owns 10 colonies around the world."
             }
         },
 
         "airport": {
             "clues": {
-                "easy": "They were going to a country with an eagle on the flag.",
-                "medium": "They said that spanish was spoken in the country they're going to.",
-                "hard": "They mentioned going to a country with a population of 129 million."
+                "easy": "They were going to a country with a red cross on the flag.",
+                "medium": "They said that english was spoken in the country they're going to.",
+                "hard": "They mentioned going to a country with a population of 56 million."
             }
         }
     }
