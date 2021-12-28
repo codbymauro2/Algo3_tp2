@@ -1,7 +1,7 @@
 [
     {
         "name": "Montreal",
-        "description": "Montreal is a major industrial centre, commercial and financial metropolis, railway and maritime bridgehead, and one of the centres of francophone culture in North America. It is one of the world's great cities and enjoys international acclaim",
+        "description": "Montreal is a major industrial center, commercial and financial metropolis, railway and maritime bridgehead, and one of the centers of francophone culture in North America. It is one of the world's great cities and enjoys international acclaim.",
         "coordinates": {
             "longitude": -73.58,
             "latitude": 45.50
@@ -9,25 +9,25 @@
 
         "bank": {
             "clues": {
-                "easy": "Pista facil de banco de Montreal",
-                "medium": "Pista media de banco de Montreal",
-                "hard": "Pista dificil de banco de Montreal"
+                "easy": "I heard someone asking about exchanging their money for Canadian Dollars.",
+                "medium": "The person that you are talking about asked about a country where the main income is the service industry.",
+                "hard": "I think that the suspect asked about place where they export lots of petroleum."
             }
         },
 
         "library": {
             "clues": {
-                "easy": "Pista facil de biblioteca de Montreal",
-                "medium": "Pista media de biblioteca de Montreal",
-                "hard": "Pista dificil de biblioteca de Montreal"
+                "easy": "The person you're talking about mentioned maple syrup.",
+                "medium": "In the country where the suspect was going, there are many grizzly bears.",
+                "hard": "The person you are following said that they were going to the city with the greatest amount of lakes in the world."
             }
         },
 
         "airport": {
             "clues": {
-                "easy": "Pista facil de aeropuerto de Montreal",
-                "medium": "Pista media de aeropuerto de Montreal",
-                "hard": "Pista dificil de aeropuerto de Montreal"
+                "easy": "They were going to a country with a red leaf on the flag.",
+                "medium": "They said that three languages are spoken in the country they're going to.",
+                "hard": "They mentioned going to a country with a population of 38 million."
             }
         }
     },
@@ -41,31 +41,31 @@
 
         "bank": {
             "clues": {
-                "easy": "Pista facil de banco de Mexico",
-                "medium": "Pista media de banco de Mexico",
-                "hard": "Pista dificil de banco de Mexico"
+                "easy": "I listened to someone asking to exchange his money for Mexican Dollars",
+                "medium": "The person that you are talking about, asked for a country where the main income is the food and beverages industry.",
+                "hard": "I think that the  guy asked for a place where they export lots of vehicles."
             }
         },
 
         "library": {
             "clues": {
-                "easy": "Pista facil de biblioteca de Mexico",
-                "medium": "Pista media de biblioteca de Mexico",
-                "hard": "Pista dificil de biblioteca de Mexico"
+                "easy": "The person you're talking about mentioned tacos.",
+                "medium": "Chicharito Hernández was born in the country where the suspect was going.",
+                "hard": "The suspect mentioned that a football World Cup was disputed in the '86 in the country where they were leading."
             }
         },
 
         "airport": {
             "clues": {
-                "easy": "Pista facil del aeropuerto de Mexico",
-                "medium": "Pista media del aeropuerto de Mexico",
-                "hard": "Pista dificil del aeropuerto de Mexico"
+                "easy": "They were going to a country with an eagle on the flag.",
+                "medium": "They said that spanish was spoken in the country they're going to.",
+                "hard": "They mentioned going to a country with a population of 129 million."
             }
         }
     },
     {
         "name": "Baghdad",
-        "description": "Baghdad, also spelled Bagdad, Arabic Baghdād, formerly Madīnat al-Salām (Arabic: “City of Peace”), city, capital of Iraq and capital of Baghdad governorate, central Iraq. ... Baghdad is Iraq's largest city and one of the most populous urban agglomerations of the Middle East.",
+        "description": "Baghdad, also spelled Bagdad, Arabic Baghdād, formerly Madīnat al-Salām (Arabic: “City of Peace”), is the capital of Iraq and the capital of Baghdad governorate, central Iraq. Baghdad is Iraq's largest city and one of the most populous urban agglomerations of the Middle East.",
 
         "coordinates": {
             "latitude": 33.34,
@@ -74,25 +74,25 @@
 
         "bank": {
             "clues":{
-                "easy": "Pista facil de bank de Baghdad",
-                "medium": "Pista media de bank de Baghdad",
-                "hard": "Pista dificil de bank de Baghdad"
+                "easy": "I listened to someone asking to exchange his money for Iraqi dinar",
+                "medium": "The person that you are talking about, asked for a country where the main income is the oil industry.",
+                "hard": "I think that the  guy asked for a place where they export crude petroleum."
         }
     },
 
         "library": {
             "clues":  {
-                "easy": "Pista facil de library de Baghdad",
-                "medium": "Pista medio del library de Baghdad",
-                "hard": "Pista dificil de library de Baghdad"
+                "easy": "The person you're talking about mentioned Masgouf.",
+                "medium": "Islam is the main religion in the country where the suspect was going.",
+                "hard": "The suspect mentioned that the country where they were leading declared it's independence in 1932."
         }
     },
 
         "airport": {
-            "clues": {
-                "easy": "Pista facil del aeropuerto de Baghdad",
-                "medium": "Pista media del aeropuerto de Baghdad",
-                "hard": "Pista dificil de airport de Baghdad"
+            "clues":{
+                "easy": "They were going to a country with red, white, and black colours on the flag.",
+                "medium": "They said that mesopotamian arabic was spoken in the country they're going to.",
+                "hard": "They mentioned going to a country with a population of 40 million."
             }
         }
     },
@@ -106,25 +106,25 @@
         
         "bank": {
             "clues":{
-                "easy": "Pista facil de bank de Buenos Aires",
-                "medium": "Pista media de bank de Buenos Aires",
-                "hard": "Pista dificil de bank de Buenos Aires"
+                "easy": "I listened to someone asking to exchange his money for Argentinian Pesos",
+                "medium": "The person that you are talking about, asked for a country where the main income is the services and manufacturing industry.",
+                "hard": "I think that the  guy asked for a place where they export lots of soybean meal."
             }
         },
         
         "library": {
             "clues":  {
-                "easy": "Pista facil de library de Buenos Aires",
-                "medium": "Pista medio del library de Buenos Aires",
-                "hard": "Pista dificil de library de Buenos Aires"
+                "easy": "The person you're talking about mentioned mate and asado.",
+                "medium": "Pope Francis was born in the country where the suspect was going.",
+                "hard": "The suspect mentioned that they won Football World Cup in the '86."
             }
         },
         
         "airport": {
             "clues": {
-                "easy": "Pista facil del aeropuerto de Buenos Aires",
-                "medium": "Pista media del aeropuerto de Buenos Aires",
-                "hard": "Pista dificil de airport de Buenos Aires"
+                "easy": "They were going to a country with a sun on the flag.",
+                "medium": "They said that spanish was spoken in the country they're going to.",
+                "hard": "They mentioned going to a country with a population of 45 million."
             }
         }
     },
@@ -138,25 +138,25 @@
         
         "bank": {
             "clues":{
-                "easy": "Pista facil de bank de Lima",
-                "medium": "Pista media de bank de Lima",
-                "hard": "Pista dificil de bank de Lima"
+                "easy": "I listened to someone asking to exchange his money for Soles",
+                "medium": "The person that you are talking about, asked for a country where the main income is the foreign trade.",
+                "hard": "I think that the guy asked for a place where they export lots of coper and zinc."
             }
         },
         
         "library": {
             "clues":  {
-                "easy": "Pista facil de library de Lima",
-                "medium": "Pista medio del library de Lima",
-                "hard": "Pista dificil de library de Lima"
+                "easy": "The person you're talking about mentioned ceviche.",
+                "medium": "Paolo Guerrero was born in the country where the suspect was going.",
+                "hard": "The suspect mentioned that Aimaras previously lived in the lands of the country where they were leading."
             }
         },
         
         "airport": {
             "clues": {
-                "easy": "Pista facil del aeropuerto de Lima",
-                "medium": "Pista media del aeropuerto de Lima",
-                "hard": "Pista dificil de airport de Lima"
+                "easy": "They were going to a country with red and white colours on the flag.",
+                "medium": "They said that spanish was spoken in the country they're going to.",
+                "hard": "They mentioned going to a country with a population of 33 million."
             }
         }
     },
@@ -170,30 +170,30 @@
         
         "bank": {
             "clues":{
-                "easy": "Pista facil de bank de Abuja",
-                "medium": "Pista media de bank de Abuja",
-                "hard": "Pista dificil de bank de Abuja"
+                "easy": "ABUJAI listened to someone asking to exchange his money for Nairas",
+                "medium": "The person that you are talking about, asked for a country where the main income is the oil industry.",
+                "hard": "I think that the  guy asked for a place where they export lots of crude petroleum."
             }
         },
         
         "library": {
             "clues":  {
-                "easy": "Pista facil de library de Abuja",
-                "medium": "Pista medio del library de Abuja",
-                "hard": "Pista dificil de library de Abuja"
+                "easy": "The person you're talking about mentioned jollof rice.",
+                "medium": "The suspect mentioned that Niger river goes through the country where they were leading.",
+                "hard": "Africa's first novel, Wole Soyinka was born in the country where the suspect was going."
             }
         },
         
         "airport": {
             "clues": {
-                "easy": "Pista facil del aeropuerto de Abuja",
-                "medium": "Pista media del aeropuerto de Abuja",
-                "hard": "Pista dificil de airport de Abuja"
+                "easy": "They were going to a country with an green and white colors on the flag.",
+                "medium": "I heard that the most widely spoken language in the country they're going to is Hausa.",
+                "hard": "They mentioned going to a country with a population of 206 million."
             }
         }
     },
     {
-        "name": "Moscu",
+        "name": "Moscow",
         "description": "Moscow is the capital and most heavily populated city in Russia, as well as being the largest city on the European continent. It is an iconic and global city and is the key political, economic, cultural and scientific centre of not only Russia but of Eastern Europe as well.",
         "coordinates": {
             "latitude": 55.75,
@@ -202,25 +202,25 @@
         
         "bank": {
             "clues":{
-                "easy": "Pista facil de bank de Rusia",
-                "medium": "Pista media de bank de Rusia",
-                "hard": "Pista dificil de bank de Rusia"
+                "easy": "I listened to someone asking to exchange his money for Russian ruble",
+                "medium": "The person that you are talking about, asked for a country where communism leads the market.",
+                "hard": "I think that the  guy asked for a place where they export lots of oil and natural gas."
             }
         },
         
         "library": {
             "clues":  {
-                "easy": "Pista facil de library de Rusia",
-                "medium": "Pista medio del library de Rusia",
-                "hard": "Pista dificil de library de Rusia"
+                "easy": "The person you're talking about mentioned vodka.",
+                "medium": "The best chess players in the history were born in the country where the suspect was going.",
+                "hard": "The suspect mentioned that he planned to climb the Elbrus peak."
             }
         },
         
         "airport": {
             "clues": {
-                "easy": "Pista facil del aeropuerto de Rusia",
-                "medium": "Pista media del aeropuerto de Rusia",
-                "hard": "Pista dificil de airport de Rusia"
+                "easy": "They were going to a country with white, blue and red colors on the flag.",
+                "medium": "They said that russian was spoken in the country they're going to.",
+                "hard": "They mentioned going to a country with a population of 144 million."
             }
         }
     },
@@ -234,25 +234,25 @@
 
         "bank": {
             "clues":{
-                "easy": "Pista facil de bank de Brasilia",
-                "medium": "Pista media de bank de Brasilia",
-                "hard": "Pista dificil de bank de Brasilia"
+                "easy": "Brasilia I listened to someone asking to exchange his money for Mexican Dollars",
+                "medium": "The person that you are talking about, asked for a country where the main income is the food and beverages industry.",
+                "hard": "I think that the  guy asked for a place where they export lots of vehicles."
             }
         },
 
         "library": {
             "clues":  {
-                "easy": "Pista facil de library de Brasilia",
-                "medium": "Pista medio del library de Brasilia",
-                "hard": "Pista dificil de library de Brasilia"
+                "easy": "The person you're talking about mentioned tacos.",
+                "medium": "Chicharito Hernández was born in the country where the suspect was going.",
+                "hard": "The suspect mentioned that a football World Cup was disputed in the '86 in the country where they were leading."
             }
         },
 
         "airport": {
             "clues": {
-                "easy": "Pista facil del aeropuerto de Brasilia",
-                "medium": "Pista media del aeropuerto de Brasilia",
-                "hard": "Pista dificil de airport de Brasilia"
+                "easy": "They were going to a country with an eagle on the flag.",
+                "medium": "They said that spanish was spoken in the country they're going to.",
+                "hard": "They mentioned going to a country with a population of 129 million."
             }
         }
     },
@@ -266,30 +266,30 @@
 
         "bank": {
             "clues":{
-                "easy": "Pista facil de bank de Washington",
-                "medium": "Pista media de bank de Washington",
-                "hard": "Pista dificil de bank de Washington"
+                "easy": "Washington I listened to someone asking to exchange his money for Mexican Dollars",
+                "medium": "The person that you are talking about, asked for a country where the main income is the food and beverages industry.",
+                "hard": "I think that the  guy asked for a place where they export lots of vehicles."
             }
         },
 
         "library": {
             "clues":  {
-                "easy": "Pista facil de library de Washington",
-                "medium": "Pista medio del library de Washington",
-                "hard": "Pista dificil de library de Washington"
+                "easy": "The person you're talking about mentioned tacos.",
+                "medium": "Chicharito Hernández was born in the country where the suspect was going.",
+                "hard": "The suspect mentioned that a football World Cup was disputed in the '86 in the country where they were leading."
             }
         },
 
         "airport": {
             "clues": {
-                "easy": "Pista facil del aeropuerto de Washington",
-                "medium": "Pista media del aeropuerto de Washington",
-                "hard": "Pista dificil de airport de Washington"
+                "easy": "They were going to a country with an eagle on the flag.",
+                "medium": "They said that spanish was spoken in the country they're going to.",
+                "hard": "They mentioned going to a country with a population of 129 million."
             }
         }
     },
     {
-        "name": "Londres",
+        "name": "London",
         "description": "London is the capital city of the United Kingdom. It is the U.K.'s largest metropolis and its economic, transportation, and cultural centre. London is also among the oldest of the world's great cities, with its history spanning nearly two millennia.",
         "coordinates": {
             "latitude": 51.51,
@@ -298,25 +298,25 @@
 
         "bank": {
             "clues":{
-                "easy": "Pista facil de bank de Londres",
-                "medium": "Pista media de bank de Londres",
-                "hard": "Pista dificil de bank de Londres"
+                "easy": "London I listened to someone asking to exchange his money for Mexican Dollars",
+                "medium": "The person that you are talking about, asked for a country where the main income is the food and beverages industry.",
+                "hard": "I think that the  guy asked for a place where they export lots of vehicles."
             }
         },
 
         "library": {
             "clues":  {
-                "easy": "Pista facil de library de Londres",
-                "medium": "Pista medio del library de Londres",
-                "hard": "Pista dificil de library de Londres"
+                "easy": "The person you're talking about mentioned tacos.",
+                "medium": "Chicharito Hernández was born in the country where the suspect was going.",
+                "hard": "The suspect mentioned that a football World Cup was disputed in the '86 in the country where they were leading."
             }
         },
 
         "airport": {
             "clues": {
-                "easy": "Pista facil del aeropuerto de Londres",
-                "medium": "Pista media del aeropuerto de Londres",
-                "hard": "Pista dificil de airport de Londres"
+                "easy": "They were going to a country with an eagle on the flag.",
+                "medium": "They said that spanish was spoken in the country they're going to.",
+                "hard": "They mentioned going to a country with a population of 129 million."
             }
         }
     }

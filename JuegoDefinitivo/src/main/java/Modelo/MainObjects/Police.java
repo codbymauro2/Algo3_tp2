@@ -54,9 +54,9 @@ public abstract class Police {
         this.timer.reduce(currentCity.calculateDistanceTo(city) / this.velocityKmH);
     }
 
-    public void reduceTimeEnteringBuilding(Building building)  {
-        timer.reduce(building.getTimesEntered() + 1);
-        building.enter();
+    public void reduceTimeEnteringBuilding(City city)  {
+        city.incrementTimesEntered();
+        timer.reduce(city.getTimesEntered());
     }
 
     private boolean passedThrough(City city) {

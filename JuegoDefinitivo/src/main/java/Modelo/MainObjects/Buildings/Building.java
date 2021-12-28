@@ -3,8 +3,6 @@ package Modelo.MainObjects.Buildings;
 import Modelo.MainObjects.*;
 
 public abstract class Building<timesEntered> {
-
-    public int timesEntered = 0;
     protected Clue clues;
     protected String name;
 
@@ -12,8 +10,7 @@ public abstract class Building<timesEntered> {
         this.clues = clue;
     }
 
-    protected Building() {
-    }
+    protected Building() {}
 
     public abstract String deployClue(Rookie rookie);
 
@@ -26,8 +23,4 @@ public abstract class Building<timesEntered> {
     public String getName() {
         return name;
     }
-
-    public void enter() { timesEntered++; }
-
-    public int getTimesEntered() { return timesEntered; }
 }

@@ -23,6 +23,7 @@ public class City {
     private Suspect suspect;
     private ArrayList<City> connections;
     private String description;
+    public int timesEntered = 0;
 
     public City(String name, Coordinates coordinates) {
         this.name = name;
@@ -41,6 +42,8 @@ public class City {
     public City getNextCity() {
         return suspect.getNextCity(this);
     }
+
+    public void incrementTimesEntered() { timesEntered++; }
 
     public void setNextCity(City nextCity){
         this.nextCity = nextCity;
@@ -107,5 +110,9 @@ public class City {
 
     public String getDescription() {
         return description;
+    }
+
+    public double getTimesEntered() {
+        return timesEntered;
     }
 }

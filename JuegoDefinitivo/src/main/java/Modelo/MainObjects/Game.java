@@ -94,7 +94,7 @@ public class Game {
 
     public String getCityName() {
         if (this.police == null)
-            return "Cuartel General";
+            return "Headquarters";
         return police.getCurrentCity().getName();
     }
 

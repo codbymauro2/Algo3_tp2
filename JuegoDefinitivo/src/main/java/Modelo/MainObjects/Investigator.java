@@ -24,7 +24,7 @@ public class Investigator extends Police {
     @Override
     public String enter(Bank bank) {
         Bank nextBank = this.getCurrentCity().getNextCity().getBank();
-        this.reduceTimeEnteringBuilding(nextBank);
+        this.reduceTimeEnteringBuilding(currentCity);
 
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
@@ -41,7 +41,7 @@ public class Investigator extends Police {
     @Override
     public String enter(Library library) {
         Library nextLibrary = this.getCurrentCity().getNextCity().getLibrary();
-        this.reduceTimeEnteringBuilding(nextLibrary);
+        this.reduceTimeEnteringBuilding(currentCity);
 
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";
@@ -58,7 +58,7 @@ public class Investigator extends Police {
     @Override
     public String enter(Airport airport) {
         Airport nextAirport = this.getCurrentCity().getNextCity().getAirport();
-        this.reduceTimeEnteringBuilding(nextAirport);
+        this.reduceTimeEnteringBuilding(currentCity);
 
         if (this.getCurrentCity().isFinalCity()) {
             return "última ciudad";

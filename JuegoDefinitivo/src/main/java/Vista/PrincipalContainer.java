@@ -55,7 +55,7 @@ public class PrincipalContainer extends BorderPane {
     private VBox getScreen() {
         VBox screen = new VBox(0);
         Label cityDescription = new Label(game.getCityDescription());
-        cityDescription.getStyleClass().add("clue-label");
+        cityDescription.getStyleClass().add("description-label");
         screen.getStyleClass().add("right-screen");
         screen.getChildren().add(cityDescription);
         return screen;
