@@ -16,14 +16,26 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 public class WarrantContainer extends BorderPane {
+
     private Stage stage;
     private Game game;
-    private VBox centralContainer;
+    private final Label textTime;
+    private final Label textSpace;
+    private MainContainer mainContainer;
+    private ButtonBar buttonBar;
+    private VBox allCBX;
+    private Label searchResult;
+    private VBox timeVbox;
 
     public WarrantContainer(Stage stage, Game game) {
         this.stage = stage;
         this.game = game;
-        centralContainer = new VBox();
+        textTime = new Label(game.time());
+        textSpace = new Label(game.getCityName());
+        searchResult = new Label();
+        textTime.getStyleClass().add("time-label");
+        textSpace.getStyleClass().add("city-label");
+        searchResult.getStyleClass().add("clue-label");
         this.setMenu();
         this.setCenter();
     }
@@ -34,26 +46,34 @@ public class WarrantContainer extends BorderPane {
     }
 
     private void setCenter() {
-        // CONTENEDOR PANTALLA/BOTONES
-        VBox vRightContainer = new VBox(0);
-        vRightContainer.getStyleClass().add("right-side-box");
 
-        // PANTALLA DERECHA DE JUEGO
+        mainContainer =  new MainContainer(this.game, this.stage);
+        buttonBar = new ButtonBar(20);
+        buttonBar.getStyleClass().add("button-box");
+        mainContainer.setCenter();
+        mainContainer.setNameTime( getTimeName() );
+        mainContainer.setCitiesBox();
+        mainContainer.setFullScreen();
+        mainContainer.setLeftScreen( getLeftScreen() );
+        mainContainer.setRightScreen( this.getScreen() ) ;
+        mainContainer.setButtonBar(buttonBar);
+        this.setButtonBarActions();
+        mainContainer.buildContainer();
+        this.setCenter(mainContainer);
+
+    }
+
+    private VBox getScreen() {
         VBox screen = new VBox(0);
-        screen.getStyleClass().add("right-screen-warrant");
-
-        Label searchResult = new Label();
-        searchResult.getStyleClass().add("clue-label");
+        screen.getStyleClass().add("right-screen");
         screen.getChildren().add(searchResult);
 
-        // PANTALLA IZQUIERDA DE JUEGO
-        VBox showCities = new VBox();
-        HBox leftCities = new HBox();
-        HBox rightCities = new HBox();
-        showCities.getChildren().addAll(leftCities, rightCities);
-        showCities.getStyleClass().add("bottom-box");
+        return screen;
+    }
 
-        // COMBOS BOX
+
+    private VBox getLeftScreen() {
+
         ComboBox<String> cbxSex = new ComboBox();
         cbxSex.setPromptText("Select gender");
         cbxSex.setEditable(true);
@@ -94,7 +114,7 @@ public class WarrantContainer extends BorderPane {
         cbxVehicle.getItems().addAll("Convertible", "Limousine", "Sport", "Motorcycle", "");
         cbxVehicle.getSelectionModel().select(4);
 
-        VBox allCBX = new VBox();
+        allCBX = new VBox();
         allCBX.getStyleClass().add("combo-box");
         allCBX.getChildren().addAll(cbxSex, cbxHobby, cbxHair, cbxAccessory, cbxVehicle);
 
@@ -103,58 +123,30 @@ public class WarrantContainer extends BorderPane {
         emitWarrantButton.getStyleClass().add("emit-button");
         emitWarrantButton.setOnAction(emitWarrantButtonEventHandler);
 
-        // BOTONERA
-        ButtonBar buttonBar = new ButtonBar(20);
-        buttonBar.getStyleClass().add("button-box");
-
-        vRightContainer.getChildren().addAll(screen, buttonBar);
-
-        // ESPACIO PARA CIUDAD ACTUAL Y TIEMPO RESTANTE
-        VBox timeVbox = new VBox();
-        timeVbox.getStyleClass().add("time-box");
-
-        Label textTime = new Label(game.time());
-        Label textSpace = new Label(game.getCityName());
-        textTime.getStyleClass().add("time-label");
-        textSpace.getStyleClass().add("city-label");
-
-        timeVbox.getChildren().addAll(textSpace, textTime);
-
         VBox emitWarrantBox = new VBox(5);
         emitWarrantBox.getStyleClass().add("warrant-box");
 
         emitWarrantBox.getChildren().addAll(allCBX, emitWarrantButton);
 
-        // PANTALLA IZQUIERDA
-        VBox left = new VBox(5);
-        left.setPrefSize(426, 570);
-        left.getChildren().addAll(timeVbox, emitWarrantBox, showCities);
+        return emitWarrantBox;
+    }
 
-        // PANTALLA DERECHA
-        VBox right = new VBox(5);
-        right.setPrefSize(713, 570);
-        right.getChildren().addAll(vRightContainer);
-
-        // PANTALLA COMPLETA
-        HBox fullScreen = new HBox(20);
-        fullScreen.getChildren().addAll(left, right);
-
-        centralContainer = new VBox(fullScreen);
-        centralContainer.getStyleClass().add("central-container");
-
-        // EVENTOS DE LOS BOTONES
-        TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(game, stage);
-        buttonBar.setTravelAction(travelButtonEventHandler);
-
-        ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game, stage, showCities);
-        buttonBar.setConnectionsAction(connectionsButtonEventHandlerEventHandler);
-
-        EmitWarrantEventHandler emitWarrantEventHandler = new EmitWarrantEventHandler(game, stage);
-        buttonBar.setWarrantAction(emitWarrantEventHandler);
-
+    private void setButtonBarActions() {
         InvestigateButtonEventHandler investigateButtonEventHandler = new InvestigateButtonEventHandler(game, stage);
         buttonBar.setInvestigateAction(investigateButtonEventHandler);
 
-        this.setCenter(centralContainer);
+        TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(game, stage);
+        buttonBar.setTravelAction(travelButtonEventHandler);
+
+        EmitWarrantEventHandler emitWarrantEventHandler = new EmitWarrantEventHandler(game, stage);
+        buttonBar.setWarrantAction(emitWarrantEventHandler);
     }
+
+    public VBox getTimeName() {
+        timeVbox = new VBox();
+        timeVbox.getStyleClass().add("time-box");
+        timeVbox.getChildren().addAll(textSpace, textTime);
+        return timeVbox;
+    }
+
 }

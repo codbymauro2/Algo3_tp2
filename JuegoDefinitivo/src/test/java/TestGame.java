@@ -24,7 +24,7 @@ public class TestGame {
                 String clue = game.deployLibraryClue();
                 City currentCity = game.getCurrentCity();
                 // Verificamos que la pista sea la de la ciudad siguiente
-                // Assertions.assertTrue(clue.contains(currentCity.getNextCity().getName()));
+                Assertions.assertTrue(clue.contains(currentCity.getNextCity().getName()));
                 game.travel(currentCity.getNextCity());
             } catch(FinalCityException ignored) {}
         }

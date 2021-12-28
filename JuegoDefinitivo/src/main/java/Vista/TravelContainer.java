@@ -2,10 +2,7 @@ package Vista;
 
 import Modelo.MainObjects.City;
 import Modelo.MainObjects.Game;
-import Vista.Eventos.ConnectionsButtonEventHandler;
-import Vista.Eventos.EmitWarrantEventHandler;
-import Vista.Eventos.InvestigateButtonEventHandler;
-import Vista.Eventos.TravelToCityEventHandler;
+import Vista.Eventos.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
@@ -14,17 +11,23 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-
 public class TravelContainer extends BorderPane {
 
     private final Stage stage;
     private final Game game;
     private VBox centralContainer;
     private ApplicationMenuBar menuBar;
+    private ButtonBar buttonBar;
+    private MainContainer mainContainer;
+    private VBox timeVbox;
+    private Label textTime;
+    private Label textSpace;
+    private ArrayList<City> travelCities;
 
     public TravelContainer(Stage stage, Game game) {
         this.stage = stage;
         this.game = game;
+        this.travelCities = game.getTravelCities();
         this.centralContainer = new VBox();
         this.setMenu();
         this.setCenter();
@@ -37,42 +40,44 @@ public class TravelContainer extends BorderPane {
 
     private void setCenter() {
 
-        // CONTENEDOR PANTALLA/BOTONES
-        VBox vRightContainer = new VBox(0);
-        vRightContainer.getStyleClass().add("right-side-box");
+        mainContainer =  new MainContainer(this.game, this.stage);
+        buttonBar = new ButtonBar(20);
+        buttonBar.getStyleClass().add("button-box");
+        mainContainer.setCenter();
+        mainContainer.setNameTime( getTimeName() );
+        mainContainer.setCitiesBox();
+        mainContainer.setFullScreen();
+        mainContainer.setLeftScreen( getLeftScreen(travelCities) );
+        mainContainer.setRightScreen( getScreen() ) ;
+        mainContainer.setButtonBar(buttonBar);
+        this.setButtonBarActions();
+        mainContainer.buildContainer();
+        this.setCenter(mainContainer);
+    }
 
-        // LISTADO DE CIUDADES
-        ArrayList<City> travelCities = game.getTravelCities();
-
-        // MAPA
-        Canvas canvas =  new Canvas(728,410);
-        MapView mapView = new MapView(canvas,travelCities, game.getCurrentCity());
-
+    private VBox getScreen() {
+        Canvas canvas = new Canvas(728, 410);
+        MapView mapView = new MapView(canvas, travelCities, game.getCurrentCity());
         VBox screen = new VBox(canvas);
         screen.getStyleClass().add("map");
+        return screen;
+    }
 
-        // BOTONERA
-        ButtonBar buttonBar = new ButtonBar(20);
-        buttonBar.getStyleClass().add("button-box");
-
-        vRightContainer.getChildren().addAll(screen, buttonBar);
-
-        // ESPACIO PARA CIUDAD ACTUAL Y TIEMPO RESTANTE
-        VBox timeVbox = new VBox();
+    private VBox getTimeName() {
+        timeVbox = new VBox();
         timeVbox.getStyleClass().add("time-box");
-
-        Label textTime = new Label(game.time());
-        Label textSpace = new Label(game.getCityName());
+        textTime = new Label(game.time());
+        textSpace = new Label(game.getCityName());
         textTime.getStyleClass().add("time-label");
         textSpace.getStyleClass().add("city-label");
-
         timeVbox.getChildren().addAll(textSpace, textTime);
+        return timeVbox;
+    }
 
-        // BOTONES VIAJAR
+    private VBox getLeftScreen(ArrayList<City> travelCities) {
+
         VBox travelOptions = new VBox(5);
         travelOptions.getStyleClass().add("travel-box");
-
-        // BOTONES DE PAISES
 
         Button cityToChoose1 = new Button(travelCities.get(0).getName());
         Button cityToChoose2 = new Button(travelCities.get(1).getName());
@@ -94,33 +99,19 @@ public class TravelContainer extends BorderPane {
         cityToChoose3.setOnAction(travelToCity3EventHandler);
         cityToChoose4.setOnAction(travelToCity4EventHandler);
 
-        travelOptions.getChildren().addAll(cityToChoose1,cityToChoose2,cityToChoose3,cityToChoose4);
+        travelOptions.getChildren().addAll(cityToChoose1, cityToChoose2, cityToChoose3, cityToChoose4);
 
-        // PANTALLA IZQUIERDA
-        VBox left = new VBox(5);
-        left.setPrefSize(426, 570);
-        left.getChildren().addAll(timeVbox, travelOptions);
+        return travelOptions;
+    }
 
-        // PANTALLA DERECHA
-        VBox right = new VBox(5);
-        right.setPrefSize(713, 570);
-        right.getChildren().addAll(vRightContainer);
-
-        // PANTALLA COMPLETA
-        HBox fullScreen = new HBox(20);
-        fullScreen.getChildren().addAll(left, right);
-
-        centralContainer = new VBox(fullScreen);
-        centralContainer.getStyleClass().add("central-container");
-
-        // EVENTOS DE LOS BOTONES
-        EmitWarrantEventHandler emitWarrantEventHandler = new EmitWarrantEventHandler(game, stage);
-        buttonBar.setWarrantAction(emitWarrantEventHandler);
-
-        InvestigateButtonEventHandler investigateButtonEventHandler = new InvestigateButtonEventHandler(game,stage);
+    private void setButtonBarActions() {
+        InvestigateButtonEventHandler investigateButtonEventHandler = new InvestigateButtonEventHandler(game, stage);
         buttonBar.setInvestigateAction(investigateButtonEventHandler);
 
-        this.setCenter(centralContainer);
+        TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(game, stage);
+        buttonBar.setTravelAction(travelButtonEventHandler);
 
+        EmitWarrantEventHandler emitWarrantEventHandler = new EmitWarrantEventHandler(game, stage);
+        buttonBar.setWarrantAction(emitWarrantEventHandler);
     }
 }

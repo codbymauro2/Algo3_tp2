@@ -10,14 +10,25 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class InvestigateContainer extends BorderPane {
+
     private Stage stage;
     private Game game;
-    private VBox centralContainer;
+    private MainContainer mainContainer;
+    private ButtonBar buttonBar;
+    private VBox timeVbox;
+    private Label textTime;
+    private Label textSpace;
+    private Label clueLabel;
 
     public InvestigateContainer(Stage stage, Game game) {
         this.stage = stage;
         this.game = game;
-        centralContainer = new VBox();
+        textTime = new Label(game.time());
+        textSpace = new Label(game.getCityName());
+        clueLabel = new Label();
+        textTime.getStyleClass().add("time-label");
+        textSpace.getStyleClass().add("city-label");
+        clueLabel.getStyleClass().add("clue-label");
         this.setMenu();
         this.setCenter();
     }
@@ -28,34 +39,39 @@ public class InvestigateContainer extends BorderPane {
     }
 
     private void setCenter() {
-        // CONTENEDOR PANTALLA/BOTONES
-        VBox vRightContainer = new VBox(0);
-        vRightContainer.getStyleClass().add("right-side-box");
 
-        // PANTALLA DERECHA DE JUEGO
+        mainContainer =  new MainContainer(this.game, this.stage);
+        buttonBar = new ButtonBar(20);
+        this.setButtonBarActions();
+        buttonBar.getStyleClass().add("button-box");
+        mainContainer.setCenter();
+        mainContainer.setNameTime( this.getTimeName() );
+        mainContainer.setCitiesBox();
+        mainContainer.setFullScreen();
+        mainContainer.setLeftScreen( getLeftScreen() );
+        mainContainer.setRightScreen( this.getScreen() ) ;
+        mainContainer.setButtonBar(buttonBar);
+        mainContainer.buildContainer();
+        this.setCenter(mainContainer);
+
+    }
+
+    private VBox getScreen() {
         VBox screen = new VBox(0);
         screen.getStyleClass().add("right-screen");
-
-        Label clueLabel = new Label();
-        clueLabel.getStyleClass().add("clue-label");
-
-        // BOTONERA
-        ButtonBar buttonBar = new ButtonBar(20);
-        buttonBar.getStyleClass().add("button-box");
-
         screen.getChildren().addAll(clueLabel);
-        vRightContainer.getChildren().addAll(screen, buttonBar);
 
-        // ESPACIO PARA CIUDAD ACTUAL Y TIEMPO RESTANTE
-        VBox timeVbox = new VBox();
+        return screen;
+    }
+
+    private VBox getTimeName() {
+        timeVbox = new VBox();
         timeVbox.getStyleClass().add("time-box");
-
-        Label textTime = new Label(game.time());
-        Label textSpace = new Label(game.getCityName());
-        textTime.getStyleClass().add("time-label");
-        textSpace.getStyleClass().add("city-label");
-
         timeVbox.getChildren().addAll(textSpace, textTime);
+        return timeVbox;
+    }
+
+    private HBox getLeftScreen() {
 
         HBox enterBuildingOptions = new HBox(5);
         enterBuildingOptions.getStyleClass().add("travel-box");
@@ -83,40 +99,15 @@ public class InvestigateContainer extends BorderPane {
 
         enterBuildingOptions.getChildren().addAll(bankButton, libraryButton, airportButton);
 
-        VBox showCities = new VBox();
-        showCities.getStyleClass().add("bottom-box");
-        HBox leftCities = new HBox();
-        HBox rightCities = new HBox();
-        showCities.getChildren().addAll(leftCities, rightCities);
-        showCities.getStyleClass().add("bottom-box");
+        return enterBuildingOptions;
+    }
 
-        // PANTALLA IZQUIERDA
-        VBox left = new VBox(5);
-        left.setPrefSize(426, 570);
-        left.getChildren().addAll(timeVbox, enterBuildingOptions, showCities);
-
-        // PANTALLA DERECHA
-        VBox right = new VBox(5);
-        right.setPrefSize(713, 570);
-        right.getChildren().addAll(vRightContainer);
-
-        // PANTALLA COMPLETA
-        HBox fullScreen = new HBox(20);
-        fullScreen.getChildren().addAll(left, right);
-
-        centralContainer = new VBox(fullScreen);
-        centralContainer.getStyleClass().add("central-container");
-
+    private void setButtonBarActions() {
         // EVENTOS DE LOS BOTONES
         TravelButtonEventHandler travelButtonEventHandler = new TravelButtonEventHandler(game, stage);
         buttonBar.setTravelAction(travelButtonEventHandler);
 
-        ConnectionsButtonEventHandler connectionsButtonEventHandlerEventHandler = new ConnectionsButtonEventHandler(game, stage, showCities);
-        buttonBar.setConnectionsAction(connectionsButtonEventHandlerEventHandler);
-
         EmitWarrantEventHandler emitWarrantEventHandler = new EmitWarrantEventHandler(game, stage);
         buttonBar.setWarrantAction(emitWarrantEventHandler);
-
-        this.setCenter(centralContainer);
     }
 }
