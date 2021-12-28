@@ -37,8 +37,7 @@ public class EnterNameEventHandler implements EventHandler<ActionEvent> {
         principalContainer.getStylesheets().add(getClass().getResource("/stylesheets/gameScene.css").toExternalForm());
         Scene gameScene = new Scene(principalContainer, 1180, 660);
         Timeline timeline = new Timeline(
-                new KeyFrame(Duration.millis(2), event1 ->  stage.setScene(gameScene))
-                //new KeyFrame(Duration.millis(20000), event1 ->  stage.setScene(gameScene))
+                new KeyFrame(Duration.millis(20000), event1 ->  stage.setScene(gameScene))
         );
         timeline.play();
     }

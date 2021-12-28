@@ -1,11 +1,11 @@
 package Modelo.MainObjects;
 
 public class Pistol implements Weapon {
-    private int hurt = 4;
+    private int recoveryTime = 4;
 
     @Override
     public int hurt(Timer timer, int timesAttacked){
-        timer.reduce(hurt);
+        timer.reduce(recoveryTime);
         return timesAttacked;
     }
 }

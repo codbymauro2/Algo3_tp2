@@ -1,7 +1,7 @@
 package Vista;
 
 import Modelo.MainObjects.Game;
-import Vista.Eventos.CreditOptionEventHandler;
+import Vista.Eventos.CreditsOptionEventHandler;
 import Vista.Eventos.ExitOptionEventHandler;
 import Vista.Eventos.PlayButtonEventHandler;
 import javafx.geometry.Insets;
@@ -38,7 +38,8 @@ public class WelcomeContainer extends VBox {
         ExitOptionEventHandler exitOptionHandler = new ExitOptionEventHandler();
         exitButton.setOnAction(exitOptionHandler);
 
-//      CreditOptionEventHandler creditOptionEventHandler = new CreditOptionEventHandler();
+      CreditsOptionEventHandler creditOptionEventHandler = new CreditsOptionEventHandler(stage);
+      creditsButton.setOnAction(creditOptionEventHandler);
 
         this.getChildren().addAll(enterButton,creditsButton,exitButton);
     }
