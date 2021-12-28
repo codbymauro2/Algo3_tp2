@@ -13,11 +13,13 @@ import javafx.stage.Stage;
 public class VictoryContainer extends VBox {
 
     Stage stage;
+    Game game;
 
     public VictoryContainer(Game game, Stage stage) {
         super();
         this.getStylesheets().add(getClass().getResource("/stylesheets/gameScene.css").toExternalForm());
         this.stage = stage;
+        this.game = game;
         this.setAlignment(Pos.CENTER);
         this.setSpacing(60);
         this.setPadding(new Insets(100));
@@ -37,6 +39,8 @@ public class VictoryContainer extends VBox {
         ContinueButtonEventHandler continueButtonEventHandler = new ContinueButtonEventHandler(stage);
         continueButton.setOnAction(continueButtonEventHandler);
         continueButton.getStyleClass().add("end-button");
+
+        game.stopMusic();
 
         this.getChildren().addAll(label, continueButton);
     }

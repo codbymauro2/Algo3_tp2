@@ -22,7 +22,7 @@ public class DefeatContainer extends VBox {
         this.setAlignment(Pos.TOP_CENTER);
         //this.setSpacing(60);
         this.setPadding(new Insets(20, 100, 20, 100));
-        Image image = new Image("/images/end.png");
+        Image image = new Image("/images/defeatImage.png");
         BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, new BackgroundSize(1.0, 1.0, true, true, false, false));
         this.setBackground(new Background(backgroundImage));
 

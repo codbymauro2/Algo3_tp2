@@ -26,6 +26,7 @@ public class EnterLibraryEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
         this.clueLabel.setText(this.game.deployLibraryClue());
         if (game.isOutOfTime()) {
+            game.stopMusic();
             String label = "Time's up " + game.getRank() + "! The thief has gotten away. Better luck next time. Are you ready for your next case?";
             DefeatContainer defeatContainer = new DefeatContainer(game, stage, label);
             Scene defeatScene = new Scene(defeatContainer,1180, 660);

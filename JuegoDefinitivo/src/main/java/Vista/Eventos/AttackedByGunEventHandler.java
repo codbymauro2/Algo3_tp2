@@ -32,6 +32,8 @@ public class AttackedByGunEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         game.gunAttack();
+        game.gunshot();
+
         if (game.end()) {
             try {
                 game.updatePlayers();

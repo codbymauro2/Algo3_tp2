@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import net.bytebuddy.dynamic.scaffold.TypeWriter;
 
 public class PlayButtonEventHandler implements EventHandler<ActionEvent> {
 

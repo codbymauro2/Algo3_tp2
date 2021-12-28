@@ -7,6 +7,9 @@ import Modelo.MainObjects.Buildings.Bank;
 import Modelo.MainObjects.Buildings.Building;
 import Modelo.Readers.*;
 import Modelo.Writer.PlayerWriter;
+import Vista.Eventos.GameMusic;
+import Vista.Eventos.GunShotsSound;
+import Vista.Eventos.TypewriterSound;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -28,10 +31,13 @@ public class Game {
     private Suspect thief;
     private City currentCity;
     private PlayerWriter playerWriter;
+    private GameMusic gameMusic;
+    private GunShotsSound gunShot;
 
     public Game() throws FileNotFoundException {
         players = new Players();
         playerReader = new PlayerReader(players);
+        gameMusic = new GameMusic();
     }
 
     public void setPlayer(String name) {
@@ -165,5 +171,17 @@ public class Game {
 
     public String getCityDescription() {
         return this.currentCity.getDescription();
+    }
+
+    public void playMusic() {
+        this.gameMusic.play();
+    }
+
+    public void stopMusic() {
+        this.gameMusic.pause();
+    }
+
+    public void gunshot() {
+        this.gunShot.play();
     }
 }
