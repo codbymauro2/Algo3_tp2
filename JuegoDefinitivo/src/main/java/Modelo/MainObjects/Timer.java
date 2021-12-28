@@ -6,7 +6,6 @@ import java.util.Iterator;
 public class Timer {
 
     private double duration;
-    private String day;
     private int hour;
 
     private ArrayList<String> days;

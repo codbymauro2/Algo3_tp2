@@ -1,8 +1,6 @@
 package Modelo.MainObjects;
 
-import Modelo.Lists.Cities;
 import Modelo.Lists.Suspects;
-import Modelo.MainObjects.Buildings.Building;
 
 import java.util.ArrayList;
 import java.util.stream.IntStream;
@@ -14,11 +12,10 @@ public class PoliceStation {
     private ArrayList<Suspect> possibleSuspects;
     private ArrayList<Feature> features;
     private Player player;
-    private StolenItem stolenItem;
-    private Cities cities;
 
-    public PoliceStation(Suspects suspects, Cities cities) {
-        this.cities = cities;
+
+
+    public PoliceStation(Suspects suspects) {
         this.suspects = suspects;
         this.startFeatures();
         this.possibleSuspects = new ArrayList<>();

@@ -34,9 +34,6 @@ public class Delivery02 {
         Assertions.assertEquals(detective.getTimeLeftInHours(), 150);
         detective.sleep();
         Assertions.assertEquals(detective.getTimeLeftInHours(), 142);
-        detective.beAttacked(knife);
-        Assertions.assertEquals(detective.getTimeLeftInHours(), 141);
-
     }
 
     @Test
@@ -63,7 +60,7 @@ public class Delivery02 {
         cityReader.read();
         stolenItems = new StolenItems();
         stolenItems.add(new StolenItem("Nombre","valor","Mexico"));
-        PoliceStation policeStation = spy(new PoliceStation(suspects,cities));
+        PoliceStation policeStation = spy(new PoliceStation(suspects));
         policeStation.obtainFeatures(new Feature("Female"),new Feature(""),new Feature("Brown"),new Feature(""), new Feature("Limousine"));
         ArrayList<Suspect> possibleSuspects = policeStation.findSuspects();
         Assertions.assertEquals(possibleSuspects.size(), 1);
@@ -95,7 +92,7 @@ public class Delivery02 {
         Detective detective = new Detective();
         detective.setCurrentCity(lima);
 
-        PoliceStation policeStation = new PoliceStation(suspects, cities);
+        PoliceStation policeStation = new PoliceStation(suspects);
         policeStation.setSuspect();
 
         IntStream.range(0, 6).forEach(i -> {
@@ -105,7 +102,6 @@ public class Delivery02 {
             this.police.travel(endCity);
             this.police.investigate(new Feature("Female"),new Feature(""),new Feature("Brown"),new Feature(""),new Feature("Limousine"));
             this.police.arrest(suspects.getRobber());
-            player.addFinishedCase(this.police.finishedCases());
         });
 
         Assertions.assertEquals(12,player.totalCasesWon());
@@ -129,7 +125,6 @@ public class Delivery02 {
 
         police.investigate(new Feature("Female"), new Feature(""), new Feature("Brown"), new Feature(""), new Feature("Limousine"));
         police.arrest(suspect);
-        player.addFinishedCase(police.finishedCases());
 
         Assertions.assertEquals(13,player.totalCasesWon());
 

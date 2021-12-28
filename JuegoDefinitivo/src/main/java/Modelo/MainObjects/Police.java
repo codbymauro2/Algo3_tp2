@@ -11,7 +11,7 @@ public abstract class Police {
 
     protected City currentCity;
     protected double velocityKmH;
-    protected int timesAttacked, casesWon, stolenItemDifficulty, citiesToTravel;
+    protected int timesAttacked,stolenItemDifficulty, citiesToTravel;
     protected Timer timer;
     protected PoliceStation policeStation;
     protected boolean warrant;
@@ -21,7 +21,6 @@ public abstract class Police {
     public Police() {
         timer = new Timer();
         warrant = false;
-        casesWon = 0;
         visitedCities = new Stack<>();
     }
 
@@ -29,7 +28,6 @@ public abstract class Police {
         this.policeStation = policeStation;
         this.timer = new Timer();
         this.warrant = false;
-        this.casesWon = 0;
         this.timesAttacked = 0;
         visitedCities = new Stack<>();
     }
@@ -116,10 +114,6 @@ public abstract class Police {
             suspect.arrest();
             policeStation.completeCase();
         }
-    }
-
-    public int finishedCases() {
-        return casesWon;
     }
 
     public int getStolenItemDifficulty(){
